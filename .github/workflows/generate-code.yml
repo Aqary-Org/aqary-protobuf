@@ -29,25 +29,30 @@ jobs:
           go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
           go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 
-          # Ensure Go bin is in PATH
           echo "$HOME/go/bin" >> $GITHUB_PATH
 
-      - name: Generate Go gRPC code
+      - name: Generate Go gRPC code for all .proto files
         run: |
-          rm -rf generated/
-          mkdir -p generated/
-          
-          # Generate .pb.go and _grpc.pb.go files
-          protoc -Iprotos \
-            --go_out=generated --go_opt=paths=source_relative \
-            --go-grpc_out=generated --go-grpc_opt=paths=source_relative \
-            protos/*.proto
+          OUT_DIR=internal/gen
+          rm -rf $OUT_DIR
+          mkdir -p $OUT_DIR
+
+          for file in $(find protos -name "*.proto"); do
+            protoc -Iprotos \
+              --go_out=$OUT_DIR --go_opt=paths=source_relative \
+              --go-grpc_out=$OUT_DIR --go-grpc_opt=paths=source_relative \
+              "$file"
+          done
+
+      - name: Format generated Go code
+        run: |
+          go fmt ./internal/gen/...
 
       - name: Commit and push generated code
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
 
-          git add generated/
+          git add internal/gen/
           git diff --cached --quiet || (git commit -m "Auto-generate Go gRPC code from proto update" && git push)
  
