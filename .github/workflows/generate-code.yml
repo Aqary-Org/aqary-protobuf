@@ -35,7 +35,7 @@ jobs:
 
       - name: Generate Go gRPC code for all .proto files
         run: |
-          OUT_DIR=internal/gen
+          OUT_DIR=generated
           rm -rf $OUT_DIR
           mkdir -p $OUT_DIR
 
@@ -48,13 +48,13 @@ jobs:
 
       - name: Format generated Go code
         run: |
-          go fmt ./internal/gen/...
+          go fmt ./generated/
 
       - name: Commit and push generated code
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
 
-          git add internal/gen/
+          git add ./generated/
           git diff --cached --quiet || (git commit -m "Auto-generate Go gRPC code from proto update" && git push)
  
