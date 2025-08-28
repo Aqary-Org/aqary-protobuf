@@ -4,6 +4,8 @@ name: Generate gRPC Go Code
 
 on:
   push:
+    branches:
+        - main
     paths:
       - 'protos/**'
   workflow_dispatch:
