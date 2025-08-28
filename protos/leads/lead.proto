@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "/generated";
+
+package leads;
+
+service LeadService {
+  rpc CreateLead(CreateLeadRequest) returns (CreateLeadResponse);
+}
+
+message CreateLeadRequest {
+  string lead_name = 1;
+  string email = 2;
+  string phone = 3;
+}
+
+message CreateLeadResponse {
+  string data = 1;
+}
