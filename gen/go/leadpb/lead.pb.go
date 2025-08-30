@@ -138,7 +138,7 @@ const file_leads_lead_proto_rawDesc = "" +
 	"\x04data\x18\x01 \x01(\tR\x04data2P\n" +
 	"\vLeadService\x12A\n" +
 	"\n" +
-	"CreateLead\x12\x18.leads.CreateLeadRequest\x1a\x19.leads.CreateLeadResponseB:Z8github.com/aqary-org/aqary-protobuf/gen/go/leadpb;leadpbb\x06proto3"
+	"CreateLead\x12\x18.leads.CreateLeadRequest\x1a\x19.leads.CreateLeadResponseB\x10Z\x0e/leadpb;leadpbb\x06proto3"
 
 var (
 	file_leads_lead_proto_rawDescOnce sync.Once
