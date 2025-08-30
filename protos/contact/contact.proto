@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/Aqary-Org/aqary-protobuf/gen/go/contactpb;contactpb";
+option go_package = "github.com/aqary-org/aqary-protobuf/gen/go/contactpb;contactpb";
 
 package contact;
 

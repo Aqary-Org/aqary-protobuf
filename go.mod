@@ -1,4 +1,4 @@
-module github.com/Aqary-Org/aqary-protobuf
+module github.com/aqary-org/aqary-protobuf
 
 go 1.23.0
 

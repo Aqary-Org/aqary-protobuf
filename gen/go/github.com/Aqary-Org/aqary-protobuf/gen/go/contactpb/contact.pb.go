@@ -137,7 +137,7 @@ const file_protos_contact_contact_proto_rawDesc = "" +
 	"\x15CreateContactResponse\x12\x12\n" +
 	"\x04data\x18\x01 \x01(\tR\x04data2`\n" +
 	"\x0eContactService\x12N\n" +
-	"\rCreateContact\x12\x1d.contact.CreateContactRequest\x1a\x1e.contact.CreateContactResponseB@Z>github.com/Aqary-Org/aqary-protobuf/gen/go/contactpb;contactpbb\x06proto3"
+	"\rCreateContact\x12\x1d.contact.CreateContactRequest\x1a\x1e.contact.CreateContactResponseB@Z>github.com/aqary-org/aqary-protobuf/gen/go/contactpb;contactpbb\x06proto3"
 
 var (
 	file_protos_contact_contact_proto_rawDescOnce sync.Once
