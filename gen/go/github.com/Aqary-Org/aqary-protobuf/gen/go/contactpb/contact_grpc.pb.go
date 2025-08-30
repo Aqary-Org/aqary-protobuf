@@ -4,7 +4,7 @@
 // - protoc             v6.32.0
 // source: protos/contact/contact.proto
 
-package contact
+package contactpb
 
 import (
 	context "context"

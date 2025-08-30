@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "/generated/lead";
+option go_package = "github.com/Aqary-Org/aqary-protobuf/gen/go/leadpb;leadpb";
 
 package leads;
 

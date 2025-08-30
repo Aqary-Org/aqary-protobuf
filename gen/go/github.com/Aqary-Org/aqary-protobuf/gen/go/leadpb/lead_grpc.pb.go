@@ -4,7 +4,7 @@
 // - protoc             v6.32.0
 // source: protos/leads/lead.proto
 
-package lead
+package leadpb
 
 import (
 	context "context"
