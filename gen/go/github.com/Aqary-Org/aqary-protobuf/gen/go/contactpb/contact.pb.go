@@ -23,7 +23,7 @@ const (
 
 type CreateContactRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	LeadName      string                 `protobuf:"bytes,1,opt,name=lead_name,json=leadName,proto3" json:"lead_name,omitempty"`
+	ContactName   string                 `protobuf:"bytes,1,opt,name=contact_name,json=contactName,proto3" json:"contact_name,omitempty"`
 	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
 	Phone         string                 `protobuf:"bytes,3,opt,name=phone,proto3" json:"phone,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -60,9 +60,9 @@ func (*CreateContactRequest) Descriptor() ([]byte, []int) {
 	return file_protos_contact_contact_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CreateContactRequest) GetLeadName() string {
+func (x *CreateContactRequest) GetContactName() string {
 	if x != nil {
-		return x.LeadName
+		return x.ContactName
 	}
 	return ""
 }
@@ -129,9 +129,9 @@ var File_protos_contact_contact_proto protoreflect.FileDescriptor
 
 const file_protos_contact_contact_proto_rawDesc = "" +
 	"\n" +
-	"\x1cprotos/contact/contact.proto\x12\acontact\"_\n" +
-	"\x14CreateContactRequest\x12\x1b\n" +
-	"\tlead_name\x18\x01 \x01(\tR\bleadName\x12\x14\n" +
+	"\x1cprotos/contact/contact.proto\x12\acontact\"e\n" +
+	"\x14CreateContactRequest\x12!\n" +
+	"\fcontact_name\x18\x01 \x01(\tR\vcontactName\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x14\n" +
 	"\x05phone\x18\x03 \x01(\tR\x05phone\"+\n" +
 	"\x15CreateContactResponse\x12\x12\n" +
