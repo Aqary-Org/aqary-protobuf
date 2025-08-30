@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "/generated/contact";
+
+package contact;
+
+service ContactService {
+  rpc CreateContact(CreateContactRequest) returns (CreateContactResponse);
+}
+
+message CreateContactRequest {
+  string lead_name = 1;
+  string email = 2;
+  string phone = 3;
+}
+
+message CreateContactResponse {
+  string data = 1;
+}
