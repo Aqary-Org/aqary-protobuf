@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.8
 // 	protoc        v6.32.0
-// source: protos/contact/contact.proto
+// source: contact/contact.proto
 
 package contactpb
 
@@ -32,7 +32,7 @@ type CreateContactRequest struct {
 
 func (x *CreateContactRequest) Reset() {
 	*x = CreateContactRequest{}
-	mi := &file_protos_contact_contact_proto_msgTypes[0]
+	mi := &file_contact_contact_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +44,7 @@ func (x *CreateContactRequest) String() string {
 func (*CreateContactRequest) ProtoMessage() {}
 
 func (x *CreateContactRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_protos_contact_contact_proto_msgTypes[0]
+	mi := &file_contact_contact_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +57,7 @@ func (x *CreateContactRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateContactRequest.ProtoReflect.Descriptor instead.
 func (*CreateContactRequest) Descriptor() ([]byte, []int) {
-	return file_protos_contact_contact_proto_rawDescGZIP(), []int{0}
+	return file_contact_contact_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *CreateContactRequest) GetContactName() string {
@@ -90,7 +90,7 @@ type CreateContactResponse struct {
 
 func (x *CreateContactResponse) Reset() {
 	*x = CreateContactResponse{}
-	mi := &file_protos_contact_contact_proto_msgTypes[1]
+	mi := &file_contact_contact_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -102,7 +102,7 @@ func (x *CreateContactResponse) String() string {
 func (*CreateContactResponse) ProtoMessage() {}
 
 func (x *CreateContactResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_protos_contact_contact_proto_msgTypes[1]
+	mi := &file_contact_contact_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -115,7 +115,7 @@ func (x *CreateContactResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateContactResponse.ProtoReflect.Descriptor instead.
 func (*CreateContactResponse) Descriptor() ([]byte, []int) {
-	return file_protos_contact_contact_proto_rawDescGZIP(), []int{1}
+	return file_contact_contact_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CreateContactResponse) GetData() string {
@@ -125,11 +125,11 @@ func (x *CreateContactResponse) GetData() string {
 	return ""
 }
 
-var File_protos_contact_contact_proto protoreflect.FileDescriptor
+var File_contact_contact_proto protoreflect.FileDescriptor
 
-const file_protos_contact_contact_proto_rawDesc = "" +
+const file_contact_contact_proto_rawDesc = "" +
 	"\n" +
-	"\x1cprotos/contact/contact.proto\x12\acontact\"e\n" +
+	"\x15contact/contact.proto\x12\acontact\"e\n" +
 	"\x14CreateContactRequest\x12!\n" +
 	"\fcontact_name\x18\x01 \x01(\tR\vcontactName\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x14\n" +
@@ -140,23 +140,23 @@ const file_protos_contact_contact_proto_rawDesc = "" +
 	"\rCreateContact\x12\x1d.contact.CreateContactRequest\x1a\x1e.contact.CreateContactResponseB@Z>github.com/aqary-org/aqary-protobuf/gen/go/contactpb;contactpbb\x06proto3"
 
 var (
-	file_protos_contact_contact_proto_rawDescOnce sync.Once
-	file_protos_contact_contact_proto_rawDescData []byte
+	file_contact_contact_proto_rawDescOnce sync.Once
+	file_contact_contact_proto_rawDescData []byte
 )
 
-func file_protos_contact_contact_proto_rawDescGZIP() []byte {
-	file_protos_contact_contact_proto_rawDescOnce.Do(func() {
-		file_protos_contact_contact_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_protos_contact_contact_proto_rawDesc), len(file_protos_contact_contact_proto_rawDesc)))
+func file_contact_contact_proto_rawDescGZIP() []byte {
+	file_contact_contact_proto_rawDescOnce.Do(func() {
+		file_contact_contact_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_contact_contact_proto_rawDesc), len(file_contact_contact_proto_rawDesc)))
 	})
-	return file_protos_contact_contact_proto_rawDescData
+	return file_contact_contact_proto_rawDescData
 }
 
-var file_protos_contact_contact_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
-var file_protos_contact_contact_proto_goTypes = []any{
+var file_contact_contact_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_contact_contact_proto_goTypes = []any{
 	(*CreateContactRequest)(nil),  // 0: contact.CreateContactRequest
 	(*CreateContactResponse)(nil), // 1: contact.CreateContactResponse
 }
-var file_protos_contact_contact_proto_depIdxs = []int32{
+var file_contact_contact_proto_depIdxs = []int32{
 	0, // 0: contact.ContactService.CreateContact:input_type -> contact.CreateContactRequest
 	1, // 1: contact.ContactService.CreateContact:output_type -> contact.CreateContactResponse
 	1, // [1:2] is the sub-list for method output_type
@@ -166,26 +166,26 @@ var file_protos_contact_contact_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_protos_contact_contact_proto_init() }
-func file_protos_contact_contact_proto_init() {
-	if File_protos_contact_contact_proto != nil {
+func init() { file_contact_contact_proto_init() }
+func file_contact_contact_proto_init() {
+	if File_contact_contact_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_protos_contact_contact_proto_rawDesc), len(file_protos_contact_contact_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_contact_contact_proto_rawDesc), len(file_contact_contact_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_protos_contact_contact_proto_goTypes,
-		DependencyIndexes: file_protos_contact_contact_proto_depIdxs,
-		MessageInfos:      file_protos_contact_contact_proto_msgTypes,
+		GoTypes:           file_contact_contact_proto_goTypes,
+		DependencyIndexes: file_contact_contact_proto_depIdxs,
+		MessageInfos:      file_contact_contact_proto_msgTypes,
 	}.Build()
-	File_protos_contact_contact_proto = out.File
-	file_protos_contact_contact_proto_goTypes = nil
-	file_protos_contact_contact_proto_depIdxs = nil
+	File_contact_contact_proto = out.File
+	file_contact_contact_proto_goTypes = nil
+	file_contact_contact_proto_depIdxs = nil
 }

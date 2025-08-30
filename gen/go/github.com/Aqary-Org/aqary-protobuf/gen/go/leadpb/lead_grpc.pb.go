@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.32.0
-// source: protos/leads/lead.proto
+// source: leads/lead.proto
 
 package leadpb
 
@@ -117,5 +117,5 @@ var LeadService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "protos/leads/lead.proto",
+	Metadata: "leads/lead.proto",
 }
