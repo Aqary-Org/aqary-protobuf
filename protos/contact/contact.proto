@@ -8,12 +8,16 @@ service ContactService {
   rpc CreateContact(CreateContactRequest) returns (CreateContactResponse);
 }
 
+message UserDetail {
+  string email = 1;
+  int64 company_id = 2;
+}
+
 message CreateContactRequest {
   string contact_name = 1;
   string email = 2;
   string phone = 3;
-  string user_email = 4;
-  int64 user_company = 5;
+  UserDetail user_detail = 4;
 }
 
 message CreateContactResponse {

@@ -21,20 +21,71 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type UserDetail struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	CompanyId     int64                  `protobuf:"varint,2,opt,name=company_id,json=companyId,proto3" json:"company_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UserDetail) Reset() {
+	*x = UserDetail{}
+	mi := &file_leads_lead_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserDetail) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserDetail) ProtoMessage() {}
+
+func (x *UserDetail) ProtoReflect() protoreflect.Message {
+	mi := &file_leads_lead_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserDetail.ProtoReflect.Descriptor instead.
+func (*UserDetail) Descriptor() ([]byte, []int) {
+	return file_leads_lead_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *UserDetail) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *UserDetail) GetCompanyId() int64 {
+	if x != nil {
+		return x.CompanyId
+	}
+	return 0
+}
+
 type CreateLeadRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	LeadName      string                 `protobuf:"bytes,1,opt,name=lead_name,json=leadName,proto3" json:"lead_name,omitempty"`
 	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
 	Phone         string                 `protobuf:"bytes,3,opt,name=phone,proto3" json:"phone,omitempty"`
-	UserEmail     string                 `protobuf:"bytes,4,opt,name=user_email,json=userEmail,proto3" json:"user_email,omitempty"`
-	UserCompany   int64                  `protobuf:"varint,5,opt,name=user_company,json=userCompany,proto3" json:"user_company,omitempty"`
+	UserDetail    *UserDetail            `protobuf:"bytes,4,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateLeadRequest) Reset() {
 	*x = CreateLeadRequest{}
-	mi := &file_leads_lead_proto_msgTypes[0]
+	mi := &file_leads_lead_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -46,7 +97,7 @@ func (x *CreateLeadRequest) String() string {
 func (*CreateLeadRequest) ProtoMessage() {}
 
 func (x *CreateLeadRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_leads_lead_proto_msgTypes[0]
+	mi := &file_leads_lead_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -59,7 +110,7 @@ func (x *CreateLeadRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateLeadRequest.ProtoReflect.Descriptor instead.
 func (*CreateLeadRequest) Descriptor() ([]byte, []int) {
-	return file_leads_lead_proto_rawDescGZIP(), []int{0}
+	return file_leads_lead_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CreateLeadRequest) GetLeadName() string {
@@ -83,18 +134,11 @@ func (x *CreateLeadRequest) GetPhone() string {
 	return ""
 }
 
-func (x *CreateLeadRequest) GetUserEmail() string {
+func (x *CreateLeadRequest) GetUserDetail() *UserDetail {
 	if x != nil {
-		return x.UserEmail
+		return x.UserDetail
 	}
-	return ""
-}
-
-func (x *CreateLeadRequest) GetUserCompany() int64 {
-	if x != nil {
-		return x.UserCompany
-	}
-	return 0
+	return nil
 }
 
 type CreateLeadResponse struct {
@@ -106,7 +150,7 @@ type CreateLeadResponse struct {
 
 func (x *CreateLeadResponse) Reset() {
 	*x = CreateLeadResponse{}
-	mi := &file_leads_lead_proto_msgTypes[1]
+	mi := &file_leads_lead_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -118,7 +162,7 @@ func (x *CreateLeadResponse) String() string {
 func (*CreateLeadResponse) ProtoMessage() {}
 
 func (x *CreateLeadResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_leads_lead_proto_msgTypes[1]
+	mi := &file_leads_lead_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -131,7 +175,7 @@ func (x *CreateLeadResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateLeadResponse.ProtoReflect.Descriptor instead.
 func (*CreateLeadResponse) Descriptor() ([]byte, []int) {
-	return file_leads_lead_proto_rawDescGZIP(), []int{1}
+	return file_leads_lead_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreateLeadResponse) GetData() string {
@@ -145,14 +189,18 @@ var File_leads_lead_proto protoreflect.FileDescriptor
 
 const file_leads_lead_proto_rawDesc = "" +
 	"\n" +
-	"\x10leads/lead.proto\x12\x05leads\"\x9e\x01\n" +
+	"\x10leads/lead.proto\x12\x05leads\"A\n" +
+	"\n" +
+	"UserDetail\x12\x14\n" +
+	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1d\n" +
+	"\n" +
+	"company_id\x18\x02 \x01(\x03R\tcompanyId\"\x90\x01\n" +
 	"\x11CreateLeadRequest\x12\x1b\n" +
 	"\tlead_name\x18\x01 \x01(\tR\bleadName\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x14\n" +
-	"\x05phone\x18\x03 \x01(\tR\x05phone\x12\x1d\n" +
-	"\n" +
-	"user_email\x18\x04 \x01(\tR\tuserEmail\x12!\n" +
-	"\fuser_company\x18\x05 \x01(\x03R\vuserCompany\"(\n" +
+	"\x05phone\x18\x03 \x01(\tR\x05phone\x122\n" +
+	"\vuser_detail\x18\x04 \x01(\v2\x11.leads.UserDetailR\n" +
+	"userDetail\"(\n" +
 	"\x12CreateLeadResponse\x12\x12\n" +
 	"\x04data\x18\x01 \x01(\tR\x04data2P\n" +
 	"\vLeadService\x12A\n" +
@@ -171,19 +219,21 @@ func file_leads_lead_proto_rawDescGZIP() []byte {
 	return file_leads_lead_proto_rawDescData
 }
 
-var file_leads_lead_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_leads_lead_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_leads_lead_proto_goTypes = []any{
-	(*CreateLeadRequest)(nil),  // 0: leads.CreateLeadRequest
-	(*CreateLeadResponse)(nil), // 1: leads.CreateLeadResponse
+	(*UserDetail)(nil),         // 0: leads.UserDetail
+	(*CreateLeadRequest)(nil),  // 1: leads.CreateLeadRequest
+	(*CreateLeadResponse)(nil), // 2: leads.CreateLeadResponse
 }
 var file_leads_lead_proto_depIdxs = []int32{
-	0, // 0: leads.LeadService.CreateLead:input_type -> leads.CreateLeadRequest
-	1, // 1: leads.LeadService.CreateLead:output_type -> leads.CreateLeadResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0, // 0: leads.CreateLeadRequest.user_detail:type_name -> leads.UserDetail
+	1, // 1: leads.LeadService.CreateLead:input_type -> leads.CreateLeadRequest
+	2, // 2: leads.LeadService.CreateLead:output_type -> leads.CreateLeadResponse
+	2, // [2:3] is the sub-list for method output_type
+	1, // [1:2] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_leads_lead_proto_init() }
@@ -197,7 +247,7 @@ func file_leads_lead_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_leads_lead_proto_rawDesc), len(file_leads_lead_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
