@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "/property_nd_unitpb;property_nd_unitpb";
+
+package property_nd_unit;
+
+service PropertyAndUnitService {
+  rpc CreatePropertyAndUnit(CreatePropertyAndUnitRequest) returns (CreatePropertyAndUnitResponse);
+}
+
+message CreatePropertyAndUnitRequest {
+  string title = 1;
+  string ref_no = 2;
+}
+
+message CreatePropertyAndUnitResponse {
+  string data = 1;
+}
