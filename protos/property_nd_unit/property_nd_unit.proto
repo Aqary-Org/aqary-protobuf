@@ -4,15 +4,10 @@ option go_package = "/property_nd_unitpb;property_nd_unitpb";
 
 package property_nd_unit;
 
+import "property_nd_unit/request.proto";
+import "property_nd_unit/response.proto";
+
 service PropertyAndUnitService {
-  rpc CreatePropertyAndUnit(CreatePropertyAndUnitRequest) returns (CreatePropertyAndUnitResponse);
-}
-
-message CreatePropertyAndUnitRequest {
-  string title = 1;
-  string ref_no = 2;
-}
-
-message CreatePropertyAndUnitResponse {
-  string data = 1;
+  rpc CreatePropertyAndUnit(request.CreatePropertyAndUnitRequest) returns (response.CreatePropertyAndUnitResponse);
+  rpc GetAllPropertyAndUnit(request.GetAllPropertyAndUnitRequest) returns (response.GetAllPropertyAndUnitResponse);
 }

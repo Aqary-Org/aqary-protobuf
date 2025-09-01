@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package property_nd_unit.request;
+
+option go_package = "/property_nd_unitpb;property_nd_unitpb";
+
+message CreatePropertyAndUnitRequest {
+  string title = 1;
+  string ref_no = 2;
+}
+
+message GetAllPropertyAndUnitRequest {
+  int64 company_id = 1;
+}
