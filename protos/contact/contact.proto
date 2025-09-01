@@ -13,6 +13,7 @@ message CreateContactRequest {
   string email = 2;
   string phone = 3;
   string user_email = 4;
+  int64 user_company = 5;
 }
 
 message CreateContactResponse {

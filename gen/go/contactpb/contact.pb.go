@@ -27,6 +27,7 @@ type CreateContactRequest struct {
 	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
 	Phone         string                 `protobuf:"bytes,3,opt,name=phone,proto3" json:"phone,omitempty"`
 	UserEmail     string                 `protobuf:"bytes,4,opt,name=user_email,json=userEmail,proto3" json:"user_email,omitempty"`
+	UserCompany   int64                  `protobuf:"varint,5,opt,name=user_company,json=userCompany,proto3" json:"user_company,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -89,6 +90,13 @@ func (x *CreateContactRequest) GetUserEmail() string {
 	return ""
 }
 
+func (x *CreateContactRequest) GetUserCompany() int64 {
+	if x != nil {
+		return x.UserCompany
+	}
+	return 0
+}
+
 type CreateContactResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Data          string                 `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
@@ -137,13 +145,14 @@ var File_contact_contact_proto protoreflect.FileDescriptor
 
 const file_contact_contact_proto_rawDesc = "" +
 	"\n" +
-	"\x15contact/contact.proto\x12\acontact\"\x84\x01\n" +
+	"\x15contact/contact.proto\x12\acontact\"\xa7\x01\n" +
 	"\x14CreateContactRequest\x12!\n" +
 	"\fcontact_name\x18\x01 \x01(\tR\vcontactName\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x14\n" +
 	"\x05phone\x18\x03 \x01(\tR\x05phone\x12\x1d\n" +
 	"\n" +
-	"user_email\x18\x04 \x01(\tR\tuserEmail\"+\n" +
+	"user_email\x18\x04 \x01(\tR\tuserEmail\x12!\n" +
+	"\fuser_company\x18\x05 \x01(\x03R\vuserCompany\"+\n" +
 	"\x15CreateContactResponse\x12\x12\n" +
 	"\x04data\x18\x01 \x01(\tR\x04data2`\n" +
 	"\x0eContactService\x12N\n" +
