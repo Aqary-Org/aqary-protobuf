@@ -24,22 +24,22 @@ var File_property_nd_unit_property_nd_unit_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_property_nd_unit_proto_rawDesc = "" +
 	"\n" +
-	"'property_nd_unit/property_nd_unit.proto\x12\x10property_nd_unit\x1a\x1eproperty_nd_unit/request.proto\x1a\x1fproperty_nd_unit/response.proto2\xb0\x02\n" +
+	"'property_nd_unit/property_nd_unit.proto\x12\x10property_nd_unit\x1a\x1eproperty_nd_unit/request.proto\x1a\x1fproperty_nd_unit/response.proto2\xad\x02\n" +
 	"\x16PropertyAndUnitService\x12\x89\x01\n" +
-	"\x15CreatePropertyAndUnit\x126.property_nd_unit.request.CreatePropertyAndUnitRequest\x1a8.property_nd_unit.response.CreatePropertyAndUnitResponse\x12\x89\x01\n" +
-	"\x15GetAllPropertyAndUnit\x126.property_nd_unit.request.GetAllPropertyAndUnitRequest\x1a8.property_nd_unit.response.GetAllPropertyAndUnitResponseB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
+	"\x15CreatePropertyAndUnit\x126.property_nd_unit.request.CreatePropertyAndUnitRequest\x1a8.property_nd_unit.response.CreatePropertyAndUnitResponse\x12\x86\x01\n" +
+	"\x15GetAllPropertyAndUnit\x126.property_nd_unit.request.GetAllPropertyAndUnitRequest\x1a5.property_nd_unit.response.GetPropertyAndUnitResponseB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 
 var file_property_nd_unit_property_nd_unit_proto_goTypes = []any{
 	(*CreatePropertyAndUnitRequest)(nil),  // 0: property_nd_unit.request.CreatePropertyAndUnitRequest
 	(*GetAllPropertyAndUnitRequest)(nil),  // 1: property_nd_unit.request.GetAllPropertyAndUnitRequest
 	(*CreatePropertyAndUnitResponse)(nil), // 2: property_nd_unit.response.CreatePropertyAndUnitResponse
-	(*GetAllPropertyAndUnitResponse)(nil), // 3: property_nd_unit.response.GetAllPropertyAndUnitResponse
+	(*GetPropertyAndUnitResponse)(nil),    // 3: property_nd_unit.response.GetPropertyAndUnitResponse
 }
 var file_property_nd_unit_property_nd_unit_proto_depIdxs = []int32{
 	0, // 0: property_nd_unit.PropertyAndUnitService.CreatePropertyAndUnit:input_type -> property_nd_unit.request.CreatePropertyAndUnitRequest
 	1, // 1: property_nd_unit.PropertyAndUnitService.GetAllPropertyAndUnit:input_type -> property_nd_unit.request.GetAllPropertyAndUnitRequest
 	2, // 2: property_nd_unit.PropertyAndUnitService.CreatePropertyAndUnit:output_type -> property_nd_unit.response.CreatePropertyAndUnitResponse
-	3, // 3: property_nd_unit.PropertyAndUnitService.GetAllPropertyAndUnit:output_type -> property_nd_unit.response.GetAllPropertyAndUnitResponse
+	3, // 3: property_nd_unit.PropertyAndUnitService.GetAllPropertyAndUnit:output_type -> property_nd_unit.response.GetPropertyAndUnitResponse
 	2, // [2:4] is the sub-list for method output_type
 	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

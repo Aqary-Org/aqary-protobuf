@@ -9,5 +9,5 @@ import "property_nd_unit/response.proto";
 
 service PropertyAndUnitService {
   rpc CreatePropertyAndUnit(request.CreatePropertyAndUnitRequest) returns (response.CreatePropertyAndUnitResponse);
-  rpc GetAllPropertyAndUnit(request.GetAllPropertyAndUnitRequest) returns (response.GetAllPropertyAndUnitResponse);
+  rpc GetAllPropertyAndUnit(request.GetAllPropertyAndUnitRequest) returns (response.GetPropertyAndUnitResponse);
 }
