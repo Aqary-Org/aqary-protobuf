@@ -11,11 +11,6 @@ message CreatePropertyAndUnitResponse {
 }
 
 message GetAllPropertyAndUnitResponse {
-  string title = 1;
-  string ref_no = 2;
-}
-
-message GenericUnit {
   int64 id = 1;
   string ref_no = 2;
   string name = 3;
