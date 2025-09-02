@@ -78,6 +78,7 @@ type GetAllPropertyAndUnitRequest struct {
 	CompanyId     int64                  `protobuf:"varint,1,opt,name=company_id,json=companyId,proto3" json:"company_id,omitempty"`
 	PageNo        int64                  `protobuf:"varint,2,opt,name=page_no,json=pageNo,proto3" json:"page_no,omitempty"`
 	PageSize      int64                  `protobuf:"varint,3,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
+	UserId        int64                  `protobuf:"varint,4,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -133,6 +134,13 @@ func (x *GetAllPropertyAndUnitRequest) GetPageSize() int64 {
 	return 0
 }
 
+func (x *GetAllPropertyAndUnitRequest) GetUserId() int64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
 var File_property_nd_unit_request_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_request_proto_rawDesc = "" +
@@ -140,12 +148,13 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x1eproperty_nd_unit/request.proto\x12\x18property_nd_unit.request\"K\n" +
 	"\x1cCreatePropertyAndUnitRequest\x12\x14\n" +
 	"\x05title\x18\x01 \x01(\tR\x05title\x12\x15\n" +
-	"\x06ref_no\x18\x02 \x01(\tR\x05refNo\"s\n" +
+	"\x06ref_no\x18\x02 \x01(\tR\x05refNo\"\x8c\x01\n" +
 	"\x1cGetAllPropertyAndUnitRequest\x12\x1d\n" +
 	"\n" +
 	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
 	"\apage_no\x18\x02 \x01(\x03R\x06pageNo\x12\x1b\n" +
-	"\tpage_size\x18\x03 \x01(\x03R\bpageSizeB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
+	"\tpage_size\x18\x03 \x01(\x03R\bpageSize\x12\x17\n" +
+	"\auser_id\x18\x04 \x01(\x03R\x06userIdB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 
 var (
 	file_property_nd_unit_request_proto_rawDescOnce sync.Once
