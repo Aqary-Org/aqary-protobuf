@@ -10,7 +10,7 @@ message CreatePropertyAndUnitResponse {
   string msg = 1;
 }
 
-message GetAllPropertyAndUnitResponse {
+message GetPropertyAndUnitResponse {
   int64 id = 1;
   string ref_no = 2;
   string name = 3;

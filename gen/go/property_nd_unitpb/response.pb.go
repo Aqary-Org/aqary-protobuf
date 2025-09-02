@@ -66,7 +66,7 @@ func (x *CreatePropertyAndUnitResponse) GetMsg() string {
 	return ""
 }
 
-type GetAllPropertyAndUnitResponse struct {
+type GetPropertyAndUnitResponse struct {
 	state             protoimpl.MessageState `protogen:"open.v1"`
 	Id                int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	RefNo             string                 `protobuf:"bytes,2,opt,name=ref_no,json=refNo,proto3" json:"ref_no,omitempty"`
@@ -93,20 +93,20 @@ type GetAllPropertyAndUnitResponse struct {
 	sizeCache         protoimpl.SizeCache
 }
 
-func (x *GetAllPropertyAndUnitResponse) Reset() {
-	*x = GetAllPropertyAndUnitResponse{}
+func (x *GetPropertyAndUnitResponse) Reset() {
+	*x = GetPropertyAndUnitResponse{}
 	mi := &file_property_nd_unit_response_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetAllPropertyAndUnitResponse) String() string {
+func (x *GetPropertyAndUnitResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetAllPropertyAndUnitResponse) ProtoMessage() {}
+func (*GetPropertyAndUnitResponse) ProtoMessage() {}
 
-func (x *GetAllPropertyAndUnitResponse) ProtoReflect() protoreflect.Message {
+func (x *GetPropertyAndUnitResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_property_nd_unit_response_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -118,152 +118,152 @@ func (x *GetAllPropertyAndUnitResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetAllPropertyAndUnitResponse.ProtoReflect.Descriptor instead.
-func (*GetAllPropertyAndUnitResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetPropertyAndUnitResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyAndUnitResponse) Descriptor() ([]byte, []int) {
 	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetId() int64 {
+func (x *GetPropertyAndUnitResponse) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetRefNo() string {
+func (x *GetPropertyAndUnitResponse) GetRefNo() string {
 	if x != nil {
 		return x.RefNo
 	}
 	return ""
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetName() string {
+func (x *GetPropertyAndUnitResponse) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetTitle() string {
+func (x *GetPropertyAndUnitResponse) GetTitle() string {
 	if x != nil {
 		return x.Title
 	}
 	return ""
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetCategory() string {
+func (x *GetPropertyAndUnitResponse) GetCategory() string {
 	if x != nil {
 		return x.Category
 	}
 	return ""
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetAgent() *AgentDetails {
+func (x *GetPropertyAndUnitResponse) GetAgent() *AgentDetails {
 	if x != nil {
 		return x.Agent
 	}
 	return nil
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetFacts() *Facts {
+func (x *GetPropertyAndUnitResponse) GetFacts() *Facts {
 	if x != nil {
 		return x.Facts
 	}
 	return nil
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetDescription() string {
+func (x *GetPropertyAndUnitResponse) GetDescription() string {
 	if x != nil {
 		return x.Description
 	}
 	return ""
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetIsHotdeal() bool {
+func (x *GetPropertyAndUnitResponse) GetIsHotdeal() bool {
 	if x != nil {
 		return x.IsHotdeal
 	}
 	return false
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetStatus() string {
+func (x *GetPropertyAndUnitResponse) GetStatus() string {
 	if x != nil {
 		return x.Status
 	}
 	return ""
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetRefreshedAt() *timestamppb.Timestamp {
+func (x *GetPropertyAndUnitResponse) GetRefreshedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.RefreshedAt
 	}
 	return nil
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetExclusive() bool {
+func (x *GetPropertyAndUnitResponse) GetExclusive() bool {
 	if x != nil {
 		return x.Exclusive
 	}
 	return false
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetType() string {
+func (x *GetPropertyAndUnitResponse) GetType() string {
 	if x != nil {
 		return x.Type
 	}
 	return ""
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetIsVerified() bool {
+func (x *GetPropertyAndUnitResponse) GetIsVerified() bool {
 	if x != nil {
 		return x.IsVerified
 	}
 	return false
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetPropertyRank() int64 {
+func (x *GetPropertyAndUnitResponse) GetPropertyRank() int64 {
 	if x != nil {
 		return x.PropertyRank
 	}
 	return 0
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetNotes() string {
+func (x *GetPropertyAndUnitResponse) GetNotes() string {
 	if x != nil {
 		return x.Notes
 	}
 	return ""
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetLifeStyle() string {
+func (x *GetPropertyAndUnitResponse) GetLifeStyle() string {
 	if x != nil {
 		return x.LifeStyle
 	}
 	return ""
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetPrice() float64 {
+func (x *GetPropertyAndUnitResponse) GetPrice() float64 {
 	if x != nil {
 		return x.Price
 	}
 	return 0
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetAddress() *Address {
+func (x *GetPropertyAndUnitResponse) GetAddress() *Address {
 	if x != nil {
 		return x.Address
 	}
 	return nil
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetListingType() string {
+func (x *GetPropertyAndUnitResponse) GetListingType() string {
 	if x != nil {
 		return x.ListingType
 	}
 	return ""
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetIsProjectProperty() bool {
+func (x *GetPropertyAndUnitResponse) GetIsProjectProperty() bool {
 	if x != nil {
 		return x.IsProjectProperty
 	}
@@ -912,8 +912,8 @@ const file_property_nd_unit_response_proto_rawDesc = "" +
 	"\n" +
 	"\x1fproperty_nd_unit/response.proto\x12\x19property_nd_unit.response\x1a\x1fgoogle/protobuf/timestamp.proto\"1\n" +
 	"\x1dCreatePropertyAndUnitResponse\x12\x10\n" +
-	"\x03msg\x18\x01 \x01(\tR\x03msg\"\xef\x05\n" +
-	"\x1dGetAllPropertyAndUnitResponse\x12\x0e\n" +
+	"\x03msg\x18\x01 \x01(\tR\x03msg\"\xec\x05\n" +
+	"\x1aGetPropertyAndUnitResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x15\n" +
 	"\x06ref_no\x18\x02 \x01(\tR\x05refNo\x12\x12\n" +
 	"\x04name\x18\x03 \x01(\tR\x04name\x12\x14\n" +
@@ -1035,17 +1035,17 @@ func file_property_nd_unit_response_proto_rawDescGZIP() []byte {
 var file_property_nd_unit_response_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_property_nd_unit_response_proto_goTypes = []any{
 	(*CreatePropertyAndUnitResponse)(nil), // 0: property_nd_unit.response.CreatePropertyAndUnitResponse
-	(*GetAllPropertyAndUnitResponse)(nil), // 1: property_nd_unit.response.GetAllPropertyAndUnitResponse
+	(*GetPropertyAndUnitResponse)(nil),    // 1: property_nd_unit.response.GetPropertyAndUnitResponse
 	(*Facts)(nil),                         // 2: property_nd_unit.response.Facts
 	(*Address)(nil),                       // 3: property_nd_unit.response.Address
 	(*AgentDetails)(nil),                  // 4: property_nd_unit.response.AgentDetails
 	(*timestamppb.Timestamp)(nil),         // 5: google.protobuf.Timestamp
 }
 var file_property_nd_unit_response_proto_depIdxs = []int32{
-	4,  // 0: property_nd_unit.response.GetAllPropertyAndUnitResponse.agent:type_name -> property_nd_unit.response.AgentDetails
-	2,  // 1: property_nd_unit.response.GetAllPropertyAndUnitResponse.facts:type_name -> property_nd_unit.response.Facts
-	5,  // 2: property_nd_unit.response.GetAllPropertyAndUnitResponse.refreshed_at:type_name -> google.protobuf.Timestamp
-	3,  // 3: property_nd_unit.response.GetAllPropertyAndUnitResponse.address:type_name -> property_nd_unit.response.Address
+	4,  // 0: property_nd_unit.response.GetPropertyAndUnitResponse.agent:type_name -> property_nd_unit.response.AgentDetails
+	2,  // 1: property_nd_unit.response.GetPropertyAndUnitResponse.facts:type_name -> property_nd_unit.response.Facts
+	5,  // 2: property_nd_unit.response.GetPropertyAndUnitResponse.refreshed_at:type_name -> google.protobuf.Timestamp
+	3,  // 3: property_nd_unit.response.GetPropertyAndUnitResponse.address:type_name -> property_nd_unit.response.Address
 	5,  // 4: property_nd_unit.response.Facts.start_date:type_name -> google.protobuf.Timestamp
 	5,  // 5: property_nd_unit.response.Facts.completion_date:type_name -> google.protobuf.Timestamp
 	5,  // 6: property_nd_unit.response.Facts.handover_date:type_name -> google.protobuf.Timestamp
