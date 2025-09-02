@@ -9,8 +9,9 @@ service LeadService {
 }
 
 message UserDetail {
-  string email = 1;
+  string email = 1 [deprecated = true];
   int64 company_id = 2;
+  int64 user_id = 3;
 }
 
 message CreateLeadRequest {

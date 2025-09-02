@@ -22,9 +22,11 @@ const (
 )
 
 type UserDetail struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
-	CompanyId     int64                  `protobuf:"varint,2,opt,name=company_id,json=companyId,proto3" json:"company_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Deprecated: Marked as deprecated in leads/lead.proto.
+	Email         string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	CompanyId     int64  `protobuf:"varint,2,opt,name=company_id,json=companyId,proto3" json:"company_id,omitempty"`
+	UserId        int64  `protobuf:"varint,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -59,6 +61,7 @@ func (*UserDetail) Descriptor() ([]byte, []int) {
 	return file_leads_lead_proto_rawDescGZIP(), []int{0}
 }
 
+// Deprecated: Marked as deprecated in leads/lead.proto.
 func (x *UserDetail) GetEmail() string {
 	if x != nil {
 		return x.Email
@@ -69,6 +72,13 @@ func (x *UserDetail) GetEmail() string {
 func (x *UserDetail) GetCompanyId() int64 {
 	if x != nil {
 		return x.CompanyId
+	}
+	return 0
+}
+
+func (x *UserDetail) GetUserId() int64 {
+	if x != nil {
+		return x.UserId
 	}
 	return 0
 }
@@ -189,12 +199,13 @@ var File_leads_lead_proto protoreflect.FileDescriptor
 
 const file_leads_lead_proto_rawDesc = "" +
 	"\n" +
-	"\x10leads/lead.proto\x12\x05leads\"A\n" +
+	"\x10leads/lead.proto\x12\x05leads\"^\n" +
 	"\n" +
-	"UserDetail\x12\x14\n" +
-	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1d\n" +
+	"UserDetail\x12\x18\n" +
+	"\x05email\x18\x01 \x01(\tB\x02\x18\x01R\x05email\x12\x1d\n" +
 	"\n" +
-	"company_id\x18\x02 \x01(\x03R\tcompanyId\"\x90\x01\n" +
+	"company_id\x18\x02 \x01(\x03R\tcompanyId\x12\x17\n" +
+	"\auser_id\x18\x03 \x01(\x03R\x06userId\"\x90\x01\n" +
 	"\x11CreateLeadRequest\x12\x1b\n" +
 	"\tlead_name\x18\x01 \x01(\tR\bleadName\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x14\n" +
