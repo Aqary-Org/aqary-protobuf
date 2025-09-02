@@ -76,6 +76,8 @@ func (x *CreatePropertyAndUnitRequest) GetRefNo() string {
 type GetAllPropertyAndUnitRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	CompanyId     int64                  `protobuf:"varint,1,opt,name=company_id,json=companyId,proto3" json:"company_id,omitempty"`
+	PageNo        int64                  `protobuf:"varint,2,opt,name=page_no,json=pageNo,proto3" json:"page_no,omitempty"`
+	PageSize      int64                  `protobuf:"varint,3,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -117,6 +119,20 @@ func (x *GetAllPropertyAndUnitRequest) GetCompanyId() int64 {
 	return 0
 }
 
+func (x *GetAllPropertyAndUnitRequest) GetPageNo() int64 {
+	if x != nil {
+		return x.PageNo
+	}
+	return 0
+}
+
+func (x *GetAllPropertyAndUnitRequest) GetPageSize() int64 {
+	if x != nil {
+		return x.PageSize
+	}
+	return 0
+}
+
 var File_property_nd_unit_request_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_request_proto_rawDesc = "" +
@@ -124,10 +140,12 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x1eproperty_nd_unit/request.proto\x12\x18property_nd_unit.request\"K\n" +
 	"\x1cCreatePropertyAndUnitRequest\x12\x14\n" +
 	"\x05title\x18\x01 \x01(\tR\x05title\x12\x15\n" +
-	"\x06ref_no\x18\x02 \x01(\tR\x05refNo\"=\n" +
+	"\x06ref_no\x18\x02 \x01(\tR\x05refNo\"s\n" +
 	"\x1cGetAllPropertyAndUnitRequest\x12\x1d\n" +
 	"\n" +
-	"company_id\x18\x01 \x01(\x03R\tcompanyIdB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
+	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
+	"\apage_no\x18\x02 \x01(\x03R\x06pageNo\x12\x1b\n" +
+	"\tpage_size\x18\x03 \x01(\x03R\bpageSizeB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 
 var (
 	file_property_nd_unit_request_proto_rawDescOnce sync.Once
