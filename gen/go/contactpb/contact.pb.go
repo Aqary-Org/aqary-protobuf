@@ -89,6 +89,8 @@ type CreateContactRequest struct {
 	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
 	Phone         string                 `protobuf:"bytes,3,opt,name=phone,proto3" json:"phone,omitempty"`
 	UserDetail    *UserDetail            `protobuf:"bytes,4,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
+	Source        string                 `protobuf:"bytes,5,opt,name=source,proto3" json:"source,omitempty"`
+	SubSource     string                 `protobuf:"bytes,6,opt,name=sub_source,json=subSource,proto3" json:"sub_source,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -151,6 +153,20 @@ func (x *CreateContactRequest) GetUserDetail() *UserDetail {
 	return nil
 }
 
+func (x *CreateContactRequest) GetSource() string {
+	if x != nil {
+		return x.Source
+	}
+	return ""
+}
+
+func (x *CreateContactRequest) GetSubSource() string {
+	if x != nil {
+		return x.SubSource
+	}
+	return ""
+}
+
 type CreateContactResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Data          string                 `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
@@ -205,13 +221,16 @@ const file_contact_contact_proto_rawDesc = "" +
 	"\x05email\x18\x01 \x01(\tB\x02\x18\x01R\x05email\x12\x1d\n" +
 	"\n" +
 	"company_id\x18\x02 \x01(\x03R\tcompanyId\x12\x17\n" +
-	"\auser_id\x18\x03 \x01(\x03R\x06userId\"\x9b\x01\n" +
+	"\auser_id\x18\x03 \x01(\x03R\x06userId\"\xd2\x01\n" +
 	"\x14CreateContactRequest\x12!\n" +
 	"\fcontact_name\x18\x01 \x01(\tR\vcontactName\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x14\n" +
 	"\x05phone\x18\x03 \x01(\tR\x05phone\x124\n" +
 	"\vuser_detail\x18\x04 \x01(\v2\x13.contact.UserDetailR\n" +
-	"userDetail\"+\n" +
+	"userDetail\x12\x16\n" +
+	"\x06source\x18\x05 \x01(\tR\x06source\x12\x1d\n" +
+	"\n" +
+	"sub_source\x18\x06 \x01(\tR\tsubSource\"+\n" +
 	"\x15CreateContactResponse\x12\x12\n" +
 	"\x04data\x18\x01 \x01(\tR\x04data2`\n" +
 	"\x0eContactService\x12N\n" +

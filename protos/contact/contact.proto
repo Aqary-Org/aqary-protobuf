@@ -19,6 +19,8 @@ message CreateContactRequest {
   string email = 2;
   string phone = 3;
   UserDetail user_detail = 4;
+  string source = 5;
+  string sub_source = 6;
 }
 
 message CreateContactResponse {
