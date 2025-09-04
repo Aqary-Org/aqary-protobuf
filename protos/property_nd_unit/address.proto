@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package property_nd_unit.address;
+
+option go_package = "/property_nd_unitpb;property_nd_unitpb";
+
+message Address {
+  int64  id = 1;
+  string country = 2;
+  string state = 3;
+  string city = 4;
+  string community = 5;
+  string subcommunity = 6;
+  string lat = 7;
+  string lng = 8;
+  string full_address = 9;
+}

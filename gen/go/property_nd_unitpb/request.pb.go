@@ -9,6 +9,7 @@ package property_nd_unitpb
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -21,17 +22,255 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type CreatePropertyAndUnitRequest struct {
+type FacilityAmenity struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Title         string                 `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
-	RefNo         string                 `protobuf:"bytes,2,opt,name=ref_no,json=refNo,proto3" json:"ref_no,omitempty"`
+	Category      string                 `protobuf:"bytes,2,opt,name=category,proto3" json:"category,omitempty"`
+	Type          string                 `protobuf:"bytes,3,opt,name=type,proto3" json:"type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
+func (x *FacilityAmenity) Reset() {
+	*x = FacilityAmenity{}
+	mi := &file_property_nd_unit_request_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FacilityAmenity) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FacilityAmenity) ProtoMessage() {}
+
+func (x *FacilityAmenity) ProtoReflect() protoreflect.Message {
+	mi := &file_property_nd_unit_request_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FacilityAmenity.ProtoReflect.Descriptor instead.
+func (*FacilityAmenity) Descriptor() ([]byte, []int) {
+	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *FacilityAmenity) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *FacilityAmenity) GetCategory() string {
+	if x != nil {
+		return x.Category
+	}
+	return ""
+}
+
+func (x *FacilityAmenity) GetType() string {
+	if x != nil {
+		return x.Type
+	}
+	return ""
+}
+
+type Agent struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RefNo         string                 `protobuf:"bytes,1,opt,name=ref_no,json=refNo,proto3" json:"ref_no,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Email         string                 `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
+	Phone         string                 `protobuf:"bytes,4,opt,name=phone,proto3" json:"phone,omitempty"`
+	Photo         string                 `protobuf:"bytes,5,opt,name=photo,proto3" json:"photo,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Agent) Reset() {
+	*x = Agent{}
+	mi := &file_property_nd_unit_request_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Agent) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Agent) ProtoMessage() {}
+
+func (x *Agent) ProtoReflect() protoreflect.Message {
+	mi := &file_property_nd_unit_request_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Agent.ProtoReflect.Descriptor instead.
+func (*Agent) Descriptor() ([]byte, []int) {
+	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *Agent) GetRefNo() string {
+	if x != nil {
+		return x.RefNo
+	}
+	return ""
+}
+
+func (x *Agent) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Agent) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *Agent) GetPhone() string {
+	if x != nil {
+		return x.Phone
+	}
+	return ""
+}
+
+func (x *Agent) GetPhoto() string {
+	if x != nil {
+		return x.Photo
+	}
+	return ""
+}
+
+type Plans struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Title         string                 `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
+	Url           string                 `protobuf:"bytes,2,opt,name=url,proto3" json:"url,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Plans) Reset() {
+	*x = Plans{}
+	mi := &file_property_nd_unit_request_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Plans) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Plans) ProtoMessage() {}
+
+func (x *Plans) ProtoReflect() protoreflect.Message {
+	mi := &file_property_nd_unit_request_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Plans.ProtoReflect.Descriptor instead.
+func (*Plans) Descriptor() ([]byte, []int) {
+	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *Plans) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *Plans) GetUrl() string {
+	if x != nil {
+		return x.Url
+	}
+	return ""
+}
+
+type CreatePropertyAndUnitRequest struct {
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	IsProperty        bool                   `protobuf:"varint,1,opt,name=is_property,json=isProperty,proto3" json:"is_property,omitempty"`
+	RefNo             string                 `protobuf:"bytes,2,opt,name=ref_no,json=refNo,proto3" json:"ref_no,omitempty"`
+	Title             string                 `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
+	TitleAr           string                 `protobuf:"bytes,4,opt,name=title_ar,json=titleAr,proto3" json:"title_ar,omitempty"`
+	Description       string                 `protobuf:"bytes,5,opt,name=description,proto3" json:"description,omitempty"`
+	DescriptionAr     string                 `protobuf:"bytes,6,opt,name=description_ar,json=descriptionAr,proto3" json:"description_ar,omitempty"`
+	PropertyName      string                 `protobuf:"bytes,7,opt,name=property_name,json=propertyName,proto3" json:"property_name,omitempty"`
+	ProjectName       string                 `protobuf:"bytes,8,opt,name=project_name,json=projectName,proto3" json:"project_name,omitempty"`
+	PhaseName         string                 `protobuf:"bytes,9,opt,name=phase_name,json=phaseName,proto3" json:"phase_name,omitempty"`
+	Status            string                 `protobuf:"bytes,10,opt,name=status,proto3" json:"status,omitempty"`
+	Address           *Address               `protobuf:"bytes,11,opt,name=address,proto3" json:"address,omitempty"`
+	LocationUrl       string                 `protobuf:"bytes,12,opt,name=location_url,json=locationUrl,proto3" json:"location_url,omitempty"`
+	FacilityAmenity   []*FacilityAmenity     `protobuf:"bytes,13,rep,name=facility_amenity,json=facilityAmenity,proto3" json:"facility_amenity,omitempty"`
+	Views             []string               `protobuf:"bytes,14,rep,name=views,proto3" json:"views,omitempty"`
+	Agent             *Agent                 `protobuf:"bytes,15,opt,name=agent,proto3" json:"agent,omitempty"`
+	Photos            []string               `protobuf:"bytes,16,rep,name=photos,proto3" json:"photos,omitempty"`
+	UnitVariations    []*Plans               `protobuf:"bytes,17,rep,name=unit_variations,json=unitVariations,proto3" json:"unit_variations,omitempty"`
+	Plans             []*Plans               `protobuf:"bytes,18,rep,name=plans,proto3" json:"plans,omitempty"`
+	UnitTypes         []string               `protobuf:"bytes,19,rep,name=unit_types,json=unitTypes,proto3" json:"unit_types,omitempty"`
+	PropertyType      string                 `protobuf:"bytes,20,opt,name=property_type,json=propertyType,proto3" json:"property_type,omitempty"`
+	Noofunits         int64                  `protobuf:"varint,21,opt,name=noofunits,proto3" json:"noofunits,omitempty"`
+	PermitNumber      string                 `protobuf:"bytes,22,opt,name=permit_number,json=permitNumber,proto3" json:"permit_number,omitempty"`
+	Price             float64                `protobuf:"fixed64,23,opt,name=price,proto3" json:"price,omitempty"`
+	Category          string                 `protobuf:"bytes,24,opt,name=category,proto3" json:"category,omitempty"`
+	ListingType       string                 `protobuf:"bytes,25,opt,name=listing_type,json=listingType,proto3" json:"listing_type,omitempty"`
+	Lifestyle         string                 `protobuf:"bytes,26,opt,name=lifestyle,proto3" json:"lifestyle,omitempty"`
+	Bedroom           string                 `protobuf:"bytes,27,opt,name=bedroom,proto3" json:"bedroom,omitempty"`
+	Bathroom          int64                  `protobuf:"varint,28,opt,name=bathroom,proto3" json:"bathroom,omitempty"`
+	NoOfRetails       int64                  `protobuf:"varint,29,opt,name=no_of_retails,json=noOfRetails,proto3" json:"no_of_retails,omitempty"`
+	NoOfPayments      int64                  `protobuf:"varint,30,opt,name=no_of_payments,json=noOfPayments,proto3" json:"no_of_payments,omitempty"`
+	RentType          string                 `protobuf:"bytes,31,opt,name=rent_type,json=rentType,proto3" json:"rent_type,omitempty"`
+	ServiceCharge     float32                `protobuf:"fixed32,32,opt,name=service_charge,json=serviceCharge,proto3" json:"service_charge,omitempty"`
+	NoOfElevators     int64                  `protobuf:"varint,33,opt,name=no_of_elevators,json=noOfElevators,proto3" json:"no_of_elevators,omitempty"`
+	BuiltUpArea       float64                `protobuf:"fixed64,34,opt,name=built_up_area,json=builtUpArea,proto3" json:"built_up_area,omitempty"`
+	PlotArea          float64                `protobuf:"fixed64,35,opt,name=plot_area,json=plotArea,proto3" json:"plot_area,omitempty"`
+	Ownership         string                 `protobuf:"bytes,36,opt,name=ownership,proto3" json:"ownership,omitempty"`
+	Furnished         string                 `protobuf:"bytes,37,opt,name=furnished,proto3" json:"furnished,omitempty"`
+	NoOfPools         int64                  `protobuf:"varint,38,opt,name=no_of_pools,json=noOfPools,proto3" json:"no_of_pools,omitempty"`
+	CompletionStatus  string                 `protobuf:"bytes,39,opt,name=completion_status,json=completionStatus,proto3" json:"completion_status,omitempty"`
+	HandoverDate      *timestamppb.Timestamp `protobuf:"bytes,40,opt,name=handover_date,json=handoverDate,proto3" json:"handover_date,omitempty"`
+	MinArea           float64                `protobuf:"fixed64,41,opt,name=min_area,json=minArea,proto3" json:"min_area,omitempty"`
+	MaxArea           float64                `protobuf:"fixed64,42,opt,name=max_area,json=maxArea,proto3" json:"max_area,omitempty"`
+	UnitOfMeasure     string                 `protobuf:"bytes,43,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
+	Currency          string                 `protobuf:"bytes,44,opt,name=currency,proto3" json:"currency,omitempty"`
+	NoOfFloor         int64                  `protobuf:"varint,45,opt,name=no_of_floor,json=noOfFloor,proto3" json:"no_of_floor,omitempty"`
+	OfferingType      string                 `protobuf:"bytes,46,opt,name=offering_type,json=offeringType,proto3" json:"offering_type,omitempty"`
+	CompletionDate    *timestamppb.Timestamp `protobuf:"bytes,47,opt,name=completion_date,json=completionDate,proto3" json:"completion_date,omitempty"`
+	CountryCode       string                 `protobuf:"bytes,48,opt,name=country_code,json=countryCode,proto3" json:"country_code,omitempty"`
+	AskPrice          bool                   `protobuf:"varint,49,opt,name=ask_price,json=askPrice,proto3" json:"ask_price,omitempty"`
+	Parking           int64                  `protobuf:"varint,50,opt,name=parking,proto3" json:"parking,omitempty"`
+	PlanType          string                 `protobuf:"bytes,51,opt,name=plan_type,json=planType,proto3" json:"plan_type,omitempty"`
+	IsProjectProperty bool                   `protobuf:"varint,52,opt,name=is_project_property,json=isProjectProperty,proto3" json:"is_project_property,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
 func (x *CreatePropertyAndUnitRequest) Reset() {
 	*x = CreatePropertyAndUnitRequest{}
-	mi := &file_property_nd_unit_request_proto_msgTypes[0]
+	mi := &file_property_nd_unit_request_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +282,7 @@ func (x *CreatePropertyAndUnitRequest) String() string {
 func (*CreatePropertyAndUnitRequest) ProtoMessage() {}
 
 func (x *CreatePropertyAndUnitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_request_proto_msgTypes[0]
+	mi := &file_property_nd_unit_request_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +295,21 @@ func (x *CreatePropertyAndUnitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreatePropertyAndUnitRequest.ProtoReflect.Descriptor instead.
 func (*CreatePropertyAndUnitRequest) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{0}
+	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *CreatePropertyAndUnitRequest) GetIsProperty() bool {
+	if x != nil {
+		return x.IsProperty
+	}
+	return false
+}
+
+func (x *CreatePropertyAndUnitRequest) GetRefNo() string {
+	if x != nil {
+		return x.RefNo
+	}
+	return ""
 }
 
 func (x *CreatePropertyAndUnitRequest) GetTitle() string {
@@ -66,11 +319,347 @@ func (x *CreatePropertyAndUnitRequest) GetTitle() string {
 	return ""
 }
 
-func (x *CreatePropertyAndUnitRequest) GetRefNo() string {
+func (x *CreatePropertyAndUnitRequest) GetTitleAr() string {
 	if x != nil {
-		return x.RefNo
+		return x.TitleAr
 	}
 	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetDescriptionAr() string {
+	if x != nil {
+		return x.DescriptionAr
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetPropertyName() string {
+	if x != nil {
+		return x.PropertyName
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetProjectName() string {
+	if x != nil {
+		return x.ProjectName
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetPhaseName() string {
+	if x != nil {
+		return x.PhaseName
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetAddress() *Address {
+	if x != nil {
+		return x.Address
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequest) GetLocationUrl() string {
+	if x != nil {
+		return x.LocationUrl
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetFacilityAmenity() []*FacilityAmenity {
+	if x != nil {
+		return x.FacilityAmenity
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequest) GetViews() []string {
+	if x != nil {
+		return x.Views
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequest) GetAgent() *Agent {
+	if x != nil {
+		return x.Agent
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequest) GetPhotos() []string {
+	if x != nil {
+		return x.Photos
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequest) GetUnitVariations() []*Plans {
+	if x != nil {
+		return x.UnitVariations
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequest) GetPlans() []*Plans {
+	if x != nil {
+		return x.Plans
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequest) GetUnitTypes() []string {
+	if x != nil {
+		return x.UnitTypes
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequest) GetPropertyType() string {
+	if x != nil {
+		return x.PropertyType
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetNoofunits() int64 {
+	if x != nil {
+		return x.Noofunits
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequest) GetPermitNumber() string {
+	if x != nil {
+		return x.PermitNumber
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetPrice() float64 {
+	if x != nil {
+		return x.Price
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequest) GetCategory() string {
+	if x != nil {
+		return x.Category
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetListingType() string {
+	if x != nil {
+		return x.ListingType
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetLifestyle() string {
+	if x != nil {
+		return x.Lifestyle
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetBedroom() string {
+	if x != nil {
+		return x.Bedroom
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetBathroom() int64 {
+	if x != nil {
+		return x.Bathroom
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequest) GetNoOfRetails() int64 {
+	if x != nil {
+		return x.NoOfRetails
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequest) GetNoOfPayments() int64 {
+	if x != nil {
+		return x.NoOfPayments
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequest) GetRentType() string {
+	if x != nil {
+		return x.RentType
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetServiceCharge() float32 {
+	if x != nil {
+		return x.ServiceCharge
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequest) GetNoOfElevators() int64 {
+	if x != nil {
+		return x.NoOfElevators
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequest) GetBuiltUpArea() float64 {
+	if x != nil {
+		return x.BuiltUpArea
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequest) GetPlotArea() float64 {
+	if x != nil {
+		return x.PlotArea
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequest) GetOwnership() string {
+	if x != nil {
+		return x.Ownership
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetFurnished() string {
+	if x != nil {
+		return x.Furnished
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetNoOfPools() int64 {
+	if x != nil {
+		return x.NoOfPools
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequest) GetCompletionStatus() string {
+	if x != nil {
+		return x.CompletionStatus
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetHandoverDate() *timestamppb.Timestamp {
+	if x != nil {
+		return x.HandoverDate
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequest) GetMinArea() float64 {
+	if x != nil {
+		return x.MinArea
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequest) GetMaxArea() float64 {
+	if x != nil {
+		return x.MaxArea
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequest) GetUnitOfMeasure() string {
+	if x != nil {
+		return x.UnitOfMeasure
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetCurrency() string {
+	if x != nil {
+		return x.Currency
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetNoOfFloor() int64 {
+	if x != nil {
+		return x.NoOfFloor
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequest) GetOfferingType() string {
+	if x != nil {
+		return x.OfferingType
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetCompletionDate() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CompletionDate
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequest) GetCountryCode() string {
+	if x != nil {
+		return x.CountryCode
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetAskPrice() bool {
+	if x != nil {
+		return x.AskPrice
+	}
+	return false
+}
+
+func (x *CreatePropertyAndUnitRequest) GetParking() int64 {
+	if x != nil {
+		return x.Parking
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequest) GetPlanType() string {
+	if x != nil {
+		return x.PlanType
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetIsProjectProperty() bool {
+	if x != nil {
+		return x.IsProjectProperty
+	}
+	return false
 }
 
 type GetAllPropertyAndUnitRequest struct {
@@ -85,7 +674,7 @@ type GetAllPropertyAndUnitRequest struct {
 
 func (x *GetAllPropertyAndUnitRequest) Reset() {
 	*x = GetAllPropertyAndUnitRequest{}
-	mi := &file_property_nd_unit_request_proto_msgTypes[1]
+	mi := &file_property_nd_unit_request_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -97,7 +686,7 @@ func (x *GetAllPropertyAndUnitRequest) String() string {
 func (*GetAllPropertyAndUnitRequest) ProtoMessage() {}
 
 func (x *GetAllPropertyAndUnitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_request_proto_msgTypes[1]
+	mi := &file_property_nd_unit_request_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -110,7 +699,7 @@ func (x *GetAllPropertyAndUnitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllPropertyAndUnitRequest.ProtoReflect.Descriptor instead.
 func (*GetAllPropertyAndUnitRequest) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{1}
+	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetAllPropertyAndUnitRequest) GetCompanyId() int64 {
@@ -145,10 +734,77 @@ var File_property_nd_unit_request_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\n" +
-	"\x1eproperty_nd_unit/request.proto\x12\x18property_nd_unit.request\"K\n" +
-	"\x1cCreatePropertyAndUnitRequest\x12\x14\n" +
-	"\x05title\x18\x01 \x01(\tR\x05title\x12\x15\n" +
-	"\x06ref_no\x18\x02 \x01(\tR\x05refNo\"\x8c\x01\n" +
+	"\x1eproperty_nd_unit/request.proto\x12\x18property_nd_unit.request\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1eproperty_nd_unit/address.proto\"W\n" +
+	"\x0fFacilityAmenity\x12\x14\n" +
+	"\x05title\x18\x01 \x01(\tR\x05title\x12\x1a\n" +
+	"\bcategory\x18\x02 \x01(\tR\bcategory\x12\x12\n" +
+	"\x04type\x18\x03 \x01(\tR\x04type\"t\n" +
+	"\x05Agent\x12\x15\n" +
+	"\x06ref_no\x18\x01 \x01(\tR\x05refNo\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
+	"\x05email\x18\x03 \x01(\tR\x05email\x12\x14\n" +
+	"\x05phone\x18\x04 \x01(\tR\x05phone\x12\x14\n" +
+	"\x05photo\x18\x05 \x01(\tR\x05photo\"/\n" +
+	"\x05Plans\x12\x14\n" +
+	"\x05title\x18\x01 \x01(\tR\x05title\x12\x10\n" +
+	"\x03url\x18\x02 \x01(\tR\x03url\"\x87\x0f\n" +
+	"\x1cCreatePropertyAndUnitRequest\x12\x1f\n" +
+	"\vis_property\x18\x01 \x01(\bR\n" +
+	"isProperty\x12\x15\n" +
+	"\x06ref_no\x18\x02 \x01(\tR\x05refNo\x12\x14\n" +
+	"\x05title\x18\x03 \x01(\tR\x05title\x12\x19\n" +
+	"\btitle_ar\x18\x04 \x01(\tR\atitleAr\x12 \n" +
+	"\vdescription\x18\x05 \x01(\tR\vdescription\x12%\n" +
+	"\x0edescription_ar\x18\x06 \x01(\tR\rdescriptionAr\x12#\n" +
+	"\rproperty_name\x18\a \x01(\tR\fpropertyName\x12!\n" +
+	"\fproject_name\x18\b \x01(\tR\vprojectName\x12\x1d\n" +
+	"\n" +
+	"phase_name\x18\t \x01(\tR\tphaseName\x12\x16\n" +
+	"\x06status\x18\n" +
+	" \x01(\tR\x06status\x12;\n" +
+	"\aaddress\x18\v \x01(\v2!.property_nd_unit.address.AddressR\aaddress\x12!\n" +
+	"\flocation_url\x18\f \x01(\tR\vlocationUrl\x12T\n" +
+	"\x10facility_amenity\x18\r \x03(\v2).property_nd_unit.request.FacilityAmenityR\x0ffacilityAmenity\x12\x14\n" +
+	"\x05views\x18\x0e \x03(\tR\x05views\x125\n" +
+	"\x05agent\x18\x0f \x01(\v2\x1f.property_nd_unit.request.AgentR\x05agent\x12\x16\n" +
+	"\x06photos\x18\x10 \x03(\tR\x06photos\x12H\n" +
+	"\x0funit_variations\x18\x11 \x03(\v2\x1f.property_nd_unit.request.PlansR\x0eunitVariations\x125\n" +
+	"\x05plans\x18\x12 \x03(\v2\x1f.property_nd_unit.request.PlansR\x05plans\x12\x1d\n" +
+	"\n" +
+	"unit_types\x18\x13 \x03(\tR\tunitTypes\x12#\n" +
+	"\rproperty_type\x18\x14 \x01(\tR\fpropertyType\x12\x1c\n" +
+	"\tnoofunits\x18\x15 \x01(\x03R\tnoofunits\x12#\n" +
+	"\rpermit_number\x18\x16 \x01(\tR\fpermitNumber\x12\x14\n" +
+	"\x05price\x18\x17 \x01(\x01R\x05price\x12\x1a\n" +
+	"\bcategory\x18\x18 \x01(\tR\bcategory\x12!\n" +
+	"\flisting_type\x18\x19 \x01(\tR\vlistingType\x12\x1c\n" +
+	"\tlifestyle\x18\x1a \x01(\tR\tlifestyle\x12\x18\n" +
+	"\abedroom\x18\x1b \x01(\tR\abedroom\x12\x1a\n" +
+	"\bbathroom\x18\x1c \x01(\x03R\bbathroom\x12\"\n" +
+	"\rno_of_retails\x18\x1d \x01(\x03R\vnoOfRetails\x12$\n" +
+	"\x0eno_of_payments\x18\x1e \x01(\x03R\fnoOfPayments\x12\x1b\n" +
+	"\trent_type\x18\x1f \x01(\tR\brentType\x12%\n" +
+	"\x0eservice_charge\x18  \x01(\x02R\rserviceCharge\x12&\n" +
+	"\x0fno_of_elevators\x18! \x01(\x03R\rnoOfElevators\x12\"\n" +
+	"\rbuilt_up_area\x18\" \x01(\x01R\vbuiltUpArea\x12\x1b\n" +
+	"\tplot_area\x18# \x01(\x01R\bplotArea\x12\x1c\n" +
+	"\townership\x18$ \x01(\tR\townership\x12\x1c\n" +
+	"\tfurnished\x18% \x01(\tR\tfurnished\x12\x1e\n" +
+	"\vno_of_pools\x18& \x01(\x03R\tnoOfPools\x12+\n" +
+	"\x11completion_status\x18' \x01(\tR\x10completionStatus\x12?\n" +
+	"\rhandover_date\x18( \x01(\v2\x1a.google.protobuf.TimestampR\fhandoverDate\x12\x19\n" +
+	"\bmin_area\x18) \x01(\x01R\aminArea\x12\x19\n" +
+	"\bmax_area\x18* \x01(\x01R\amaxArea\x12&\n" +
+	"\x0funit_of_measure\x18+ \x01(\tR\runitOfMeasure\x12\x1a\n" +
+	"\bcurrency\x18, \x01(\tR\bcurrency\x12\x1e\n" +
+	"\vno_of_floor\x18- \x01(\x03R\tnoOfFloor\x12#\n" +
+	"\roffering_type\x18. \x01(\tR\fofferingType\x12C\n" +
+	"\x0fcompletion_date\x18/ \x01(\v2\x1a.google.protobuf.TimestampR\x0ecompletionDate\x12!\n" +
+	"\fcountry_code\x180 \x01(\tR\vcountryCode\x12\x1b\n" +
+	"\task_price\x181 \x01(\bR\baskPrice\x12\x18\n" +
+	"\aparking\x182 \x01(\x03R\aparking\x12\x1b\n" +
+	"\tplan_type\x183 \x01(\tR\bplanType\x12.\n" +
+	"\x13is_project_property\x184 \x01(\bR\x11isProjectProperty\"\x8c\x01\n" +
 	"\x1cGetAllPropertyAndUnitRequest\x12\x1d\n" +
 	"\n" +
 	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
@@ -168,17 +824,29 @@ func file_property_nd_unit_request_proto_rawDescGZIP() []byte {
 	return file_property_nd_unit_request_proto_rawDescData
 }
 
-var file_property_nd_unit_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_property_nd_unit_request_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_property_nd_unit_request_proto_goTypes = []any{
-	(*CreatePropertyAndUnitRequest)(nil), // 0: property_nd_unit.request.CreatePropertyAndUnitRequest
-	(*GetAllPropertyAndUnitRequest)(nil), // 1: property_nd_unit.request.GetAllPropertyAndUnitRequest
+	(*FacilityAmenity)(nil),              // 0: property_nd_unit.request.FacilityAmenity
+	(*Agent)(nil),                        // 1: property_nd_unit.request.Agent
+	(*Plans)(nil),                        // 2: property_nd_unit.request.Plans
+	(*CreatePropertyAndUnitRequest)(nil), // 3: property_nd_unit.request.CreatePropertyAndUnitRequest
+	(*GetAllPropertyAndUnitRequest)(nil), // 4: property_nd_unit.request.GetAllPropertyAndUnitRequest
+	(*Address)(nil),                      // 5: property_nd_unit.address.Address
+	(*timestamppb.Timestamp)(nil),        // 6: google.protobuf.Timestamp
 }
 var file_property_nd_unit_request_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	5, // 0: property_nd_unit.request.CreatePropertyAndUnitRequest.address:type_name -> property_nd_unit.address.Address
+	0, // 1: property_nd_unit.request.CreatePropertyAndUnitRequest.facility_amenity:type_name -> property_nd_unit.request.FacilityAmenity
+	1, // 2: property_nd_unit.request.CreatePropertyAndUnitRequest.agent:type_name -> property_nd_unit.request.Agent
+	2, // 3: property_nd_unit.request.CreatePropertyAndUnitRequest.unit_variations:type_name -> property_nd_unit.request.Plans
+	2, // 4: property_nd_unit.request.CreatePropertyAndUnitRequest.plans:type_name -> property_nd_unit.request.Plans
+	6, // 5: property_nd_unit.request.CreatePropertyAndUnitRequest.handover_date:type_name -> google.protobuf.Timestamp
+	6, // 6: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_date:type_name -> google.protobuf.Timestamp
+	7, // [7:7] is the sub-list for method output_type
+	7, // [7:7] is the sub-list for method input_type
+	7, // [7:7] is the sub-list for extension type_name
+	7, // [7:7] is the sub-list for extension extendee
+	0, // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_property_nd_unit_request_proto_init() }
@@ -186,13 +854,14 @@ func file_property_nd_unit_request_proto_init() {
 	if File_property_nd_unit_request_proto != nil {
 		return
 	}
+	file_property_nd_unit_address_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_property_nd_unit_request_proto_rawDesc), len(file_property_nd_unit_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

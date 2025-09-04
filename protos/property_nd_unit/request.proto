@@ -4,9 +4,79 @@ package property_nd_unit.request;
 
 option go_package = "/property_nd_unitpb;property_nd_unitpb";
 
-message CreatePropertyAndUnitRequest {
+import "google/protobuf/timestamp.proto";
+import "property_nd_unit/address.proto";
+
+message FacilityAmenity {
   string title = 1;
+  string category = 2;
+  string type = 3;
+}
+
+message Agent {
+  string ref_no = 1;
+  string name = 2;
+  string email = 3;
+  string phone = 4;
+  string photo = 5;
+}
+message Plans {
+  string title = 1;
+  string url = 2;
+}
+message CreatePropertyAndUnitRequest {
+  bool is_property = 1;
   string ref_no = 2;
+  string title = 3;
+  string title_ar = 4;
+  string description = 5;
+  string description_ar = 6;
+  string property_name = 7;
+  string project_name = 8;
+  string phase_name = 9;
+  string status = 10;
+  address.Address address = 11;
+  string location_url = 12;
+  repeated FacilityAmenity facility_amenity = 13;
+  repeated string views = 14;
+  Agent agent = 15;
+  repeated string photos = 16;
+  repeated Plans unit_variations = 17;
+  repeated Plans plans = 18;
+  repeated string unit_types = 19;
+  string property_type = 20;
+  int64 noofunits = 21;
+  string permit_number = 22;
+  double price = 23;
+  string category = 24;
+  string listing_type = 25;
+  string lifestyle = 26;
+  string bedroom = 27;
+  int64 bathroom = 28;
+  int64 no_of_retails = 29;
+  int64 no_of_payments = 30;
+  string rent_type = 31;
+  float service_charge = 32;
+  int64 no_of_elevators = 33;
+  double built_up_area = 34;
+  double plot_area = 35;
+  string ownership = 36;
+  string furnished = 37;
+  int64 no_of_pools = 38;
+  string completion_status = 39;
+  google.protobuf.Timestamp handover_date  = 40;
+  double min_area = 41;
+  double max_area = 42;
+  string unit_of_measure = 43;
+  string currency = 44;
+  int64 no_of_floor = 45;
+  string offering_type = 46;
+  google.protobuf.Timestamp completion_date  = 47;
+  string country_code = 48;
+  bool ask_price = 49;
+  int64 parking = 50;
+  string plan_type = 51;
+  bool is_project_property = 52;
 }
 
 message GetAllPropertyAndUnitRequest {

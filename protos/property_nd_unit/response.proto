@@ -5,6 +5,7 @@ package property_nd_unit.response;
 option go_package = "/property_nd_unitpb;property_nd_unitpb";
 
 import "google/protobuf/timestamp.proto";
+import "property_nd_unit/address.proto";
 
 message CreatePropertyAndUnitResponse {
   string msg = 1;
@@ -29,7 +30,7 @@ message GetPropertyAndUnitResponse {
   string notes = 16;
   string life_style = 17;
   double price = 18;
-  Address address = 19;
+  address.Address address = 19;
   string listing_type = 20;
   bool is_project_property = 21;
 }
@@ -89,18 +90,6 @@ message Facts {
   int64 rooms = 52;
   int64 trees = 53;
   int64 water_irrigations = 54;
-}
-
-message Address {
-  int64  id = 1;
-  string country = 2;
-  string state = 3;
-  string city = 4;
-  string community = 5;
-  string subcommunity = 6;
-  string lat = 7;
-  string lng = 8;
-  string full_address = 9;
 }
 
 message AgentDetails {
