@@ -738,114 +738,6 @@ func (x *Facts) GetWaterIrrigations() int64 {
 	return 0
 }
 
-type Address struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Country       string                 `protobuf:"bytes,2,opt,name=country,proto3" json:"country,omitempty"`
-	State         string                 `protobuf:"bytes,3,opt,name=state,proto3" json:"state,omitempty"`
-	City          string                 `protobuf:"bytes,4,opt,name=city,proto3" json:"city,omitempty"`
-	Community     string                 `protobuf:"bytes,5,opt,name=community,proto3" json:"community,omitempty"`
-	Subcommunity  string                 `protobuf:"bytes,6,opt,name=subcommunity,proto3" json:"subcommunity,omitempty"`
-	Lat           string                 `protobuf:"bytes,7,opt,name=lat,proto3" json:"lat,omitempty"`
-	Lng           string                 `protobuf:"bytes,8,opt,name=lng,proto3" json:"lng,omitempty"`
-	FullAddress   string                 `protobuf:"bytes,9,opt,name=full_address,json=fullAddress,proto3" json:"full_address,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Address) Reset() {
-	*x = Address{}
-	mi := &file_property_nd_unit_response_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Address) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Address) ProtoMessage() {}
-
-func (x *Address) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_response_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Address.ProtoReflect.Descriptor instead.
-func (*Address) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *Address) GetId() int64 {
-	if x != nil {
-		return x.Id
-	}
-	return 0
-}
-
-func (x *Address) GetCountry() string {
-	if x != nil {
-		return x.Country
-	}
-	return ""
-}
-
-func (x *Address) GetState() string {
-	if x != nil {
-		return x.State
-	}
-	return ""
-}
-
-func (x *Address) GetCity() string {
-	if x != nil {
-		return x.City
-	}
-	return ""
-}
-
-func (x *Address) GetCommunity() string {
-	if x != nil {
-		return x.Community
-	}
-	return ""
-}
-
-func (x *Address) GetSubcommunity() string {
-	if x != nil {
-		return x.Subcommunity
-	}
-	return ""
-}
-
-func (x *Address) GetLat() string {
-	if x != nil {
-		return x.Lat
-	}
-	return ""
-}
-
-func (x *Address) GetLng() string {
-	if x != nil {
-		return x.Lng
-	}
-	return ""
-}
-
-func (x *Address) GetFullAddress() string {
-	if x != nil {
-		return x.FullAddress
-	}
-	return ""
-}
-
 type AgentDetails struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
@@ -857,7 +749,7 @@ type AgentDetails struct {
 
 func (x *AgentDetails) Reset() {
 	*x = AgentDetails{}
-	mi := &file_property_nd_unit_response_proto_msgTypes[4]
+	mi := &file_property_nd_unit_response_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -869,7 +761,7 @@ func (x *AgentDetails) String() string {
 func (*AgentDetails) ProtoMessage() {}
 
 func (x *AgentDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_response_proto_msgTypes[4]
+	mi := &file_property_nd_unit_response_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -882,7 +774,7 @@ func (x *AgentDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AgentDetails.ProtoReflect.Descriptor instead.
 func (*AgentDetails) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{4}
+	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *AgentDetails) GetName() string {
@@ -910,9 +802,9 @@ var File_property_nd_unit_response_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_response_proto_rawDesc = "" +
 	"\n" +
-	"\x1fproperty_nd_unit/response.proto\x12\x19property_nd_unit.response\x1a\x1fgoogle/protobuf/timestamp.proto\"1\n" +
+	"\x1fproperty_nd_unit/response.proto\x12\x19property_nd_unit.response\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1eproperty_nd_unit/address.proto\"1\n" +
 	"\x1dCreatePropertyAndUnitResponse\x12\x10\n" +
-	"\x03msg\x18\x01 \x01(\tR\x03msg\"\xec\x05\n" +
+	"\x03msg\x18\x01 \x01(\tR\x03msg\"\xeb\x05\n" +
 	"\x1aGetPropertyAndUnitResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x15\n" +
 	"\x06ref_no\x18\x02 \x01(\tR\x05refNo\x12\x12\n" +
@@ -935,8 +827,8 @@ const file_property_nd_unit_response_proto_rawDesc = "" +
 	"\x05notes\x18\x10 \x01(\tR\x05notes\x12\x1d\n" +
 	"\n" +
 	"life_style\x18\x11 \x01(\tR\tlifeStyle\x12\x14\n" +
-	"\x05price\x18\x12 \x01(\x01R\x05price\x12<\n" +
-	"\aaddress\x18\x13 \x01(\v2\".property_nd_unit.response.AddressR\aaddress\x12!\n" +
+	"\x05price\x18\x12 \x01(\x01R\x05price\x12;\n" +
+	"\aaddress\x18\x13 \x01(\v2!.property_nd_unit.address.AddressR\aaddress\x12!\n" +
 	"\flisting_type\x18\x14 \x01(\tR\vlistingType\x12.\n" +
 	"\x13is_project_property\x18\x15 \x01(\bR\x11isProjectProperty\"\xc3\x10\n" +
 	"\x05Facts\x12\x18\n" +
@@ -1004,17 +896,7 @@ const file_property_nd_unit_response_proto_rawDesc = "" +
 	"\fmax_bedrooms\x183 \x01(\tR\vmaxBedrooms\x12\x14\n" +
 	"\x05rooms\x184 \x01(\x03R\x05rooms\x12\x14\n" +
 	"\x05trees\x185 \x01(\x03R\x05trees\x12+\n" +
-	"\x11water_irrigations\x186 \x01(\x03R\x10waterIrrigations\"\xe6\x01\n" +
-	"\aAddress\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x18\n" +
-	"\acountry\x18\x02 \x01(\tR\acountry\x12\x14\n" +
-	"\x05state\x18\x03 \x01(\tR\x05state\x12\x12\n" +
-	"\x04city\x18\x04 \x01(\tR\x04city\x12\x1c\n" +
-	"\tcommunity\x18\x05 \x01(\tR\tcommunity\x12\"\n" +
-	"\fsubcommunity\x18\x06 \x01(\tR\fsubcommunity\x12\x10\n" +
-	"\x03lat\x18\a \x01(\tR\x03lat\x12\x10\n" +
-	"\x03lng\x18\b \x01(\tR\x03lng\x12!\n" +
-	"\ffull_address\x18\t \x01(\tR\vfullAddress\"P\n" +
+	"\x11water_irrigations\x186 \x01(\x03R\x10waterIrrigations\"P\n" +
 	"\fAgentDetails\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x16\n" +
@@ -1032,30 +914,30 @@ func file_property_nd_unit_response_proto_rawDescGZIP() []byte {
 	return file_property_nd_unit_response_proto_rawDescData
 }
 
-var file_property_nd_unit_response_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_property_nd_unit_response_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_property_nd_unit_response_proto_goTypes = []any{
 	(*CreatePropertyAndUnitResponse)(nil), // 0: property_nd_unit.response.CreatePropertyAndUnitResponse
 	(*GetPropertyAndUnitResponse)(nil),    // 1: property_nd_unit.response.GetPropertyAndUnitResponse
 	(*Facts)(nil),                         // 2: property_nd_unit.response.Facts
-	(*Address)(nil),                       // 3: property_nd_unit.response.Address
-	(*AgentDetails)(nil),                  // 4: property_nd_unit.response.AgentDetails
-	(*timestamppb.Timestamp)(nil),         // 5: google.protobuf.Timestamp
+	(*AgentDetails)(nil),                  // 3: property_nd_unit.response.AgentDetails
+	(*timestamppb.Timestamp)(nil),         // 4: google.protobuf.Timestamp
+	(*Address)(nil),                       // 5: property_nd_unit.address.Address
 }
 var file_property_nd_unit_response_proto_depIdxs = []int32{
-	4,  // 0: property_nd_unit.response.GetPropertyAndUnitResponse.agent:type_name -> property_nd_unit.response.AgentDetails
+	3,  // 0: property_nd_unit.response.GetPropertyAndUnitResponse.agent:type_name -> property_nd_unit.response.AgentDetails
 	2,  // 1: property_nd_unit.response.GetPropertyAndUnitResponse.facts:type_name -> property_nd_unit.response.Facts
-	5,  // 2: property_nd_unit.response.GetPropertyAndUnitResponse.refreshed_at:type_name -> google.protobuf.Timestamp
-	3,  // 3: property_nd_unit.response.GetPropertyAndUnitResponse.address:type_name -> property_nd_unit.response.Address
-	5,  // 4: property_nd_unit.response.Facts.start_date:type_name -> google.protobuf.Timestamp
-	5,  // 5: property_nd_unit.response.Facts.completion_date:type_name -> google.protobuf.Timestamp
-	5,  // 6: property_nd_unit.response.Facts.handover_date:type_name -> google.protobuf.Timestamp
-	5,  // 7: property_nd_unit.response.Facts.completion_percentage_date:type_name -> google.protobuf.Timestamp
-	5,  // 8: property_nd_unit.response.Facts.roi_start_date:type_name -> google.protobuf.Timestamp
-	5,  // 9: property_nd_unit.response.Facts.roi_end_date:type_name -> google.protobuf.Timestamp
-	5,  // 10: property_nd_unit.response.Facts.exclusive_state_date:type_name -> google.protobuf.Timestamp
-	5,  // 11: property_nd_unit.response.Facts.exclusive_end_date:type_name -> google.protobuf.Timestamp
-	5,  // 12: property_nd_unit.response.Facts.book_now_start_date:type_name -> google.protobuf.Timestamp
-	5,  // 13: property_nd_unit.response.Facts.book_now_end_date:type_name -> google.protobuf.Timestamp
+	4,  // 2: property_nd_unit.response.GetPropertyAndUnitResponse.refreshed_at:type_name -> google.protobuf.Timestamp
+	5,  // 3: property_nd_unit.response.GetPropertyAndUnitResponse.address:type_name -> property_nd_unit.address.Address
+	4,  // 4: property_nd_unit.response.Facts.start_date:type_name -> google.protobuf.Timestamp
+	4,  // 5: property_nd_unit.response.Facts.completion_date:type_name -> google.protobuf.Timestamp
+	4,  // 6: property_nd_unit.response.Facts.handover_date:type_name -> google.protobuf.Timestamp
+	4,  // 7: property_nd_unit.response.Facts.completion_percentage_date:type_name -> google.protobuf.Timestamp
+	4,  // 8: property_nd_unit.response.Facts.roi_start_date:type_name -> google.protobuf.Timestamp
+	4,  // 9: property_nd_unit.response.Facts.roi_end_date:type_name -> google.protobuf.Timestamp
+	4,  // 10: property_nd_unit.response.Facts.exclusive_state_date:type_name -> google.protobuf.Timestamp
+	4,  // 11: property_nd_unit.response.Facts.exclusive_end_date:type_name -> google.protobuf.Timestamp
+	4,  // 12: property_nd_unit.response.Facts.book_now_start_date:type_name -> google.protobuf.Timestamp
+	4,  // 13: property_nd_unit.response.Facts.book_now_end_date:type_name -> google.protobuf.Timestamp
 	14, // [14:14] is the sub-list for method output_type
 	14, // [14:14] is the sub-list for method input_type
 	14, // [14:14] is the sub-list for extension type_name
@@ -1068,13 +950,14 @@ func file_property_nd_unit_response_proto_init() {
 	if File_property_nd_unit_response_proto != nil {
 		return
 	}
+	file_property_nd_unit_address_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_property_nd_unit_response_proto_rawDesc), len(file_property_nd_unit_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

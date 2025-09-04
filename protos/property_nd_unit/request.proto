@@ -5,17 +5,7 @@ package property_nd_unit.request;
 option go_package = "/property_nd_unitpb;property_nd_unitpb";
 
 import "google/protobuf/timestamp.proto";
-
-
-message Address {
-  string country = 1;
-  string state = 2;
-  string city = 3;
-  string community = 4;
-  string subcommunity = 5;
-  string lat = 6;
-  string lng = 7;
-}
+import "property_nd_unit/address.proto";
 
 message FacilityAmenity {
   string title = 1;
@@ -30,7 +20,7 @@ message Agent {
   string phone = 4;
   string photo = 5;
 }
-message FloorPlans {
+message Plans {
   string title = 1;
   string url = 2;
 }
@@ -45,14 +35,14 @@ message CreatePropertyAndUnitRequest {
   string project_name = 8;
   string phase_name = 9;
   string status = 10;
-  Address address = 11;
+  address.Address address = 11;
   string location_url = 12;
-  FacilityAmenity facility_amenity = 13;
+  repeated FacilityAmenity facility_amenity = 13;
   repeated string views = 14;
   Agent agent = 15;
   repeated string photos = 16;
-  repeated string floor_plan = 17;
-  repeated string plans = 18;
+  repeated Plans unit_variations = 17;
+  repeated Plans plans = 18;
   repeated string unit_types = 19;
   string property_type = 20;
   int64 noofunits = 21;
