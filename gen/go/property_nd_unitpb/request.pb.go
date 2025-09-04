@@ -210,6 +210,68 @@ func (x *Plans) GetUrl() string {
 	return ""
 }
 
+type UserDetail struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Deprecated: Marked as deprecated in property_nd_unit/request.proto.
+	Email         string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	CompanyId     int64  `protobuf:"varint,2,opt,name=company_id,json=companyId,proto3" json:"company_id,omitempty"`
+	UserId        int64  `protobuf:"varint,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UserDetail) Reset() {
+	*x = UserDetail{}
+	mi := &file_property_nd_unit_request_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserDetail) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserDetail) ProtoMessage() {}
+
+func (x *UserDetail) ProtoReflect() protoreflect.Message {
+	mi := &file_property_nd_unit_request_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserDetail.ProtoReflect.Descriptor instead.
+func (*UserDetail) Descriptor() ([]byte, []int) {
+	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{3}
+}
+
+// Deprecated: Marked as deprecated in property_nd_unit/request.proto.
+func (x *UserDetail) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *UserDetail) GetCompanyId() int64 {
+	if x != nil {
+		return x.CompanyId
+	}
+	return 0
+}
+
+func (x *UserDetail) GetUserId() int64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
 type CreatePropertyAndUnitRequest struct {
 	state             protoimpl.MessageState `protogen:"open.v1"`
 	IsProperty        bool                   `protobuf:"varint,1,opt,name=is_property,json=isProperty,proto3" json:"is_property,omitempty"`
@@ -264,13 +326,14 @@ type CreatePropertyAndUnitRequest struct {
 	Parking           int64                  `protobuf:"varint,50,opt,name=parking,proto3" json:"parking,omitempty"`
 	PlanType          string                 `protobuf:"bytes,51,opt,name=plan_type,json=planType,proto3" json:"plan_type,omitempty"`
 	IsProjectProperty bool                   `protobuf:"varint,52,opt,name=is_project_property,json=isProjectProperty,proto3" json:"is_project_property,omitempty"`
+	UserDetail        *UserDetail            `protobuf:"bytes,53,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
 
 func (x *CreatePropertyAndUnitRequest) Reset() {
 	*x = CreatePropertyAndUnitRequest{}
-	mi := &file_property_nd_unit_request_proto_msgTypes[3]
+	mi := &file_property_nd_unit_request_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -282,7 +345,7 @@ func (x *CreatePropertyAndUnitRequest) String() string {
 func (*CreatePropertyAndUnitRequest) ProtoMessage() {}
 
 func (x *CreatePropertyAndUnitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_request_proto_msgTypes[3]
+	mi := &file_property_nd_unit_request_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -295,7 +358,7 @@ func (x *CreatePropertyAndUnitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreatePropertyAndUnitRequest.ProtoReflect.Descriptor instead.
 func (*CreatePropertyAndUnitRequest) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{3}
+	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *CreatePropertyAndUnitRequest) GetIsProperty() bool {
@@ -662,6 +725,13 @@ func (x *CreatePropertyAndUnitRequest) GetIsProjectProperty() bool {
 	return false
 }
 
+func (x *CreatePropertyAndUnitRequest) GetUserDetail() *UserDetail {
+	if x != nil {
+		return x.UserDetail
+	}
+	return nil
+}
+
 type GetAllPropertyAndUnitRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	CompanyId     int64                  `protobuf:"varint,1,opt,name=company_id,json=companyId,proto3" json:"company_id,omitempty"`
@@ -674,7 +744,7 @@ type GetAllPropertyAndUnitRequest struct {
 
 func (x *GetAllPropertyAndUnitRequest) Reset() {
 	*x = GetAllPropertyAndUnitRequest{}
-	mi := &file_property_nd_unit_request_proto_msgTypes[4]
+	mi := &file_property_nd_unit_request_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -686,7 +756,7 @@ func (x *GetAllPropertyAndUnitRequest) String() string {
 func (*GetAllPropertyAndUnitRequest) ProtoMessage() {}
 
 func (x *GetAllPropertyAndUnitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_request_proto_msgTypes[4]
+	mi := &file_property_nd_unit_request_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -699,7 +769,7 @@ func (x *GetAllPropertyAndUnitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllPropertyAndUnitRequest.ProtoReflect.Descriptor instead.
 func (*GetAllPropertyAndUnitRequest) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{4}
+	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetAllPropertyAndUnitRequest) GetCompanyId() int64 {
@@ -747,7 +817,13 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x05photo\x18\x05 \x01(\tR\x05photo\"/\n" +
 	"\x05Plans\x12\x14\n" +
 	"\x05title\x18\x01 \x01(\tR\x05title\x12\x10\n" +
-	"\x03url\x18\x02 \x01(\tR\x03url\"\x87\x0f\n" +
+	"\x03url\x18\x02 \x01(\tR\x03url\"^\n" +
+	"\n" +
+	"UserDetail\x12\x18\n" +
+	"\x05email\x18\x01 \x01(\tB\x02\x18\x01R\x05email\x12\x1d\n" +
+	"\n" +
+	"company_id\x18\x02 \x01(\x03R\tcompanyId\x12\x17\n" +
+	"\auser_id\x18\x03 \x01(\x03R\x06userId\"\xce\x0f\n" +
 	"\x1cCreatePropertyAndUnitRequest\x12\x1f\n" +
 	"\vis_property\x18\x01 \x01(\bR\n" +
 	"isProperty\x12\x15\n" +
@@ -804,7 +880,9 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\task_price\x181 \x01(\bR\baskPrice\x12\x18\n" +
 	"\aparking\x182 \x01(\x03R\aparking\x12\x1b\n" +
 	"\tplan_type\x183 \x01(\tR\bplanType\x12.\n" +
-	"\x13is_project_property\x184 \x01(\bR\x11isProjectProperty\"\x8c\x01\n" +
+	"\x13is_project_property\x184 \x01(\bR\x11isProjectProperty\x12E\n" +
+	"\vuser_detail\x185 \x01(\v2$.property_nd_unit.request.UserDetailR\n" +
+	"userDetail\"\x8c\x01\n" +
 	"\x1cGetAllPropertyAndUnitRequest\x12\x1d\n" +
 	"\n" +
 	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
@@ -824,29 +902,31 @@ func file_property_nd_unit_request_proto_rawDescGZIP() []byte {
 	return file_property_nd_unit_request_proto_rawDescData
 }
 
-var file_property_nd_unit_request_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_property_nd_unit_request_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_property_nd_unit_request_proto_goTypes = []any{
 	(*FacilityAmenity)(nil),              // 0: property_nd_unit.request.FacilityAmenity
 	(*Agent)(nil),                        // 1: property_nd_unit.request.Agent
 	(*Plans)(nil),                        // 2: property_nd_unit.request.Plans
-	(*CreatePropertyAndUnitRequest)(nil), // 3: property_nd_unit.request.CreatePropertyAndUnitRequest
-	(*GetAllPropertyAndUnitRequest)(nil), // 4: property_nd_unit.request.GetAllPropertyAndUnitRequest
-	(*Address)(nil),                      // 5: property_nd_unit.address.Address
-	(*timestamppb.Timestamp)(nil),        // 6: google.protobuf.Timestamp
+	(*UserDetail)(nil),                   // 3: property_nd_unit.request.UserDetail
+	(*CreatePropertyAndUnitRequest)(nil), // 4: property_nd_unit.request.CreatePropertyAndUnitRequest
+	(*GetAllPropertyAndUnitRequest)(nil), // 5: property_nd_unit.request.GetAllPropertyAndUnitRequest
+	(*Address)(nil),                      // 6: property_nd_unit.address.Address
+	(*timestamppb.Timestamp)(nil),        // 7: google.protobuf.Timestamp
 }
 var file_property_nd_unit_request_proto_depIdxs = []int32{
-	5, // 0: property_nd_unit.request.CreatePropertyAndUnitRequest.address:type_name -> property_nd_unit.address.Address
+	6, // 0: property_nd_unit.request.CreatePropertyAndUnitRequest.address:type_name -> property_nd_unit.address.Address
 	0, // 1: property_nd_unit.request.CreatePropertyAndUnitRequest.facility_amenity:type_name -> property_nd_unit.request.FacilityAmenity
 	1, // 2: property_nd_unit.request.CreatePropertyAndUnitRequest.agent:type_name -> property_nd_unit.request.Agent
 	2, // 3: property_nd_unit.request.CreatePropertyAndUnitRequest.unit_variations:type_name -> property_nd_unit.request.Plans
 	2, // 4: property_nd_unit.request.CreatePropertyAndUnitRequest.plans:type_name -> property_nd_unit.request.Plans
-	6, // 5: property_nd_unit.request.CreatePropertyAndUnitRequest.handover_date:type_name -> google.protobuf.Timestamp
-	6, // 6: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_date:type_name -> google.protobuf.Timestamp
-	7, // [7:7] is the sub-list for method output_type
-	7, // [7:7] is the sub-list for method input_type
-	7, // [7:7] is the sub-list for extension type_name
-	7, // [7:7] is the sub-list for extension extendee
-	0, // [0:7] is the sub-list for field type_name
+	7, // 5: property_nd_unit.request.CreatePropertyAndUnitRequest.handover_date:type_name -> google.protobuf.Timestamp
+	7, // 6: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_date:type_name -> google.protobuf.Timestamp
+	3, // 7: property_nd_unit.request.CreatePropertyAndUnitRequest.user_detail:type_name -> property_nd_unit.request.UserDetail
+	8, // [8:8] is the sub-list for method output_type
+	8, // [8:8] is the sub-list for method input_type
+	8, // [8:8] is the sub-list for extension type_name
+	8, // [8:8] is the sub-list for extension extendee
+	0, // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_property_nd_unit_request_proto_init() }
@@ -861,7 +941,7 @@ func file_property_nd_unit_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_property_nd_unit_request_proto_rawDesc), len(file_property_nd_unit_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

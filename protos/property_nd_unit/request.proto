@@ -24,6 +24,13 @@ message Plans {
   string title = 1;
   string url = 2;
 }
+
+message UserDetail {
+  string email = 1 [deprecated = true];
+  int64 company_id = 2;
+  int64 user_id = 3;
+}
+
 message CreatePropertyAndUnitRequest {
   bool is_property = 1;
   string ref_no = 2;
@@ -77,6 +84,8 @@ message CreatePropertyAndUnitRequest {
   int64 parking = 50;
   string plan_type = 51;
   bool is_project_property = 52;
+  UserDetail user_detail = 53;
+
 }
 
 message GetAllPropertyAndUnitRequest {
