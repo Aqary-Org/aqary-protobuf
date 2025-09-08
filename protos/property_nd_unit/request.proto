@@ -99,8 +99,8 @@ message CreatePropertyAndUnitRequest {
   string max_bedrooms = 65;
   int64 completion_percentage = 66;
   google.protobuf.Timestamp completion_percentage_date = 67;
-  int64 commercial_tax = 68;
-  int64 municipality_tax = 69;
+  float commercial_tax = 68;
+  float municipality_tax = 69;
   int64 sector_no = 70;
   int64 plot_no = 71;
   int64 property_no = 72;
