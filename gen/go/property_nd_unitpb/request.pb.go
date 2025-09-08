@@ -339,7 +339,7 @@ type CreatePropertyAndUnitRequest struct {
 	StartingPrice            int64                  `protobuf:"varint,63,opt,name=starting_price,json=startingPrice,proto3" json:"starting_price,omitempty"`
 	MinBedrooms              string                 `protobuf:"bytes,64,opt,name=min_bedrooms,json=minBedrooms,proto3" json:"min_bedrooms,omitempty"`
 	MaxBedrooms              string                 `protobuf:"bytes,65,opt,name=max_bedrooms,json=maxBedrooms,proto3" json:"max_bedrooms,omitempty"`
-	CompletionPercentage     int64                  `protobuf:"varint,66,opt,name=completion_percentage,json=completionPercentage,proto3" json:"completion_percentage,omitempty"`
+	CompletionPercentage     float32                `protobuf:"fixed32,66,opt,name=completion_percentage,json=completionPercentage,proto3" json:"completion_percentage,omitempty"`
 	CompletionPercentageDate *timestamppb.Timestamp `protobuf:"bytes,67,opt,name=completion_percentage_date,json=completionPercentageDate,proto3" json:"completion_percentage_date,omitempty"`
 	CommercialTax            float32                `protobuf:"fixed32,68,opt,name=commercial_tax,json=commercialTax,proto3" json:"commercial_tax,omitempty"`
 	MunicipalityTax          float32                `protobuf:"fixed32,69,opt,name=municipality_tax,json=municipalityTax,proto3" json:"municipality_tax,omitempty"`
@@ -350,14 +350,17 @@ type CreatePropertyAndUnitRequest struct {
 	IsRoi                    bool                   `protobuf:"varint,74,opt,name=is_roi,json=isRoi,proto3" json:"is_roi,omitempty"`
 	RoiStartDate             *timestamppb.Timestamp `protobuf:"bytes,75,opt,name=roi_start_date,json=roiStartDate,proto3" json:"roi_start_date,omitempty"`
 	RoiEndDate               *timestamppb.Timestamp `protobuf:"bytes,76,opt,name=roi_end_date,json=roiEndDate,proto3" json:"roi_end_date,omitempty"`
-	Amount                   int64                  `protobuf:"varint,77,opt,name=amount,proto3" json:"amount,omitempty"`
-	ContractAmount           int64                  `protobuf:"varint,78,opt,name=contract_amount,json=contractAmount,proto3" json:"contract_amount,omitempty"`
+	Amount                   float32                `protobuf:"fixed32,77,opt,name=amount,proto3" json:"amount,omitempty"`
+	ContractAmount           float32                `protobuf:"fixed32,78,opt,name=contract_amount,json=contractAmount,proto3" json:"contract_amount,omitempty"`
 	IsExclusive              bool                   `protobuf:"varint,79,opt,name=is_exclusive,json=isExclusive,proto3" json:"is_exclusive,omitempty"`
 	ExclusiveStartDate       *timestamppb.Timestamp `protobuf:"bytes,80,opt,name=exclusive_start_date,json=exclusiveStartDate,proto3" json:"exclusive_start_date,omitempty"`
 	ExclusiveEndDate         *timestamppb.Timestamp `protobuf:"bytes,81,opt,name=exclusive_end_date,json=exclusiveEndDate,proto3" json:"exclusive_end_date,omitempty"`
 	Rooms                    int64                  `protobuf:"varint,82,opt,name=rooms,proto3" json:"rooms,omitempty"`
 	Trees                    int64                  `protobuf:"varint,83,opt,name=trees,proto3" json:"trees,omitempty"`
 	WaterIrrigation          int64                  `protobuf:"varint,84,opt,name=water_irrigation,json=waterIrrigation,proto3" json:"water_irrigation,omitempty"`
+	ContractStartDate        *timestamppb.Timestamp `protobuf:"bytes,85,opt,name=contract_start_date,json=contractStartDate,proto3" json:"contract_start_date,omitempty"`
+	ContractEndDate          *timestamppb.Timestamp `protobuf:"bytes,86,opt,name=contract_end_date,json=contractEndDate,proto3" json:"contract_end_date,omitempty"`
+	UnitType                 string                 `protobuf:"bytes,87,opt,name=unit_type,json=unitType,proto3" json:"unit_type,omitempty"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -847,7 +850,7 @@ func (x *CreatePropertyAndUnitRequest) GetMaxBedrooms() string {
 	return ""
 }
 
-func (x *CreatePropertyAndUnitRequest) GetCompletionPercentage() int64 {
+func (x *CreatePropertyAndUnitRequest) GetCompletionPercentage() float32 {
 	if x != nil {
 		return x.CompletionPercentage
 	}
@@ -924,14 +927,14 @@ func (x *CreatePropertyAndUnitRequest) GetRoiEndDate() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *CreatePropertyAndUnitRequest) GetAmount() int64 {
+func (x *CreatePropertyAndUnitRequest) GetAmount() float32 {
 	if x != nil {
 		return x.Amount
 	}
 	return 0
 }
 
-func (x *CreatePropertyAndUnitRequest) GetContractAmount() int64 {
+func (x *CreatePropertyAndUnitRequest) GetContractAmount() float32 {
 	if x != nil {
 		return x.ContractAmount
 	}
@@ -978,6 +981,27 @@ func (x *CreatePropertyAndUnitRequest) GetWaterIrrigation() int64 {
 		return x.WaterIrrigation
 	}
 	return 0
+}
+
+func (x *CreatePropertyAndUnitRequest) GetContractStartDate() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ContractStartDate
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequest) GetContractEndDate() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ContractEndDate
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequest) GetUnitType() string {
+	if x != nil {
+		return x.UnitType
+	}
+	return ""
 }
 
 type GetAllPropertyAndUnitRequest struct {
@@ -1071,7 +1095,7 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x05email\x18\x01 \x01(\tB\x02\x18\x01R\x05email\x12\x1d\n" +
 	"\n" +
 	"company_id\x18\x02 \x01(\x03R\tcompanyId\x12\x17\n" +
-	"\auser_id\x18\x03 \x01(\x03R\x06userId\"\x81\x19\n" +
+	"\auser_id\x18\x03 \x01(\x03R\x06userId\"\xb2\x1a\n" +
 	"\x1cCreatePropertyAndUnitRequest\x12\x1f\n" +
 	"\vis_property\x18\x01 \x01(\bR\n" +
 	"isProperty\x12\x15\n" +
@@ -1146,7 +1170,7 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x0estarting_price\x18? \x01(\x03R\rstartingPrice\x12!\n" +
 	"\fmin_bedrooms\x18@ \x01(\tR\vminBedrooms\x12!\n" +
 	"\fmax_bedrooms\x18A \x01(\tR\vmaxBedrooms\x123\n" +
-	"\x15completion_percentage\x18B \x01(\x03R\x14completionPercentage\x12X\n" +
+	"\x15completion_percentage\x18B \x01(\x02R\x14completionPercentage\x12X\n" +
 	"\x1acompletion_percentage_date\x18C \x01(\v2\x1a.google.protobuf.TimestampR\x18completionPercentageDate\x12%\n" +
 	"\x0ecommercial_tax\x18D \x01(\x02R\rcommercialTax\x12)\n" +
 	"\x10municipality_tax\x18E \x01(\x02R\x0fmunicipalityTax\x12\x1b\n" +
@@ -1159,14 +1183,17 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x0eroi_start_date\x18K \x01(\v2\x1a.google.protobuf.TimestampR\froiStartDate\x12<\n" +
 	"\froi_end_date\x18L \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"roiEndDate\x12\x16\n" +
-	"\x06amount\x18M \x01(\x03R\x06amount\x12'\n" +
-	"\x0fcontract_amount\x18N \x01(\x03R\x0econtractAmount\x12!\n" +
+	"\x06amount\x18M \x01(\x02R\x06amount\x12'\n" +
+	"\x0fcontract_amount\x18N \x01(\x02R\x0econtractAmount\x12!\n" +
 	"\fis_exclusive\x18O \x01(\bR\visExclusive\x12L\n" +
 	"\x14exclusive_start_date\x18P \x01(\v2\x1a.google.protobuf.TimestampR\x12exclusiveStartDate\x12H\n" +
 	"\x12exclusive_end_date\x18Q \x01(\v2\x1a.google.protobuf.TimestampR\x10exclusiveEndDate\x12\x14\n" +
 	"\x05rooms\x18R \x01(\x03R\x05rooms\x12\x14\n" +
 	"\x05trees\x18S \x01(\x03R\x05trees\x12)\n" +
-	"\x10water_irrigation\x18T \x01(\x03R\x0fwaterIrrigation\"\x8c\x01\n" +
+	"\x10water_irrigation\x18T \x01(\x03R\x0fwaterIrrigation\x12J\n" +
+	"\x13contract_start_date\x18U \x01(\v2\x1a.google.protobuf.TimestampR\x11contractStartDate\x12F\n" +
+	"\x11contract_end_date\x18V \x01(\v2\x1a.google.protobuf.TimestampR\x0fcontractEndDate\x12\x1b\n" +
+	"\tunit_type\x18W \x01(\tR\bunitType\"\x8c\x01\n" +
 	"\x1cGetAllPropertyAndUnitRequest\x12\x1d\n" +
 	"\n" +
 	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
@@ -1210,11 +1237,13 @@ var file_property_nd_unit_request_proto_depIdxs = []int32{
 	7,  // 9: property_nd_unit.request.CreatePropertyAndUnitRequest.roi_end_date:type_name -> google.protobuf.Timestamp
 	7,  // 10: property_nd_unit.request.CreatePropertyAndUnitRequest.exclusive_start_date:type_name -> google.protobuf.Timestamp
 	7,  // 11: property_nd_unit.request.CreatePropertyAndUnitRequest.exclusive_end_date:type_name -> google.protobuf.Timestamp
-	12, // [12:12] is the sub-list for method output_type
-	12, // [12:12] is the sub-list for method input_type
-	12, // [12:12] is the sub-list for extension type_name
-	12, // [12:12] is the sub-list for extension extendee
-	0,  // [0:12] is the sub-list for field type_name
+	7,  // 12: property_nd_unit.request.CreatePropertyAndUnitRequest.contract_start_date:type_name -> google.protobuf.Timestamp
+	7,  // 13: property_nd_unit.request.CreatePropertyAndUnitRequest.contract_end_date:type_name -> google.protobuf.Timestamp
+	14, // [14:14] is the sub-list for method output_type
+	14, // [14:14] is the sub-list for method input_type
+	14, // [14:14] is the sub-list for extension type_name
+	14, // [14:14] is the sub-list for extension extendee
+	0,  // [0:14] is the sub-list for field type_name
 }
 
 func init() { file_property_nd_unit_request_proto_init() }

@@ -97,7 +97,7 @@ message CreatePropertyAndUnitRequest {
   int64 starting_price = 63;
   string min_bedrooms = 64;
   string max_bedrooms = 65;
-  int64 completion_percentage = 66;
+  float completion_percentage = 66;
   google.protobuf.Timestamp completion_percentage_date = 67;
   float commercial_tax = 68;
   float municipality_tax = 69;
@@ -108,14 +108,17 @@ message CreatePropertyAndUnitRequest {
   bool is_roi = 74;
   google.protobuf.Timestamp roi_start_date = 75;
   google.protobuf.Timestamp roi_end_date = 76;
-  int64 amount = 77;
-  int64 contract_amount = 78;
+  float amount = 77;
+  float contract_amount = 78;
   bool is_exclusive = 79;
   google.protobuf.Timestamp exclusive_start_date = 80;
   google.protobuf.Timestamp exclusive_end_date = 81;
   int64 rooms = 82;
   int64 trees = 83;
   int64 water_irrigation = 84;
+  google.protobuf.Timestamp contract_start_date = 85;
+  google.protobuf.Timestamp contract_end_date = 86;
+  string unit_type = 87;
 
 }
 
