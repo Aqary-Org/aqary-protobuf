@@ -341,8 +341,8 @@ type CreatePropertyAndUnitRequest struct {
 	MaxBedrooms              string                 `protobuf:"bytes,65,opt,name=max_bedrooms,json=maxBedrooms,proto3" json:"max_bedrooms,omitempty"`
 	CompletionPercentage     int64                  `protobuf:"varint,66,opt,name=completion_percentage,json=completionPercentage,proto3" json:"completion_percentage,omitempty"`
 	CompletionPercentageDate *timestamppb.Timestamp `protobuf:"bytes,67,opt,name=completion_percentage_date,json=completionPercentageDate,proto3" json:"completion_percentage_date,omitempty"`
-	CommercialTax            int64                  `protobuf:"varint,68,opt,name=commercial_tax,json=commercialTax,proto3" json:"commercial_tax,omitempty"`
-	MunicipalityTax          int64                  `protobuf:"varint,69,opt,name=municipality_tax,json=municipalityTax,proto3" json:"municipality_tax,omitempty"`
+	CommercialTax            float32                `protobuf:"fixed32,68,opt,name=commercial_tax,json=commercialTax,proto3" json:"commercial_tax,omitempty"`
+	MunicipalityTax          float32                `protobuf:"fixed32,69,opt,name=municipality_tax,json=municipalityTax,proto3" json:"municipality_tax,omitempty"`
 	SectorNo                 int64                  `protobuf:"varint,70,opt,name=sector_no,json=sectorNo,proto3" json:"sector_no,omitempty"`
 	PlotNo                   int64                  `protobuf:"varint,71,opt,name=plot_no,json=plotNo,proto3" json:"plot_no,omitempty"`
 	PropertyNo               int64                  `protobuf:"varint,72,opt,name=property_no,json=propertyNo,proto3" json:"property_no,omitempty"`
@@ -861,14 +861,14 @@ func (x *CreatePropertyAndUnitRequest) GetCompletionPercentageDate() *timestampp
 	return nil
 }
 
-func (x *CreatePropertyAndUnitRequest) GetCommercialTax() int64 {
+func (x *CreatePropertyAndUnitRequest) GetCommercialTax() float32 {
 	if x != nil {
 		return x.CommercialTax
 	}
 	return 0
 }
 
-func (x *CreatePropertyAndUnitRequest) GetMunicipalityTax() int64 {
+func (x *CreatePropertyAndUnitRequest) GetMunicipalityTax() float32 {
 	if x != nil {
 		return x.MunicipalityTax
 	}
@@ -1148,8 +1148,8 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\fmax_bedrooms\x18A \x01(\tR\vmaxBedrooms\x123\n" +
 	"\x15completion_percentage\x18B \x01(\x03R\x14completionPercentage\x12X\n" +
 	"\x1acompletion_percentage_date\x18C \x01(\v2\x1a.google.protobuf.TimestampR\x18completionPercentageDate\x12%\n" +
-	"\x0ecommercial_tax\x18D \x01(\x03R\rcommercialTax\x12)\n" +
-	"\x10municipality_tax\x18E \x01(\x03R\x0fmunicipalityTax\x12\x1b\n" +
+	"\x0ecommercial_tax\x18D \x01(\x02R\rcommercialTax\x12)\n" +
+	"\x10municipality_tax\x18E \x01(\x02R\x0fmunicipalityTax\x12\x1b\n" +
 	"\tsector_no\x18F \x01(\x03R\bsectorNo\x12\x17\n" +
 	"\aplot_no\x18G \x01(\x03R\x06plotNo\x12\x1f\n" +
 	"\vproperty_no\x18H \x01(\x03R\n" +
