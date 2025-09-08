@@ -44,9 +44,9 @@ message CreatePropertyAndUnitRequest {
   string status = 10;
   address.Address address = 11;
   string location_url = 12;
-  repeated FacilityAmenity facility_amenity = 13;
+  repeated string facility = 13;
   repeated string views = 14;
-  Agent agent = 15;
+  string agent_email = 15;
   repeated string photos = 16;
   repeated Plans unit_variations = 17;
   repeated Plans plans = 18;
@@ -85,6 +85,37 @@ message CreatePropertyAndUnitRequest {
   string plan_type = 51;
   bool is_project_property = 52;
   UserDetail user_detail = 53;
+  string notes = 54;
+  string notes_ar = 55;
+  bool is_public_notes = 56;
+  google.protobuf.Timestamp permit_expiry_date = 57;
+  bool is_show_owner_info = 58;
+  string property_rank = 59;
+  bool is_verified = 60;
+  repeated string amenity = 61;
+  string owner_name = 62;
+  int64 starting_price = 63;
+  string min_bedrooms = 64;
+  string max_bedrooms = 65;
+  int64 completion_percentage = 66;
+  google.protobuf.Timestamp completion_percentage_date = 67;
+  int64 commercial_tax = 68;
+  int64 municipality_tax = 69;
+  int64 sector_no = 70;
+  int64 plot_no = 71;
+  int64 property_no = 72;
+  bool is_investment = 73;
+  bool is_roi = 74;
+  google.protobuf.Timestamp roi_start_date = 75;
+  google.protobuf.Timestamp roi_end_date = 76;
+  int64 amount = 77;
+  int64 contract_amount = 78;
+  bool is_exclusive = 79;
+  google.protobuf.Timestamp exclusive_start_date = 80;
+  google.protobuf.Timestamp exclusive_end_date = 81;
+  int64 rooms = 82;
+  int64 trees = 83;
+  int64 water_irrigation = 84;
 
 }
 
