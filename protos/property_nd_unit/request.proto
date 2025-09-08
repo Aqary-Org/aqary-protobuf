@@ -119,7 +119,8 @@ message CreatePropertyAndUnitRequest {
   google.protobuf.Timestamp contract_start_date = 85;
   google.protobuf.Timestamp contract_end_date = 86;
   string unit_type = 87;
-
+  string unit_no = 88;
+  bool unit_no_is_public = 89;
 }
 
 message GetAllPropertyAndUnitRequest {
