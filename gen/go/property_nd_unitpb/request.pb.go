@@ -361,6 +361,8 @@ type CreatePropertyAndUnitRequest struct {
 	ContractStartDate        *timestamppb.Timestamp `protobuf:"bytes,85,opt,name=contract_start_date,json=contractStartDate,proto3" json:"contract_start_date,omitempty"`
 	ContractEndDate          *timestamppb.Timestamp `protobuf:"bytes,86,opt,name=contract_end_date,json=contractEndDate,proto3" json:"contract_end_date,omitempty"`
 	UnitType                 string                 `protobuf:"bytes,87,opt,name=unit_type,json=unitType,proto3" json:"unit_type,omitempty"`
+	UnitNo                   string                 `protobuf:"bytes,88,opt,name=unit_no,json=unitNo,proto3" json:"unit_no,omitempty"`
+	UnitNoIsPublic           bool                   `protobuf:"varint,89,opt,name=unit_no_is_public,json=unitNoIsPublic,proto3" json:"unit_no_is_public,omitempty"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -1004,6 +1006,20 @@ func (x *CreatePropertyAndUnitRequest) GetUnitType() string {
 	return ""
 }
 
+func (x *CreatePropertyAndUnitRequest) GetUnitNo() string {
+	if x != nil {
+		return x.UnitNo
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequest) GetUnitNoIsPublic() bool {
+	if x != nil {
+		return x.UnitNoIsPublic
+	}
+	return false
+}
+
 type GetAllPropertyAndUnitRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	CompanyId     int64                  `protobuf:"varint,1,opt,name=company_id,json=companyId,proto3" json:"company_id,omitempty"`
@@ -1095,7 +1111,7 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x05email\x18\x01 \x01(\tB\x02\x18\x01R\x05email\x12\x1d\n" +
 	"\n" +
 	"company_id\x18\x02 \x01(\x03R\tcompanyId\x12\x17\n" +
-	"\auser_id\x18\x03 \x01(\x03R\x06userId\"\xb2\x1a\n" +
+	"\auser_id\x18\x03 \x01(\x03R\x06userId\"\xf6\x1a\n" +
 	"\x1cCreatePropertyAndUnitRequest\x12\x1f\n" +
 	"\vis_property\x18\x01 \x01(\bR\n" +
 	"isProperty\x12\x15\n" +
@@ -1193,7 +1209,9 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x10water_irrigation\x18T \x01(\x03R\x0fwaterIrrigation\x12J\n" +
 	"\x13contract_start_date\x18U \x01(\v2\x1a.google.protobuf.TimestampR\x11contractStartDate\x12F\n" +
 	"\x11contract_end_date\x18V \x01(\v2\x1a.google.protobuf.TimestampR\x0fcontractEndDate\x12\x1b\n" +
-	"\tunit_type\x18W \x01(\tR\bunitType\"\x8c\x01\n" +
+	"\tunit_type\x18W \x01(\tR\bunitType\x12\x17\n" +
+	"\aunit_no\x18X \x01(\tR\x06unitNo\x12)\n" +
+	"\x11unit_no_is_public\x18Y \x01(\bR\x0eunitNoIsPublic\"\x8c\x01\n" +
 	"\x1cGetAllPropertyAndUnitRequest\x12\x1d\n" +
 	"\n" +
 	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
