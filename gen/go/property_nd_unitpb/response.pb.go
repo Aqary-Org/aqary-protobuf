@@ -801,6 +801,7 @@ func (x *AgentDetails) GetNumber() string {
 type GetAllPropertyAndUnitResponse struct {
 	state         protoimpl.MessageState        `protogen:"open.v1"`
 	PropertyUnits []*GetPropertyAndUnitResponse `protobuf:"bytes,1,rep,name=property_units,json=propertyUnits,proto3" json:"property_units,omitempty"`
+	TotalCounts   int64                         `protobuf:"varint,2,opt,name=total_counts,json=totalCounts,proto3" json:"total_counts,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -840,6 +841,13 @@ func (x *GetAllPropertyAndUnitResponse) GetPropertyUnits() []*GetPropertyAndUnit
 		return x.PropertyUnits
 	}
 	return nil
+}
+
+func (x *GetAllPropertyAndUnitResponse) GetTotalCounts() int64 {
+	if x != nil {
+		return x.TotalCounts
+	}
+	return 0
 }
 
 var File_property_nd_unit_response_proto protoreflect.FileDescriptor
@@ -944,9 +952,10 @@ const file_property_nd_unit_response_proto_rawDesc = "" +
 	"\fAgentDetails\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x16\n" +
-	"\x06number\x18\x03 \x01(\tR\x06number\"}\n" +
+	"\x06number\x18\x03 \x01(\tR\x06number\"\xa0\x01\n" +
 	"\x1dGetAllPropertyAndUnitResponse\x12\\\n" +
-	"\x0eproperty_units\x18\x01 \x03(\v25.property_nd_unit.response.GetPropertyAndUnitResponseR\rpropertyUnitsB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
+	"\x0eproperty_units\x18\x01 \x03(\v25.property_nd_unit.response.GetPropertyAndUnitResponseR\rpropertyUnits\x12!\n" +
+	"\ftotal_counts\x18\x02 \x01(\x03R\vtotalCountsB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 
 var (
 	file_property_nd_unit_response_proto_rawDescOnce sync.Once
