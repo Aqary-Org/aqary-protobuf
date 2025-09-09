@@ -97,3 +97,7 @@ message AgentDetails {
   string email = 2;
   string number = 3;
 }
+
+message GetAllPropertyAndUnitResponse {
+  repeated response.GetPropertyAndUnitResponse property_units = 1;
+}

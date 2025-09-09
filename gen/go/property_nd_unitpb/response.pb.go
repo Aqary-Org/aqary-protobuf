@@ -798,6 +798,50 @@ func (x *AgentDetails) GetNumber() string {
 	return ""
 }
 
+type GetAllPropertyAndUnitResponse struct {
+	state         protoimpl.MessageState        `protogen:"open.v1"`
+	PropertyUnits []*GetPropertyAndUnitResponse `protobuf:"bytes,1,rep,name=property_units,json=propertyUnits,proto3" json:"property_units,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAllPropertyAndUnitResponse) Reset() {
+	*x = GetAllPropertyAndUnitResponse{}
+	mi := &file_property_nd_unit_response_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAllPropertyAndUnitResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAllPropertyAndUnitResponse) ProtoMessage() {}
+
+func (x *GetAllPropertyAndUnitResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_property_nd_unit_response_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAllPropertyAndUnitResponse.ProtoReflect.Descriptor instead.
+func (*GetAllPropertyAndUnitResponse) Descriptor() ([]byte, []int) {
+	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetAllPropertyAndUnitResponse) GetPropertyUnits() []*GetPropertyAndUnitResponse {
+	if x != nil {
+		return x.PropertyUnits
+	}
+	return nil
+}
+
 var File_property_nd_unit_response_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_response_proto_rawDesc = "" +
@@ -900,7 +944,9 @@ const file_property_nd_unit_response_proto_rawDesc = "" +
 	"\fAgentDetails\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x16\n" +
-	"\x06number\x18\x03 \x01(\tR\x06numberB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
+	"\x06number\x18\x03 \x01(\tR\x06number\"}\n" +
+	"\x1dGetAllPropertyAndUnitResponse\x12\\\n" +
+	"\x0eproperty_units\x18\x01 \x03(\v25.property_nd_unit.response.GetPropertyAndUnitResponseR\rpropertyUnitsB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 
 var (
 	file_property_nd_unit_response_proto_rawDescOnce sync.Once
@@ -914,35 +960,37 @@ func file_property_nd_unit_response_proto_rawDescGZIP() []byte {
 	return file_property_nd_unit_response_proto_rawDescData
 }
 
-var file_property_nd_unit_response_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_property_nd_unit_response_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_property_nd_unit_response_proto_goTypes = []any{
 	(*CreatePropertyAndUnitResponse)(nil), // 0: property_nd_unit.response.CreatePropertyAndUnitResponse
 	(*GetPropertyAndUnitResponse)(nil),    // 1: property_nd_unit.response.GetPropertyAndUnitResponse
 	(*Facts)(nil),                         // 2: property_nd_unit.response.Facts
 	(*AgentDetails)(nil),                  // 3: property_nd_unit.response.AgentDetails
-	(*timestamppb.Timestamp)(nil),         // 4: google.protobuf.Timestamp
-	(*Address)(nil),                       // 5: property_nd_unit.address.Address
+	(*GetAllPropertyAndUnitResponse)(nil), // 4: property_nd_unit.response.GetAllPropertyAndUnitResponse
+	(*timestamppb.Timestamp)(nil),         // 5: google.protobuf.Timestamp
+	(*Address)(nil),                       // 6: property_nd_unit.address.Address
 }
 var file_property_nd_unit_response_proto_depIdxs = []int32{
 	3,  // 0: property_nd_unit.response.GetPropertyAndUnitResponse.agent:type_name -> property_nd_unit.response.AgentDetails
 	2,  // 1: property_nd_unit.response.GetPropertyAndUnitResponse.facts:type_name -> property_nd_unit.response.Facts
-	4,  // 2: property_nd_unit.response.GetPropertyAndUnitResponse.refreshed_at:type_name -> google.protobuf.Timestamp
-	5,  // 3: property_nd_unit.response.GetPropertyAndUnitResponse.address:type_name -> property_nd_unit.address.Address
-	4,  // 4: property_nd_unit.response.Facts.start_date:type_name -> google.protobuf.Timestamp
-	4,  // 5: property_nd_unit.response.Facts.completion_date:type_name -> google.protobuf.Timestamp
-	4,  // 6: property_nd_unit.response.Facts.handover_date:type_name -> google.protobuf.Timestamp
-	4,  // 7: property_nd_unit.response.Facts.completion_percentage_date:type_name -> google.protobuf.Timestamp
-	4,  // 8: property_nd_unit.response.Facts.roi_start_date:type_name -> google.protobuf.Timestamp
-	4,  // 9: property_nd_unit.response.Facts.roi_end_date:type_name -> google.protobuf.Timestamp
-	4,  // 10: property_nd_unit.response.Facts.exclusive_state_date:type_name -> google.protobuf.Timestamp
-	4,  // 11: property_nd_unit.response.Facts.exclusive_end_date:type_name -> google.protobuf.Timestamp
-	4,  // 12: property_nd_unit.response.Facts.book_now_start_date:type_name -> google.protobuf.Timestamp
-	4,  // 13: property_nd_unit.response.Facts.book_now_end_date:type_name -> google.protobuf.Timestamp
-	14, // [14:14] is the sub-list for method output_type
-	14, // [14:14] is the sub-list for method input_type
-	14, // [14:14] is the sub-list for extension type_name
-	14, // [14:14] is the sub-list for extension extendee
-	0,  // [0:14] is the sub-list for field type_name
+	5,  // 2: property_nd_unit.response.GetPropertyAndUnitResponse.refreshed_at:type_name -> google.protobuf.Timestamp
+	6,  // 3: property_nd_unit.response.GetPropertyAndUnitResponse.address:type_name -> property_nd_unit.address.Address
+	5,  // 4: property_nd_unit.response.Facts.start_date:type_name -> google.protobuf.Timestamp
+	5,  // 5: property_nd_unit.response.Facts.completion_date:type_name -> google.protobuf.Timestamp
+	5,  // 6: property_nd_unit.response.Facts.handover_date:type_name -> google.protobuf.Timestamp
+	5,  // 7: property_nd_unit.response.Facts.completion_percentage_date:type_name -> google.protobuf.Timestamp
+	5,  // 8: property_nd_unit.response.Facts.roi_start_date:type_name -> google.protobuf.Timestamp
+	5,  // 9: property_nd_unit.response.Facts.roi_end_date:type_name -> google.protobuf.Timestamp
+	5,  // 10: property_nd_unit.response.Facts.exclusive_state_date:type_name -> google.protobuf.Timestamp
+	5,  // 11: property_nd_unit.response.Facts.exclusive_end_date:type_name -> google.protobuf.Timestamp
+	5,  // 12: property_nd_unit.response.Facts.book_now_start_date:type_name -> google.protobuf.Timestamp
+	5,  // 13: property_nd_unit.response.Facts.book_now_end_date:type_name -> google.protobuf.Timestamp
+	1,  // 14: property_nd_unit.response.GetAllPropertyAndUnitResponse.property_units:type_name -> property_nd_unit.response.GetPropertyAndUnitResponse
+	15, // [15:15] is the sub-list for method output_type
+	15, // [15:15] is the sub-list for method input_type
+	15, // [15:15] is the sub-list for extension type_name
+	15, // [15:15] is the sub-list for extension extendee
+	0,  // [0:15] is the sub-list for field type_name
 }
 
 func init() { file_property_nd_unit_response_proto_init() }
@@ -957,7 +1005,7 @@ func file_property_nd_unit_response_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_property_nd_unit_response_proto_rawDesc), len(file_property_nd_unit_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
