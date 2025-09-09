@@ -273,98 +273,98 @@ func (x *UserDetail) GetUserId() int64 {
 }
 
 type CreatePropertyAndUnitRequest struct {
-	state                    protoimpl.MessageState `protogen:"open.v1"`
-	IsProperty               bool                   `protobuf:"varint,1,opt,name=is_property,json=isProperty,proto3" json:"is_property,omitempty"`
-	RefNo                    string                 `protobuf:"bytes,2,opt,name=ref_no,json=refNo,proto3" json:"ref_no,omitempty"`
-	Title                    string                 `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
-	TitleAr                  string                 `protobuf:"bytes,4,opt,name=title_ar,json=titleAr,proto3" json:"title_ar,omitempty"`
-	Description              string                 `protobuf:"bytes,5,opt,name=description,proto3" json:"description,omitempty"`
-	DescriptionAr            string                 `protobuf:"bytes,6,opt,name=description_ar,json=descriptionAr,proto3" json:"description_ar,omitempty"`
-	PropertyName             string                 `protobuf:"bytes,7,opt,name=property_name,json=propertyName,proto3" json:"property_name,omitempty"`
-	ProjectName              string                 `protobuf:"bytes,8,opt,name=project_name,json=projectName,proto3" json:"project_name,omitempty"`
-	PhaseName                string                 `protobuf:"bytes,9,opt,name=phase_name,json=phaseName,proto3" json:"phase_name,omitempty"`
-	Status                   string                 `protobuf:"bytes,10,opt,name=status,proto3" json:"status,omitempty"`
-	Address                  *Address               `protobuf:"bytes,11,opt,name=address,proto3" json:"address,omitempty"`
-	LocationUrl              string                 `protobuf:"bytes,12,opt,name=location_url,json=locationUrl,proto3" json:"location_url,omitempty"`
-	Facility                 []string               `protobuf:"bytes,13,rep,name=facility,proto3" json:"facility,omitempty"`
-	Views                    []string               `protobuf:"bytes,14,rep,name=views,proto3" json:"views,omitempty"`
-	AgentEmail               string                 `protobuf:"bytes,15,opt,name=agent_email,json=agentEmail,proto3" json:"agent_email,omitempty"`
-	Photos                   []string               `protobuf:"bytes,16,rep,name=photos,proto3" json:"photos,omitempty"`
-	UnitVariations           []*Plans               `protobuf:"bytes,17,rep,name=unit_variations,json=unitVariations,proto3" json:"unit_variations,omitempty"`
-	Plans                    []*Plans               `protobuf:"bytes,18,rep,name=plans,proto3" json:"plans,omitempty"`
-	UnitTypes                []string               `protobuf:"bytes,19,rep,name=unit_types,json=unitTypes,proto3" json:"unit_types,omitempty"`
-	PropertyType             string                 `protobuf:"bytes,20,opt,name=property_type,json=propertyType,proto3" json:"property_type,omitempty"`
-	Noofunits                int64                  `protobuf:"varint,21,opt,name=noofunits,proto3" json:"noofunits,omitempty"`
-	PermitNumber             string                 `protobuf:"bytes,22,opt,name=permit_number,json=permitNumber,proto3" json:"permit_number,omitempty"`
-	Price                    float64                `protobuf:"fixed64,23,opt,name=price,proto3" json:"price,omitempty"`
-	Category                 string                 `protobuf:"bytes,24,opt,name=category,proto3" json:"category,omitempty"`
-	ListingType              string                 `protobuf:"bytes,25,opt,name=listing_type,json=listingType,proto3" json:"listing_type,omitempty"`
-	Lifestyle                string                 `protobuf:"bytes,26,opt,name=lifestyle,proto3" json:"lifestyle,omitempty"`
-	Bedroom                  string                 `protobuf:"bytes,27,opt,name=bedroom,proto3" json:"bedroom,omitempty"`
-	Bathroom                 int64                  `protobuf:"varint,28,opt,name=bathroom,proto3" json:"bathroom,omitempty"`
-	NoOfRetails              int64                  `protobuf:"varint,29,opt,name=no_of_retails,json=noOfRetails,proto3" json:"no_of_retails,omitempty"`
-	NoOfPayments             int64                  `protobuf:"varint,30,opt,name=no_of_payments,json=noOfPayments,proto3" json:"no_of_payments,omitempty"`
-	RentType                 string                 `protobuf:"bytes,31,opt,name=rent_type,json=rentType,proto3" json:"rent_type,omitempty"`
-	ServiceCharge            float32                `protobuf:"fixed32,32,opt,name=service_charge,json=serviceCharge,proto3" json:"service_charge,omitempty"`
-	NoOfElevators            int64                  `protobuf:"varint,33,opt,name=no_of_elevators,json=noOfElevators,proto3" json:"no_of_elevators,omitempty"`
-	BuiltUpArea              float64                `protobuf:"fixed64,34,opt,name=built_up_area,json=builtUpArea,proto3" json:"built_up_area,omitempty"`
-	PlotArea                 float64                `protobuf:"fixed64,35,opt,name=plot_area,json=plotArea,proto3" json:"plot_area,omitempty"`
-	Ownership                string                 `protobuf:"bytes,36,opt,name=ownership,proto3" json:"ownership,omitempty"`
-	Furnished                string                 `protobuf:"bytes,37,opt,name=furnished,proto3" json:"furnished,omitempty"`
-	NoOfPools                int64                  `protobuf:"varint,38,opt,name=no_of_pools,json=noOfPools,proto3" json:"no_of_pools,omitempty"`
-	CompletionStatus         string                 `protobuf:"bytes,39,opt,name=completion_status,json=completionStatus,proto3" json:"completion_status,omitempty"`
-	HandoverDate             *timestamppb.Timestamp `protobuf:"bytes,40,opt,name=handover_date,json=handoverDate,proto3" json:"handover_date,omitempty"`
-	MinArea                  float64                `protobuf:"fixed64,41,opt,name=min_area,json=minArea,proto3" json:"min_area,omitempty"`
-	MaxArea                  float64                `protobuf:"fixed64,42,opt,name=max_area,json=maxArea,proto3" json:"max_area,omitempty"`
-	UnitOfMeasure            string                 `protobuf:"bytes,43,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
-	Currency                 string                 `protobuf:"bytes,44,opt,name=currency,proto3" json:"currency,omitempty"`
-	NoOfFloor                int64                  `protobuf:"varint,45,opt,name=no_of_floor,json=noOfFloor,proto3" json:"no_of_floor,omitempty"`
-	OfferingType             string                 `protobuf:"bytes,46,opt,name=offering_type,json=offeringType,proto3" json:"offering_type,omitempty"`
-	CompletionDate           *timestamppb.Timestamp `protobuf:"bytes,47,opt,name=completion_date,json=completionDate,proto3" json:"completion_date,omitempty"`
-	CountryCode              string                 `protobuf:"bytes,48,opt,name=country_code,json=countryCode,proto3" json:"country_code,omitempty"`
-	AskPrice                 bool                   `protobuf:"varint,49,opt,name=ask_price,json=askPrice,proto3" json:"ask_price,omitempty"`
-	Parking                  int64                  `protobuf:"varint,50,opt,name=parking,proto3" json:"parking,omitempty"`
-	PlanType                 string                 `protobuf:"bytes,51,opt,name=plan_type,json=planType,proto3" json:"plan_type,omitempty"`
-	IsProjectProperty        bool                   `protobuf:"varint,52,opt,name=is_project_property,json=isProjectProperty,proto3" json:"is_project_property,omitempty"`
-	UserDetail               *UserDetail            `protobuf:"bytes,53,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
-	Notes                    string                 `protobuf:"bytes,54,opt,name=notes,proto3" json:"notes,omitempty"`
-	NotesAr                  string                 `protobuf:"bytes,55,opt,name=notes_ar,json=notesAr,proto3" json:"notes_ar,omitempty"`
-	IsPublicNotes            bool                   `protobuf:"varint,56,opt,name=is_public_notes,json=isPublicNotes,proto3" json:"is_public_notes,omitempty"`
-	PermitExpiryDate         *timestamppb.Timestamp `protobuf:"bytes,57,opt,name=permit_expiry_date,json=permitExpiryDate,proto3" json:"permit_expiry_date,omitempty"`
-	IsShowOwnerInfo          bool                   `protobuf:"varint,58,opt,name=is_show_owner_info,json=isShowOwnerInfo,proto3" json:"is_show_owner_info,omitempty"`
-	PropertyRank             string                 `protobuf:"bytes,59,opt,name=property_rank,json=propertyRank,proto3" json:"property_rank,omitempty"`
-	IsVerified               bool                   `protobuf:"varint,60,opt,name=is_verified,json=isVerified,proto3" json:"is_verified,omitempty"`
-	Amenity                  []string               `protobuf:"bytes,61,rep,name=amenity,proto3" json:"amenity,omitempty"`
-	OwnerName                string                 `protobuf:"bytes,62,opt,name=owner_name,json=ownerName,proto3" json:"owner_name,omitempty"`
-	StartingPrice            int64                  `protobuf:"varint,63,opt,name=starting_price,json=startingPrice,proto3" json:"starting_price,omitempty"`
-	MinBedrooms              string                 `protobuf:"bytes,64,opt,name=min_bedrooms,json=minBedrooms,proto3" json:"min_bedrooms,omitempty"`
-	MaxBedrooms              string                 `protobuf:"bytes,65,opt,name=max_bedrooms,json=maxBedrooms,proto3" json:"max_bedrooms,omitempty"`
-	CompletionPercentage     float32                `protobuf:"fixed32,66,opt,name=completion_percentage,json=completionPercentage,proto3" json:"completion_percentage,omitempty"`
-	CompletionPercentageDate *timestamppb.Timestamp `protobuf:"bytes,67,opt,name=completion_percentage_date,json=completionPercentageDate,proto3" json:"completion_percentage_date,omitempty"`
-	CommercialTax            float32                `protobuf:"fixed32,68,opt,name=commercial_tax,json=commercialTax,proto3" json:"commercial_tax,omitempty"`
-	MunicipalityTax          float32                `protobuf:"fixed32,69,opt,name=municipality_tax,json=municipalityTax,proto3" json:"municipality_tax,omitempty"`
-	SectorNo                 int64                  `protobuf:"varint,70,opt,name=sector_no,json=sectorNo,proto3" json:"sector_no,omitempty"`
-	PlotNo                   int64                  `protobuf:"varint,71,opt,name=plot_no,json=plotNo,proto3" json:"plot_no,omitempty"`
-	PropertyNo               int64                  `protobuf:"varint,72,opt,name=property_no,json=propertyNo,proto3" json:"property_no,omitempty"`
-	IsInvestment             bool                   `protobuf:"varint,73,opt,name=is_investment,json=isInvestment,proto3" json:"is_investment,omitempty"`
-	IsRoi                    bool                   `protobuf:"varint,74,opt,name=is_roi,json=isRoi,proto3" json:"is_roi,omitempty"`
-	RoiStartDate             *timestamppb.Timestamp `protobuf:"bytes,75,opt,name=roi_start_date,json=roiStartDate,proto3" json:"roi_start_date,omitempty"`
-	RoiEndDate               *timestamppb.Timestamp `protobuf:"bytes,76,opt,name=roi_end_date,json=roiEndDate,proto3" json:"roi_end_date,omitempty"`
-	Amount                   float32                `protobuf:"fixed32,77,opt,name=amount,proto3" json:"amount,omitempty"`
-	ContractAmount           float32                `protobuf:"fixed32,78,opt,name=contract_amount,json=contractAmount,proto3" json:"contract_amount,omitempty"`
-	IsExclusive              bool                   `protobuf:"varint,79,opt,name=is_exclusive,json=isExclusive,proto3" json:"is_exclusive,omitempty"`
-	ExclusiveStartDate       *timestamppb.Timestamp `protobuf:"bytes,80,opt,name=exclusive_start_date,json=exclusiveStartDate,proto3" json:"exclusive_start_date,omitempty"`
-	ExclusiveEndDate         *timestamppb.Timestamp `protobuf:"bytes,81,opt,name=exclusive_end_date,json=exclusiveEndDate,proto3" json:"exclusive_end_date,omitempty"`
-	Rooms                    int64                  `protobuf:"varint,82,opt,name=rooms,proto3" json:"rooms,omitempty"`
-	Trees                    int64                  `protobuf:"varint,83,opt,name=trees,proto3" json:"trees,omitempty"`
-	WaterIrrigation          int64                  `protobuf:"varint,84,opt,name=water_irrigation,json=waterIrrigation,proto3" json:"water_irrigation,omitempty"`
-	ContractStartDate        *timestamppb.Timestamp `protobuf:"bytes,85,opt,name=contract_start_date,json=contractStartDate,proto3" json:"contract_start_date,omitempty"`
-	ContractEndDate          *timestamppb.Timestamp `protobuf:"bytes,86,opt,name=contract_end_date,json=contractEndDate,proto3" json:"contract_end_date,omitempty"`
-	UnitType                 string                 `protobuf:"bytes,87,opt,name=unit_type,json=unitType,proto3" json:"unit_type,omitempty"`
-	UnitNo                   string                 `protobuf:"bytes,88,opt,name=unit_no,json=unitNo,proto3" json:"unit_no,omitempty"`
-	UnitNoIsPublic           bool                   `protobuf:"varint,89,opt,name=unit_no_is_public,json=unitNoIsPublic,proto3" json:"unit_no_is_public,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	IsProperty        bool                   `protobuf:"varint,1,opt,name=is_property,json=isProperty,proto3" json:"is_property,omitempty"`
+	RefNo             string                 `protobuf:"bytes,2,opt,name=ref_no,json=refNo,proto3" json:"ref_no,omitempty"`
+	Title             string                 `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
+	TitleAr           string                 `protobuf:"bytes,4,opt,name=title_ar,json=titleAr,proto3" json:"title_ar,omitempty"`
+	Description       string                 `protobuf:"bytes,5,opt,name=description,proto3" json:"description,omitempty"`
+	DescriptionAr     string                 `protobuf:"bytes,6,opt,name=description_ar,json=descriptionAr,proto3" json:"description_ar,omitempty"`
+	PropertyName      string                 `protobuf:"bytes,7,opt,name=property_name,json=propertyName,proto3" json:"property_name,omitempty"`
+	ProjectName       string                 `protobuf:"bytes,8,opt,name=project_name,json=projectName,proto3" json:"project_name,omitempty"`
+	PhaseName         string                 `protobuf:"bytes,9,opt,name=phase_name,json=phaseName,proto3" json:"phase_name,omitempty"`
+	Status            string                 `protobuf:"bytes,10,opt,name=status,proto3" json:"status,omitempty"`
+	Address           *Address               `protobuf:"bytes,11,opt,name=address,proto3" json:"address,omitempty"`
+	LocationUrl       string                 `protobuf:"bytes,12,opt,name=location_url,json=locationUrl,proto3" json:"location_url,omitempty"`
+	Facility          []string               `protobuf:"bytes,13,rep,name=facility,proto3" json:"facility,omitempty"`
+	Views             []string               `protobuf:"bytes,14,rep,name=views,proto3" json:"views,omitempty"`
+	AgentEmail        string                 `protobuf:"bytes,15,opt,name=agent_email,json=agentEmail,proto3" json:"agent_email,omitempty"`
+	Photos            []string               `protobuf:"bytes,16,rep,name=photos,proto3" json:"photos,omitempty"`
+	UnitVariations    []*Plans               `protobuf:"bytes,17,rep,name=unit_variations,json=unitVariations,proto3" json:"unit_variations,omitempty"`
+	Plans             []*Plans               `protobuf:"bytes,18,rep,name=plans,proto3" json:"plans,omitempty"`
+	UnitTypes         []string               `protobuf:"bytes,19,rep,name=unit_types,json=unitTypes,proto3" json:"unit_types,omitempty"`
+	PropertyType      string                 `protobuf:"bytes,20,opt,name=property_type,json=propertyType,proto3" json:"property_type,omitempty"`
+	Noofunits         int64                  `protobuf:"varint,21,opt,name=noofunits,proto3" json:"noofunits,omitempty"`
+	PermitNumber      string                 `protobuf:"bytes,22,opt,name=permit_number,json=permitNumber,proto3" json:"permit_number,omitempty"`
+	Price             float64                `protobuf:"fixed64,23,opt,name=price,proto3" json:"price,omitempty"`
+	Category          string                 `protobuf:"bytes,24,opt,name=category,proto3" json:"category,omitempty"`
+	ListingType       string                 `protobuf:"bytes,25,opt,name=listing_type,json=listingType,proto3" json:"listing_type,omitempty"`
+	Lifestyle         string                 `protobuf:"bytes,26,opt,name=lifestyle,proto3" json:"lifestyle,omitempty"`
+	Bedroom           string                 `protobuf:"bytes,27,opt,name=bedroom,proto3" json:"bedroom,omitempty"`
+	Bathroom          int64                  `protobuf:"varint,28,opt,name=bathroom,proto3" json:"bathroom,omitempty"`
+	NoOfRetails       int64                  `protobuf:"varint,29,opt,name=no_of_retails,json=noOfRetails,proto3" json:"no_of_retails,omitempty"`
+	NoOfPayments      int64                  `protobuf:"varint,30,opt,name=no_of_payments,json=noOfPayments,proto3" json:"no_of_payments,omitempty"`
+	RentType          string                 `protobuf:"bytes,31,opt,name=rent_type,json=rentType,proto3" json:"rent_type,omitempty"`
+	ServiceCharge     float32                `protobuf:"fixed32,32,opt,name=service_charge,json=serviceCharge,proto3" json:"service_charge,omitempty"`
+	NoOfElevators     int64                  `protobuf:"varint,33,opt,name=no_of_elevators,json=noOfElevators,proto3" json:"no_of_elevators,omitempty"`
+	BuiltUpArea       float64                `protobuf:"fixed64,34,opt,name=built_up_area,json=builtUpArea,proto3" json:"built_up_area,omitempty"`
+	PlotArea          float64                `protobuf:"fixed64,35,opt,name=plot_area,json=plotArea,proto3" json:"plot_area,omitempty"`
+	Ownership         string                 `protobuf:"bytes,36,opt,name=ownership,proto3" json:"ownership,omitempty"`
+	Furnished         string                 `protobuf:"bytes,37,opt,name=furnished,proto3" json:"furnished,omitempty"`
+	NoOfPools         int64                  `protobuf:"varint,38,opt,name=no_of_pools,json=noOfPools,proto3" json:"no_of_pools,omitempty"`
+	CompletionStatus  string                 `protobuf:"bytes,39,opt,name=completion_status,json=completionStatus,proto3" json:"completion_status,omitempty"`
+	HandoverDate      *timestamppb.Timestamp `protobuf:"bytes,40,opt,name=handover_date,json=handoverDate,proto3" json:"handover_date,omitempty"`
+	MinArea           float64                `protobuf:"fixed64,41,opt,name=min_area,json=minArea,proto3" json:"min_area,omitempty"`
+	MaxArea           float64                `protobuf:"fixed64,42,opt,name=max_area,json=maxArea,proto3" json:"max_area,omitempty"`
+	UnitOfMeasure     string                 `protobuf:"bytes,43,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
+	Currency          string                 `protobuf:"bytes,44,opt,name=currency,proto3" json:"currency,omitempty"`
+	NoOfFloor         int64                  `protobuf:"varint,45,opt,name=no_of_floor,json=noOfFloor,proto3" json:"no_of_floor,omitempty"`
+	OfferingType      string                 `protobuf:"bytes,46,opt,name=offering_type,json=offeringType,proto3" json:"offering_type,omitempty"`
+	CompletionDate    *timestamppb.Timestamp `protobuf:"bytes,47,opt,name=completion_date,json=completionDate,proto3" json:"completion_date,omitempty"`
+	CountryCode       string                 `protobuf:"bytes,48,opt,name=country_code,json=countryCode,proto3" json:"country_code,omitempty"`
+	AskPrice          bool                   `protobuf:"varint,49,opt,name=ask_price,json=askPrice,proto3" json:"ask_price,omitempty"`
+	Parking           int64                  `protobuf:"varint,50,opt,name=parking,proto3" json:"parking,omitempty"`
+	PlanType          string                 `protobuf:"bytes,51,opt,name=plan_type,json=planType,proto3" json:"plan_type,omitempty"`
+	IsProjectProperty bool                   `protobuf:"varint,52,opt,name=is_project_property,json=isProjectProperty,proto3" json:"is_project_property,omitempty"`
+	UserDetail        *UserDetail            `protobuf:"bytes,53,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
+	Notes             string                 `protobuf:"bytes,54,opt,name=notes,proto3" json:"notes,omitempty"`
+	NotesAr           string                 `protobuf:"bytes,55,opt,name=notes_ar,json=notesAr,proto3" json:"notes_ar,omitempty"`
+	IsPublicNotes     bool                   `protobuf:"varint,56,opt,name=is_public_notes,json=isPublicNotes,proto3" json:"is_public_notes,omitempty"`
+	PermitExpiryDate  *timestamppb.Timestamp `protobuf:"bytes,57,opt,name=permit_expiry_date,json=permitExpiryDate,proto3" json:"permit_expiry_date,omitempty"`
+	IsShowOwnerInfo   bool                   `protobuf:"varint,58,opt,name=is_show_owner_info,json=isShowOwnerInfo,proto3" json:"is_show_owner_info,omitempty"`
+	// string property_rank = 59;
+	IsVerified               bool                   `protobuf:"varint,59,opt,name=is_verified,json=isVerified,proto3" json:"is_verified,omitempty"`
+	Amenity                  []string               `protobuf:"bytes,60,rep,name=amenity,proto3" json:"amenity,omitempty"`
+	OwnerName                string                 `protobuf:"bytes,61,opt,name=owner_name,json=ownerName,proto3" json:"owner_name,omitempty"`
+	StartingPrice            int64                  `protobuf:"varint,62,opt,name=starting_price,json=startingPrice,proto3" json:"starting_price,omitempty"`
+	MinBedrooms              string                 `protobuf:"bytes,63,opt,name=min_bedrooms,json=minBedrooms,proto3" json:"min_bedrooms,omitempty"`
+	MaxBedrooms              string                 `protobuf:"bytes,64,opt,name=max_bedrooms,json=maxBedrooms,proto3" json:"max_bedrooms,omitempty"`
+	CompletionPercentage     float32                `protobuf:"fixed32,65,opt,name=completion_percentage,json=completionPercentage,proto3" json:"completion_percentage,omitempty"`
+	CompletionPercentageDate *timestamppb.Timestamp `protobuf:"bytes,66,opt,name=completion_percentage_date,json=completionPercentageDate,proto3" json:"completion_percentage_date,omitempty"`
+	CommercialTax            float32                `protobuf:"fixed32,67,opt,name=commercial_tax,json=commercialTax,proto3" json:"commercial_tax,omitempty"`
+	MunicipalityTax          float32                `protobuf:"fixed32,68,opt,name=municipality_tax,json=municipalityTax,proto3" json:"municipality_tax,omitempty"`
+	SectorNo                 int64                  `protobuf:"varint,69,opt,name=sector_no,json=sectorNo,proto3" json:"sector_no,omitempty"`
+	PlotNo                   int64                  `protobuf:"varint,70,opt,name=plot_no,json=plotNo,proto3" json:"plot_no,omitempty"`
+	PropertyNo               int64                  `protobuf:"varint,71,opt,name=property_no,json=propertyNo,proto3" json:"property_no,omitempty"`
+	IsInvestment             bool                   `protobuf:"varint,72,opt,name=is_investment,json=isInvestment,proto3" json:"is_investment,omitempty"`
+	IsLeased                 bool                   `protobuf:"varint,73,opt,name=is_leased,json=isLeased,proto3" json:"is_leased,omitempty"`
+	IsLeasedDate             *timestamppb.Timestamp `protobuf:"bytes,74,opt,name=is_leased_date,json=isLeasedDate,proto3" json:"is_leased_date,omitempty"`
+	// google.protobuf.Timestamp roi_end_date = 76;
+	Amount             float32                `protobuf:"fixed32,75,opt,name=amount,proto3" json:"amount,omitempty"`
+	ContractAmount     float32                `protobuf:"fixed32,76,opt,name=contract_amount,json=contractAmount,proto3" json:"contract_amount,omitempty"`
+	IsExclusive        bool                   `protobuf:"varint,77,opt,name=is_exclusive,json=isExclusive,proto3" json:"is_exclusive,omitempty"`
+	ExclusiveStartDate *timestamppb.Timestamp `protobuf:"bytes,78,opt,name=exclusive_start_date,json=exclusiveStartDate,proto3" json:"exclusive_start_date,omitempty"`
+	ExclusiveEndDate   *timestamppb.Timestamp `protobuf:"bytes,79,opt,name=exclusive_end_date,json=exclusiveEndDate,proto3" json:"exclusive_end_date,omitempty"`
+	Rooms              int64                  `protobuf:"varint,80,opt,name=rooms,proto3" json:"rooms,omitempty"`
+	Trees              int64                  `protobuf:"varint,81,opt,name=trees,proto3" json:"trees,omitempty"`
+	WaterIrrigation    int64                  `protobuf:"varint,82,opt,name=water_irrigation,json=waterIrrigation,proto3" json:"water_irrigation,omitempty"`
+	ContractStartDate  *timestamppb.Timestamp `protobuf:"bytes,83,opt,name=contract_start_date,json=contractStartDate,proto3" json:"contract_start_date,omitempty"`
+	ContractEndDate    *timestamppb.Timestamp `protobuf:"bytes,84,opt,name=contract_end_date,json=contractEndDate,proto3" json:"contract_end_date,omitempty"`
+	UnitType           string                 `protobuf:"bytes,85,opt,name=unit_type,json=unitType,proto3" json:"unit_type,omitempty"`
+	UnitNo             string                 `protobuf:"bytes,86,opt,name=unit_no,json=unitNo,proto3" json:"unit_no,omitempty"`
+	UnitNoIsPublic     bool                   `protobuf:"varint,87,opt,name=unit_no_is_public,json=unitNoIsPublic,proto3" json:"unit_no_is_public,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
 }
 
 func (x *CreatePropertyAndUnitRequest) Reset() {
@@ -803,13 +803,6 @@ func (x *CreatePropertyAndUnitRequest) GetIsShowOwnerInfo() bool {
 	return false
 }
 
-func (x *CreatePropertyAndUnitRequest) GetPropertyRank() string {
-	if x != nil {
-		return x.PropertyRank
-	}
-	return ""
-}
-
 func (x *CreatePropertyAndUnitRequest) GetIsVerified() bool {
 	if x != nil {
 		return x.IsVerified
@@ -908,23 +901,16 @@ func (x *CreatePropertyAndUnitRequest) GetIsInvestment() bool {
 	return false
 }
 
-func (x *CreatePropertyAndUnitRequest) GetIsRoi() bool {
+func (x *CreatePropertyAndUnitRequest) GetIsLeased() bool {
 	if x != nil {
-		return x.IsRoi
+		return x.IsLeased
 	}
 	return false
 }
 
-func (x *CreatePropertyAndUnitRequest) GetRoiStartDate() *timestamppb.Timestamp {
+func (x *CreatePropertyAndUnitRequest) GetIsLeasedDate() *timestamppb.Timestamp {
 	if x != nil {
-		return x.RoiStartDate
-	}
-	return nil
-}
-
-func (x *CreatePropertyAndUnitRequest) GetRoiEndDate() *timestamppb.Timestamp {
-	if x != nil {
-		return x.RoiEndDate
+		return x.IsLeasedDate
 	}
 	return nil
 }
@@ -1111,7 +1097,7 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x05email\x18\x01 \x01(\tB\x02\x18\x01R\x05email\x12\x1d\n" +
 	"\n" +
 	"company_id\x18\x02 \x01(\x03R\tcompanyId\x12\x17\n" +
-	"\auser_id\x18\x03 \x01(\x03R\x06userId\"\xf6\x1a\n" +
+	"\auser_id\x18\x03 \x01(\x03R\x06userId\"\x99\x1a\n" +
 	"\x1cCreatePropertyAndUnitRequest\x12\x1f\n" +
 	"\vis_property\x18\x01 \x01(\bR\n" +
 	"isProperty\x12\x15\n" +
@@ -1176,42 +1162,39 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\bnotes_ar\x187 \x01(\tR\anotesAr\x12&\n" +
 	"\x0fis_public_notes\x188 \x01(\bR\risPublicNotes\x12H\n" +
 	"\x12permit_expiry_date\x189 \x01(\v2\x1a.google.protobuf.TimestampR\x10permitExpiryDate\x12+\n" +
-	"\x12is_show_owner_info\x18: \x01(\bR\x0fisShowOwnerInfo\x12#\n" +
-	"\rproperty_rank\x18; \x01(\tR\fpropertyRank\x12\x1f\n" +
-	"\vis_verified\x18< \x01(\bR\n" +
+	"\x12is_show_owner_info\x18: \x01(\bR\x0fisShowOwnerInfo\x12\x1f\n" +
+	"\vis_verified\x18; \x01(\bR\n" +
 	"isVerified\x12\x18\n" +
-	"\aamenity\x18= \x03(\tR\aamenity\x12\x1d\n" +
+	"\aamenity\x18< \x03(\tR\aamenity\x12\x1d\n" +
 	"\n" +
-	"owner_name\x18> \x01(\tR\townerName\x12%\n" +
-	"\x0estarting_price\x18? \x01(\x03R\rstartingPrice\x12!\n" +
-	"\fmin_bedrooms\x18@ \x01(\tR\vminBedrooms\x12!\n" +
-	"\fmax_bedrooms\x18A \x01(\tR\vmaxBedrooms\x123\n" +
-	"\x15completion_percentage\x18B \x01(\x02R\x14completionPercentage\x12X\n" +
-	"\x1acompletion_percentage_date\x18C \x01(\v2\x1a.google.protobuf.TimestampR\x18completionPercentageDate\x12%\n" +
-	"\x0ecommercial_tax\x18D \x01(\x02R\rcommercialTax\x12)\n" +
-	"\x10municipality_tax\x18E \x01(\x02R\x0fmunicipalityTax\x12\x1b\n" +
-	"\tsector_no\x18F \x01(\x03R\bsectorNo\x12\x17\n" +
-	"\aplot_no\x18G \x01(\x03R\x06plotNo\x12\x1f\n" +
-	"\vproperty_no\x18H \x01(\x03R\n" +
+	"owner_name\x18= \x01(\tR\townerName\x12%\n" +
+	"\x0estarting_price\x18> \x01(\x03R\rstartingPrice\x12!\n" +
+	"\fmin_bedrooms\x18? \x01(\tR\vminBedrooms\x12!\n" +
+	"\fmax_bedrooms\x18@ \x01(\tR\vmaxBedrooms\x123\n" +
+	"\x15completion_percentage\x18A \x01(\x02R\x14completionPercentage\x12X\n" +
+	"\x1acompletion_percentage_date\x18B \x01(\v2\x1a.google.protobuf.TimestampR\x18completionPercentageDate\x12%\n" +
+	"\x0ecommercial_tax\x18C \x01(\x02R\rcommercialTax\x12)\n" +
+	"\x10municipality_tax\x18D \x01(\x02R\x0fmunicipalityTax\x12\x1b\n" +
+	"\tsector_no\x18E \x01(\x03R\bsectorNo\x12\x17\n" +
+	"\aplot_no\x18F \x01(\x03R\x06plotNo\x12\x1f\n" +
+	"\vproperty_no\x18G \x01(\x03R\n" +
 	"propertyNo\x12#\n" +
-	"\ris_investment\x18I \x01(\bR\fisInvestment\x12\x15\n" +
-	"\x06is_roi\x18J \x01(\bR\x05isRoi\x12@\n" +
-	"\x0eroi_start_date\x18K \x01(\v2\x1a.google.protobuf.TimestampR\froiStartDate\x12<\n" +
-	"\froi_end_date\x18L \x01(\v2\x1a.google.protobuf.TimestampR\n" +
-	"roiEndDate\x12\x16\n" +
-	"\x06amount\x18M \x01(\x02R\x06amount\x12'\n" +
-	"\x0fcontract_amount\x18N \x01(\x02R\x0econtractAmount\x12!\n" +
-	"\fis_exclusive\x18O \x01(\bR\visExclusive\x12L\n" +
-	"\x14exclusive_start_date\x18P \x01(\v2\x1a.google.protobuf.TimestampR\x12exclusiveStartDate\x12H\n" +
-	"\x12exclusive_end_date\x18Q \x01(\v2\x1a.google.protobuf.TimestampR\x10exclusiveEndDate\x12\x14\n" +
-	"\x05rooms\x18R \x01(\x03R\x05rooms\x12\x14\n" +
-	"\x05trees\x18S \x01(\x03R\x05trees\x12)\n" +
-	"\x10water_irrigation\x18T \x01(\x03R\x0fwaterIrrigation\x12J\n" +
-	"\x13contract_start_date\x18U \x01(\v2\x1a.google.protobuf.TimestampR\x11contractStartDate\x12F\n" +
-	"\x11contract_end_date\x18V \x01(\v2\x1a.google.protobuf.TimestampR\x0fcontractEndDate\x12\x1b\n" +
-	"\tunit_type\x18W \x01(\tR\bunitType\x12\x17\n" +
-	"\aunit_no\x18X \x01(\tR\x06unitNo\x12)\n" +
-	"\x11unit_no_is_public\x18Y \x01(\bR\x0eunitNoIsPublic\"\x8c\x01\n" +
+	"\ris_investment\x18H \x01(\bR\fisInvestment\x12\x1b\n" +
+	"\tis_leased\x18I \x01(\bR\bisLeased\x12@\n" +
+	"\x0eis_leased_date\x18J \x01(\v2\x1a.google.protobuf.TimestampR\fisLeasedDate\x12\x16\n" +
+	"\x06amount\x18K \x01(\x02R\x06amount\x12'\n" +
+	"\x0fcontract_amount\x18L \x01(\x02R\x0econtractAmount\x12!\n" +
+	"\fis_exclusive\x18M \x01(\bR\visExclusive\x12L\n" +
+	"\x14exclusive_start_date\x18N \x01(\v2\x1a.google.protobuf.TimestampR\x12exclusiveStartDate\x12H\n" +
+	"\x12exclusive_end_date\x18O \x01(\v2\x1a.google.protobuf.TimestampR\x10exclusiveEndDate\x12\x14\n" +
+	"\x05rooms\x18P \x01(\x03R\x05rooms\x12\x14\n" +
+	"\x05trees\x18Q \x01(\x03R\x05trees\x12)\n" +
+	"\x10water_irrigation\x18R \x01(\x03R\x0fwaterIrrigation\x12J\n" +
+	"\x13contract_start_date\x18S \x01(\v2\x1a.google.protobuf.TimestampR\x11contractStartDate\x12F\n" +
+	"\x11contract_end_date\x18T \x01(\v2\x1a.google.protobuf.TimestampR\x0fcontractEndDate\x12\x1b\n" +
+	"\tunit_type\x18U \x01(\tR\bunitType\x12\x17\n" +
+	"\aunit_no\x18V \x01(\tR\x06unitNo\x12)\n" +
+	"\x11unit_no_is_public\x18W \x01(\bR\x0eunitNoIsPublic\"\x8c\x01\n" +
 	"\x1cGetAllPropertyAndUnitRequest\x12\x1d\n" +
 	"\n" +
 	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
@@ -1251,17 +1234,16 @@ var file_property_nd_unit_request_proto_depIdxs = []int32{
 	3,  // 5: property_nd_unit.request.CreatePropertyAndUnitRequest.user_detail:type_name -> property_nd_unit.request.UserDetail
 	7,  // 6: property_nd_unit.request.CreatePropertyAndUnitRequest.permit_expiry_date:type_name -> google.protobuf.Timestamp
 	7,  // 7: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_percentage_date:type_name -> google.protobuf.Timestamp
-	7,  // 8: property_nd_unit.request.CreatePropertyAndUnitRequest.roi_start_date:type_name -> google.protobuf.Timestamp
-	7,  // 9: property_nd_unit.request.CreatePropertyAndUnitRequest.roi_end_date:type_name -> google.protobuf.Timestamp
-	7,  // 10: property_nd_unit.request.CreatePropertyAndUnitRequest.exclusive_start_date:type_name -> google.protobuf.Timestamp
-	7,  // 11: property_nd_unit.request.CreatePropertyAndUnitRequest.exclusive_end_date:type_name -> google.protobuf.Timestamp
-	7,  // 12: property_nd_unit.request.CreatePropertyAndUnitRequest.contract_start_date:type_name -> google.protobuf.Timestamp
-	7,  // 13: property_nd_unit.request.CreatePropertyAndUnitRequest.contract_end_date:type_name -> google.protobuf.Timestamp
-	14, // [14:14] is the sub-list for method output_type
-	14, // [14:14] is the sub-list for method input_type
-	14, // [14:14] is the sub-list for extension type_name
-	14, // [14:14] is the sub-list for extension extendee
-	0,  // [0:14] is the sub-list for field type_name
+	7,  // 8: property_nd_unit.request.CreatePropertyAndUnitRequest.is_leased_date:type_name -> google.protobuf.Timestamp
+	7,  // 9: property_nd_unit.request.CreatePropertyAndUnitRequest.exclusive_start_date:type_name -> google.protobuf.Timestamp
+	7,  // 10: property_nd_unit.request.CreatePropertyAndUnitRequest.exclusive_end_date:type_name -> google.protobuf.Timestamp
+	7,  // 11: property_nd_unit.request.CreatePropertyAndUnitRequest.contract_start_date:type_name -> google.protobuf.Timestamp
+	7,  // 12: property_nd_unit.request.CreatePropertyAndUnitRequest.contract_end_date:type_name -> google.protobuf.Timestamp
+	13, // [13:13] is the sub-list for method output_type
+	13, // [13:13] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_property_nd_unit_request_proto_init() }
