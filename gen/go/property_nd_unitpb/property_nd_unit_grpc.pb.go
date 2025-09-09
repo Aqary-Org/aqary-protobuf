@@ -28,7 +28,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PropertyAndUnitServiceClient interface {
 	CreatePropertyAndUnit(ctx context.Context, in *CreatePropertyAndUnitRequest, opts ...grpc.CallOption) (*CreatePropertyAndUnitResponse, error)
-	GetAllPropertyAndUnit(ctx context.Context, in *GetAllPropertyAndUnitRequest, opts ...grpc.CallOption) (*GetPropertyAndUnitResponse, error)
+	GetAllPropertyAndUnit(ctx context.Context, in *GetAllPropertyAndUnitRequest, opts ...grpc.CallOption) (*GetAllPropertyAndUnitResponse, error)
 }
 
 type propertyAndUnitServiceClient struct {
@@ -49,9 +49,9 @@ func (c *propertyAndUnitServiceClient) CreatePropertyAndUnit(ctx context.Context
 	return out, nil
 }
 
-func (c *propertyAndUnitServiceClient) GetAllPropertyAndUnit(ctx context.Context, in *GetAllPropertyAndUnitRequest, opts ...grpc.CallOption) (*GetPropertyAndUnitResponse, error) {
+func (c *propertyAndUnitServiceClient) GetAllPropertyAndUnit(ctx context.Context, in *GetAllPropertyAndUnitRequest, opts ...grpc.CallOption) (*GetAllPropertyAndUnitResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPropertyAndUnitResponse)
+	out := new(GetAllPropertyAndUnitResponse)
 	err := c.cc.Invoke(ctx, PropertyAndUnitService_GetAllPropertyAndUnit_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -64,7 +64,7 @@ func (c *propertyAndUnitServiceClient) GetAllPropertyAndUnit(ctx context.Context
 // for forward compatibility.
 type PropertyAndUnitServiceServer interface {
 	CreatePropertyAndUnit(context.Context, *CreatePropertyAndUnitRequest) (*CreatePropertyAndUnitResponse, error)
-	GetAllPropertyAndUnit(context.Context, *GetAllPropertyAndUnitRequest) (*GetPropertyAndUnitResponse, error)
+	GetAllPropertyAndUnit(context.Context, *GetAllPropertyAndUnitRequest) (*GetAllPropertyAndUnitResponse, error)
 	mustEmbedUnimplementedPropertyAndUnitServiceServer()
 }
 
@@ -78,7 +78,7 @@ type UnimplementedPropertyAndUnitServiceServer struct{}
 func (UnimplementedPropertyAndUnitServiceServer) CreatePropertyAndUnit(context.Context, *CreatePropertyAndUnitRequest) (*CreatePropertyAndUnitResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreatePropertyAndUnit not implemented")
 }
-func (UnimplementedPropertyAndUnitServiceServer) GetAllPropertyAndUnit(context.Context, *GetAllPropertyAndUnitRequest) (*GetPropertyAndUnitResponse, error) {
+func (UnimplementedPropertyAndUnitServiceServer) GetAllPropertyAndUnit(context.Context, *GetAllPropertyAndUnitRequest) (*GetAllPropertyAndUnitResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllPropertyAndUnit not implemented")
 }
 func (UnimplementedPropertyAndUnitServiceServer) mustEmbedUnimplementedPropertyAndUnitServiceServer() {
