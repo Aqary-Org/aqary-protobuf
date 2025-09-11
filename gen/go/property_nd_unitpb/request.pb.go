@@ -100,8 +100,9 @@ func (x *Agent) GetPhoto() string {
 
 type Plans struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Title         string                 `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
-	Url           []string               `protobuf:"bytes,2,rep,name=url,proto3" json:"url,omitempty"`
+	Watermark     bool                   `protobuf:"varint,1,opt,name=watermark,proto3" json:"watermark,omitempty"`
+	PlanType      string                 `protobuf:"bytes,2,opt,name=plan_type,json=planType,proto3" json:"plan_type,omitempty"`
+	Url           string                 `protobuf:"bytes,3,opt,name=url,proto3" json:"url,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -136,18 +137,25 @@ func (*Plans) Descriptor() ([]byte, []int) {
 	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *Plans) GetTitle() string {
+func (x *Plans) GetWatermark() bool {
 	if x != nil {
-		return x.Title
+		return x.Watermark
+	}
+	return false
+}
+
+func (x *Plans) GetPlanType() string {
+	if x != nil {
+		return x.PlanType
 	}
 	return ""
 }
 
-func (x *Plans) GetUrl() []string {
+func (x *Plans) GetUrl() string {
 	if x != nil {
 		return x.Url
 	}
-	return nil
+	return ""
 }
 
 type UserDetail struct {
@@ -230,7 +238,6 @@ type CreatePropertyAndUnitRequest struct {
 	Views             []string               `protobuf:"bytes,14,rep,name=views,proto3" json:"views,omitempty"`
 	AgentEmail        string                 `protobuf:"bytes,15,opt,name=agent_email,json=agentEmail,proto3" json:"agent_email,omitempty"`
 	Photos            []string               `protobuf:"bytes,16,rep,name=photos,proto3" json:"photos,omitempty"`
-	UnitVariations    []*Plans               `protobuf:"bytes,17,rep,name=unit_variations,json=unitVariations,proto3" json:"unit_variations,omitempty"`
 	Plans             []*Plans               `protobuf:"bytes,18,rep,name=plans,proto3" json:"plans,omitempty"`
 	UnitTypes         []string               `protobuf:"bytes,19,rep,name=unit_types,json=unitTypes,proto3" json:"unit_types,omitempty"`
 	PropertyType      string                 `protobuf:"bytes,20,opt,name=property_type,json=propertyType,proto3" json:"property_type,omitempty"`
@@ -445,13 +452,6 @@ func (x *CreatePropertyAndUnitRequest) GetAgentEmail() string {
 func (x *CreatePropertyAndUnitRequest) GetPhotos() []string {
 	if x != nil {
 		return x.Photos
-	}
-	return nil
-}
-
-func (x *CreatePropertyAndUnitRequest) GetUnitVariations() []*Plans {
-	if x != nil {
-		return x.UnitVariations
 	}
 	return nil
 }
@@ -1024,16 +1024,17 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
 	"\x05email\x18\x03 \x01(\tR\x05email\x12\x14\n" +
 	"\x05phone\x18\x04 \x01(\tR\x05phone\x12\x14\n" +
-	"\x05photo\x18\x05 \x01(\tR\x05photo\"/\n" +
-	"\x05Plans\x12\x14\n" +
-	"\x05title\x18\x01 \x01(\tR\x05title\x12\x10\n" +
-	"\x03url\x18\x02 \x03(\tR\x03url\"^\n" +
+	"\x05photo\x18\x05 \x01(\tR\x05photo\"T\n" +
+	"\x05Plans\x12\x1c\n" +
+	"\twatermark\x18\x01 \x01(\bR\twatermark\x12\x1b\n" +
+	"\tplan_type\x18\x02 \x01(\tR\bplanType\x12\x10\n" +
+	"\x03url\x18\x03 \x01(\tR\x03url\"^\n" +
 	"\n" +
 	"UserDetail\x12\x18\n" +
 	"\x05email\x18\x01 \x01(\tB\x02\x18\x01R\x05email\x12\x1d\n" +
 	"\n" +
 	"company_id\x18\x02 \x01(\x03R\tcompanyId\x12\x17\n" +
-	"\auser_id\x18\x03 \x01(\x03R\x06userId\"\x99\x1a\n" +
+	"\auser_id\x18\x03 \x01(\x03R\x06userId\"\xd5\x19\n" +
 	"\x1cCreatePropertyAndUnitRequest\x12\x1f\n" +
 	"\vis_property\x18\x01 \x01(\bR\n" +
 	"isProperty\x12\x15\n" +
@@ -1054,8 +1055,7 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x05views\x18\x0e \x03(\tR\x05views\x12\x1f\n" +
 	"\vagent_email\x18\x0f \x01(\tR\n" +
 	"agentEmail\x12\x16\n" +
-	"\x06photos\x18\x10 \x03(\tR\x06photos\x12H\n" +
-	"\x0funit_variations\x18\x11 \x03(\v2\x1f.property_nd_unit.request.PlansR\x0eunitVariations\x125\n" +
+	"\x06photos\x18\x10 \x03(\tR\x06photos\x125\n" +
 	"\x05plans\x18\x12 \x03(\v2\x1f.property_nd_unit.request.PlansR\x05plans\x12\x1d\n" +
 	"\n" +
 	"unit_types\x18\x13 \x03(\tR\tunitTypes\x12#\n" +
@@ -1130,7 +1130,7 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x11contract_end_date\x18T \x01(\v2\x1a.google.protobuf.TimestampR\x0fcontractEndDate\x12\x1b\n" +
 	"\tunit_type\x18U \x01(\tR\bunitType\x12\x17\n" +
 	"\aunit_no\x18V \x01(\tR\x06unitNo\x12)\n" +
-	"\x11unit_no_is_public\x18W \x01(\bR\x0eunitNoIsPublic\"\x8c\x01\n" +
+	"\x11unit_no_is_public\x18W \x01(\bR\x0eunitNoIsPublicJ\x04\b\x11\x10\x12\"\x8c\x01\n" +
 	"\x1cGetAllPropertyAndUnitRequest\x12\x1d\n" +
 	"\n" +
 	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
@@ -1162,23 +1162,22 @@ var file_property_nd_unit_request_proto_goTypes = []any{
 }
 var file_property_nd_unit_request_proto_depIdxs = []int32{
 	5,  // 0: property_nd_unit.request.CreatePropertyAndUnitRequest.address:type_name -> property_nd_unit.address.Address
-	1,  // 1: property_nd_unit.request.CreatePropertyAndUnitRequest.unit_variations:type_name -> property_nd_unit.request.Plans
-	1,  // 2: property_nd_unit.request.CreatePropertyAndUnitRequest.plans:type_name -> property_nd_unit.request.Plans
-	6,  // 3: property_nd_unit.request.CreatePropertyAndUnitRequest.handover_date:type_name -> google.protobuf.Timestamp
-	6,  // 4: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_date:type_name -> google.protobuf.Timestamp
-	2,  // 5: property_nd_unit.request.CreatePropertyAndUnitRequest.user_detail:type_name -> property_nd_unit.request.UserDetail
-	6,  // 6: property_nd_unit.request.CreatePropertyAndUnitRequest.permit_expiry_date:type_name -> google.protobuf.Timestamp
-	6,  // 7: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_percentage_date:type_name -> google.protobuf.Timestamp
-	6,  // 8: property_nd_unit.request.CreatePropertyAndUnitRequest.is_leased_date:type_name -> google.protobuf.Timestamp
-	6,  // 9: property_nd_unit.request.CreatePropertyAndUnitRequest.exclusive_start_date:type_name -> google.protobuf.Timestamp
-	6,  // 10: property_nd_unit.request.CreatePropertyAndUnitRequest.exclusive_end_date:type_name -> google.protobuf.Timestamp
-	6,  // 11: property_nd_unit.request.CreatePropertyAndUnitRequest.contract_start_date:type_name -> google.protobuf.Timestamp
-	6,  // 12: property_nd_unit.request.CreatePropertyAndUnitRequest.contract_end_date:type_name -> google.protobuf.Timestamp
-	13, // [13:13] is the sub-list for method output_type
-	13, // [13:13] is the sub-list for method input_type
-	13, // [13:13] is the sub-list for extension type_name
-	13, // [13:13] is the sub-list for extension extendee
-	0,  // [0:13] is the sub-list for field type_name
+	1,  // 1: property_nd_unit.request.CreatePropertyAndUnitRequest.plans:type_name -> property_nd_unit.request.Plans
+	6,  // 2: property_nd_unit.request.CreatePropertyAndUnitRequest.handover_date:type_name -> google.protobuf.Timestamp
+	6,  // 3: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_date:type_name -> google.protobuf.Timestamp
+	2,  // 4: property_nd_unit.request.CreatePropertyAndUnitRequest.user_detail:type_name -> property_nd_unit.request.UserDetail
+	6,  // 5: property_nd_unit.request.CreatePropertyAndUnitRequest.permit_expiry_date:type_name -> google.protobuf.Timestamp
+	6,  // 6: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_percentage_date:type_name -> google.protobuf.Timestamp
+	6,  // 7: property_nd_unit.request.CreatePropertyAndUnitRequest.is_leased_date:type_name -> google.protobuf.Timestamp
+	6,  // 8: property_nd_unit.request.CreatePropertyAndUnitRequest.exclusive_start_date:type_name -> google.protobuf.Timestamp
+	6,  // 9: property_nd_unit.request.CreatePropertyAndUnitRequest.exclusive_end_date:type_name -> google.protobuf.Timestamp
+	6,  // 10: property_nd_unit.request.CreatePropertyAndUnitRequest.contract_start_date:type_name -> google.protobuf.Timestamp
+	6,  // 11: property_nd_unit.request.CreatePropertyAndUnitRequest.contract_end_date:type_name -> google.protobuf.Timestamp
+	12, // [12:12] is the sub-list for method output_type
+	12, // [12:12] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_property_nd_unit_request_proto_init() }
