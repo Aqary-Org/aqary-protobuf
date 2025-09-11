@@ -121,8 +121,8 @@ func (x *FacilityAmenity) GetCategory() string {
 type Plan struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Watermark     bool                   `protobuf:"varint,1,opt,name=watermark,proto3" json:"watermark,omitempty"`
-	Title         string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
-	Url           []string               `protobuf:"bytes,3,rep,name=url,proto3" json:"url,omitempty"`
+	PlanType      string                 `protobuf:"bytes,2,opt,name=plan_type,json=planType,proto3" json:"plan_type,omitempty"`
+	Url           string                 `protobuf:"bytes,3,opt,name=url,proto3" json:"url,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -164,18 +164,18 @@ func (x *Plan) GetWatermark() bool {
 	return false
 }
 
-func (x *Plan) GetTitle() string {
+func (x *Plan) GetPlanType() string {
 	if x != nil {
-		return x.Title
+		return x.PlanType
 	}
 	return ""
 }
 
-func (x *Plan) GetUrl() []string {
+func (x *Plan) GetUrl() string {
 	if x != nil {
 		return x.Url
 	}
-	return nil
+	return ""
 }
 
 type ParentEntity struct {
@@ -931,11 +931,11 @@ const file_property_nd_unit_response_proto_rawDesc = "" +
 	"\x03msg\x18\x01 \x01(\tR\x03msg\"C\n" +
 	"\x0fFacilityAmenity\x12\x14\n" +
 	"\x05title\x18\x01 \x03(\tR\x05title\x12\x1a\n" +
-	"\bcategory\x18\x02 \x01(\tR\bcategory\"L\n" +
+	"\bcategory\x18\x02 \x01(\tR\bcategory\"S\n" +
 	"\x04Plan\x12\x1c\n" +
-	"\twatermark\x18\x01 \x01(\bR\twatermark\x12\x14\n" +
-	"\x05title\x18\x02 \x01(\tR\x05title\x12\x10\n" +
-	"\x03url\x18\x03 \x03(\tR\x03url\"`\n" +
+	"\twatermark\x18\x01 \x01(\bR\twatermark\x12\x1b\n" +
+	"\tplan_type\x18\x02 \x01(\tR\bplanType\x12\x10\n" +
+	"\x03url\x18\x03 \x01(\tR\x03url\"`\n" +
 	"\fParentEntity\x12\x1f\n" +
 	"\ventity_type\x18\x01 \x01(\tR\n" +
 	"entityType\x12\x1b\n" +
