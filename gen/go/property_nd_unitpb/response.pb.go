@@ -68,9 +68,8 @@ func (x *CreatePropertyAndUnitResponse) GetMsg() string {
 
 type FacilityAmenity struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Title         string                 `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
+	Title         []string               `protobuf:"bytes,1,rep,name=title,proto3" json:"title,omitempty"`
 	Category      string                 `protobuf:"bytes,2,opt,name=category,proto3" json:"category,omitempty"`
-	Type          string                 `protobuf:"bytes,3,opt,name=type,proto3" json:"type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -105,11 +104,11 @@ func (*FacilityAmenity) Descriptor() ([]byte, []int) {
 	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *FacilityAmenity) GetTitle() string {
+func (x *FacilityAmenity) GetTitle() []string {
 	if x != nil {
 		return x.Title
 	}
-	return ""
+	return nil
 }
 
 func (x *FacilityAmenity) GetCategory() string {
@@ -119,17 +118,11 @@ func (x *FacilityAmenity) GetCategory() string {
 	return ""
 }
 
-func (x *FacilityAmenity) GetType() string {
-	if x != nil {
-		return x.Type
-	}
-	return ""
-}
-
 type Plan struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Title         string                 `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
-	Url           []string               `protobuf:"bytes,2,rep,name=url,proto3" json:"url,omitempty"`
+	Watermark     bool                   `protobuf:"varint,1,opt,name=watermark,proto3" json:"watermark,omitempty"`
+	Title         string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+	Url           []string               `protobuf:"bytes,3,rep,name=url,proto3" json:"url,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -164,6 +157,13 @@ func (*Plan) Descriptor() ([]byte, []int) {
 	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{2}
 }
 
+func (x *Plan) GetWatermark() bool {
+	if x != nil {
+		return x.Watermark
+	}
+	return false
+}
+
 func (x *Plan) GetTitle() string {
 	if x != nil {
 		return x.Title
@@ -178,282 +178,6 @@ func (x *Plan) GetUrl() []string {
 	return nil
 }
 
-type GetPropertyAndUnitResponse struct {
-	state             protoimpl.MessageState `protogen:"open.v1"`
-	IsProperty        bool                   `protobuf:"varint,1,opt,name=is_property,json=isProperty,proto3" json:"is_property,omitempty"`
-	Id                int64                  `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
-	RefNo             string                 `protobuf:"bytes,3,opt,name=ref_no,json=refNo,proto3" json:"ref_no,omitempty"`
-	Name              string                 `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
-	Title             string                 `protobuf:"bytes,5,opt,name=title,proto3" json:"title,omitempty"`
-	TitleAr           string                 `protobuf:"bytes,6,opt,name=title_ar,json=titleAr,proto3" json:"title_ar,omitempty"`
-	Description       string                 `protobuf:"bytes,7,opt,name=description,proto3" json:"description,omitempty"`
-	DescriptionAr     string                 `protobuf:"bytes,8,opt,name=description_ar,json=descriptionAr,proto3" json:"description_ar,omitempty"`
-	Category          string                 `protobuf:"bytes,9,opt,name=category,proto3" json:"category,omitempty"`
-	Type              string                 `protobuf:"bytes,10,opt,name=type,proto3" json:"type,omitempty"`
-	Address           *Address               `protobuf:"bytes,11,opt,name=address,proto3" json:"address,omitempty"`
-	Agent             *AgentDetails          `protobuf:"bytes,12,opt,name=agent,proto3" json:"agent,omitempty"`
-	Photos            []string               `protobuf:"bytes,13,rep,name=photos,proto3" json:"photos,omitempty"`
-	FacilityAmenity   []*FacilityAmenity     `protobuf:"bytes,14,rep,name=facility_amenity,json=facilityAmenity,proto3" json:"facility_amenity,omitempty"`
-	Notes             string                 `protobuf:"bytes,15,opt,name=notes,proto3" json:"notes,omitempty"`
-	NotesAr           string                 `protobuf:"bytes,16,opt,name=notes_ar,json=notesAr,proto3" json:"notes_ar,omitempty"`
-	IsPublicNotes     bool                   `protobuf:"varint,17,opt,name=is_public_notes,json=isPublicNotes,proto3" json:"is_public_notes,omitempty"`
-	PermitNumber      string                 `protobuf:"bytes,18,opt,name=permit_number,json=permitNumber,proto3" json:"permit_number,omitempty"`
-	PermitExpiryDate  *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=permit_expiry_date,json=permitExpiryDate,proto3" json:"permit_expiry_date,omitempty"`
-	ListingType       string                 `protobuf:"bytes,20,opt,name=listing_type,json=listingType,proto3" json:"listing_type,omitempty"`
-	IsProjectProperty bool                   `protobuf:"varint,21,opt,name=is_project_property,json=isProjectProperty,proto3" json:"is_project_property,omitempty"`
-	ParentEntity      *ParentEntity          `protobuf:"bytes,22,opt,name=parent_entity,json=parentEntity,proto3" json:"parent_entity,omitempty"`
-	Fact              *Facts                 `protobuf:"bytes,23,opt,name=fact,proto3" json:"fact,omitempty"`
-	UnitTypes         []string               `protobuf:"bytes,25,rep,name=unit_types,json=unitTypes,proto3" json:"unit_types,omitempty"` // if property
-	Plans             []*Plan                `protobuf:"bytes,26,rep,name=plans,proto3" json:"plans,omitempty"`
-	IsVerified        bool                   `protobuf:"varint,27,opt,name=is_verified,json=isVerified,proto3" json:"is_verified,omitempty"`
-	RefreshedAt       *timestamppb.Timestamp `protobuf:"bytes,28,opt,name=refreshed_at,json=refreshedAt,proto3" json:"refreshed_at,omitempty"`
-	Status            string                 `protobuf:"bytes,29,opt,name=status,proto3" json:"status,omitempty"`
-	IsHotdeal         bool                   `protobuf:"varint,30,opt,name=is_hotdeal,json=isHotdeal,proto3" json:"is_hotdeal,omitempty"`
-	IsInvestment      bool                   `protobuf:"varint,31,opt,name=is_investment,json=isInvestment,proto3" json:"is_investment,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
-}
-
-func (x *GetPropertyAndUnitResponse) Reset() {
-	*x = GetPropertyAndUnitResponse{}
-	mi := &file_property_nd_unit_response_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPropertyAndUnitResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPropertyAndUnitResponse) ProtoMessage() {}
-
-func (x *GetPropertyAndUnitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_response_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPropertyAndUnitResponse.ProtoReflect.Descriptor instead.
-func (*GetPropertyAndUnitResponse) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *GetPropertyAndUnitResponse) GetIsProperty() bool {
-	if x != nil {
-		return x.IsProperty
-	}
-	return false
-}
-
-func (x *GetPropertyAndUnitResponse) GetId() int64 {
-	if x != nil {
-		return x.Id
-	}
-	return 0
-}
-
-func (x *GetPropertyAndUnitResponse) GetRefNo() string {
-	if x != nil {
-		return x.RefNo
-	}
-	return ""
-}
-
-func (x *GetPropertyAndUnitResponse) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *GetPropertyAndUnitResponse) GetTitle() string {
-	if x != nil {
-		return x.Title
-	}
-	return ""
-}
-
-func (x *GetPropertyAndUnitResponse) GetTitleAr() string {
-	if x != nil {
-		return x.TitleAr
-	}
-	return ""
-}
-
-func (x *GetPropertyAndUnitResponse) GetDescription() string {
-	if x != nil {
-		return x.Description
-	}
-	return ""
-}
-
-func (x *GetPropertyAndUnitResponse) GetDescriptionAr() string {
-	if x != nil {
-		return x.DescriptionAr
-	}
-	return ""
-}
-
-func (x *GetPropertyAndUnitResponse) GetCategory() string {
-	if x != nil {
-		return x.Category
-	}
-	return ""
-}
-
-func (x *GetPropertyAndUnitResponse) GetType() string {
-	if x != nil {
-		return x.Type
-	}
-	return ""
-}
-
-func (x *GetPropertyAndUnitResponse) GetAddress() *Address {
-	if x != nil {
-		return x.Address
-	}
-	return nil
-}
-
-func (x *GetPropertyAndUnitResponse) GetAgent() *AgentDetails {
-	if x != nil {
-		return x.Agent
-	}
-	return nil
-}
-
-func (x *GetPropertyAndUnitResponse) GetPhotos() []string {
-	if x != nil {
-		return x.Photos
-	}
-	return nil
-}
-
-func (x *GetPropertyAndUnitResponse) GetFacilityAmenity() []*FacilityAmenity {
-	if x != nil {
-		return x.FacilityAmenity
-	}
-	return nil
-}
-
-func (x *GetPropertyAndUnitResponse) GetNotes() string {
-	if x != nil {
-		return x.Notes
-	}
-	return ""
-}
-
-func (x *GetPropertyAndUnitResponse) GetNotesAr() string {
-	if x != nil {
-		return x.NotesAr
-	}
-	return ""
-}
-
-func (x *GetPropertyAndUnitResponse) GetIsPublicNotes() bool {
-	if x != nil {
-		return x.IsPublicNotes
-	}
-	return false
-}
-
-func (x *GetPropertyAndUnitResponse) GetPermitNumber() string {
-	if x != nil {
-		return x.PermitNumber
-	}
-	return ""
-}
-
-func (x *GetPropertyAndUnitResponse) GetPermitExpiryDate() *timestamppb.Timestamp {
-	if x != nil {
-		return x.PermitExpiryDate
-	}
-	return nil
-}
-
-func (x *GetPropertyAndUnitResponse) GetListingType() string {
-	if x != nil {
-		return x.ListingType
-	}
-	return ""
-}
-
-func (x *GetPropertyAndUnitResponse) GetIsProjectProperty() bool {
-	if x != nil {
-		return x.IsProjectProperty
-	}
-	return false
-}
-
-func (x *GetPropertyAndUnitResponse) GetParentEntity() *ParentEntity {
-	if x != nil {
-		return x.ParentEntity
-	}
-	return nil
-}
-
-func (x *GetPropertyAndUnitResponse) GetFact() *Facts {
-	if x != nil {
-		return x.Fact
-	}
-	return nil
-}
-
-func (x *GetPropertyAndUnitResponse) GetUnitTypes() []string {
-	if x != nil {
-		return x.UnitTypes
-	}
-	return nil
-}
-
-func (x *GetPropertyAndUnitResponse) GetPlans() []*Plan {
-	if x != nil {
-		return x.Plans
-	}
-	return nil
-}
-
-func (x *GetPropertyAndUnitResponse) GetIsVerified() bool {
-	if x != nil {
-		return x.IsVerified
-	}
-	return false
-}
-
-func (x *GetPropertyAndUnitResponse) GetRefreshedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.RefreshedAt
-	}
-	return nil
-}
-
-func (x *GetPropertyAndUnitResponse) GetStatus() string {
-	if x != nil {
-		return x.Status
-	}
-	return ""
-}
-
-func (x *GetPropertyAndUnitResponse) GetIsHotdeal() bool {
-	if x != nil {
-		return x.IsHotdeal
-	}
-	return false
-}
-
-func (x *GetPropertyAndUnitResponse) GetIsInvestment() bool {
-	if x != nil {
-		return x.IsInvestment
-	}
-	return false
-}
-
 type ParentEntity struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	EntityType    string                 `protobuf:"bytes,1,opt,name=entity_type,json=entityType,proto3" json:"entity_type,omitempty"`
@@ -465,7 +189,7 @@ type ParentEntity struct {
 
 func (x *ParentEntity) Reset() {
 	*x = ParentEntity{}
-	mi := &file_property_nd_unit_response_proto_msgTypes[4]
+	mi := &file_property_nd_unit_response_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -477,7 +201,7 @@ func (x *ParentEntity) String() string {
 func (*ParentEntity) ProtoMessage() {}
 
 func (x *ParentEntity) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_response_proto_msgTypes[4]
+	mi := &file_property_nd_unit_response_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -490,7 +214,7 @@ func (x *ParentEntity) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ParentEntity.ProtoReflect.Descriptor instead.
 func (*ParentEntity) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{4}
+	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ParentEntity) GetEntityType() string {
@@ -514,61 +238,98 @@ func (x *ParentEntity) GetName() string {
 	return ""
 }
 
+type Photo struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Watermark     bool                   `protobuf:"varint,1,opt,name=watermark,proto3" json:"watermark,omitempty"`
+	Type          string                 `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
+	Url           string                 `protobuf:"bytes,3,opt,name=url,proto3" json:"url,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Photo) Reset() {
+	*x = Photo{}
+	mi := &file_property_nd_unit_response_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Photo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Photo) ProtoMessage() {}
+
+func (x *Photo) ProtoReflect() protoreflect.Message {
+	mi := &file_property_nd_unit_response_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Photo.ProtoReflect.Descriptor instead.
+func (*Photo) Descriptor() ([]byte, []int) {
+	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *Photo) GetWatermark() bool {
+	if x != nil {
+		return x.Watermark
+	}
+	return false
+}
+
+func (x *Photo) GetType() string {
+	if x != nil {
+		return x.Type
+	}
+	return ""
+}
+
+func (x *Photo) GetUrl() string {
+	if x != nil {
+		return x.Url
+	}
+	return ""
+}
+
 type Facts struct {
-	state                    protoimpl.MessageState `protogen:"open.v1"`
-	Bedroom                  string                 `protobuf:"bytes,1,opt,name=bedroom,proto3" json:"bedroom,omitempty"`
-	Bathroom                 int64                  `protobuf:"varint,2,opt,name=bathroom,proto3" json:"bathroom,omitempty"`
-	PlotArea                 float64                `protobuf:"fixed64,3,opt,name=plot_area,json=plotArea,proto3" json:"plot_area,omitempty"`
-	BuiltUpArea              float64                `protobuf:"fixed64,4,opt,name=built_up_area,json=builtUpArea,proto3" json:"built_up_area,omitempty"`
-	Views                    []string               `protobuf:"bytes,5,rep,name=views,proto3" json:"views,omitempty"`
-	Furnished                string                 `protobuf:"bytes,6,opt,name=furnished,proto3" json:"furnished,omitempty"`
-	StartDate                *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"`
-	CompletionDate           *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=completion_date,json=completionDate,proto3" json:"completion_date,omitempty"`
-	HandoverDate             *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=handover_date,json=handoverDate,proto3" json:"handover_date,omitempty"`
-	NoOfFloor                int64                  `protobuf:"varint,10,opt,name=no_of_floor,json=noOfFloor,proto3" json:"no_of_floor,omitempty"`
-	NoOfUnits                int64                  `protobuf:"varint,11,opt,name=no_of_units,json=noOfUnits,proto3" json:"no_of_units,omitempty"`
-	MinArea                  float64                `protobuf:"fixed64,12,opt,name=min_area,json=minArea,proto3" json:"min_area,omitempty"`
-	MaxArea                  float64                `protobuf:"fixed64,13,opt,name=max_area,json=maxArea,proto3" json:"max_area,omitempty"`
-	Parking                  int64                  `protobuf:"varint,14,opt,name=parking,proto3" json:"parking,omitempty"`
-	AskPrice                 bool                   `protobuf:"varint,15,opt,name=ask_price,json=askPrice,proto3" json:"ask_price,omitempty"`
-	NoOfRetail               int64                  `protobuf:"varint,16,opt,name=no_of_retail,json=noOfRetail,proto3" json:"no_of_retail,omitempty"`
-	NoOfPool                 int64                  `protobuf:"varint,17,opt,name=no_of_pool,json=noOfPool,proto3" json:"no_of_pool,omitempty"`
-	Elevator                 int64                  `protobuf:"varint,18,opt,name=elevator,proto3" json:"elevator,omitempty"`
-	StartingPrice            int64                  `protobuf:"varint,19,opt,name=starting_price,json=startingPrice,proto3" json:"starting_price,omitempty"`
-	LifeStyle                string                 `protobuf:"bytes,20,opt,name=life_style,json=lifeStyle,proto3" json:"life_style,omitempty"`
-	CommercialTax            float64                `protobuf:"fixed64,21,opt,name=commercial_tax,json=commercialTax,proto3" json:"commercial_tax,omitempty"`
-	MunicipalityTax          float64                `protobuf:"fixed64,22,opt,name=municipality_tax,json=municipalityTax,proto3" json:"municipality_tax,omitempty"`
-	UnitOfMeasure            string                 `protobuf:"bytes,23,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
-	CompletionPercentage     float64                `protobuf:"fixed64,24,opt,name=completion_percentage,json=completionPercentage,proto3" json:"completion_percentage,omitempty"`
-	CompletionPercentageDate *timestamppb.Timestamp `protobuf:"bytes,25,opt,name=completion_percentage_date,json=completionPercentageDate,proto3" json:"completion_percentage_date,omitempty"`
-	SectorNo                 int64                  `protobuf:"varint,26,opt,name=sector_no,json=sectorNo,proto3" json:"sector_no,omitempty"`
-	PlotNo                   int64                  `protobuf:"varint,27,opt,name=plot_no,json=plotNo,proto3" json:"plot_no,omitempty"`
-	PropertyNo               int64                  `protobuf:"varint,28,opt,name=property_no,json=propertyNo,proto3" json:"property_no,omitempty"`
-	Price                    float64                `protobuf:"fixed64,29,opt,name=price,proto3" json:"price,omitempty"`
-	RentType                 string                 `protobuf:"bytes,30,opt,name=rent_type,json=rentType,proto3" json:"rent_type,omitempty"`
-	NoOfPayment              int64                  `protobuf:"varint,31,opt,name=no_of_payment,json=noOfPayment,proto3" json:"no_of_payment,omitempty"`
-	CompletionStatus         int64                  `protobuf:"varint,32,opt,name=completion_status,json=completionStatus,proto3" json:"completion_status,omitempty"`
-	Ownership                string                 `protobuf:"bytes,33,opt,name=ownership,proto3" json:"ownership,omitempty"`
-	ServiceCharge            int64                  `protobuf:"varint,34,opt,name=service_charge,json=serviceCharge,proto3" json:"service_charge,omitempty"`
-	CurrencyCode             string                 `protobuf:"bytes,35,opt,name=currency_code,json=currencyCode,proto3" json:"currency_code,omitempty"`
-	Investment               bool                   `protobuf:"varint,36,opt,name=investment,proto3" json:"investment,omitempty"`
-	IsLeased                 bool                   `protobuf:"varint,37,opt,name=is_leased,json=isLeased,proto3" json:"is_leased,omitempty"`
-	IsLeasedDate             *timestamppb.Timestamp `protobuf:"bytes,38,opt,name=is_leased_date,json=isLeasedDate,proto3" json:"is_leased_date,omitempty"`
-	OwnerName                string                 `protobuf:"bytes,39,opt,name=owner_name,json=ownerName,proto3" json:"owner_name,omitempty"`
-	Amount                   float64                `protobuf:"fixed64,40,opt,name=amount,proto3" json:"amount,omitempty"`
-	Exclusive                bool                   `protobuf:"varint,41,opt,name=exclusive,proto3" json:"exclusive,omitempty"`
-	ExclusiveStateDate       *timestamppb.Timestamp `protobuf:"bytes,43,opt,name=exclusive_state_date,json=exclusiveStateDate,proto3" json:"exclusive_state_date,omitempty"`
-	ExclusiveEndDate         *timestamppb.Timestamp `protobuf:"bytes,44,opt,name=exclusive_end_date,json=exclusiveEndDate,proto3" json:"exclusive_end_date,omitempty"`
-	ProjectName              string                 `protobuf:"bytes,48,opt,name=project_name,json=projectName,proto3" json:"project_name,omitempty"`
-	PhaseName                string                 `protobuf:"bytes,49,opt,name=phase_name,json=phaseName,proto3" json:"phase_name,omitempty"`
-	MinBedrooms              string                 `protobuf:"bytes,50,opt,name=min_bedrooms,json=minBedrooms,proto3" json:"min_bedrooms,omitempty"`
-	MaxBedrooms              string                 `protobuf:"bytes,51,opt,name=max_bedrooms,json=maxBedrooms,proto3" json:"max_bedrooms,omitempty"`
-	Rooms                    int64                  `protobuf:"varint,52,opt,name=rooms,proto3" json:"rooms,omitempty"`
-	Trees                    int64                  `protobuf:"varint,53,opt,name=trees,proto3" json:"trees,omitempty"`
-	WaterIrrigations         int64                  `protobuf:"varint,54,opt,name=water_irrigations,json=waterIrrigations,proto3" json:"water_irrigations,omitempty"`
-	OfferingType             string                 `protobuf:"bytes,55,opt,name=offering_type,json=offeringType,proto3" json:"offering_type,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state                protoimpl.MessageState `protogen:"open.v1"`
+	Bedroom              string                 `protobuf:"bytes,1,opt,name=bedroom,proto3" json:"bedroom,omitempty"`
+	Bathroom             int64                  `protobuf:"varint,2,opt,name=bathroom,proto3" json:"bathroom,omitempty"`
+	PlotArea             float64                `protobuf:"fixed64,3,opt,name=plot_area,json=plotArea,proto3" json:"plot_area,omitempty"`
+	BuiltUpArea          float64                `protobuf:"fixed64,4,opt,name=built_up_area,json=builtUpArea,proto3" json:"built_up_area,omitempty"`
+	Views                []string               `protobuf:"bytes,5,rep,name=views,proto3" json:"views,omitempty"`
+	Furnished            string                 `protobuf:"bytes,6,opt,name=furnished,proto3" json:"furnished,omitempty"`
+	LifeStyle            string                 `protobuf:"bytes,7,opt,name=life_style,json=lifeStyle,proto3" json:"life_style,omitempty"`
+	CompletionDate       *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=completion_date,json=completionDate,proto3" json:"completion_date,omitempty"`
+	HandoverDate         *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=handover_date,json=handoverDate,proto3" json:"handover_date,omitempty"`
+	NoOfFloor            int64                  `protobuf:"varint,10,opt,name=no_of_floor,json=noOfFloor,proto3" json:"no_of_floor,omitempty"`
+	NoOfUnits            int64                  `protobuf:"varint,11,opt,name=no_of_units,json=noOfUnits,proto3" json:"no_of_units,omitempty"`
+	MinArea              float64                `protobuf:"fixed64,12,opt,name=min_area,json=minArea,proto3" json:"min_area,omitempty"`
+	MaxArea              float64                `protobuf:"fixed64,13,opt,name=max_area,json=maxArea,proto3" json:"max_area,omitempty"`
+	Parking              int64                  `protobuf:"varint,14,opt,name=parking,proto3" json:"parking,omitempty"`
+	AskPrice             bool                   `protobuf:"varint,15,opt,name=ask_price,json=askPrice,proto3" json:"ask_price,omitempty"`
+	NoOfRetail           int64                  `protobuf:"varint,16,opt,name=no_of_retail,json=noOfRetail,proto3" json:"no_of_retail,omitempty"`
+	NoOfPool             int64                  `protobuf:"varint,17,opt,name=no_of_pool,json=noOfPool,proto3" json:"no_of_pool,omitempty"`
+	Elevator             int64                  `protobuf:"varint,18,opt,name=elevator,proto3" json:"elevator,omitempty"`
+	UnitOfMeasure        string                 `protobuf:"bytes,19,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
+	CompletionPercentage float64                `protobuf:"fixed64,20,opt,name=completion_percentage,json=completionPercentage,proto3" json:"completion_percentage,omitempty"`
+	Price                float64                `protobuf:"fixed64,21,opt,name=price,proto3" json:"price,omitempty"`
+	RentType             string                 `protobuf:"bytes,22,opt,name=rent_type,json=rentType,proto3" json:"rent_type,omitempty"`
+	NoOfPayment          int64                  `protobuf:"varint,23,opt,name=no_of_payment,json=noOfPayment,proto3" json:"no_of_payment,omitempty"`
+	CompletionStatus     int64                  `protobuf:"varint,24,opt,name=completion_status,json=completionStatus,proto3" json:"completion_status,omitempty"`
+	Ownership            string                 `protobuf:"bytes,25,opt,name=ownership,proto3" json:"ownership,omitempty"`
+	ServiceCharge        int64                  `protobuf:"varint,26,opt,name=service_charge,json=serviceCharge,proto3" json:"service_charge,omitempty"`
+	CurrencyCode         string                 `protobuf:"bytes,27,opt,name=currency_code,json=currencyCode,proto3" json:"currency_code,omitempty"`
+	OfferingType         string                 `protobuf:"bytes,28,opt,name=offering_type,json=offeringType,proto3" json:"offering_type,omitempty"` //(Auto-generated from Category and Usage)
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
 }
 
 func (x *Facts) Reset() {
@@ -643,11 +404,11 @@ func (x *Facts) GetFurnished() string {
 	return ""
 }
 
-func (x *Facts) GetStartDate() *timestamppb.Timestamp {
+func (x *Facts) GetLifeStyle() string {
 	if x != nil {
-		return x.StartDate
+		return x.LifeStyle
 	}
-	return nil
+	return ""
 }
 
 func (x *Facts) GetCompletionDate() *timestamppb.Timestamp {
@@ -727,34 +488,6 @@ func (x *Facts) GetElevator() int64 {
 	return 0
 }
 
-func (x *Facts) GetStartingPrice() int64 {
-	if x != nil {
-		return x.StartingPrice
-	}
-	return 0
-}
-
-func (x *Facts) GetLifeStyle() string {
-	if x != nil {
-		return x.LifeStyle
-	}
-	return ""
-}
-
-func (x *Facts) GetCommercialTax() float64 {
-	if x != nil {
-		return x.CommercialTax
-	}
-	return 0
-}
-
-func (x *Facts) GetMunicipalityTax() float64 {
-	if x != nil {
-		return x.MunicipalityTax
-	}
-	return 0
-}
-
 func (x *Facts) GetUnitOfMeasure() string {
 	if x != nil {
 		return x.UnitOfMeasure
@@ -765,34 +498,6 @@ func (x *Facts) GetUnitOfMeasure() string {
 func (x *Facts) GetCompletionPercentage() float64 {
 	if x != nil {
 		return x.CompletionPercentage
-	}
-	return 0
-}
-
-func (x *Facts) GetCompletionPercentageDate() *timestamppb.Timestamp {
-	if x != nil {
-		return x.CompletionPercentageDate
-	}
-	return nil
-}
-
-func (x *Facts) GetSectorNo() int64 {
-	if x != nil {
-		return x.SectorNo
-	}
-	return 0
-}
-
-func (x *Facts) GetPlotNo() int64 {
-	if x != nil {
-		return x.PlotNo
-	}
-	return 0
-}
-
-func (x *Facts) GetPropertyNo() int64 {
-	if x != nil {
-		return x.PropertyNo
 	}
 	return 0
 }
@@ -846,111 +551,6 @@ func (x *Facts) GetCurrencyCode() string {
 	return ""
 }
 
-func (x *Facts) GetInvestment() bool {
-	if x != nil {
-		return x.Investment
-	}
-	return false
-}
-
-func (x *Facts) GetIsLeased() bool {
-	if x != nil {
-		return x.IsLeased
-	}
-	return false
-}
-
-func (x *Facts) GetIsLeasedDate() *timestamppb.Timestamp {
-	if x != nil {
-		return x.IsLeasedDate
-	}
-	return nil
-}
-
-func (x *Facts) GetOwnerName() string {
-	if x != nil {
-		return x.OwnerName
-	}
-	return ""
-}
-
-func (x *Facts) GetAmount() float64 {
-	if x != nil {
-		return x.Amount
-	}
-	return 0
-}
-
-func (x *Facts) GetExclusive() bool {
-	if x != nil {
-		return x.Exclusive
-	}
-	return false
-}
-
-func (x *Facts) GetExclusiveStateDate() *timestamppb.Timestamp {
-	if x != nil {
-		return x.ExclusiveStateDate
-	}
-	return nil
-}
-
-func (x *Facts) GetExclusiveEndDate() *timestamppb.Timestamp {
-	if x != nil {
-		return x.ExclusiveEndDate
-	}
-	return nil
-}
-
-func (x *Facts) GetProjectName() string {
-	if x != nil {
-		return x.ProjectName
-	}
-	return ""
-}
-
-func (x *Facts) GetPhaseName() string {
-	if x != nil {
-		return x.PhaseName
-	}
-	return ""
-}
-
-func (x *Facts) GetMinBedrooms() string {
-	if x != nil {
-		return x.MinBedrooms
-	}
-	return ""
-}
-
-func (x *Facts) GetMaxBedrooms() string {
-	if x != nil {
-		return x.MaxBedrooms
-	}
-	return ""
-}
-
-func (x *Facts) GetRooms() int64 {
-	if x != nil {
-		return x.Rooms
-	}
-	return 0
-}
-
-func (x *Facts) GetTrees() int64 {
-	if x != nil {
-		return x.Trees
-	}
-	return 0
-}
-
-func (x *Facts) GetWaterIrrigations() int64 {
-	if x != nil {
-		return x.WaterIrrigations
-	}
-	return 0
-}
-
 func (x *Facts) GetOfferingType() string {
 	if x != nil {
 		return x.OfferingType
@@ -963,6 +563,9 @@ type AgentDetails struct {
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
 	Number        string                 `protobuf:"bytes,3,opt,name=number,proto3" json:"number,omitempty"`
+	PhotoUrl      string                 `protobuf:"bytes,4,opt,name=photo_url,json=photoUrl,proto3" json:"photo_url,omitempty"`
+	Extension     string                 `protobuf:"bytes,5,opt,name=extension,proto3" json:"extension,omitempty"`
+	Info          string                 `protobuf:"bytes,6,opt,name=info,proto3" json:"info,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1018,6 +621,255 @@ func (x *AgentDetails) GetNumber() string {
 	return ""
 }
 
+func (x *AgentDetails) GetPhotoUrl() string {
+	if x != nil {
+		return x.PhotoUrl
+	}
+	return ""
+}
+
+func (x *AgentDetails) GetExtension() string {
+	if x != nil {
+		return x.Extension
+	}
+	return ""
+}
+
+func (x *AgentDetails) GetInfo() string {
+	if x != nil {
+		return x.Info
+	}
+	return ""
+}
+
+type GetPropertyAndUnitResponse struct {
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	IsProperty        bool                   `protobuf:"varint,1,opt,name=is_property,json=isProperty,proto3" json:"is_property,omitempty"`
+	Id                int64                  `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+	RefNo             string                 `protobuf:"bytes,3,opt,name=ref_no,json=refNo,proto3" json:"ref_no,omitempty"`
+	Name              string                 `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
+	Title             string                 `protobuf:"bytes,5,opt,name=title,proto3" json:"title,omitempty"`
+	TitleAr           string                 `protobuf:"bytes,6,opt,name=title_ar,json=titleAr,proto3" json:"title_ar,omitempty"`
+	Description       string                 `protobuf:"bytes,7,opt,name=description,proto3" json:"description,omitempty"`
+	DescriptionAr     string                 `protobuf:"bytes,8,opt,name=description_ar,json=descriptionAr,proto3" json:"description_ar,omitempty"`
+	Category          string                 `protobuf:"bytes,9,opt,name=category,proto3" json:"category,omitempty"`
+	Type              string                 `protobuf:"bytes,10,opt,name=type,proto3" json:"type,omitempty"`
+	Address           *Address               `protobuf:"bytes,11,opt,name=address,proto3" json:"address,omitempty"`
+	LocationUrl       string                 `protobuf:"bytes,12,opt,name=location_url,json=locationUrl,proto3" json:"location_url,omitempty"`
+	Agent             *AgentDetails          `protobuf:"bytes,13,opt,name=agent,proto3" json:"agent,omitempty"`
+	Photos            []*Photo               `protobuf:"bytes,14,rep,name=photos,proto3" json:"photos,omitempty"`
+	Facility          []*FacilityAmenity     `protobuf:"bytes,15,rep,name=facility,proto3" json:"facility,omitempty"`
+	Amenity           []*FacilityAmenity     `protobuf:"bytes,16,rep,name=amenity,proto3" json:"amenity,omitempty"`
+	UnitTypes         []string               `protobuf:"bytes,17,rep,name=unit_types,json=unitTypes,proto3" json:"unit_types,omitempty"` // if property
+	PermitNumber      string                 `protobuf:"bytes,18,opt,name=permit_number,json=permitNumber,proto3" json:"permit_number,omitempty"`
+	PermitExpiryDate  *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=permit_expiry_date,json=permitExpiryDate,proto3" json:"permit_expiry_date,omitempty"`
+	IsProjectProperty bool                   `protobuf:"varint,21,opt,name=is_project_property,json=isProjectProperty,proto3" json:"is_project_property,omitempty"`
+	ParentEntity      *ParentEntity          `protobuf:"bytes,22,opt,name=parent_entity,json=parentEntity,proto3" json:"parent_entity,omitempty"`
+	Fact              *Facts                 `protobuf:"bytes,23,opt,name=fact,proto3" json:"fact,omitempty"`
+	Plans             []*Plan                `protobuf:"bytes,24,rep,name=plans,proto3" json:"plans,omitempty"`
+	Status            string                 `protobuf:"bytes,25,opt,name=status,proto3" json:"status,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *GetPropertyAndUnitResponse) Reset() {
+	*x = GetPropertyAndUnitResponse{}
+	mi := &file_property_nd_unit_response_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPropertyAndUnitResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPropertyAndUnitResponse) ProtoMessage() {}
+
+func (x *GetPropertyAndUnitResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_property_nd_unit_response_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPropertyAndUnitResponse.ProtoReflect.Descriptor instead.
+func (*GetPropertyAndUnitResponse) Descriptor() ([]byte, []int) {
+	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetPropertyAndUnitResponse) GetIsProperty() bool {
+	if x != nil {
+		return x.IsProperty
+	}
+	return false
+}
+
+func (x *GetPropertyAndUnitResponse) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *GetPropertyAndUnitResponse) GetRefNo() string {
+	if x != nil {
+		return x.RefNo
+	}
+	return ""
+}
+
+func (x *GetPropertyAndUnitResponse) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *GetPropertyAndUnitResponse) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *GetPropertyAndUnitResponse) GetTitleAr() string {
+	if x != nil {
+		return x.TitleAr
+	}
+	return ""
+}
+
+func (x *GetPropertyAndUnitResponse) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *GetPropertyAndUnitResponse) GetDescriptionAr() string {
+	if x != nil {
+		return x.DescriptionAr
+	}
+	return ""
+}
+
+func (x *GetPropertyAndUnitResponse) GetCategory() string {
+	if x != nil {
+		return x.Category
+	}
+	return ""
+}
+
+func (x *GetPropertyAndUnitResponse) GetType() string {
+	if x != nil {
+		return x.Type
+	}
+	return ""
+}
+
+func (x *GetPropertyAndUnitResponse) GetAddress() *Address {
+	if x != nil {
+		return x.Address
+	}
+	return nil
+}
+
+func (x *GetPropertyAndUnitResponse) GetLocationUrl() string {
+	if x != nil {
+		return x.LocationUrl
+	}
+	return ""
+}
+
+func (x *GetPropertyAndUnitResponse) GetAgent() *AgentDetails {
+	if x != nil {
+		return x.Agent
+	}
+	return nil
+}
+
+func (x *GetPropertyAndUnitResponse) GetPhotos() []*Photo {
+	if x != nil {
+		return x.Photos
+	}
+	return nil
+}
+
+func (x *GetPropertyAndUnitResponse) GetFacility() []*FacilityAmenity {
+	if x != nil {
+		return x.Facility
+	}
+	return nil
+}
+
+func (x *GetPropertyAndUnitResponse) GetAmenity() []*FacilityAmenity {
+	if x != nil {
+		return x.Amenity
+	}
+	return nil
+}
+
+func (x *GetPropertyAndUnitResponse) GetUnitTypes() []string {
+	if x != nil {
+		return x.UnitTypes
+	}
+	return nil
+}
+
+func (x *GetPropertyAndUnitResponse) GetPermitNumber() string {
+	if x != nil {
+		return x.PermitNumber
+	}
+	return ""
+}
+
+func (x *GetPropertyAndUnitResponse) GetPermitExpiryDate() *timestamppb.Timestamp {
+	if x != nil {
+		return x.PermitExpiryDate
+	}
+	return nil
+}
+
+func (x *GetPropertyAndUnitResponse) GetIsProjectProperty() bool {
+	if x != nil {
+		return x.IsProjectProperty
+	}
+	return false
+}
+
+func (x *GetPropertyAndUnitResponse) GetParentEntity() *ParentEntity {
+	if x != nil {
+		return x.ParentEntity
+	}
+	return nil
+}
+
+func (x *GetPropertyAndUnitResponse) GetFact() *Facts {
+	if x != nil {
+		return x.Fact
+	}
+	return nil
+}
+
+func (x *GetPropertyAndUnitResponse) GetPlans() []*Plan {
+	if x != nil {
+		return x.Plans
+	}
+	return nil
+}
+
+func (x *GetPropertyAndUnitResponse) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
 type GetAllPropertyAndUnitResponse struct {
 	state         protoimpl.MessageState        `protogen:"open.v1"`
 	PropertyUnits []*GetPropertyAndUnitResponse `protobuf:"bytes,1,rep,name=property_units,json=propertyUnits,proto3" json:"property_units,omitempty"`
@@ -1028,7 +880,7 @@ type GetAllPropertyAndUnitResponse struct {
 
 func (x *GetAllPropertyAndUnitResponse) Reset() {
 	*x = GetAllPropertyAndUnitResponse{}
-	mi := &file_property_nd_unit_response_proto_msgTypes[7]
+	mi := &file_property_nd_unit_response_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1040,7 +892,7 @@ func (x *GetAllPropertyAndUnitResponse) String() string {
 func (*GetAllPropertyAndUnitResponse) ProtoMessage() {}
 
 func (x *GetAllPropertyAndUnitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_response_proto_msgTypes[7]
+	mi := &file_property_nd_unit_response_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1053,7 +905,7 @@ func (x *GetAllPropertyAndUnitResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllPropertyAndUnitResponse.ProtoReflect.Descriptor instead.
 func (*GetAllPropertyAndUnitResponse) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{7}
+	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetAllPropertyAndUnitResponse) GetPropertyUnits() []*GetPropertyAndUnitResponse {
@@ -1076,64 +928,32 @@ const file_property_nd_unit_response_proto_rawDesc = "" +
 	"\n" +
 	"\x1fproperty_nd_unit/response.proto\x12\x19property_nd_unit.response\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1eproperty_nd_unit/address.proto\"1\n" +
 	"\x1dCreatePropertyAndUnitResponse\x12\x10\n" +
-	"\x03msg\x18\x01 \x01(\tR\x03msg\"W\n" +
+	"\x03msg\x18\x01 \x01(\tR\x03msg\"C\n" +
 	"\x0fFacilityAmenity\x12\x14\n" +
-	"\x05title\x18\x01 \x01(\tR\x05title\x12\x1a\n" +
-	"\bcategory\x18\x02 \x01(\tR\bcategory\x12\x12\n" +
-	"\x04type\x18\x03 \x01(\tR\x04type\".\n" +
-	"\x04Plan\x12\x14\n" +
-	"\x05title\x18\x01 \x01(\tR\x05title\x12\x10\n" +
-	"\x03url\x18\x02 \x03(\tR\x03url\"\xbe\t\n" +
-	"\x1aGetPropertyAndUnitResponse\x12\x1f\n" +
-	"\vis_property\x18\x01 \x01(\bR\n" +
-	"isProperty\x12\x0e\n" +
-	"\x02id\x18\x02 \x01(\x03R\x02id\x12\x15\n" +
-	"\x06ref_no\x18\x03 \x01(\tR\x05refNo\x12\x12\n" +
-	"\x04name\x18\x04 \x01(\tR\x04name\x12\x14\n" +
-	"\x05title\x18\x05 \x01(\tR\x05title\x12\x19\n" +
-	"\btitle_ar\x18\x06 \x01(\tR\atitleAr\x12 \n" +
-	"\vdescription\x18\a \x01(\tR\vdescription\x12%\n" +
-	"\x0edescription_ar\x18\b \x01(\tR\rdescriptionAr\x12\x1a\n" +
-	"\bcategory\x18\t \x01(\tR\bcategory\x12\x12\n" +
-	"\x04type\x18\n" +
-	" \x01(\tR\x04type\x12;\n" +
-	"\aaddress\x18\v \x01(\v2!.property_nd_unit.address.AddressR\aaddress\x12=\n" +
-	"\x05agent\x18\f \x01(\v2'.property_nd_unit.response.AgentDetailsR\x05agent\x12\x16\n" +
-	"\x06photos\x18\r \x03(\tR\x06photos\x12U\n" +
-	"\x10facility_amenity\x18\x0e \x03(\v2*.property_nd_unit.response.FacilityAmenityR\x0ffacilityAmenity\x12\x14\n" +
-	"\x05notes\x18\x0f \x01(\tR\x05notes\x12\x19\n" +
-	"\bnotes_ar\x18\x10 \x01(\tR\anotesAr\x12&\n" +
-	"\x0fis_public_notes\x18\x11 \x01(\bR\risPublicNotes\x12#\n" +
-	"\rpermit_number\x18\x12 \x01(\tR\fpermitNumber\x12H\n" +
-	"\x12permit_expiry_date\x18\x13 \x01(\v2\x1a.google.protobuf.TimestampR\x10permitExpiryDate\x12!\n" +
-	"\flisting_type\x18\x14 \x01(\tR\vlistingType\x12.\n" +
-	"\x13is_project_property\x18\x15 \x01(\bR\x11isProjectProperty\x12L\n" +
-	"\rparent_entity\x18\x16 \x01(\v2'.property_nd_unit.response.ParentEntityR\fparentEntity\x124\n" +
-	"\x04fact\x18\x17 \x01(\v2 .property_nd_unit.response.FactsR\x04fact\x12\x1d\n" +
-	"\n" +
-	"unit_types\x18\x19 \x03(\tR\tunitTypes\x125\n" +
-	"\x05plans\x18\x1a \x03(\v2\x1f.property_nd_unit.response.PlanR\x05plans\x12\x1f\n" +
-	"\vis_verified\x18\x1b \x01(\bR\n" +
-	"isVerified\x12=\n" +
-	"\frefreshed_at\x18\x1c \x01(\v2\x1a.google.protobuf.TimestampR\vrefreshedAt\x12\x16\n" +
-	"\x06status\x18\x1d \x01(\tR\x06status\x12\x1d\n" +
-	"\n" +
-	"is_hotdeal\x18\x1e \x01(\bR\tisHotdeal\x12#\n" +
-	"\ris_investment\x18\x1f \x01(\bR\fisInvestment\"`\n" +
+	"\x05title\x18\x01 \x03(\tR\x05title\x12\x1a\n" +
+	"\bcategory\x18\x02 \x01(\tR\bcategory\"L\n" +
+	"\x04Plan\x12\x1c\n" +
+	"\twatermark\x18\x01 \x01(\bR\twatermark\x12\x14\n" +
+	"\x05title\x18\x02 \x01(\tR\x05title\x12\x10\n" +
+	"\x03url\x18\x03 \x03(\tR\x03url\"`\n" +
 	"\fParentEntity\x12\x1f\n" +
 	"\ventity_type\x18\x01 \x01(\tR\n" +
 	"entityType\x12\x1b\n" +
 	"\tentity_id\x18\x02 \x01(\x03R\bentityId\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04name\"\x82\x0f\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\"K\n" +
+	"\x05Photo\x12\x1c\n" +
+	"\twatermark\x18\x01 \x01(\bR\twatermark\x12\x12\n" +
+	"\x04type\x18\x02 \x01(\tR\x04type\x12\x10\n" +
+	"\x03url\x18\x03 \x01(\tR\x03url\"\xd0\a\n" +
 	"\x05Facts\x12\x18\n" +
 	"\abedroom\x18\x01 \x01(\tR\abedroom\x12\x1a\n" +
 	"\bbathroom\x18\x02 \x01(\x03R\bbathroom\x12\x1b\n" +
 	"\tplot_area\x18\x03 \x01(\x01R\bplotArea\x12\"\n" +
 	"\rbuilt_up_area\x18\x04 \x01(\x01R\vbuiltUpArea\x12\x14\n" +
 	"\x05views\x18\x05 \x03(\tR\x05views\x12\x1c\n" +
-	"\tfurnished\x18\x06 \x01(\tR\tfurnished\x129\n" +
+	"\tfurnished\x18\x06 \x01(\tR\tfurnished\x12\x1d\n" +
 	"\n" +
-	"start_date\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\tstartDate\x12C\n" +
+	"life_style\x18\a \x01(\tR\tlifeStyle\x12C\n" +
 	"\x0fcompletion_date\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\x0ecompletionDate\x12?\n" +
 	"\rhandover_date\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\fhandoverDate\x12\x1e\n" +
 	"\vno_of_floor\x18\n" +
@@ -1147,50 +967,52 @@ const file_property_nd_unit_response_proto_rawDesc = "" +
 	"noOfRetail\x12\x1c\n" +
 	"\n" +
 	"no_of_pool\x18\x11 \x01(\x03R\bnoOfPool\x12\x1a\n" +
-	"\belevator\x18\x12 \x01(\x03R\belevator\x12%\n" +
-	"\x0estarting_price\x18\x13 \x01(\x03R\rstartingPrice\x12\x1d\n" +
-	"\n" +
-	"life_style\x18\x14 \x01(\tR\tlifeStyle\x12%\n" +
-	"\x0ecommercial_tax\x18\x15 \x01(\x01R\rcommercialTax\x12)\n" +
-	"\x10municipality_tax\x18\x16 \x01(\x01R\x0fmunicipalityTax\x12&\n" +
-	"\x0funit_of_measure\x18\x17 \x01(\tR\runitOfMeasure\x123\n" +
-	"\x15completion_percentage\x18\x18 \x01(\x01R\x14completionPercentage\x12X\n" +
-	"\x1acompletion_percentage_date\x18\x19 \x01(\v2\x1a.google.protobuf.TimestampR\x18completionPercentageDate\x12\x1b\n" +
-	"\tsector_no\x18\x1a \x01(\x03R\bsectorNo\x12\x17\n" +
-	"\aplot_no\x18\x1b \x01(\x03R\x06plotNo\x12\x1f\n" +
-	"\vproperty_no\x18\x1c \x01(\x03R\n" +
-	"propertyNo\x12\x14\n" +
-	"\x05price\x18\x1d \x01(\x01R\x05price\x12\x1b\n" +
-	"\trent_type\x18\x1e \x01(\tR\brentType\x12\"\n" +
-	"\rno_of_payment\x18\x1f \x01(\x03R\vnoOfPayment\x12+\n" +
-	"\x11completion_status\x18  \x01(\x03R\x10completionStatus\x12\x1c\n" +
-	"\townership\x18! \x01(\tR\townership\x12%\n" +
-	"\x0eservice_charge\x18\" \x01(\x03R\rserviceCharge\x12#\n" +
-	"\rcurrency_code\x18# \x01(\tR\fcurrencyCode\x12\x1e\n" +
-	"\n" +
-	"investment\x18$ \x01(\bR\n" +
-	"investment\x12\x1b\n" +
-	"\tis_leased\x18% \x01(\bR\bisLeased\x12@\n" +
-	"\x0eis_leased_date\x18& \x01(\v2\x1a.google.protobuf.TimestampR\fisLeasedDate\x12\x1d\n" +
-	"\n" +
-	"owner_name\x18' \x01(\tR\townerName\x12\x16\n" +
-	"\x06amount\x18( \x01(\x01R\x06amount\x12\x1c\n" +
-	"\texclusive\x18) \x01(\bR\texclusive\x12L\n" +
-	"\x14exclusive_state_date\x18+ \x01(\v2\x1a.google.protobuf.TimestampR\x12exclusiveStateDate\x12H\n" +
-	"\x12exclusive_end_date\x18, \x01(\v2\x1a.google.protobuf.TimestampR\x10exclusiveEndDate\x12!\n" +
-	"\fproject_name\x180 \x01(\tR\vprojectName\x12\x1d\n" +
-	"\n" +
-	"phase_name\x181 \x01(\tR\tphaseName\x12!\n" +
-	"\fmin_bedrooms\x182 \x01(\tR\vminBedrooms\x12!\n" +
-	"\fmax_bedrooms\x183 \x01(\tR\vmaxBedrooms\x12\x14\n" +
-	"\x05rooms\x184 \x01(\x03R\x05rooms\x12\x14\n" +
-	"\x05trees\x185 \x01(\x03R\x05trees\x12+\n" +
-	"\x11water_irrigations\x186 \x01(\x03R\x10waterIrrigations\x12#\n" +
-	"\roffering_type\x187 \x01(\tR\fofferingType\"P\n" +
+	"\belevator\x18\x12 \x01(\x03R\belevator\x12&\n" +
+	"\x0funit_of_measure\x18\x13 \x01(\tR\runitOfMeasure\x123\n" +
+	"\x15completion_percentage\x18\x14 \x01(\x01R\x14completionPercentage\x12\x14\n" +
+	"\x05price\x18\x15 \x01(\x01R\x05price\x12\x1b\n" +
+	"\trent_type\x18\x16 \x01(\tR\brentType\x12\"\n" +
+	"\rno_of_payment\x18\x17 \x01(\x03R\vnoOfPayment\x12+\n" +
+	"\x11completion_status\x18\x18 \x01(\x03R\x10completionStatus\x12\x1c\n" +
+	"\townership\x18\x19 \x01(\tR\townership\x12%\n" +
+	"\x0eservice_charge\x18\x1a \x01(\x03R\rserviceCharge\x12#\n" +
+	"\rcurrency_code\x18\x1b \x01(\tR\fcurrencyCode\x12#\n" +
+	"\roffering_type\x18\x1c \x01(\tR\fofferingType\"\x9f\x01\n" +
 	"\fAgentDetails\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x16\n" +
-	"\x06number\x18\x03 \x01(\tR\x06number\"\xa0\x01\n" +
+	"\x06number\x18\x03 \x01(\tR\x06number\x12\x1b\n" +
+	"\tphoto_url\x18\x04 \x01(\tR\bphotoUrl\x12\x1c\n" +
+	"\textension\x18\x05 \x01(\tR\textension\x12\x12\n" +
+	"\x04info\x18\x06 \x01(\tR\x04info\"\x9a\b\n" +
+	"\x1aGetPropertyAndUnitResponse\x12\x1f\n" +
+	"\vis_property\x18\x01 \x01(\bR\n" +
+	"isProperty\x12\x0e\n" +
+	"\x02id\x18\x02 \x01(\x03R\x02id\x12\x15\n" +
+	"\x06ref_no\x18\x03 \x01(\tR\x05refNo\x12\x12\n" +
+	"\x04name\x18\x04 \x01(\tR\x04name\x12\x14\n" +
+	"\x05title\x18\x05 \x01(\tR\x05title\x12\x19\n" +
+	"\btitle_ar\x18\x06 \x01(\tR\atitleAr\x12 \n" +
+	"\vdescription\x18\a \x01(\tR\vdescription\x12%\n" +
+	"\x0edescription_ar\x18\b \x01(\tR\rdescriptionAr\x12\x1a\n" +
+	"\bcategory\x18\t \x01(\tR\bcategory\x12\x12\n" +
+	"\x04type\x18\n" +
+	" \x01(\tR\x04type\x12;\n" +
+	"\aaddress\x18\v \x01(\v2!.property_nd_unit.address.AddressR\aaddress\x12!\n" +
+	"\flocation_url\x18\f \x01(\tR\vlocationUrl\x12=\n" +
+	"\x05agent\x18\r \x01(\v2'.property_nd_unit.response.AgentDetailsR\x05agent\x128\n" +
+	"\x06photos\x18\x0e \x03(\v2 .property_nd_unit.response.PhotoR\x06photos\x12F\n" +
+	"\bfacility\x18\x0f \x03(\v2*.property_nd_unit.response.FacilityAmenityR\bfacility\x12D\n" +
+	"\aamenity\x18\x10 \x03(\v2*.property_nd_unit.response.FacilityAmenityR\aamenity\x12\x1d\n" +
+	"\n" +
+	"unit_types\x18\x11 \x03(\tR\tunitTypes\x12#\n" +
+	"\rpermit_number\x18\x12 \x01(\tR\fpermitNumber\x12H\n" +
+	"\x12permit_expiry_date\x18\x13 \x01(\v2\x1a.google.protobuf.TimestampR\x10permitExpiryDate\x12.\n" +
+	"\x13is_project_property\x18\x15 \x01(\bR\x11isProjectProperty\x12L\n" +
+	"\rparent_entity\x18\x16 \x01(\v2'.property_nd_unit.response.ParentEntityR\fparentEntity\x124\n" +
+	"\x04fact\x18\x17 \x01(\v2 .property_nd_unit.response.FactsR\x04fact\x125\n" +
+	"\x05plans\x18\x18 \x03(\v2\x1f.property_nd_unit.response.PlanR\x05plans\x12\x16\n" +
+	"\x06status\x18\x19 \x01(\tR\x06status\"\xa0\x01\n" +
 	"\x1dGetAllPropertyAndUnitResponse\x12\\\n" +
 	"\x0eproperty_units\x18\x01 \x03(\v25.property_nd_unit.response.GetPropertyAndUnitResponseR\rpropertyUnits\x12!\n" +
 	"\ftotal_counts\x18\x02 \x01(\x03R\vtotalCountsB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
@@ -1207,41 +1029,38 @@ func file_property_nd_unit_response_proto_rawDescGZIP() []byte {
 	return file_property_nd_unit_response_proto_rawDescData
 }
 
-var file_property_nd_unit_response_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_property_nd_unit_response_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_property_nd_unit_response_proto_goTypes = []any{
 	(*CreatePropertyAndUnitResponse)(nil), // 0: property_nd_unit.response.CreatePropertyAndUnitResponse
 	(*FacilityAmenity)(nil),               // 1: property_nd_unit.response.FacilityAmenity
 	(*Plan)(nil),                          // 2: property_nd_unit.response.Plan
-	(*GetPropertyAndUnitResponse)(nil),    // 3: property_nd_unit.response.GetPropertyAndUnitResponse
-	(*ParentEntity)(nil),                  // 4: property_nd_unit.response.ParentEntity
+	(*ParentEntity)(nil),                  // 3: property_nd_unit.response.ParentEntity
+	(*Photo)(nil),                         // 4: property_nd_unit.response.Photo
 	(*Facts)(nil),                         // 5: property_nd_unit.response.Facts
 	(*AgentDetails)(nil),                  // 6: property_nd_unit.response.AgentDetails
-	(*GetAllPropertyAndUnitResponse)(nil), // 7: property_nd_unit.response.GetAllPropertyAndUnitResponse
-	(*Address)(nil),                       // 8: property_nd_unit.address.Address
+	(*GetPropertyAndUnitResponse)(nil),    // 7: property_nd_unit.response.GetPropertyAndUnitResponse
+	(*GetAllPropertyAndUnitResponse)(nil), // 8: property_nd_unit.response.GetAllPropertyAndUnitResponse
 	(*timestamppb.Timestamp)(nil),         // 9: google.protobuf.Timestamp
+	(*Address)(nil),                       // 10: property_nd_unit.address.Address
 }
 var file_property_nd_unit_response_proto_depIdxs = []int32{
-	8,  // 0: property_nd_unit.response.GetPropertyAndUnitResponse.address:type_name -> property_nd_unit.address.Address
-	6,  // 1: property_nd_unit.response.GetPropertyAndUnitResponse.agent:type_name -> property_nd_unit.response.AgentDetails
-	1,  // 2: property_nd_unit.response.GetPropertyAndUnitResponse.facility_amenity:type_name -> property_nd_unit.response.FacilityAmenity
-	9,  // 3: property_nd_unit.response.GetPropertyAndUnitResponse.permit_expiry_date:type_name -> google.protobuf.Timestamp
-	4,  // 4: property_nd_unit.response.GetPropertyAndUnitResponse.parent_entity:type_name -> property_nd_unit.response.ParentEntity
-	5,  // 5: property_nd_unit.response.GetPropertyAndUnitResponse.fact:type_name -> property_nd_unit.response.Facts
-	2,  // 6: property_nd_unit.response.GetPropertyAndUnitResponse.plans:type_name -> property_nd_unit.response.Plan
-	9,  // 7: property_nd_unit.response.GetPropertyAndUnitResponse.refreshed_at:type_name -> google.protobuf.Timestamp
-	9,  // 8: property_nd_unit.response.Facts.start_date:type_name -> google.protobuf.Timestamp
-	9,  // 9: property_nd_unit.response.Facts.completion_date:type_name -> google.protobuf.Timestamp
-	9,  // 10: property_nd_unit.response.Facts.handover_date:type_name -> google.protobuf.Timestamp
-	9,  // 11: property_nd_unit.response.Facts.completion_percentage_date:type_name -> google.protobuf.Timestamp
-	9,  // 12: property_nd_unit.response.Facts.is_leased_date:type_name -> google.protobuf.Timestamp
-	9,  // 13: property_nd_unit.response.Facts.exclusive_state_date:type_name -> google.protobuf.Timestamp
-	9,  // 14: property_nd_unit.response.Facts.exclusive_end_date:type_name -> google.protobuf.Timestamp
-	3,  // 15: property_nd_unit.response.GetAllPropertyAndUnitResponse.property_units:type_name -> property_nd_unit.response.GetPropertyAndUnitResponse
-	16, // [16:16] is the sub-list for method output_type
-	16, // [16:16] is the sub-list for method input_type
-	16, // [16:16] is the sub-list for extension type_name
-	16, // [16:16] is the sub-list for extension extendee
-	0,  // [0:16] is the sub-list for field type_name
+	9,  // 0: property_nd_unit.response.Facts.completion_date:type_name -> google.protobuf.Timestamp
+	9,  // 1: property_nd_unit.response.Facts.handover_date:type_name -> google.protobuf.Timestamp
+	10, // 2: property_nd_unit.response.GetPropertyAndUnitResponse.address:type_name -> property_nd_unit.address.Address
+	6,  // 3: property_nd_unit.response.GetPropertyAndUnitResponse.agent:type_name -> property_nd_unit.response.AgentDetails
+	4,  // 4: property_nd_unit.response.GetPropertyAndUnitResponse.photos:type_name -> property_nd_unit.response.Photo
+	1,  // 5: property_nd_unit.response.GetPropertyAndUnitResponse.facility:type_name -> property_nd_unit.response.FacilityAmenity
+	1,  // 6: property_nd_unit.response.GetPropertyAndUnitResponse.amenity:type_name -> property_nd_unit.response.FacilityAmenity
+	9,  // 7: property_nd_unit.response.GetPropertyAndUnitResponse.permit_expiry_date:type_name -> google.protobuf.Timestamp
+	3,  // 8: property_nd_unit.response.GetPropertyAndUnitResponse.parent_entity:type_name -> property_nd_unit.response.ParentEntity
+	5,  // 9: property_nd_unit.response.GetPropertyAndUnitResponse.fact:type_name -> property_nd_unit.response.Facts
+	2,  // 10: property_nd_unit.response.GetPropertyAndUnitResponse.plans:type_name -> property_nd_unit.response.Plan
+	7,  // 11: property_nd_unit.response.GetAllPropertyAndUnitResponse.property_units:type_name -> property_nd_unit.response.GetPropertyAndUnitResponse
+	12, // [12:12] is the sub-list for method output_type
+	12, // [12:12] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_property_nd_unit_response_proto_init() }
@@ -1256,7 +1075,7 @@ func file_property_nd_unit_response_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_property_nd_unit_response_proto_rawDesc), len(file_property_nd_unit_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
