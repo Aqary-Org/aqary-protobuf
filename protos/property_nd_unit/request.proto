@@ -16,8 +16,9 @@ message Agent {
   string photo = 5;
 }
 message Plans {
-  string title = 1;
-  repeated string url = 2;
+  bool watermark = 1;
+  string plan_type = 2;
+  string url = 3;
 }
 
 message UserDetail {
@@ -27,6 +28,7 @@ message UserDetail {
 }
 
 message CreatePropertyAndUnitRequest {
+  reserved 17;
   bool is_property = 1;
   string ref_no = 2;
   string title = 3;
@@ -43,7 +45,6 @@ message CreatePropertyAndUnitRequest {
   repeated string views = 14;
   string agent_email = 15;
   repeated string photos = 16;
-  repeated Plans unit_variations = 17;
   repeated Plans plans = 18;
   repeated string unit_types = 19;
   string property_type = 20;
