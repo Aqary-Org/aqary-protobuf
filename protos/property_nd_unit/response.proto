@@ -10,39 +10,38 @@ import "property_nd_unit/address.proto";
 message CreatePropertyAndUnitResponse {
   string msg = 1;
 }
-
-message GetPropertyAndUnitResponse {
-  int64 id = 1;
-  string ref_no = 2;
-  string name = 3;
-  string title = 4;
-  string category = 5;
-  AgentDetails agent = 6;
-  Facts facts = 7;
-  string description = 8;
-  bool is_hotdeal = 9;
-  string status = 10;
-  google.protobuf.Timestamp refreshed_at = 11; 
-  bool exclusive = 12;
-  string type = 13;
-  bool is_verified = 14;
-  int64 property_rank = 15;
-  string notes = 16;
-  string life_style = 17;
-  double price = 18;
-  address.Address address = 19;
-  string listing_type = 20;
-  bool is_project_property = 21;
+message FacilityAmenity {
+  repeated string title = 1;
+  string category = 2;
 }
+
+message Plan {
+  bool watermark = 1;
+  string title = 2;
+  repeated string url = 3;
+}
+
+message ParentEntity {
+  string entity_type = 1;
+  int64 entity_id = 2;
+  string name = 3;
+}
+
+message Photo {
+  bool watermark = 1;
+  string type = 2;
+  string url = 3;
+}
+
 
 message Facts {
   string     bedroom = 1;
   int64      bathroom = 2;
   double    plot_area = 3;
   double    built_up_area  = 4;
-  repeated int64  views  = 5;
-  int64      furnished  = 6;
-  google.protobuf.Timestamp start_date  = 7;
+  repeated string  views  = 5;
+  string      furnished  = 6;
+  string      life_style  = 7;
   google.protobuf.Timestamp completion_date  = 8;
   google.protobuf.Timestamp handover_date  = 9;
   int64      no_of_floor  = 10;
@@ -54,48 +53,53 @@ message Facts {
   int64      no_of_retail  = 16;
   int64      no_of_pool  = 17;
   int64      elevator  = 18;
-  int64      starting_price  = 19;
-  int64      life_style  = 20;
-  double    commercial_tax  = 21;
-  double    municipality_tax  = 22;
-  string     unit_of_measure = 23;
-  double     completion_percentage = 24;
-  google.protobuf.Timestamp  completion_percentage_date = 25;
-  int64  sector_no = 26;
-  int64  plot_no = 27;
-  int64  property_no = 28;
-  double  price = 29;
-  int64    rent_type = 30;
-  int64    no_of_payment = 31;
-  int64    completion_status = 32;
-  int64    ownership = 33;
-  int64    service_charge = 34;
-  int64    currency_id = 35;
-  bool  investment = 36;
-  bool roi = 37;
-  google.protobuf.Timestamp  roi_start_date = 38;
-  google.protobuf.Timestamp  roi_end_date = 39;
-  double     amount = 40;
-  double     contract_amount = 41;
-  bool       exclusive = 42;
-  google.protobuf.Timestamp exclusive_state_date = 43;
-  google.protobuf.Timestamp exclusive_end_date = 44;
-  bool       book_now = 45;
-  google.protobuf.Timestamp book_now_start_date = 46;
-  google.protobuf.Timestamp book_now_end_date = 47;
-  string     project_name = 48;
-  string     phase_name = 49;
-  string min_bedrooms = 50;
-  string max_bedrooms = 51;
-  int64 rooms = 52;
-  int64 trees = 53;
-  int64 water_irrigations = 54;
+  string     unit_of_measure = 19;
+  double     completion_percentage = 20;
+   double  price = 21;
+  string    rent_type = 22;
+  int64    no_of_payment = 23;
+  int64    completion_status = 24;
+  string    ownership = 25;
+  int64    service_charge = 26;
+  string    currency_code = 27;
+  string offering_type = 28; //(Auto-generated from Category and Usage)
 }
 
 message AgentDetails {
   string name = 1;
   string email = 2;
   string number = 3;
+  string photo_url = 4;
+  string extension = 5;
+  string info = 6;
+}
+
+
+message GetPropertyAndUnitResponse {
+  bool is_property = 1;
+  int64 id = 2;
+  string ref_no = 3;
+  string name = 4;
+  string title = 5;
+  string title_ar = 6;
+  string description = 7;
+  string description_ar = 8;
+  string category = 9;
+  string type = 10;
+  address.Address address = 11;
+  string location_url = 12;
+  AgentDetails agent = 13;
+  repeated Photo photos = 14;
+  repeated FacilityAmenity facility = 15;
+  repeated FacilityAmenity amenity = 16;
+  repeated string unit_types = 17; // if property
+  string permit_number = 18;
+  google.protobuf.Timestamp permit_expiry_date = 19;
+  bool is_project_property = 21;
+  ParentEntity parent_entity = 22;
+  Facts fact = 23;
+  repeated Plan plans = 24;
+   string status = 25;
 }
 
 message GetAllPropertyAndUnitResponse {
