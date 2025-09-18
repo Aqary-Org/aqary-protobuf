@@ -1,0 +1,122 @@
+syntax = "proto3";
+
+package project_profile.project_profile;
+
+option go_package = "/projectprofilepb;projectprofilepb";
+
+import "google/protobuf/timestamp.proto";
+
+message Point {
+  double latitude = 1;
+  double longitude = 2;
+}
+
+message Addresses {
+  string country = 1;
+  string state = 2;
+  string city = 3;
+  string community = 4;
+  string sub_community = 5;
+  repeated Point polygons = 6;
+  string location_url = 7;
+}
+
+message Plan {
+  bool watermark = 1;
+  string plan_type = 2;
+  string url = 3;
+}
+
+message Promotion {
+  string promotion_type = 1;
+  google.protobuf.Timestamp expiry_date = 2;
+}
+
+message Photo {
+  string url = 1;
+  bool watermark = 2;
+  string gallery_type = 3;
+}
+
+message Phase {
+  string phase_name = 1;
+  string phase_ref_no = 2;
+  google.protobuf.Timestamp registration_date = 3;
+  string bank_name = 4;
+  string escrow_number = 5;
+  repeated Photo photo = 6;
+  repeated Plan plan = 7;
+  repeated Promotion promotions = 8;
+  string description = 9;
+  string description_ar = 10;
+  Addresses addresses = 11;
+  string status = 12;
+  repeated string facilities = 13;
+  repeated string amenities = 14;
+  string furnished = 15;
+  string ownership = 16;
+  double plot_area = 17;
+  string life_style = 18;
+  google.protobuf.Timestamp start_date = 19;
+  int64 no_of_units = 20;
+  google.protobuf.Timestamp handover_date = 21;
+  double starting_price = 22;
+  google.protobuf.Timestamp completion_date = 23;
+  string completion_status = 24;
+  double completion_percentage = 25;
+  google.protobuf.Timestamp completion_percentage_date = 26;
+  double service_charge = 27;
+  double max_area = 28;
+  double min_area = 29;
+  string min_bedrooms = 30;
+  string max_bedrooms = 31;
+}
+
+message CreateProjectProfileRequest {
+  string project_name = 1;
+  string project_name_ar = 2;
+  string project_ref_no = 3;
+  string developer_company_name = 4;
+  Addresses addresses = 5;
+  bool is_verified = 6;
+  bool is_multiphase = 7;
+  string project_no = 8;
+  string license_no = 9;
+  string description = 10;
+  string description_arabic = 11;
+  google.protobuf.Timestamp registration_date = 12;
+  string bank_name = 13;
+  string escrow_number = 14;
+  repeated Promotion promotions = 15;
+  repeated Phase phases = 16;
+  repeated string facilities = 17;
+  repeated string amenities = 18;
+  repeated Photo photo = 19;
+  repeated Plan plan = 20;
+  string unit_types = 21;
+  string furnished = 22;
+  string ownership = 23;
+  double plot_area = 24;
+  string life_style = 25;
+  google.protobuf.Timestamp start_date = 26;
+  int64 no_of_units = 27;
+  google.protobuf.Timestamp handover_date = 28;
+  double starting_price = 29;
+  google.protobuf.Timestamp completion_date = 30;
+  string completion_status = 31;
+  double completion_percentage = 32;
+  google.protobuf.Timestamp completion_percentage_date = 33;
+  double service_charge = 34;
+  double max_area = 35;
+  double min_area = 36;
+  string min_bedrooms = 37;
+  string max_bedrooms = 38;
+}
+
+message CreateProjectProfileResponse {
+  string msg = 1;
+}
+
+service ProjectProfileService {
+  rpc CreateProjectProfile(CreateProjectProfileRequest) returns (CreateProjectProfileResponse);
+}
