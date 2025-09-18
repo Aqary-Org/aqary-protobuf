@@ -16,7 +16,7 @@ message Addresses {
   string state = 2;
   string city = 3;
   string community = 4;
-  string sub_community = 5;
+  string subcommunity = 5;
   repeated Point polygons = 6;
   string location_url = 7;
 }

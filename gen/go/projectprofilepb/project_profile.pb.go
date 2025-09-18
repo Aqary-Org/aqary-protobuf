@@ -80,7 +80,7 @@ type Addresses struct {
 	State         string                 `protobuf:"bytes,2,opt,name=state,proto3" json:"state,omitempty"`
 	City          string                 `protobuf:"bytes,3,opt,name=city,proto3" json:"city,omitempty"`
 	Community     string                 `protobuf:"bytes,4,opt,name=community,proto3" json:"community,omitempty"`
-	SubCommunity  string                 `protobuf:"bytes,5,opt,name=sub_community,json=subCommunity,proto3" json:"sub_community,omitempty"`
+	Subcommunity  string                 `protobuf:"bytes,5,opt,name=subcommunity,proto3" json:"subcommunity,omitempty"`
 	Polygons      []*Point               `protobuf:"bytes,6,rep,name=polygons,proto3" json:"polygons,omitempty"`
 	LocationUrl   string                 `protobuf:"bytes,7,opt,name=location_url,json=locationUrl,proto3" json:"location_url,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -145,9 +145,9 @@ func (x *Addresses) GetCommunity() string {
 	return ""
 }
 
-func (x *Addresses) GetSubCommunity() string {
+func (x *Addresses) GetSubcommunity() string {
 	if x != nil {
-		return x.SubCommunity
+		return x.Subcommunity
 	}
 	return ""
 }
@@ -1129,13 +1129,13 @@ const file_project_profile_project_profile_proto_rawDesc = "" +
 	"%project_profile/project_profile.proto\x12\x1fproject_profile.project_profile\x1a\x1fgoogle/protobuf/timestamp.proto\"A\n" +
 	"\x05Point\x12\x1a\n" +
 	"\blatitude\x18\x01 \x01(\x01R\blatitude\x12\x1c\n" +
-	"\tlongitude\x18\x02 \x01(\x01R\tlongitude\"\xf9\x01\n" +
+	"\tlongitude\x18\x02 \x01(\x01R\tlongitude\"\xf8\x01\n" +
 	"\tAddresses\x12\x18\n" +
 	"\acountry\x18\x01 \x01(\tR\acountry\x12\x14\n" +
 	"\x05state\x18\x02 \x01(\tR\x05state\x12\x12\n" +
 	"\x04city\x18\x03 \x01(\tR\x04city\x12\x1c\n" +
-	"\tcommunity\x18\x04 \x01(\tR\tcommunity\x12#\n" +
-	"\rsub_community\x18\x05 \x01(\tR\fsubCommunity\x12B\n" +
+	"\tcommunity\x18\x04 \x01(\tR\tcommunity\x12\"\n" +
+	"\fsubcommunity\x18\x05 \x01(\tR\fsubcommunity\x12B\n" +
 	"\bpolygons\x18\x06 \x03(\v2&.project_profile.project_profile.PointR\bpolygons\x12!\n" +
 	"\flocation_url\x18\a \x01(\tR\vlocationUrl\"S\n" +
 	"\x04Plan\x12\x1c\n" +
