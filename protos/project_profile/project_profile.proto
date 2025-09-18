@@ -38,6 +38,11 @@ message Photo {
   string gallery_type = 3;
 }
 
+message PermitNumber {
+  string permit_number = 1;
+  google.protobuf.Timestamp permit_expiry = 2;
+}
+
 message Phase {
   string phase_name = 1;
   string phase_ref_no = 2;
@@ -70,6 +75,10 @@ message Phase {
   double min_area = 29;
   string min_bedrooms = 30;
   string max_bedrooms = 31;
+  double builtup_area = 32;
+  string currency = 33;
+  string unit_of_measure = 34;
+  PermitNumber permit_number = 35;
 }
 
 message CreateProjectProfileRequest {
@@ -111,6 +120,10 @@ message CreateProjectProfileRequest {
   double min_area = 36;
   string min_bedrooms = 37;
   string max_bedrooms = 38;
+  double builtup_area = 39;
+  string currency = 40;
+  string unit_of_measure = 41;
+  PermitNumber permit_number = 42;
 }
 
 message CreateProjectProfileResponse {

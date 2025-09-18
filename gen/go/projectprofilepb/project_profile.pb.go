@@ -338,6 +338,58 @@ func (x *Photo) GetGalleryType() string {
 	return ""
 }
 
+type PermitNumber struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PermitNumber  string                 `protobuf:"bytes,1,opt,name=permit_number,json=permitNumber,proto3" json:"permit_number,omitempty"`
+	PermitExpiry  *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=permit_expiry,json=permitExpiry,proto3" json:"permit_expiry,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PermitNumber) Reset() {
+	*x = PermitNumber{}
+	mi := &file_project_profile_project_profile_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PermitNumber) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PermitNumber) ProtoMessage() {}
+
+func (x *PermitNumber) ProtoReflect() protoreflect.Message {
+	mi := &file_project_profile_project_profile_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PermitNumber.ProtoReflect.Descriptor instead.
+func (*PermitNumber) Descriptor() ([]byte, []int) {
+	return file_project_profile_project_profile_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *PermitNumber) GetPermitNumber() string {
+	if x != nil {
+		return x.PermitNumber
+	}
+	return ""
+}
+
+func (x *PermitNumber) GetPermitExpiry() *timestamppb.Timestamp {
+	if x != nil {
+		return x.PermitExpiry
+	}
+	return nil
+}
+
 type Phase struct {
 	state                    protoimpl.MessageState `protogen:"open.v1"`
 	PhaseName                string                 `protobuf:"bytes,1,opt,name=phase_name,json=phaseName,proto3" json:"phase_name,omitempty"`
@@ -371,13 +423,17 @@ type Phase struct {
 	MinArea                  float64                `protobuf:"fixed64,29,opt,name=min_area,json=minArea,proto3" json:"min_area,omitempty"`
 	MinBedrooms              string                 `protobuf:"bytes,30,opt,name=min_bedrooms,json=minBedrooms,proto3" json:"min_bedrooms,omitempty"`
 	MaxBedrooms              string                 `protobuf:"bytes,31,opt,name=max_bedrooms,json=maxBedrooms,proto3" json:"max_bedrooms,omitempty"`
+	BuiltupArea              float64                `protobuf:"fixed64,32,opt,name=builtup_area,json=builtupArea,proto3" json:"builtup_area,omitempty"`
+	Currency                 string                 `protobuf:"bytes,33,opt,name=currency,proto3" json:"currency,omitempty"`
+	UnitOfMeasure            string                 `protobuf:"bytes,34,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
+	PermitNumber             *PermitNumber          `protobuf:"bytes,35,opt,name=permit_number,json=permitNumber,proto3" json:"permit_number,omitempty"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
 
 func (x *Phase) Reset() {
 	*x = Phase{}
-	mi := &file_project_profile_project_profile_proto_msgTypes[5]
+	mi := &file_project_profile_project_profile_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -389,7 +445,7 @@ func (x *Phase) String() string {
 func (*Phase) ProtoMessage() {}
 
 func (x *Phase) ProtoReflect() protoreflect.Message {
-	mi := &file_project_profile_project_profile_proto_msgTypes[5]
+	mi := &file_project_profile_project_profile_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -402,7 +458,7 @@ func (x *Phase) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Phase.ProtoReflect.Descriptor instead.
 func (*Phase) Descriptor() ([]byte, []int) {
-	return file_project_profile_project_profile_proto_rawDescGZIP(), []int{5}
+	return file_project_profile_project_profile_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *Phase) GetPhaseName() string {
@@ -622,6 +678,34 @@ func (x *Phase) GetMaxBedrooms() string {
 	return ""
 }
 
+func (x *Phase) GetBuiltupArea() float64 {
+	if x != nil {
+		return x.BuiltupArea
+	}
+	return 0
+}
+
+func (x *Phase) GetCurrency() string {
+	if x != nil {
+		return x.Currency
+	}
+	return ""
+}
+
+func (x *Phase) GetUnitOfMeasure() string {
+	if x != nil {
+		return x.UnitOfMeasure
+	}
+	return ""
+}
+
+func (x *Phase) GetPermitNumber() *PermitNumber {
+	if x != nil {
+		return x.PermitNumber
+	}
+	return nil
+}
+
 type CreateProjectProfileRequest struct {
 	state                    protoimpl.MessageState `protogen:"open.v1"`
 	ProjectName              string                 `protobuf:"bytes,1,opt,name=project_name,json=projectName,proto3" json:"project_name,omitempty"`
@@ -662,13 +746,17 @@ type CreateProjectProfileRequest struct {
 	MinArea                  float64                `protobuf:"fixed64,36,opt,name=min_area,json=minArea,proto3" json:"min_area,omitempty"`
 	MinBedrooms              string                 `protobuf:"bytes,37,opt,name=min_bedrooms,json=minBedrooms,proto3" json:"min_bedrooms,omitempty"`
 	MaxBedrooms              string                 `protobuf:"bytes,38,opt,name=max_bedrooms,json=maxBedrooms,proto3" json:"max_bedrooms,omitempty"`
+	BuiltupArea              float64                `protobuf:"fixed64,39,opt,name=builtup_area,json=builtupArea,proto3" json:"builtup_area,omitempty"`
+	Currency                 string                 `protobuf:"bytes,40,opt,name=currency,proto3" json:"currency,omitempty"`
+	UnitOfMeasure            string                 `protobuf:"bytes,41,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
+	PermitNumber             *PermitNumber          `protobuf:"bytes,42,opt,name=permit_number,json=permitNumber,proto3" json:"permit_number,omitempty"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
 
 func (x *CreateProjectProfileRequest) Reset() {
 	*x = CreateProjectProfileRequest{}
-	mi := &file_project_profile_project_profile_proto_msgTypes[6]
+	mi := &file_project_profile_project_profile_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -680,7 +768,7 @@ func (x *CreateProjectProfileRequest) String() string {
 func (*CreateProjectProfileRequest) ProtoMessage() {}
 
 func (x *CreateProjectProfileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_project_profile_project_profile_proto_msgTypes[6]
+	mi := &file_project_profile_project_profile_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -693,7 +781,7 @@ func (x *CreateProjectProfileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateProjectProfileRequest.ProtoReflect.Descriptor instead.
 func (*CreateProjectProfileRequest) Descriptor() ([]byte, []int) {
-	return file_project_profile_project_profile_proto_rawDescGZIP(), []int{6}
+	return file_project_profile_project_profile_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CreateProjectProfileRequest) GetProjectName() string {
@@ -962,6 +1050,34 @@ func (x *CreateProjectProfileRequest) GetMaxBedrooms() string {
 	return ""
 }
 
+func (x *CreateProjectProfileRequest) GetBuiltupArea() float64 {
+	if x != nil {
+		return x.BuiltupArea
+	}
+	return 0
+}
+
+func (x *CreateProjectProfileRequest) GetCurrency() string {
+	if x != nil {
+		return x.Currency
+	}
+	return ""
+}
+
+func (x *CreateProjectProfileRequest) GetUnitOfMeasure() string {
+	if x != nil {
+		return x.UnitOfMeasure
+	}
+	return ""
+}
+
+func (x *CreateProjectProfileRequest) GetPermitNumber() *PermitNumber {
+	if x != nil {
+		return x.PermitNumber
+	}
+	return nil
+}
+
 type CreateProjectProfileResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Msg           string                 `protobuf:"bytes,1,opt,name=msg,proto3" json:"msg,omitempty"`
@@ -971,7 +1087,7 @@ type CreateProjectProfileResponse struct {
 
 func (x *CreateProjectProfileResponse) Reset() {
 	*x = CreateProjectProfileResponse{}
-	mi := &file_project_profile_project_profile_proto_msgTypes[7]
+	mi := &file_project_profile_project_profile_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -983,7 +1099,7 @@ func (x *CreateProjectProfileResponse) String() string {
 func (*CreateProjectProfileResponse) ProtoMessage() {}
 
 func (x *CreateProjectProfileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_project_profile_project_profile_proto_msgTypes[7]
+	mi := &file_project_profile_project_profile_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -996,7 +1112,7 @@ func (x *CreateProjectProfileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateProjectProfileResponse.ProtoReflect.Descriptor instead.
 func (*CreateProjectProfileResponse) Descriptor() ([]byte, []int) {
-	return file_project_profile_project_profile_proto_rawDescGZIP(), []int{7}
+	return file_project_profile_project_profile_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CreateProjectProfileResponse) GetMsg() string {
@@ -1033,8 +1149,10 @@ const file_project_profile_project_profile_proto_rawDesc = "" +
 	"\x05Photo\x12\x10\n" +
 	"\x03url\x18\x01 \x01(\tR\x03url\x12\x1c\n" +
 	"\twatermark\x18\x02 \x01(\bR\twatermark\x12!\n" +
-	"\fgallery_type\x18\x03 \x01(\tR\vgalleryType\"\xe0\n" +
-	"\n" +
+	"\fgallery_type\x18\x03 \x01(\tR\vgalleryType\"t\n" +
+	"\fPermitNumber\x12#\n" +
+	"\rpermit_number\x18\x01 \x01(\tR\fpermitNumber\x12?\n" +
+	"\rpermit_expiry\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\fpermitExpiry\"\x9b\f\n" +
 	"\x05Phase\x12\x1d\n" +
 	"\n" +
 	"phase_name\x18\x01 \x01(\tR\tphaseName\x12 \n" +
@@ -1075,7 +1193,11 @@ const file_project_profile_project_profile_proto_rawDesc = "" +
 	"\bmax_area\x18\x1c \x01(\x01R\amaxArea\x12\x19\n" +
 	"\bmin_area\x18\x1d \x01(\x01R\aminArea\x12!\n" +
 	"\fmin_bedrooms\x18\x1e \x01(\tR\vminBedrooms\x12!\n" +
-	"\fmax_bedrooms\x18\x1f \x01(\tR\vmaxBedrooms\"\xaf\r\n" +
+	"\fmax_bedrooms\x18\x1f \x01(\tR\vmaxBedrooms\x12!\n" +
+	"\fbuiltup_area\x18  \x01(\x01R\vbuiltupArea\x12\x1a\n" +
+	"\bcurrency\x18! \x01(\tR\bcurrency\x12&\n" +
+	"\x0funit_of_measure\x18\" \x01(\tR\runitOfMeasure\x12R\n" +
+	"\rpermit_number\x18# \x01(\v2-.project_profile.project_profile.PermitNumberR\fpermitNumber\"\xea\x0e\n" +
 	"\x1bCreateProjectProfileRequest\x12!\n" +
 	"\fproject_name\x18\x01 \x01(\tR\vprojectName\x12&\n" +
 	"\x0fproject_name_ar\x18\x02 \x01(\tR\rprojectNameAr\x12$\n" +
@@ -1125,7 +1247,11 @@ const file_project_profile_project_profile_proto_rawDesc = "" +
 	"\bmax_area\x18# \x01(\x01R\amaxArea\x12\x19\n" +
 	"\bmin_area\x18$ \x01(\x01R\aminArea\x12!\n" +
 	"\fmin_bedrooms\x18% \x01(\tR\vminBedrooms\x12!\n" +
-	"\fmax_bedrooms\x18& \x01(\tR\vmaxBedrooms\"0\n" +
+	"\fmax_bedrooms\x18& \x01(\tR\vmaxBedrooms\x12!\n" +
+	"\fbuiltup_area\x18' \x01(\x01R\vbuiltupArea\x12\x1a\n" +
+	"\bcurrency\x18( \x01(\tR\bcurrency\x12&\n" +
+	"\x0funit_of_measure\x18) \x01(\tR\runitOfMeasure\x12R\n" +
+	"\rpermit_number\x18* \x01(\v2-.project_profile.project_profile.PermitNumberR\fpermitNumber\"0\n" +
 	"\x1cCreateProjectProfileResponse\x12\x10\n" +
 	"\x03msg\x18\x01 \x01(\tR\x03msg2\xad\x01\n" +
 	"\x15ProjectProfileService\x12\x93\x01\n" +
@@ -1143,47 +1269,51 @@ func file_project_profile_project_profile_proto_rawDescGZIP() []byte {
 	return file_project_profile_project_profile_proto_rawDescData
 }
 
-var file_project_profile_project_profile_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_project_profile_project_profile_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_project_profile_project_profile_proto_goTypes = []any{
 	(*Point)(nil),                        // 0: project_profile.project_profile.Point
 	(*Addresses)(nil),                    // 1: project_profile.project_profile.Addresses
 	(*Plan)(nil),                         // 2: project_profile.project_profile.Plan
 	(*Promotion)(nil),                    // 3: project_profile.project_profile.Promotion
 	(*Photo)(nil),                        // 4: project_profile.project_profile.Photo
-	(*Phase)(nil),                        // 5: project_profile.project_profile.Phase
-	(*CreateProjectProfileRequest)(nil),  // 6: project_profile.project_profile.CreateProjectProfileRequest
-	(*CreateProjectProfileResponse)(nil), // 7: project_profile.project_profile.CreateProjectProfileResponse
-	(*timestamppb.Timestamp)(nil),        // 8: google.protobuf.Timestamp
+	(*PermitNumber)(nil),                 // 5: project_profile.project_profile.PermitNumber
+	(*Phase)(nil),                        // 6: project_profile.project_profile.Phase
+	(*CreateProjectProfileRequest)(nil),  // 7: project_profile.project_profile.CreateProjectProfileRequest
+	(*CreateProjectProfileResponse)(nil), // 8: project_profile.project_profile.CreateProjectProfileResponse
+	(*timestamppb.Timestamp)(nil),        // 9: google.protobuf.Timestamp
 }
 var file_project_profile_project_profile_proto_depIdxs = []int32{
 	0,  // 0: project_profile.project_profile.Addresses.polygons:type_name -> project_profile.project_profile.Point
-	8,  // 1: project_profile.project_profile.Promotion.expiry_date:type_name -> google.protobuf.Timestamp
-	8,  // 2: project_profile.project_profile.Phase.registration_date:type_name -> google.protobuf.Timestamp
-	4,  // 3: project_profile.project_profile.Phase.photo:type_name -> project_profile.project_profile.Photo
-	2,  // 4: project_profile.project_profile.Phase.plan:type_name -> project_profile.project_profile.Plan
-	3,  // 5: project_profile.project_profile.Phase.promotions:type_name -> project_profile.project_profile.Promotion
-	1,  // 6: project_profile.project_profile.Phase.addresses:type_name -> project_profile.project_profile.Addresses
-	8,  // 7: project_profile.project_profile.Phase.start_date:type_name -> google.protobuf.Timestamp
-	8,  // 8: project_profile.project_profile.Phase.handover_date:type_name -> google.protobuf.Timestamp
-	8,  // 9: project_profile.project_profile.Phase.completion_date:type_name -> google.protobuf.Timestamp
-	8,  // 10: project_profile.project_profile.Phase.completion_percentage_date:type_name -> google.protobuf.Timestamp
-	1,  // 11: project_profile.project_profile.CreateProjectProfileRequest.addresses:type_name -> project_profile.project_profile.Addresses
-	8,  // 12: project_profile.project_profile.CreateProjectProfileRequest.registration_date:type_name -> google.protobuf.Timestamp
-	3,  // 13: project_profile.project_profile.CreateProjectProfileRequest.promotions:type_name -> project_profile.project_profile.Promotion
-	5,  // 14: project_profile.project_profile.CreateProjectProfileRequest.phases:type_name -> project_profile.project_profile.Phase
-	4,  // 15: project_profile.project_profile.CreateProjectProfileRequest.photo:type_name -> project_profile.project_profile.Photo
-	2,  // 16: project_profile.project_profile.CreateProjectProfileRequest.plan:type_name -> project_profile.project_profile.Plan
-	8,  // 17: project_profile.project_profile.CreateProjectProfileRequest.start_date:type_name -> google.protobuf.Timestamp
-	8,  // 18: project_profile.project_profile.CreateProjectProfileRequest.handover_date:type_name -> google.protobuf.Timestamp
-	8,  // 19: project_profile.project_profile.CreateProjectProfileRequest.completion_date:type_name -> google.protobuf.Timestamp
-	8,  // 20: project_profile.project_profile.CreateProjectProfileRequest.completion_percentage_date:type_name -> google.protobuf.Timestamp
-	6,  // 21: project_profile.project_profile.ProjectProfileService.CreateProjectProfile:input_type -> project_profile.project_profile.CreateProjectProfileRequest
-	7,  // 22: project_profile.project_profile.ProjectProfileService.CreateProjectProfile:output_type -> project_profile.project_profile.CreateProjectProfileResponse
-	22, // [22:23] is the sub-list for method output_type
-	21, // [21:22] is the sub-list for method input_type
-	21, // [21:21] is the sub-list for extension type_name
-	21, // [21:21] is the sub-list for extension extendee
-	0,  // [0:21] is the sub-list for field type_name
+	9,  // 1: project_profile.project_profile.Promotion.expiry_date:type_name -> google.protobuf.Timestamp
+	9,  // 2: project_profile.project_profile.PermitNumber.permit_expiry:type_name -> google.protobuf.Timestamp
+	9,  // 3: project_profile.project_profile.Phase.registration_date:type_name -> google.protobuf.Timestamp
+	4,  // 4: project_profile.project_profile.Phase.photo:type_name -> project_profile.project_profile.Photo
+	2,  // 5: project_profile.project_profile.Phase.plan:type_name -> project_profile.project_profile.Plan
+	3,  // 6: project_profile.project_profile.Phase.promotions:type_name -> project_profile.project_profile.Promotion
+	1,  // 7: project_profile.project_profile.Phase.addresses:type_name -> project_profile.project_profile.Addresses
+	9,  // 8: project_profile.project_profile.Phase.start_date:type_name -> google.protobuf.Timestamp
+	9,  // 9: project_profile.project_profile.Phase.handover_date:type_name -> google.protobuf.Timestamp
+	9,  // 10: project_profile.project_profile.Phase.completion_date:type_name -> google.protobuf.Timestamp
+	9,  // 11: project_profile.project_profile.Phase.completion_percentage_date:type_name -> google.protobuf.Timestamp
+	5,  // 12: project_profile.project_profile.Phase.permit_number:type_name -> project_profile.project_profile.PermitNumber
+	1,  // 13: project_profile.project_profile.CreateProjectProfileRequest.addresses:type_name -> project_profile.project_profile.Addresses
+	9,  // 14: project_profile.project_profile.CreateProjectProfileRequest.registration_date:type_name -> google.protobuf.Timestamp
+	3,  // 15: project_profile.project_profile.CreateProjectProfileRequest.promotions:type_name -> project_profile.project_profile.Promotion
+	6,  // 16: project_profile.project_profile.CreateProjectProfileRequest.phases:type_name -> project_profile.project_profile.Phase
+	4,  // 17: project_profile.project_profile.CreateProjectProfileRequest.photo:type_name -> project_profile.project_profile.Photo
+	2,  // 18: project_profile.project_profile.CreateProjectProfileRequest.plan:type_name -> project_profile.project_profile.Plan
+	9,  // 19: project_profile.project_profile.CreateProjectProfileRequest.start_date:type_name -> google.protobuf.Timestamp
+	9,  // 20: project_profile.project_profile.CreateProjectProfileRequest.handover_date:type_name -> google.protobuf.Timestamp
+	9,  // 21: project_profile.project_profile.CreateProjectProfileRequest.completion_date:type_name -> google.protobuf.Timestamp
+	9,  // 22: project_profile.project_profile.CreateProjectProfileRequest.completion_percentage_date:type_name -> google.protobuf.Timestamp
+	5,  // 23: project_profile.project_profile.CreateProjectProfileRequest.permit_number:type_name -> project_profile.project_profile.PermitNumber
+	7,  // 24: project_profile.project_profile.ProjectProfileService.CreateProjectProfile:input_type -> project_profile.project_profile.CreateProjectProfileRequest
+	8,  // 25: project_profile.project_profile.ProjectProfileService.CreateProjectProfile:output_type -> project_profile.project_profile.CreateProjectProfileResponse
+	25, // [25:26] is the sub-list for method output_type
+	24, // [24:25] is the sub-list for method input_type
+	24, // [24:24] is the sub-list for extension type_name
+	24, // [24:24] is the sub-list for extension extendee
+	0,  // [0:24] is the sub-list for field type_name
 }
 
 func init() { file_project_profile_project_profile_proto_init() }
@@ -1197,7 +1327,7 @@ func file_project_profile_project_profile_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_project_profile_project_profile_proto_rawDesc), len(file_project_profile_project_profile_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
