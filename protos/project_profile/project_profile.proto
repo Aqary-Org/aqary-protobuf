@@ -5,6 +5,7 @@ package project_profile.project_profile;
 option go_package = "/projectprofilepb;projectprofilepb";
 
 import "google/protobuf/timestamp.proto";
+import "common/common.proto";
 
 message Point {
   double latitude = 1;
@@ -79,6 +80,7 @@ message Phase {
   string currency = 33;
   string unit_of_measure = 34;
   PermitNumber permit_number = 35;
+  string phase_name_ar = 36;
 }
 
 message CreateProjectProfileRequest {
@@ -102,7 +104,7 @@ message CreateProjectProfileRequest {
   repeated string amenities = 18;
   repeated Photo photo = 19;
   repeated Plan plan = 20;
-  string unit_types = 21;
+  repeated string unit_types = 21;
   string furnished = 22;
   string ownership = 23;
   double plot_area = 24;
@@ -124,12 +126,9 @@ message CreateProjectProfileRequest {
   string currency = 40;
   string unit_of_measure = 41;
   PermitNumber permit_number = 42;
-}
-
-message CreateProjectProfileResponse {
-  string msg = 1;
+  string status = 43;
 }
 
 service ProjectProfileService {
-  rpc CreateProjectProfile(CreateProjectProfileRequest) returns (CreateProjectProfileResponse);
+  rpc CreateProjectProfile(CreateProjectProfileRequest) returns (common.HttpResponse);
 }
