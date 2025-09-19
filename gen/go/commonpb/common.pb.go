@@ -80,7 +80,7 @@ const file_common_common_proto_rawDesc = "" +
 	"\x13common/common.proto\x12\x06common\"<\n" +
 	"\fHttpResponse\x12\x10\n" +
 	"\x03msg\x18\x01 \x01(\tR\x03msg\x12\x1a\n" +
-	"\bhttpcode\x18\x02 \x01(\rR\bhttpcodeB\x15Z\x13/commonpb;commonpb;b\x06proto3"
+	"\bhttpcode\x18\x02 \x01(\rR\bhttpcodeB\x14Z\x12/commonpb;commonpbb\x06proto3"
 
 var (
 	file_common_common_proto_rawDescOnce sync.Once

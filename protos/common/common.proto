@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package common;
 
-option go_package = "/commonpb;commonpb;";
+option go_package = "/commonpb;commonpb";
 
 message HttpResponse {
   string msg = 1;
