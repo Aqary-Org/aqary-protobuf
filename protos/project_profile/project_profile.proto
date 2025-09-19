@@ -5,7 +5,7 @@ package project_profile.project_profile;
 option go_package = "/projectprofilepb;projectprofilepb";
 
 import "google/protobuf/timestamp.proto";
-import "common/common.proto";
+import "project_profile/common.proto";
 
 message Point {
   double latitude = 1;

@@ -6,7 +6,7 @@ package property_nd_unit;
 
 import "property_nd_unit/request.proto";
 import "property_nd_unit/response.proto";
-import "common/common.proto";
+import "property_nd_unit/common.proto";
 
 service PropertyAndUnitService {
   rpc CreatePropertyAndUnit(request.CreatePropertyAndUnitRequest) returns (common.HttpResponse);

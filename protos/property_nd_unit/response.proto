@@ -6,7 +6,7 @@ option go_package = "/property_nd_unitpb;property_nd_unitpb";
 
 import "google/protobuf/timestamp.proto";
 import "property_nd_unit/address.proto";
-import "common/common.proto";
+import "property_nd_unit/common.proto";
 
 message FacilityAmenity {
   repeated string title = 1;

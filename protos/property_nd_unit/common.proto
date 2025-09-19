@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package property_nd_unit.common;
+
+option go_package = "/property_nd_unitpb;property_nd_unitpb";
+
+message HttpResponse {
+  string msg = 1;
+  uint32 httpcode = 2;
+}

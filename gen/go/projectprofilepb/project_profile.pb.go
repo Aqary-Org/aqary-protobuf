@@ -7,7 +7,6 @@
 package projectprofilepb
 
 import (
-	commonpb "/commonpb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -1099,7 +1098,7 @@ var File_project_profile_project_profile_proto protoreflect.FileDescriptor
 
 const file_project_profile_project_profile_proto_rawDesc = "" +
 	"\n" +
-	"%project_profile/project_profile.proto\x12\x1fproject_profile.project_profile\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x13common/common.proto\"A\n" +
+	"%project_profile/project_profile.proto\x12\x1fproject_profile.project_profile\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cproject_profile/common.proto\"A\n" +
 	"\x05Point\x12\x1a\n" +
 	"\blatitude\x18\x01 \x01(\x01R\blatitude\x12\x1c\n" +
 	"\tlongitude\x18\x02 \x01(\x01R\tlongitude\"\xf8\x01\n" +
@@ -1226,9 +1225,9 @@ const file_project_profile_project_profile_proto_rawDesc = "" +
 	"\bcurrency\x18( \x01(\tR\bcurrency\x12&\n" +
 	"\x0funit_of_measure\x18) \x01(\tR\runitOfMeasure\x12R\n" +
 	"\rpermit_number\x18* \x01(\v2-.project_profile.project_profile.PermitNumberR\fpermitNumber\x12\x16\n" +
-	"\x06status\x18+ \x01(\tR\x06status2\x83\x01\n" +
-	"\x15ProjectProfileService\x12j\n" +
-	"\x14CreateProjectProfile\x12<.project_profile.project_profile.CreateProjectProfileRequest\x1a\x14.common.HttpResponseB$Z\"/projectprofilepb;projectprofilepbb\x06proto3"
+	"\x06status\x18+ \x01(\tR\x06status2\x93\x01\n" +
+	"\x15ProjectProfileService\x12z\n" +
+	"\x14CreateProjectProfile\x12<.project_profile.project_profile.CreateProjectProfileRequest\x1a$.project_profile.common.HttpResponseB$Z\"/projectprofilepb;projectprofilepbb\x06proto3"
 
 var (
 	file_project_profile_project_profile_proto_rawDescOnce sync.Once
@@ -1253,7 +1252,7 @@ var file_project_profile_project_profile_proto_goTypes = []any{
 	(*Phase)(nil),                       // 6: project_profile.project_profile.Phase
 	(*CreateProjectProfileRequest)(nil), // 7: project_profile.project_profile.CreateProjectProfileRequest
 	(*timestamppb.Timestamp)(nil),       // 8: google.protobuf.Timestamp
-	(*commonpb.HttpResponse)(nil),       // 9: common.HttpResponse
+	(*HttpResponse)(nil),                // 9: project_profile.common.HttpResponse
 }
 var file_project_profile_project_profile_proto_depIdxs = []int32{
 	0,  // 0: project_profile.project_profile.Addresses.polygons:type_name -> project_profile.project_profile.Point
@@ -1281,7 +1280,7 @@ var file_project_profile_project_profile_proto_depIdxs = []int32{
 	8,  // 22: project_profile.project_profile.CreateProjectProfileRequest.completion_percentage_date:type_name -> google.protobuf.Timestamp
 	5,  // 23: project_profile.project_profile.CreateProjectProfileRequest.permit_number:type_name -> project_profile.project_profile.PermitNumber
 	7,  // 24: project_profile.project_profile.ProjectProfileService.CreateProjectProfile:input_type -> project_profile.project_profile.CreateProjectProfileRequest
-	9,  // 25: project_profile.project_profile.ProjectProfileService.CreateProjectProfile:output_type -> common.HttpResponse
+	9,  // 25: project_profile.project_profile.ProjectProfileService.CreateProjectProfile:output_type -> project_profile.common.HttpResponse
 	25, // [25:26] is the sub-list for method output_type
 	24, // [24:25] is the sub-list for method input_type
 	24, // [24:24] is the sub-list for extension type_name
@@ -1294,6 +1293,7 @@ func file_project_profile_project_profile_proto_init() {
 	if File_project_profile_project_profile_proto != nil {
 		return
 	}
+	file_project_profile_common_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

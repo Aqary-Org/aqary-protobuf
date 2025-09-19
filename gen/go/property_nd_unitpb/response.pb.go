@@ -7,7 +7,6 @@
 package property_nd_unitpb
 
 import (
-	commonpb "/commonpb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -831,7 +830,7 @@ type GetAllPropertyAndUnitResponse struct {
 	state         protoimpl.MessageState        `protogen:"open.v1"`
 	PropertyUnits []*GetPropertyAndUnitResponse `protobuf:"bytes,1,rep,name=property_units,json=propertyUnits,proto3" json:"property_units,omitempty"`
 	TotalCounts   int64                         `protobuf:"varint,2,opt,name=total_counts,json=totalCounts,proto3" json:"total_counts,omitempty"`
-	Error         *commonpb.HttpResponse        `protobuf:"bytes,3,opt,name=error,proto3" json:"error,omitempty"`
+	Error         *HttpResponse                 `protobuf:"bytes,3,opt,name=error,proto3" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -880,7 +879,7 @@ func (x *GetAllPropertyAndUnitResponse) GetTotalCounts() int64 {
 	return 0
 }
 
-func (x *GetAllPropertyAndUnitResponse) GetError() *commonpb.HttpResponse {
+func (x *GetAllPropertyAndUnitResponse) GetError() *HttpResponse {
 	if x != nil {
 		return x.Error
 	}
@@ -891,7 +890,7 @@ var File_property_nd_unit_response_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_response_proto_rawDesc = "" +
 	"\n" +
-	"\x1fproperty_nd_unit/response.proto\x12\x19property_nd_unit.response\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1eproperty_nd_unit/address.proto\x1a\x13common/common.proto\"C\n" +
+	"\x1fproperty_nd_unit/response.proto\x12\x19property_nd_unit.response\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1eproperty_nd_unit/address.proto\x1a\x1dproperty_nd_unit/common.proto\"C\n" +
 	"\x0fFacilityAmenity\x12\x14\n" +
 	"\x05title\x18\x01 \x03(\tR\x05title\x12\x1a\n" +
 	"\bcategory\x18\x02 \x01(\tR\bcategory\"S\n" +
@@ -975,11 +974,11 @@ const file_property_nd_unit_response_proto_rawDesc = "" +
 	"\rparent_entity\x18\x16 \x01(\v2'.property_nd_unit.response.ParentEntityR\fparentEntity\x124\n" +
 	"\x04fact\x18\x17 \x01(\v2 .property_nd_unit.response.FactsR\x04fact\x125\n" +
 	"\x05plans\x18\x18 \x03(\v2\x1f.property_nd_unit.response.PlanR\x05plans\x12\x16\n" +
-	"\x06status\x18\x19 \x01(\tR\x06status\"\xcc\x01\n" +
+	"\x06status\x18\x19 \x01(\tR\x06status\"\xdd\x01\n" +
 	"\x1dGetAllPropertyAndUnitResponse\x12\\\n" +
 	"\x0eproperty_units\x18\x01 \x03(\v25.property_nd_unit.response.GetPropertyAndUnitResponseR\rpropertyUnits\x12!\n" +
-	"\ftotal_counts\x18\x02 \x01(\x03R\vtotalCounts\x12*\n" +
-	"\x05error\x18\x03 \x01(\v2\x14.common.HttpResponseR\x05errorB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
+	"\ftotal_counts\x18\x02 \x01(\x03R\vtotalCounts\x12;\n" +
+	"\x05error\x18\x03 \x01(\v2%.property_nd_unit.common.HttpResponseR\x05errorB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 
 var (
 	file_property_nd_unit_response_proto_rawDescOnce sync.Once
@@ -1005,7 +1004,7 @@ var file_property_nd_unit_response_proto_goTypes = []any{
 	(*GetAllPropertyAndUnitResponse)(nil), // 7: property_nd_unit.response.GetAllPropertyAndUnitResponse
 	(*timestamppb.Timestamp)(nil),         // 8: google.protobuf.Timestamp
 	(*Address)(nil),                       // 9: property_nd_unit.address.Address
-	(*commonpb.HttpResponse)(nil),         // 10: common.HttpResponse
+	(*HttpResponse)(nil),                  // 10: property_nd_unit.common.HttpResponse
 }
 var file_property_nd_unit_response_proto_depIdxs = []int32{
 	8,  // 0: property_nd_unit.response.Facts.completion_date:type_name -> google.protobuf.Timestamp
@@ -1020,7 +1019,7 @@ var file_property_nd_unit_response_proto_depIdxs = []int32{
 	4,  // 9: property_nd_unit.response.GetPropertyAndUnitResponse.fact:type_name -> property_nd_unit.response.Facts
 	1,  // 10: property_nd_unit.response.GetPropertyAndUnitResponse.plans:type_name -> property_nd_unit.response.Plan
 	6,  // 11: property_nd_unit.response.GetAllPropertyAndUnitResponse.property_units:type_name -> property_nd_unit.response.GetPropertyAndUnitResponse
-	10, // 12: property_nd_unit.response.GetAllPropertyAndUnitResponse.error:type_name -> common.HttpResponse
+	10, // 12: property_nd_unit.response.GetAllPropertyAndUnitResponse.error:type_name -> property_nd_unit.common.HttpResponse
 	13, // [13:13] is the sub-list for method output_type
 	13, // [13:13] is the sub-list for method input_type
 	13, // [13:13] is the sub-list for extension type_name
@@ -1034,6 +1033,7 @@ func file_property_nd_unit_response_proto_init() {
 		return
 	}
 	file_property_nd_unit_address_proto_init()
+	file_property_nd_unit_common_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
