@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package common;
+
+option go_package = "/commonpb;commonpb;";
+
+message HttpResponse {
+  string msg = 1;
+  uint32 httpcode = 2;
+}

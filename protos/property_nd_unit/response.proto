@@ -6,10 +6,8 @@ option go_package = "/property_nd_unitpb;property_nd_unitpb";
 
 import "google/protobuf/timestamp.proto";
 import "property_nd_unit/address.proto";
+import "common/common.proto";
 
-message CreatePropertyAndUnitResponse {
-  string msg = 1;
-}
 message FacilityAmenity {
   repeated string title = 1;
   string category = 2;
@@ -105,4 +103,5 @@ message GetPropertyAndUnitResponse {
 message GetAllPropertyAndUnitResponse {
   repeated response.GetPropertyAndUnitResponse property_units = 1;
   int64 total_counts = 2;
+  common.HttpResponse error = 3;
 }

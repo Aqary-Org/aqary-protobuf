@@ -7,6 +7,7 @@
 package property_nd_unitpb
 
 import (
+	commonpb "/commonpb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -22,50 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type CreatePropertyAndUnitResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Msg           string                 `protobuf:"bytes,1,opt,name=msg,proto3" json:"msg,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreatePropertyAndUnitResponse) Reset() {
-	*x = CreatePropertyAndUnitResponse{}
-	mi := &file_property_nd_unit_response_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreatePropertyAndUnitResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreatePropertyAndUnitResponse) ProtoMessage() {}
-
-func (x *CreatePropertyAndUnitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_response_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreatePropertyAndUnitResponse.ProtoReflect.Descriptor instead.
-func (*CreatePropertyAndUnitResponse) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *CreatePropertyAndUnitResponse) GetMsg() string {
-	if x != nil {
-		return x.Msg
-	}
-	return ""
-}
-
 type FacilityAmenity struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Title         []string               `protobuf:"bytes,1,rep,name=title,proto3" json:"title,omitempty"`
@@ -76,7 +33,7 @@ type FacilityAmenity struct {
 
 func (x *FacilityAmenity) Reset() {
 	*x = FacilityAmenity{}
-	mi := &file_property_nd_unit_response_proto_msgTypes[1]
+	mi := &file_property_nd_unit_response_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -88,7 +45,7 @@ func (x *FacilityAmenity) String() string {
 func (*FacilityAmenity) ProtoMessage() {}
 
 func (x *FacilityAmenity) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_response_proto_msgTypes[1]
+	mi := &file_property_nd_unit_response_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -101,7 +58,7 @@ func (x *FacilityAmenity) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FacilityAmenity.ProtoReflect.Descriptor instead.
 func (*FacilityAmenity) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{1}
+	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *FacilityAmenity) GetTitle() []string {
@@ -129,7 +86,7 @@ type Plan struct {
 
 func (x *Plan) Reset() {
 	*x = Plan{}
-	mi := &file_property_nd_unit_response_proto_msgTypes[2]
+	mi := &file_property_nd_unit_response_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -141,7 +98,7 @@ func (x *Plan) String() string {
 func (*Plan) ProtoMessage() {}
 
 func (x *Plan) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_response_proto_msgTypes[2]
+	mi := &file_property_nd_unit_response_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -154,7 +111,7 @@ func (x *Plan) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Plan.ProtoReflect.Descriptor instead.
 func (*Plan) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{2}
+	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Plan) GetWatermark() bool {
@@ -189,7 +146,7 @@ type ParentEntity struct {
 
 func (x *ParentEntity) Reset() {
 	*x = ParentEntity{}
-	mi := &file_property_nd_unit_response_proto_msgTypes[3]
+	mi := &file_property_nd_unit_response_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -201,7 +158,7 @@ func (x *ParentEntity) String() string {
 func (*ParentEntity) ProtoMessage() {}
 
 func (x *ParentEntity) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_response_proto_msgTypes[3]
+	mi := &file_property_nd_unit_response_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -214,7 +171,7 @@ func (x *ParentEntity) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ParentEntity.ProtoReflect.Descriptor instead.
 func (*ParentEntity) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{3}
+	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ParentEntity) GetEntityType() string {
@@ -249,7 +206,7 @@ type Photo struct {
 
 func (x *Photo) Reset() {
 	*x = Photo{}
-	mi := &file_property_nd_unit_response_proto_msgTypes[4]
+	mi := &file_property_nd_unit_response_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -261,7 +218,7 @@ func (x *Photo) String() string {
 func (*Photo) ProtoMessage() {}
 
 func (x *Photo) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_response_proto_msgTypes[4]
+	mi := &file_property_nd_unit_response_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -274,7 +231,7 @@ func (x *Photo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Photo.ProtoReflect.Descriptor instead.
 func (*Photo) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{4}
+	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Photo) GetWatermark() bool {
@@ -334,7 +291,7 @@ type Facts struct {
 
 func (x *Facts) Reset() {
 	*x = Facts{}
-	mi := &file_property_nd_unit_response_proto_msgTypes[5]
+	mi := &file_property_nd_unit_response_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -346,7 +303,7 @@ func (x *Facts) String() string {
 func (*Facts) ProtoMessage() {}
 
 func (x *Facts) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_response_proto_msgTypes[5]
+	mi := &file_property_nd_unit_response_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -359,7 +316,7 @@ func (x *Facts) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Facts.ProtoReflect.Descriptor instead.
 func (*Facts) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{5}
+	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *Facts) GetBedroom() string {
@@ -572,7 +529,7 @@ type AgentDetails struct {
 
 func (x *AgentDetails) Reset() {
 	*x = AgentDetails{}
-	mi := &file_property_nd_unit_response_proto_msgTypes[6]
+	mi := &file_property_nd_unit_response_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -584,7 +541,7 @@ func (x *AgentDetails) String() string {
 func (*AgentDetails) ProtoMessage() {}
 
 func (x *AgentDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_response_proto_msgTypes[6]
+	mi := &file_property_nd_unit_response_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -597,7 +554,7 @@ func (x *AgentDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AgentDetails.ProtoReflect.Descriptor instead.
 func (*AgentDetails) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{6}
+	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *AgentDetails) GetName() string {
@@ -674,7 +631,7 @@ type GetPropertyAndUnitResponse struct {
 
 func (x *GetPropertyAndUnitResponse) Reset() {
 	*x = GetPropertyAndUnitResponse{}
-	mi := &file_property_nd_unit_response_proto_msgTypes[7]
+	mi := &file_property_nd_unit_response_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -686,7 +643,7 @@ func (x *GetPropertyAndUnitResponse) String() string {
 func (*GetPropertyAndUnitResponse) ProtoMessage() {}
 
 func (x *GetPropertyAndUnitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_response_proto_msgTypes[7]
+	mi := &file_property_nd_unit_response_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -699,7 +656,7 @@ func (x *GetPropertyAndUnitResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPropertyAndUnitResponse.ProtoReflect.Descriptor instead.
 func (*GetPropertyAndUnitResponse) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{7}
+	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetPropertyAndUnitResponse) GetIsProperty() bool {
@@ -874,13 +831,14 @@ type GetAllPropertyAndUnitResponse struct {
 	state         protoimpl.MessageState        `protogen:"open.v1"`
 	PropertyUnits []*GetPropertyAndUnitResponse `protobuf:"bytes,1,rep,name=property_units,json=propertyUnits,proto3" json:"property_units,omitempty"`
 	TotalCounts   int64                         `protobuf:"varint,2,opt,name=total_counts,json=totalCounts,proto3" json:"total_counts,omitempty"`
+	Error         *commonpb.HttpResponse        `protobuf:"bytes,3,opt,name=error,proto3" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetAllPropertyAndUnitResponse) Reset() {
 	*x = GetAllPropertyAndUnitResponse{}
-	mi := &file_property_nd_unit_response_proto_msgTypes[8]
+	mi := &file_property_nd_unit_response_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -892,7 +850,7 @@ func (x *GetAllPropertyAndUnitResponse) String() string {
 func (*GetAllPropertyAndUnitResponse) ProtoMessage() {}
 
 func (x *GetAllPropertyAndUnitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_property_nd_unit_response_proto_msgTypes[8]
+	mi := &file_property_nd_unit_response_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -905,7 +863,7 @@ func (x *GetAllPropertyAndUnitResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllPropertyAndUnitResponse.ProtoReflect.Descriptor instead.
 func (*GetAllPropertyAndUnitResponse) Descriptor() ([]byte, []int) {
-	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{8}
+	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetAllPropertyAndUnitResponse) GetPropertyUnits() []*GetPropertyAndUnitResponse {
@@ -922,13 +880,18 @@ func (x *GetAllPropertyAndUnitResponse) GetTotalCounts() int64 {
 	return 0
 }
 
+func (x *GetAllPropertyAndUnitResponse) GetError() *commonpb.HttpResponse {
+	if x != nil {
+		return x.Error
+	}
+	return nil
+}
+
 var File_property_nd_unit_response_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_response_proto_rawDesc = "" +
 	"\n" +
-	"\x1fproperty_nd_unit/response.proto\x12\x19property_nd_unit.response\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1eproperty_nd_unit/address.proto\"1\n" +
-	"\x1dCreatePropertyAndUnitResponse\x12\x10\n" +
-	"\x03msg\x18\x01 \x01(\tR\x03msg\"C\n" +
+	"\x1fproperty_nd_unit/response.proto\x12\x19property_nd_unit.response\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1eproperty_nd_unit/address.proto\x1a\x13common/common.proto\"C\n" +
 	"\x0fFacilityAmenity\x12\x14\n" +
 	"\x05title\x18\x01 \x03(\tR\x05title\x12\x1a\n" +
 	"\bcategory\x18\x02 \x01(\tR\bcategory\"S\n" +
@@ -1012,10 +975,11 @@ const file_property_nd_unit_response_proto_rawDesc = "" +
 	"\rparent_entity\x18\x16 \x01(\v2'.property_nd_unit.response.ParentEntityR\fparentEntity\x124\n" +
 	"\x04fact\x18\x17 \x01(\v2 .property_nd_unit.response.FactsR\x04fact\x125\n" +
 	"\x05plans\x18\x18 \x03(\v2\x1f.property_nd_unit.response.PlanR\x05plans\x12\x16\n" +
-	"\x06status\x18\x19 \x01(\tR\x06status\"\xa0\x01\n" +
+	"\x06status\x18\x19 \x01(\tR\x06status\"\xcc\x01\n" +
 	"\x1dGetAllPropertyAndUnitResponse\x12\\\n" +
 	"\x0eproperty_units\x18\x01 \x03(\v25.property_nd_unit.response.GetPropertyAndUnitResponseR\rpropertyUnits\x12!\n" +
-	"\ftotal_counts\x18\x02 \x01(\x03R\vtotalCountsB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
+	"\ftotal_counts\x18\x02 \x01(\x03R\vtotalCounts\x12*\n" +
+	"\x05error\x18\x03 \x01(\v2\x14.common.HttpResponseR\x05errorB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 
 var (
 	file_property_nd_unit_response_proto_rawDescOnce sync.Once
@@ -1029,38 +993,39 @@ func file_property_nd_unit_response_proto_rawDescGZIP() []byte {
 	return file_property_nd_unit_response_proto_rawDescData
 }
 
-var file_property_nd_unit_response_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_property_nd_unit_response_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_property_nd_unit_response_proto_goTypes = []any{
-	(*CreatePropertyAndUnitResponse)(nil), // 0: property_nd_unit.response.CreatePropertyAndUnitResponse
-	(*FacilityAmenity)(nil),               // 1: property_nd_unit.response.FacilityAmenity
-	(*Plan)(nil),                          // 2: property_nd_unit.response.Plan
-	(*ParentEntity)(nil),                  // 3: property_nd_unit.response.ParentEntity
-	(*Photo)(nil),                         // 4: property_nd_unit.response.Photo
-	(*Facts)(nil),                         // 5: property_nd_unit.response.Facts
-	(*AgentDetails)(nil),                  // 6: property_nd_unit.response.AgentDetails
-	(*GetPropertyAndUnitResponse)(nil),    // 7: property_nd_unit.response.GetPropertyAndUnitResponse
-	(*GetAllPropertyAndUnitResponse)(nil), // 8: property_nd_unit.response.GetAllPropertyAndUnitResponse
-	(*timestamppb.Timestamp)(nil),         // 9: google.protobuf.Timestamp
-	(*Address)(nil),                       // 10: property_nd_unit.address.Address
+	(*FacilityAmenity)(nil),               // 0: property_nd_unit.response.FacilityAmenity
+	(*Plan)(nil),                          // 1: property_nd_unit.response.Plan
+	(*ParentEntity)(nil),                  // 2: property_nd_unit.response.ParentEntity
+	(*Photo)(nil),                         // 3: property_nd_unit.response.Photo
+	(*Facts)(nil),                         // 4: property_nd_unit.response.Facts
+	(*AgentDetails)(nil),                  // 5: property_nd_unit.response.AgentDetails
+	(*GetPropertyAndUnitResponse)(nil),    // 6: property_nd_unit.response.GetPropertyAndUnitResponse
+	(*GetAllPropertyAndUnitResponse)(nil), // 7: property_nd_unit.response.GetAllPropertyAndUnitResponse
+	(*timestamppb.Timestamp)(nil),         // 8: google.protobuf.Timestamp
+	(*Address)(nil),                       // 9: property_nd_unit.address.Address
+	(*commonpb.HttpResponse)(nil),         // 10: common.HttpResponse
 }
 var file_property_nd_unit_response_proto_depIdxs = []int32{
-	9,  // 0: property_nd_unit.response.Facts.completion_date:type_name -> google.protobuf.Timestamp
-	9,  // 1: property_nd_unit.response.Facts.handover_date:type_name -> google.protobuf.Timestamp
-	10, // 2: property_nd_unit.response.GetPropertyAndUnitResponse.address:type_name -> property_nd_unit.address.Address
-	6,  // 3: property_nd_unit.response.GetPropertyAndUnitResponse.agent:type_name -> property_nd_unit.response.AgentDetails
-	4,  // 4: property_nd_unit.response.GetPropertyAndUnitResponse.photos:type_name -> property_nd_unit.response.Photo
-	1,  // 5: property_nd_unit.response.GetPropertyAndUnitResponse.facility:type_name -> property_nd_unit.response.FacilityAmenity
-	1,  // 6: property_nd_unit.response.GetPropertyAndUnitResponse.amenity:type_name -> property_nd_unit.response.FacilityAmenity
-	9,  // 7: property_nd_unit.response.GetPropertyAndUnitResponse.permit_expiry_date:type_name -> google.protobuf.Timestamp
-	3,  // 8: property_nd_unit.response.GetPropertyAndUnitResponse.parent_entity:type_name -> property_nd_unit.response.ParentEntity
-	5,  // 9: property_nd_unit.response.GetPropertyAndUnitResponse.fact:type_name -> property_nd_unit.response.Facts
-	2,  // 10: property_nd_unit.response.GetPropertyAndUnitResponse.plans:type_name -> property_nd_unit.response.Plan
-	7,  // 11: property_nd_unit.response.GetAllPropertyAndUnitResponse.property_units:type_name -> property_nd_unit.response.GetPropertyAndUnitResponse
-	12, // [12:12] is the sub-list for method output_type
-	12, // [12:12] is the sub-list for method input_type
-	12, // [12:12] is the sub-list for extension type_name
-	12, // [12:12] is the sub-list for extension extendee
-	0,  // [0:12] is the sub-list for field type_name
+	8,  // 0: property_nd_unit.response.Facts.completion_date:type_name -> google.protobuf.Timestamp
+	8,  // 1: property_nd_unit.response.Facts.handover_date:type_name -> google.protobuf.Timestamp
+	9,  // 2: property_nd_unit.response.GetPropertyAndUnitResponse.address:type_name -> property_nd_unit.address.Address
+	5,  // 3: property_nd_unit.response.GetPropertyAndUnitResponse.agent:type_name -> property_nd_unit.response.AgentDetails
+	3,  // 4: property_nd_unit.response.GetPropertyAndUnitResponse.photos:type_name -> property_nd_unit.response.Photo
+	0,  // 5: property_nd_unit.response.GetPropertyAndUnitResponse.facility:type_name -> property_nd_unit.response.FacilityAmenity
+	0,  // 6: property_nd_unit.response.GetPropertyAndUnitResponse.amenity:type_name -> property_nd_unit.response.FacilityAmenity
+	8,  // 7: property_nd_unit.response.GetPropertyAndUnitResponse.permit_expiry_date:type_name -> google.protobuf.Timestamp
+	2,  // 8: property_nd_unit.response.GetPropertyAndUnitResponse.parent_entity:type_name -> property_nd_unit.response.ParentEntity
+	4,  // 9: property_nd_unit.response.GetPropertyAndUnitResponse.fact:type_name -> property_nd_unit.response.Facts
+	1,  // 10: property_nd_unit.response.GetPropertyAndUnitResponse.plans:type_name -> property_nd_unit.response.Plan
+	6,  // 11: property_nd_unit.response.GetAllPropertyAndUnitResponse.property_units:type_name -> property_nd_unit.response.GetPropertyAndUnitResponse
+	10, // 12: property_nd_unit.response.GetAllPropertyAndUnitResponse.error:type_name -> common.HttpResponse
+	13, // [13:13] is the sub-list for method output_type
+	13, // [13:13] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_property_nd_unit_response_proto_init() }
@@ -1075,7 +1040,7 @@ func file_property_nd_unit_response_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_property_nd_unit_response_proto_rawDesc), len(file_property_nd_unit_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   9,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

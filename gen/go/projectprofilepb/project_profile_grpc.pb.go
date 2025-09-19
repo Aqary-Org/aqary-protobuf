@@ -7,6 +7,7 @@
 package projectprofilepb
 
 import (
+	commonpb "/commonpb"
 	context "context"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -26,7 +27,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ProjectProfileServiceClient interface {
-	CreateProjectProfile(ctx context.Context, in *CreateProjectProfileRequest, opts ...grpc.CallOption) (*CreateProjectProfileResponse, error)
+	CreateProjectProfile(ctx context.Context, in *CreateProjectProfileRequest, opts ...grpc.CallOption) (*commonpb.HttpResponse, error)
 }
 
 type projectProfileServiceClient struct {
@@ -37,9 +38,9 @@ func NewProjectProfileServiceClient(cc grpc.ClientConnInterface) ProjectProfileS
 	return &projectProfileServiceClient{cc}
 }
 
-func (c *projectProfileServiceClient) CreateProjectProfile(ctx context.Context, in *CreateProjectProfileRequest, opts ...grpc.CallOption) (*CreateProjectProfileResponse, error) {
+func (c *projectProfileServiceClient) CreateProjectProfile(ctx context.Context, in *CreateProjectProfileRequest, opts ...grpc.CallOption) (*commonpb.HttpResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateProjectProfileResponse)
+	out := new(commonpb.HttpResponse)
 	err := c.cc.Invoke(ctx, ProjectProfileService_CreateProjectProfile_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -51,7 +52,7 @@ func (c *projectProfileServiceClient) CreateProjectProfile(ctx context.Context, 
 // All implementations must embed UnimplementedProjectProfileServiceServer
 // for forward compatibility.
 type ProjectProfileServiceServer interface {
-	CreateProjectProfile(context.Context, *CreateProjectProfileRequest) (*CreateProjectProfileResponse, error)
+	CreateProjectProfile(context.Context, *CreateProjectProfileRequest) (*commonpb.HttpResponse, error)
 	mustEmbedUnimplementedProjectProfileServiceServer()
 }
 
@@ -62,7 +63,7 @@ type ProjectProfileServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedProjectProfileServiceServer struct{}
 
-func (UnimplementedProjectProfileServiceServer) CreateProjectProfile(context.Context, *CreateProjectProfileRequest) (*CreateProjectProfileResponse, error) {
+func (UnimplementedProjectProfileServiceServer) CreateProjectProfile(context.Context, *CreateProjectProfileRequest) (*commonpb.HttpResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateProjectProfile not implemented")
 }
 func (UnimplementedProjectProfileServiceServer) mustEmbedUnimplementedProjectProfileServiceServer() {}
