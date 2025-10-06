@@ -148,15 +148,14 @@ type APIKeyUsage struct {
 	ApiEndPoint      string                 `protobuf:"bytes,2,opt,name=api_end_point,json=apiEndPoint,proto3" json:"api_end_point,omitempty"`
 	HttpMethod       string                 `protobuf:"bytes,3,opt,name=http_method,json=httpMethod,proto3" json:"http_method,omitempty"`
 	IpAddress        string                 `protobuf:"bytes,4,opt,name=ip_address,json=ipAddress,proto3" json:"ip_address,omitempty"`
-	ResponseStatus   int64                  `protobuf:"varint,5,opt,name=response_status,json=responseStatus,proto3" json:"response_status,omitempty"`
+	HttpCode         int64                  `protobuf:"varint,5,opt,name=http_code,json=httpCode,proto3" json:"http_code,omitempty"`
 	ResponseDuration int64                  `protobuf:"varint,6,opt,name=response_duration,json=responseDuration,proto3" json:"response_duration,omitempty"`
 	RequestSize      int64                  `protobuf:"varint,7,opt,name=request_size,json=requestSize,proto3" json:"request_size,omitempty"`
 	ResponseSize     int64                  `protobuf:"varint,8,opt,name=response_size,json=responseSize,proto3" json:"response_size,omitempty"`
-	ErrorCode        int64                  `protobuf:"varint,9,opt,name=error_code,json=errorCode,proto3" json:"error_code,omitempty"`
-	ErrorType        string                 `protobuf:"bytes,10,opt,name=error_type,json=errorType,proto3" json:"error_type,omitempty"`
-	ErrorMessage     string                 `protobuf:"bytes,11,opt,name=error_message,json=errorMessage,proto3" json:"error_message,omitempty"`
-	ApiKeyId         int64                  `protobuf:"varint,12,opt,name=api_key_id,json=apiKeyId,proto3" json:"api_key_id,omitempty"`
-	CreatedAt        *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	ErrorType        string                 `protobuf:"bytes,9,opt,name=error_type,json=errorType,proto3" json:"error_type,omitempty"`
+	Message          string                 `protobuf:"bytes,10,opt,name=message,proto3" json:"message,omitempty"`
+	ApiKeyId         int64                  `protobuf:"varint,11,opt,name=api_key_id,json=apiKeyId,proto3" json:"api_key_id,omitempty"`
+	CreatedAt        *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -219,9 +218,9 @@ func (x *APIKeyUsage) GetIpAddress() string {
 	return ""
 }
 
-func (x *APIKeyUsage) GetResponseStatus() int64 {
+func (x *APIKeyUsage) GetHttpCode() int64 {
 	if x != nil {
-		return x.ResponseStatus
+		return x.HttpCode
 	}
 	return 0
 }
@@ -247,13 +246,6 @@ func (x *APIKeyUsage) GetResponseSize() int64 {
 	return 0
 }
 
-func (x *APIKeyUsage) GetErrorCode() int64 {
-	if x != nil {
-		return x.ErrorCode
-	}
-	return 0
-}
-
 func (x *APIKeyUsage) GetErrorType() string {
 	if x != nil {
 		return x.ErrorType
@@ -261,9 +253,9 @@ func (x *APIKeyUsage) GetErrorType() string {
 	return ""
 }
 
-func (x *APIKeyUsage) GetErrorMessage() string {
+func (x *APIKeyUsage) GetMessage() string {
 	if x != nil {
-		return x.ErrorMessage
+		return x.Message
 	}
 	return ""
 }
@@ -295,28 +287,26 @@ const file_api_key_usage_api_key_usage_proto_rawDesc = "" +
 	"\tpage_size\x18\x04 \x01(\x03R\bpageSize\"V\n" +
 	"\x13APIKeyUsageResponse\x12)\n" +
 	"\x05usage\x18\x01 \x03(\v2\x13.apikey.APIKeyUsageR\x05usage\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\x03R\x05count\"\xdb\x03\n" +
+	"\x05count\x18\x02 \x01(\x03R\x05count\"\xa5\x03\n" +
 	"\vAPIKeyUsage\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\"\n" +
 	"\rapi_end_point\x18\x02 \x01(\tR\vapiEndPoint\x12\x1f\n" +
 	"\vhttp_method\x18\x03 \x01(\tR\n" +
 	"httpMethod\x12\x1d\n" +
 	"\n" +
-	"ip_address\x18\x04 \x01(\tR\tipAddress\x12'\n" +
-	"\x0fresponse_status\x18\x05 \x01(\x03R\x0eresponseStatus\x12+\n" +
+	"ip_address\x18\x04 \x01(\tR\tipAddress\x12\x1b\n" +
+	"\thttp_code\x18\x05 \x01(\x03R\bhttpCode\x12+\n" +
 	"\x11response_duration\x18\x06 \x01(\x03R\x10responseDuration\x12!\n" +
 	"\frequest_size\x18\a \x01(\x03R\vrequestSize\x12#\n" +
 	"\rresponse_size\x18\b \x01(\x03R\fresponseSize\x12\x1d\n" +
 	"\n" +
-	"error_code\x18\t \x01(\x03R\terrorCode\x12\x1d\n" +
+	"error_type\x18\t \x01(\tR\terrorType\x12\x18\n" +
+	"\amessage\x18\n" +
+	" \x01(\tR\amessage\x12\x1c\n" +
 	"\n" +
-	"error_type\x18\n" +
-	" \x01(\tR\terrorType\x12#\n" +
-	"\rerror_message\x18\v \x01(\tR\ferrorMessage\x12\x1c\n" +
+	"api_key_id\x18\v \x01(\x03R\bapiKeyId\x129\n" +
 	"\n" +
-	"api_key_id\x18\f \x01(\x03R\bapiKeyId\x129\n" +
-	"\n" +
-	"created_at\x18\r \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt2]\n" +
+	"created_at\x18\f \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt2]\n" +
 	"\rAPIKeyService\x12L\n" +
 	"\x0eGetAPIKeyUsage\x12\x1d.apikey.GetAPIKeyUsageRequest\x1a\x1b.apikey.APIKeyUsageResponseB\x14Z\x12/apikeypd;apikeypdb\x06proto3"
 
