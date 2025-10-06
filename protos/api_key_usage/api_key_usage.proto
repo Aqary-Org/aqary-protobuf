@@ -27,13 +27,12 @@ message APIKeyUsage{
   string api_end_point = 2;
   string http_method = 3;
   string ip_address = 4;
-  int64 response_status = 5;
+  int64 http_code = 5;
   int64 response_duration = 6;
   int64 request_size = 7;
   int64 response_size = 8;
-  int64 error_code = 9;
-  string error_type = 10;
-  string error_message = 11;
-  int64 api_key_id = 12;
-  google.protobuf.Timestamp created_at  = 13;
+  string error_type = 9;
+  string message = 10;
+  int64 api_key_id = 11;
+  google.protobuf.Timestamp created_at  = 12;
 }
