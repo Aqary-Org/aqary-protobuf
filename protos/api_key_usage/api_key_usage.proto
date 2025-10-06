@@ -18,6 +18,11 @@ message GetAPIKeyUsageRequest {
 }
 
 message APIKeyUsageResponse {
+  repeated APIKeyUsage usage =1;
+  int64 count = 2;
+}
+
+message APIKeyUsage{
   int64 id =1;
   string api_end_point = 2;
   string http_method = 3;
@@ -31,5 +36,4 @@ message APIKeyUsageResponse {
   string error_message = 11;
   int64 api_key_id = 12;
   google.protobuf.Timestamp created_at  = 13;
-
 }

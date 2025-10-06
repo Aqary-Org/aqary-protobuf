@@ -91,22 +91,11 @@ func (x *GetAPIKeyUsageRequest) GetPageSize() int64 {
 }
 
 type APIKeyUsageResponse struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Id               int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	ApiEndPoint      string                 `protobuf:"bytes,2,opt,name=api_end_point,json=apiEndPoint,proto3" json:"api_end_point,omitempty"`
-	HttpMethod       string                 `protobuf:"bytes,3,opt,name=http_method,json=httpMethod,proto3" json:"http_method,omitempty"`
-	IpAddress        string                 `protobuf:"bytes,4,opt,name=ip_address,json=ipAddress,proto3" json:"ip_address,omitempty"`
-	ResponseStatus   int64                  `protobuf:"varint,5,opt,name=response_status,json=responseStatus,proto3" json:"response_status,omitempty"`
-	ResponseDuration int64                  `protobuf:"varint,6,opt,name=response_duration,json=responseDuration,proto3" json:"response_duration,omitempty"`
-	RequestSize      int64                  `protobuf:"varint,7,opt,name=request_size,json=requestSize,proto3" json:"request_size,omitempty"`
-	ResponseSize     int64                  `protobuf:"varint,8,opt,name=response_size,json=responseSize,proto3" json:"response_size,omitempty"`
-	ErrorCode        int64                  `protobuf:"varint,9,opt,name=error_code,json=errorCode,proto3" json:"error_code,omitempty"`
-	ErrorType        string                 `protobuf:"bytes,10,opt,name=error_type,json=errorType,proto3" json:"error_type,omitempty"`
-	ErrorMessage     string                 `protobuf:"bytes,11,opt,name=error_message,json=errorMessage,proto3" json:"error_message,omitempty"`
-	ApiKeyId         int64                  `protobuf:"varint,12,opt,name=api_key_id,json=apiKeyId,proto3" json:"api_key_id,omitempty"`
-	CreatedAt        *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Usage         []*APIKeyUsage         `protobuf:"bytes,1,rep,name=usage,proto3" json:"usage,omitempty"`
+	Count         int64                  `protobuf:"varint,2,opt,name=count,proto3" json:"count,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *APIKeyUsageResponse) Reset() {
@@ -139,91 +128,154 @@ func (*APIKeyUsageResponse) Descriptor() ([]byte, []int) {
 	return file_api_key_usage_api_key_usage_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *APIKeyUsageResponse) GetId() int64 {
+func (x *APIKeyUsageResponse) GetUsage() []*APIKeyUsage {
+	if x != nil {
+		return x.Usage
+	}
+	return nil
+}
+
+func (x *APIKeyUsageResponse) GetCount() int64 {
+	if x != nil {
+		return x.Count
+	}
+	return 0
+}
+
+type APIKeyUsage struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Id               int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	ApiEndPoint      string                 `protobuf:"bytes,2,opt,name=api_end_point,json=apiEndPoint,proto3" json:"api_end_point,omitempty"`
+	HttpMethod       string                 `protobuf:"bytes,3,opt,name=http_method,json=httpMethod,proto3" json:"http_method,omitempty"`
+	IpAddress        string                 `protobuf:"bytes,4,opt,name=ip_address,json=ipAddress,proto3" json:"ip_address,omitempty"`
+	ResponseStatus   int64                  `protobuf:"varint,5,opt,name=response_status,json=responseStatus,proto3" json:"response_status,omitempty"`
+	ResponseDuration int64                  `protobuf:"varint,6,opt,name=response_duration,json=responseDuration,proto3" json:"response_duration,omitempty"`
+	RequestSize      int64                  `protobuf:"varint,7,opt,name=request_size,json=requestSize,proto3" json:"request_size,omitempty"`
+	ResponseSize     int64                  `protobuf:"varint,8,opt,name=response_size,json=responseSize,proto3" json:"response_size,omitempty"`
+	ErrorCode        int64                  `protobuf:"varint,9,opt,name=error_code,json=errorCode,proto3" json:"error_code,omitempty"`
+	ErrorType        string                 `protobuf:"bytes,10,opt,name=error_type,json=errorType,proto3" json:"error_type,omitempty"`
+	ErrorMessage     string                 `protobuf:"bytes,11,opt,name=error_message,json=errorMessage,proto3" json:"error_message,omitempty"`
+	ApiKeyId         int64                  `protobuf:"varint,12,opt,name=api_key_id,json=apiKeyId,proto3" json:"api_key_id,omitempty"`
+	CreatedAt        *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *APIKeyUsage) Reset() {
+	*x = APIKeyUsage{}
+	mi := &file_api_key_usage_api_key_usage_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *APIKeyUsage) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*APIKeyUsage) ProtoMessage() {}
+
+func (x *APIKeyUsage) ProtoReflect() protoreflect.Message {
+	mi := &file_api_key_usage_api_key_usage_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use APIKeyUsage.ProtoReflect.Descriptor instead.
+func (*APIKeyUsage) Descriptor() ([]byte, []int) {
+	return file_api_key_usage_api_key_usage_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *APIKeyUsage) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *APIKeyUsageResponse) GetApiEndPoint() string {
+func (x *APIKeyUsage) GetApiEndPoint() string {
 	if x != nil {
 		return x.ApiEndPoint
 	}
 	return ""
 }
 
-func (x *APIKeyUsageResponse) GetHttpMethod() string {
+func (x *APIKeyUsage) GetHttpMethod() string {
 	if x != nil {
 		return x.HttpMethod
 	}
 	return ""
 }
 
-func (x *APIKeyUsageResponse) GetIpAddress() string {
+func (x *APIKeyUsage) GetIpAddress() string {
 	if x != nil {
 		return x.IpAddress
 	}
 	return ""
 }
 
-func (x *APIKeyUsageResponse) GetResponseStatus() int64 {
+func (x *APIKeyUsage) GetResponseStatus() int64 {
 	if x != nil {
 		return x.ResponseStatus
 	}
 	return 0
 }
 
-func (x *APIKeyUsageResponse) GetResponseDuration() int64 {
+func (x *APIKeyUsage) GetResponseDuration() int64 {
 	if x != nil {
 		return x.ResponseDuration
 	}
 	return 0
 }
 
-func (x *APIKeyUsageResponse) GetRequestSize() int64 {
+func (x *APIKeyUsage) GetRequestSize() int64 {
 	if x != nil {
 		return x.RequestSize
 	}
 	return 0
 }
 
-func (x *APIKeyUsageResponse) GetResponseSize() int64 {
+func (x *APIKeyUsage) GetResponseSize() int64 {
 	if x != nil {
 		return x.ResponseSize
 	}
 	return 0
 }
 
-func (x *APIKeyUsageResponse) GetErrorCode() int64 {
+func (x *APIKeyUsage) GetErrorCode() int64 {
 	if x != nil {
 		return x.ErrorCode
 	}
 	return 0
 }
 
-func (x *APIKeyUsageResponse) GetErrorType() string {
+func (x *APIKeyUsage) GetErrorType() string {
 	if x != nil {
 		return x.ErrorType
 	}
 	return ""
 }
 
-func (x *APIKeyUsageResponse) GetErrorMessage() string {
+func (x *APIKeyUsage) GetErrorMessage() string {
 	if x != nil {
 		return x.ErrorMessage
 	}
 	return ""
 }
 
-func (x *APIKeyUsageResponse) GetApiKeyId() int64 {
+func (x *APIKeyUsage) GetApiKeyId() int64 {
 	if x != nil {
 		return x.ApiKeyId
 	}
 	return 0
 }
 
-func (x *APIKeyUsageResponse) GetCreatedAt() *timestamppb.Timestamp {
+func (x *APIKeyUsage) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.CreatedAt
 	}
@@ -240,8 +292,11 @@ const file_api_key_usage_api_key_usage_proto_rawDesc = "" +
 	"\n" +
 	"is_success\x18\x02 \x01(\bR\tisSuccess\x12\x17\n" +
 	"\apage_no\x18\x03 \x01(\x03R\x06pageNo\x12\x1b\n" +
-	"\tpage_size\x18\x04 \x01(\x03R\bpageSize\"\xe3\x03\n" +
-	"\x13APIKeyUsageResponse\x12\x0e\n" +
+	"\tpage_size\x18\x04 \x01(\x03R\bpageSize\"V\n" +
+	"\x13APIKeyUsageResponse\x12)\n" +
+	"\x05usage\x18\x01 \x03(\v2\x13.apikey.APIKeyUsageR\x05usage\x12\x14\n" +
+	"\x05count\x18\x02 \x01(\x03R\x05count\"\xdb\x03\n" +
+	"\vAPIKeyUsage\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\"\n" +
 	"\rapi_end_point\x18\x02 \x01(\tR\vapiEndPoint\x12\x1f\n" +
 	"\vhttp_method\x18\x03 \x01(\tR\n" +
@@ -277,21 +332,23 @@ func file_api_key_usage_api_key_usage_proto_rawDescGZIP() []byte {
 	return file_api_key_usage_api_key_usage_proto_rawDescData
 }
 
-var file_api_key_usage_api_key_usage_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_api_key_usage_api_key_usage_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_api_key_usage_api_key_usage_proto_goTypes = []any{
 	(*GetAPIKeyUsageRequest)(nil), // 0: apikey.GetAPIKeyUsageRequest
 	(*APIKeyUsageResponse)(nil),   // 1: apikey.APIKeyUsageResponse
-	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+	(*APIKeyUsage)(nil),           // 2: apikey.APIKeyUsage
+	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_api_key_usage_api_key_usage_proto_depIdxs = []int32{
-	2, // 0: apikey.APIKeyUsageResponse.created_at:type_name -> google.protobuf.Timestamp
-	0, // 1: apikey.APIKeyService.GetAPIKeyUsage:input_type -> apikey.GetAPIKeyUsageRequest
-	1, // 2: apikey.APIKeyService.GetAPIKeyUsage:output_type -> apikey.APIKeyUsageResponse
-	2, // [2:3] is the sub-list for method output_type
-	1, // [1:2] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 0: apikey.APIKeyUsageResponse.usage:type_name -> apikey.APIKeyUsage
+	3, // 1: apikey.APIKeyUsage.created_at:type_name -> google.protobuf.Timestamp
+	0, // 2: apikey.APIKeyService.GetAPIKeyUsage:input_type -> apikey.GetAPIKeyUsageRequest
+	1, // 3: apikey.APIKeyService.GetAPIKeyUsage:output_type -> apikey.APIKeyUsageResponse
+	3, // [3:4] is the sub-list for method output_type
+	2, // [2:3] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_api_key_usage_api_key_usage_proto_init() }
@@ -305,7 +362,7 @@ func file_api_key_usage_api_key_usage_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_api_key_usage_api_key_usage_proto_rawDesc), len(file_api_key_usage_api_key_usage_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
