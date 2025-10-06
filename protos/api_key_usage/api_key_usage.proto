@@ -28,6 +28,6 @@ message APIKeyUsageResponse {
   string error_type = 10;
   string error_message = 11;
   int64 api_key_id = 12;
-  google.protobuf.Timestamp created_at  = 13;
+  google.protobuf.Timestamp used_at  = 13;
 
 }

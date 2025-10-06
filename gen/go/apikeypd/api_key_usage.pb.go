@@ -88,7 +88,7 @@ type APIKeyUsageResponse struct {
 	ErrorType        string                 `protobuf:"bytes,10,opt,name=error_type,json=errorType,proto3" json:"error_type,omitempty"`
 	ErrorMessage     string                 `protobuf:"bytes,11,opt,name=error_message,json=errorMessage,proto3" json:"error_message,omitempty"`
 	ApiKeyId         int64                  `protobuf:"varint,12,opt,name=api_key_id,json=apiKeyId,proto3" json:"api_key_id,omitempty"`
-	CreatedAt        *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UsedAt           *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=used_at,json=usedAt,proto3" json:"used_at,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -207,9 +207,9 @@ func (x *APIKeyUsageResponse) GetApiKeyId() int64 {
 	return 0
 }
 
-func (x *APIKeyUsageResponse) GetCreatedAt() *timestamppb.Timestamp {
+func (x *APIKeyUsageResponse) GetUsedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.CreatedAt
+		return x.UsedAt
 	}
 	return nil
 }
@@ -222,7 +222,7 @@ const file_api_key_usage_api_key_usage_proto_rawDesc = "" +
 	"\x15GetAPIKeyUsageRequest\x12\x1b\n" +
 	"\tclient_id\x18\x01 \x01(\x03R\bclientId\x12\x1d\n" +
 	"\n" +
-	"is_success\x18\x02 \x01(\bR\tisSuccess\"\xe3\x03\n" +
+	"is_success\x18\x02 \x01(\bR\tisSuccess\"\xdd\x03\n" +
 	"\x13APIKeyUsageResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\"\n" +
 	"\rapi_end_point\x18\x02 \x01(\tR\vapiEndPoint\x12\x1f\n" +
@@ -241,9 +241,8 @@ const file_api_key_usage_api_key_usage_proto_rawDesc = "" +
 	" \x01(\tR\terrorType\x12#\n" +
 	"\rerror_message\x18\v \x01(\tR\ferrorMessage\x12\x1c\n" +
 	"\n" +
-	"api_key_id\x18\f \x01(\x03R\bapiKeyId\x129\n" +
-	"\n" +
-	"created_at\x18\r \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt2]\n" +
+	"api_key_id\x18\f \x01(\x03R\bapiKeyId\x123\n" +
+	"\aused_at\x18\r \x01(\v2\x1a.google.protobuf.TimestampR\x06usedAt2]\n" +
 	"\rAPIKeyService\x12L\n" +
 	"\x0eGetAPIKeyUsage\x12\x1d.apikey.GetAPIKeyUsageRequest\x1a\x1b.apikey.APIKeyUsageResponseB\x14Z\x12/apikeypd;apikeypdb\x06proto3"
 
@@ -266,7 +265,7 @@ var file_api_key_usage_api_key_usage_proto_goTypes = []any{
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_api_key_usage_api_key_usage_proto_depIdxs = []int32{
-	2, // 0: apikey.APIKeyUsageResponse.created_at:type_name -> google.protobuf.Timestamp
+	2, // 0: apikey.APIKeyUsageResponse.used_at:type_name -> google.protobuf.Timestamp
 	0, // 1: apikey.APIKeyService.GetAPIKeyUsage:input_type -> apikey.GetAPIKeyUsageRequest
 	1, // 2: apikey.APIKeyService.GetAPIKeyUsage:output_type -> apikey.APIKeyUsageResponse
 	2, // [2:3] is the sub-list for method output_type
