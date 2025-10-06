@@ -26,6 +26,8 @@ type GetAPIKeyUsageRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	ClientId      int64                  `protobuf:"varint,1,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
 	IsSuccess     bool                   `protobuf:"varint,2,opt,name=is_success,json=isSuccess,proto3" json:"is_success,omitempty"`
+	PageNo        int64                  `protobuf:"varint,3,opt,name=page_no,json=pageNo,proto3" json:"page_no,omitempty"`
+	PageSize      int64                  `protobuf:"varint,4,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -72,6 +74,20 @@ func (x *GetAPIKeyUsageRequest) GetIsSuccess() bool {
 		return x.IsSuccess
 	}
 	return false
+}
+
+func (x *GetAPIKeyUsageRequest) GetPageNo() int64 {
+	if x != nil {
+		return x.PageNo
+	}
+	return 0
+}
+
+func (x *GetAPIKeyUsageRequest) GetPageSize() int64 {
+	if x != nil {
+		return x.PageSize
+	}
+	return 0
 }
 
 type APIKeyUsageResponse struct {
@@ -218,11 +234,13 @@ var File_api_key_usage_api_key_usage_proto protoreflect.FileDescriptor
 
 const file_api_key_usage_api_key_usage_proto_rawDesc = "" +
 	"\n" +
-	"!api_key_usage/api_key_usage.proto\x12\x06apikey\x1a\x1fgoogle/protobuf/timestamp.proto\"S\n" +
+	"!api_key_usage/api_key_usage.proto\x12\x06apikey\x1a\x1fgoogle/protobuf/timestamp.proto\"\x89\x01\n" +
 	"\x15GetAPIKeyUsageRequest\x12\x1b\n" +
 	"\tclient_id\x18\x01 \x01(\x03R\bclientId\x12\x1d\n" +
 	"\n" +
-	"is_success\x18\x02 \x01(\bR\tisSuccess\"\xe3\x03\n" +
+	"is_success\x18\x02 \x01(\bR\tisSuccess\x12\x17\n" +
+	"\apage_no\x18\x03 \x01(\x03R\x06pageNo\x12\x1b\n" +
+	"\tpage_size\x18\x04 \x01(\x03R\bpageSize\"\xe3\x03\n" +
 	"\x13APIKeyUsageResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\"\n" +
 	"\rapi_end_point\x18\x02 \x01(\tR\vapiEndPoint\x12\x1f\n" +

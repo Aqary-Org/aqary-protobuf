@@ -13,6 +13,8 @@ service APIKeyService {
 message GetAPIKeyUsageRequest {
   int64 client_id = 1;
   bool is_success = 2;
+  int64 page_no = 3;
+  int64 page_size = 4;
 }
 
 message APIKeyUsageResponse {
