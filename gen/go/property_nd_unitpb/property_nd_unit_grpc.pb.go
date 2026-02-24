@@ -27,7 +27,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PropertyAndUnitServiceClient interface {
-	CreatePropertyAndUnit(ctx context.Context, in *CreatePropertyAndUnitRequest, opts ...grpc.CallOption) (*HttpResponse, error)
+	CreatePropertyAndUnit(ctx context.Context, in *CreatePropertyAndUnitRequest, opts ...grpc.CallOption) (*CreatePropertyAndUnitResponse, error)
 	GetAllPropertyAndUnit(ctx context.Context, in *GetAllPropertyAndUnitRequest, opts ...grpc.CallOption) (*GetAllPropertyAndUnitResponse, error)
 }
 
@@ -39,9 +39,9 @@ func NewPropertyAndUnitServiceClient(cc grpc.ClientConnInterface) PropertyAndUni
 	return &propertyAndUnitServiceClient{cc}
 }
 
-func (c *propertyAndUnitServiceClient) CreatePropertyAndUnit(ctx context.Context, in *CreatePropertyAndUnitRequest, opts ...grpc.CallOption) (*HttpResponse, error) {
+func (c *propertyAndUnitServiceClient) CreatePropertyAndUnit(ctx context.Context, in *CreatePropertyAndUnitRequest, opts ...grpc.CallOption) (*CreatePropertyAndUnitResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HttpResponse)
+	out := new(CreatePropertyAndUnitResponse)
 	err := c.cc.Invoke(ctx, PropertyAndUnitService_CreatePropertyAndUnit_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -63,7 +63,7 @@ func (c *propertyAndUnitServiceClient) GetAllPropertyAndUnit(ctx context.Context
 // All implementations must embed UnimplementedPropertyAndUnitServiceServer
 // for forward compatibility.
 type PropertyAndUnitServiceServer interface {
-	CreatePropertyAndUnit(context.Context, *CreatePropertyAndUnitRequest) (*HttpResponse, error)
+	CreatePropertyAndUnit(context.Context, *CreatePropertyAndUnitRequest) (*CreatePropertyAndUnitResponse, error)
 	GetAllPropertyAndUnit(context.Context, *GetAllPropertyAndUnitRequest) (*GetAllPropertyAndUnitResponse, error)
 	mustEmbedUnimplementedPropertyAndUnitServiceServer()
 }
@@ -75,7 +75,7 @@ type PropertyAndUnitServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedPropertyAndUnitServiceServer struct{}
 
-func (UnimplementedPropertyAndUnitServiceServer) CreatePropertyAndUnit(context.Context, *CreatePropertyAndUnitRequest) (*HttpResponse, error) {
+func (UnimplementedPropertyAndUnitServiceServer) CreatePropertyAndUnit(context.Context, *CreatePropertyAndUnitRequest) (*CreatePropertyAndUnitResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreatePropertyAndUnit not implemented")
 }
 func (UnimplementedPropertyAndUnitServiceServer) GetAllPropertyAndUnit(context.Context, *GetAllPropertyAndUnitRequest) (*GetAllPropertyAndUnitResponse, error) {

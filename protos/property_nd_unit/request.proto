@@ -81,7 +81,7 @@ message CreatePropertyAndUnitRequest {
   google.protobuf.Timestamp completion_percentage_date = 47;
   string facilities = 48;  // comma-separated, e.g. "Tennis court, Sauna, CCTV Security"
   string amenities = 49;   // comma-separated, e.g. "Furnished, Central A/C, Balcony"
-  string views_text = 50 [json_name = "views"];  // comma-separated, e.g. "Sea View, Marina View"
+  string views_text = 50;  // comma-separated, e.g. "Sea View, Marina View"
 }
 
 message GetAllPropertyAndUnitRequest {
