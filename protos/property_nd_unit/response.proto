@@ -14,8 +14,6 @@ message ValidationError {
 }
 
 message CreatePropertyAndUnitResponse {
-  // http code 200 or 400 or 500
-  uint32 httpcode = 1;
   // "success" or "error"
   string status = 2;
   // e.g. "VALIDATION_ERROR" when status = "error"

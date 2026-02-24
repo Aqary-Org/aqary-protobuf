@@ -228,60 +228,54 @@ func (x *RequestPhoto) GetUrlLastUpdate() *timestamppb.Timestamp {
 }
 
 type CreatePropertyAndUnitRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	IsProperty    bool                   `protobuf:"varint,1,opt,name=is_property,json=isProperty,proto3" json:"is_property,omitempty"`
-	RefNo         string                 `protobuf:"bytes,2,opt,name=ref_no,json=refNo,proto3" json:"ref_no,omitempty"`
-	Title         string                 `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
-	TitleAr       string                 `protobuf:"bytes,4,opt,name=title_ar,json=titleAr,proto3" json:"title_ar,omitempty"`
-	Description   string                 `protobuf:"bytes,5,opt,name=description,proto3" json:"description,omitempty"`
-	DescriptionAr string                 `protobuf:"bytes,6,opt,name=description_ar,json=descriptionAr,proto3" json:"description_ar,omitempty"`
-	PropertyName  string                 `protobuf:"bytes,7,opt,name=property_name,json=propertyName,proto3" json:"property_name,omitempty"`
-	Status        string                 `protobuf:"bytes,8,opt,name=status,proto3" json:"status,omitempty"`
-	Address       *Address               `protobuf:"bytes,9,opt,name=address,proto3" json:"address,omitempty"`
-	// Deprecated: Marked as deprecated in property_nd_unit/request.proto.
-	Facility []string `protobuf:"bytes,10,rep,name=facility,proto3" json:"facility,omitempty"` // use facilities (string) to match JSON
-	// Deprecated: Marked as deprecated in property_nd_unit/request.proto.
-	Views            []string               `protobuf:"bytes,11,rep,name=views,proto3" json:"views,omitempty"` // use views (string) to match JSON
-	AgentEmail       string                 `protobuf:"bytes,12,opt,name=agent_email,json=agentEmail,proto3" json:"agent_email,omitempty"`
-	Photos           []*RequestPhoto        `protobuf:"bytes,13,rep,name=photos,proto3" json:"photos,omitempty"`
-	UnitTypes        []string               `protobuf:"bytes,14,rep,name=unit_types,json=unitTypes,proto3" json:"unit_types,omitempty"`
-	PropertyType     string                 `protobuf:"bytes,15,opt,name=property_type,json=type,proto3" json:"property_type,omitempty"`
-	Noofunits        int64                  `protobuf:"varint,16,opt,name=noofunits,json=no_of_units,proto3" json:"noofunits,omitempty"`
-	PermitNumber     string                 `protobuf:"bytes,17,opt,name=permit_number,json=permitNumber,proto3" json:"permit_number,omitempty"`
-	Price            float64                `protobuf:"fixed64,18,opt,name=price,proto3" json:"price,omitempty"`
-	Category         string                 `protobuf:"bytes,19,opt,name=category,proto3" json:"category,omitempty"`
-	ListingType      string                 `protobuf:"bytes,20,opt,name=listing_type,json=listingType,proto3" json:"listing_type,omitempty"`
-	Lifestyle        string                 `protobuf:"bytes,21,opt,name=lifestyle,proto3" json:"lifestyle,omitempty"`
-	Bedroom          string                 `protobuf:"bytes,22,opt,name=bedroom,proto3" json:"bedroom,omitempty"`
-	Bathroom         int64                  `protobuf:"varint,23,opt,name=bathroom,proto3" json:"bathroom,omitempty"`
-	NoOfRetails      int64                  `protobuf:"varint,24,opt,name=no_of_retails,json=noOfRetails,proto3" json:"no_of_retails,omitempty"`
-	NoOfPayments     int64                  `protobuf:"varint,25,opt,name=no_of_payments,json=noOfPayments,proto3" json:"no_of_payments,omitempty"`
-	RentType         string                 `protobuf:"bytes,26,opt,name=rent_type,json=rentType,proto3" json:"rent_type,omitempty"`
-	NoOfElevators    int64                  `protobuf:"varint,27,opt,name=no_of_elevators,json=noOfElevators,proto3" json:"no_of_elevators,omitempty"`
-	BuiltUpArea      float64                `protobuf:"fixed64,28,opt,name=built_up_area,json=builtUpArea,proto3" json:"built_up_area,omitempty"`
-	PlotArea         float64                `protobuf:"fixed64,29,opt,name=plot_area,json=plotArea,proto3" json:"plot_area,omitempty"`
-	Ownership        string                 `protobuf:"bytes,30,opt,name=ownership,proto3" json:"ownership,omitempty"`
-	Furnished        string                 `protobuf:"bytes,31,opt,name=furnished,proto3" json:"furnished,omitempty"`
-	NoOfPools        int64                  `protobuf:"varint,32,opt,name=no_of_pools,json=noOfPools,proto3" json:"no_of_pools,omitempty"`
-	CompletionStatus string                 `protobuf:"bytes,33,opt,name=completion_status,json=completionStatus,proto3" json:"completion_status,omitempty"`
-	HandoverDate     *timestamppb.Timestamp `protobuf:"bytes,34,opt,name=handover_date,json=handoverDate,proto3" json:"handover_date,omitempty"`
-	MinArea          float64                `protobuf:"fixed64,35,opt,name=min_area,json=minArea,proto3" json:"min_area,omitempty"`
-	MaxArea          float64                `protobuf:"fixed64,36,opt,name=max_area,json=maxArea,proto3" json:"max_area,omitempty"`
-	UnitOfMeasure    string                 `protobuf:"bytes,37,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
-	Currency         string                 `protobuf:"bytes,38,opt,name=currency,proto3" json:"currency,omitempty"`
-	NoOfFloor        int64                  `protobuf:"varint,39,opt,name=no_of_floor,json=noOfFloor,proto3" json:"no_of_floor,omitempty"`
-	OfferingType     string                 `protobuf:"bytes,40,opt,name=offering_type,json=offeringType,proto3" json:"offering_type,omitempty"`
-	CompletionDate   *timestamppb.Timestamp `protobuf:"bytes,41,opt,name=completion_date,json=completionDate,proto3" json:"completion_date,omitempty"`
-	AskPrice         bool                   `protobuf:"varint,42,opt,name=ask_price,json=askPrice,proto3" json:"ask_price,omitempty"`
-	Parking          int64                  `protobuf:"varint,43,opt,name=parking,proto3" json:"parking,omitempty"`
-	PermitExpiryDate *timestamppb.Timestamp `protobuf:"bytes,44,opt,name=permit_expiry_date,json=permitExpiryDate,proto3" json:"permit_expiry_date,omitempty"`
-	// Deprecated: Marked as deprecated in property_nd_unit/request.proto.
-	Amenity                  []string               `protobuf:"bytes,45,rep,name=amenity,proto3" json:"amenity,omitempty"` // use amenities (string) to match JSON
-	CompletionPercentage     float32                `protobuf:"fixed32,46,opt,name=completion_percentage,json=completionPercentage,proto3" json:"completion_percentage,omitempty"`
-	CompletionPercentageDate *timestamppb.Timestamp `protobuf:"bytes,47,opt,name=completion_percentage_date,json=completionPercentageDate,proto3" json:"completion_percentage_date,omitempty"`
-	Facilities               string                 `protobuf:"bytes,48,opt,name=facilities,proto3" json:"facilities,omitempty"`                // comma-separated, e.g. "Tennis court, Sauna, CCTV Security"
-	Amenities                string                 `protobuf:"bytes,49,opt,name=amenities,proto3" json:"amenities,omitempty"`                  // comma-separated, e.g. "Furnished, Central A/C, Balcony"
-	ViewsText                string                 `protobuf:"bytes,50,opt,name=views_text,json=viewsText,proto3" json:"views_text,omitempty"` // comma-separated, e.g. "Sea View, Marina View"
+	state                    protoimpl.MessageState `protogen:"open.v1"`
+	IsProperty               bool                   `protobuf:"varint,1,opt,name=is_property,json=isProperty,proto3" json:"is_property,omitempty"`
+	RefNo                    string                 `protobuf:"bytes,2,opt,name=ref_no,json=refNo,proto3" json:"ref_no,omitempty"`
+	Title                    string                 `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
+	TitleAr                  string                 `protobuf:"bytes,4,opt,name=title_ar,json=titleAr,proto3" json:"title_ar,omitempty"`
+	Description              string                 `protobuf:"bytes,5,opt,name=description,proto3" json:"description,omitempty"`
+	DescriptionAr            string                 `protobuf:"bytes,6,opt,name=description_ar,json=descriptionAr,proto3" json:"description_ar,omitempty"`
+	PropertyName             string                 `protobuf:"bytes,7,opt,name=property_name,json=propertyName,proto3" json:"property_name,omitempty"`
+	Status                   string                 `protobuf:"bytes,8,opt,name=status,proto3" json:"status,omitempty"`
+	Address                  *Address               `protobuf:"bytes,9,opt,name=address,proto3" json:"address,omitempty"`
+	AgentEmail               string                 `protobuf:"bytes,12,opt,name=agent_email,json=agentEmail,proto3" json:"agent_email,omitempty"`
+	Photos                   []*RequestPhoto        `protobuf:"bytes,13,rep,name=photos,proto3" json:"photos,omitempty"`
+	UnitTypes                string                 `protobuf:"bytes,14,opt,name=unit_types,json=unitTypes,proto3" json:"unit_types,omitempty"`
+	PropertyType             string                 `protobuf:"bytes,15,opt,name=property_type,json=type,proto3" json:"property_type,omitempty"`
+	Noofunits                int64                  `protobuf:"varint,16,opt,name=noofunits,json=no_of_units,proto3" json:"noofunits,omitempty"`
+	PermitNumber             string                 `protobuf:"bytes,17,opt,name=permit_number,json=permitNumber,proto3" json:"permit_number,omitempty"`
+	Price                    float64                `protobuf:"fixed64,18,opt,name=price,proto3" json:"price,omitempty"`
+	Category                 string                 `protobuf:"bytes,19,opt,name=category,proto3" json:"category,omitempty"`
+	ListingType              string                 `protobuf:"bytes,20,opt,name=listing_type,json=listingType,proto3" json:"listing_type,omitempty"`
+	Lifestyle                string                 `protobuf:"bytes,21,opt,name=lifestyle,proto3" json:"lifestyle,omitempty"`
+	Bedroom                  string                 `protobuf:"bytes,22,opt,name=bedroom,proto3" json:"bedroom,omitempty"`
+	Bathroom                 int64                  `protobuf:"varint,23,opt,name=bathroom,proto3" json:"bathroom,omitempty"`
+	NoOfRetails              int64                  `protobuf:"varint,24,opt,name=no_of_retails,json=noOfRetails,proto3" json:"no_of_retails,omitempty"`
+	NoOfPayments             int64                  `protobuf:"varint,25,opt,name=no_of_payments,json=noOfPayments,proto3" json:"no_of_payments,omitempty"`
+	RentType                 string                 `protobuf:"bytes,26,opt,name=rent_type,json=rentType,proto3" json:"rent_type,omitempty"`
+	NoOfElevators            int64                  `protobuf:"varint,27,opt,name=no_of_elevators,json=noOfElevators,proto3" json:"no_of_elevators,omitempty"`
+	BuiltUpArea              float64                `protobuf:"fixed64,28,opt,name=built_up_area,json=builtUpArea,proto3" json:"built_up_area,omitempty"`
+	PlotArea                 float64                `protobuf:"fixed64,29,opt,name=plot_area,json=plotArea,proto3" json:"plot_area,omitempty"`
+	Ownership                string                 `protobuf:"bytes,30,opt,name=ownership,proto3" json:"ownership,omitempty"`
+	Furnished                string                 `protobuf:"bytes,31,opt,name=furnished,proto3" json:"furnished,omitempty"`
+	NoOfPools                int64                  `protobuf:"varint,32,opt,name=no_of_pools,json=noOfPools,proto3" json:"no_of_pools,omitempty"`
+	CompletionStatus         string                 `protobuf:"bytes,33,opt,name=completion_status,json=completionStatus,proto3" json:"completion_status,omitempty"`
+	HandoverDate             *timestamppb.Timestamp `protobuf:"bytes,34,opt,name=handover_date,json=handoverDate,proto3" json:"handover_date,omitempty"`
+	MinArea                  float64                `protobuf:"fixed64,35,opt,name=min_area,json=minArea,proto3" json:"min_area,omitempty"`
+	MaxArea                  float64                `protobuf:"fixed64,36,opt,name=max_area,json=maxArea,proto3" json:"max_area,omitempty"`
+	UnitOfMeasure            string                 `protobuf:"bytes,37,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
+	Currency                 string                 `protobuf:"bytes,38,opt,name=currency,proto3" json:"currency,omitempty"`
+	NoOfFloor                int64                  `protobuf:"varint,39,opt,name=no_of_floor,json=noOfFloor,proto3" json:"no_of_floor,omitempty"`
+	OfferingType             string                 `protobuf:"bytes,40,opt,name=offering_type,json=offeringType,proto3" json:"offering_type,omitempty"`
+	CompletionDate           *timestamppb.Timestamp `protobuf:"bytes,41,opt,name=completion_date,json=completionDate,proto3" json:"completion_date,omitempty"`
+	AskPrice                 bool                   `protobuf:"varint,42,opt,name=ask_price,json=askPrice,proto3" json:"ask_price,omitempty"`
+	Parking                  int64                  `protobuf:"varint,43,opt,name=parking,proto3" json:"parking,omitempty"`
+	PermitExpiryDate         *timestamppb.Timestamp `protobuf:"bytes,44,opt,name=permit_expiry_date,json=permitExpiryDate,proto3" json:"permit_expiry_date,omitempty"`
+	CompletionPercentage     float32                `protobuf:"fixed32,45,opt,name=completion_percentage,json=completionPercentage,proto3" json:"completion_percentage,omitempty"`
+	CompletionPercentageDate *timestamppb.Timestamp `protobuf:"bytes,46,opt,name=completion_percentage_date,json=completionPercentageDate,proto3" json:"completion_percentage_date,omitempty"`
+	Facilities               string                 `protobuf:"bytes,47,opt,name=facilities,proto3" json:"facilities,omitempty"`                // comma-separated, e.g. "Tennis court, Sauna, CCTV Security"
+	Amenities                string                 `protobuf:"bytes,48,opt,name=amenities,proto3" json:"amenities,omitempty"`                  // comma-separated, e.g. "Furnished, Central A/C, Balcony"
+	ViewsText                string                 `protobuf:"bytes,49,opt,name=views_text,json=viewsText,proto3" json:"views_text,omitempty"` // comma-separated, e.g. "Sea View, Marina View"
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -379,22 +373,6 @@ func (x *CreatePropertyAndUnitRequest) GetAddress() *Address {
 	return nil
 }
 
-// Deprecated: Marked as deprecated in property_nd_unit/request.proto.
-func (x *CreatePropertyAndUnitRequest) GetFacility() []string {
-	if x != nil {
-		return x.Facility
-	}
-	return nil
-}
-
-// Deprecated: Marked as deprecated in property_nd_unit/request.proto.
-func (x *CreatePropertyAndUnitRequest) GetViews() []string {
-	if x != nil {
-		return x.Views
-	}
-	return nil
-}
-
 func (x *CreatePropertyAndUnitRequest) GetAgentEmail() string {
 	if x != nil {
 		return x.AgentEmail
@@ -409,11 +387,11 @@ func (x *CreatePropertyAndUnitRequest) GetPhotos() []*RequestPhoto {
 	return nil
 }
 
-func (x *CreatePropertyAndUnitRequest) GetUnitTypes() []string {
+func (x *CreatePropertyAndUnitRequest) GetUnitTypes() string {
 	if x != nil {
 		return x.UnitTypes
 	}
-	return nil
+	return ""
 }
 
 func (x *CreatePropertyAndUnitRequest) GetPropertyType() string {
@@ -626,14 +604,6 @@ func (x *CreatePropertyAndUnitRequest) GetPermitExpiryDate() *timestamppb.Timest
 	return nil
 }
 
-// Deprecated: Marked as deprecated in property_nd_unit/request.proto.
-func (x *CreatePropertyAndUnitRequest) GetAmenity() []string {
-	if x != nil {
-		return x.Amenity
-	}
-	return nil
-}
-
 func (x *CreatePropertyAndUnitRequest) GetCompletionPercentage() float32 {
 	if x != nil {
 		return x.CompletionPercentage
@@ -756,7 +726,7 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x03url\x18\x01 \x01(\tR\x03url\x12\x1c\n" +
 	"\twatermark\x18\x02 \x01(\bR\twatermark\x12!\n" +
 	"\fgallery_type\x18\x03 \x01(\tR\vgalleryType\x12B\n" +
-	"\x0furl_last_update\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\rurlLastUpdate\"\xb8\x0e\n" +
+	"\x0furl_last_update\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\rurlLastUpdate\"\xe0\r\n" +
 	"\x1cCreatePropertyAndUnitRequest\x12\x1f\n" +
 	"\vis_property\x18\x01 \x01(\bR\n" +
 	"isProperty\x12\x15\n" +
@@ -767,15 +737,12 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x0edescription_ar\x18\x06 \x01(\tR\rdescriptionAr\x12#\n" +
 	"\rproperty_name\x18\a \x01(\tR\fpropertyName\x12\x16\n" +
 	"\x06status\x18\b \x01(\tR\x06status\x12;\n" +
-	"\aaddress\x18\t \x01(\v2!.property_nd_unit.address.AddressR\aaddress\x12\x1e\n" +
-	"\bfacility\x18\n" +
-	" \x03(\tB\x02\x18\x01R\bfacility\x12\x18\n" +
-	"\x05views\x18\v \x03(\tB\x02\x18\x01R\x05views\x12\x1f\n" +
+	"\aaddress\x18\t \x01(\v2!.property_nd_unit.address.AddressR\aaddress\x12\x1f\n" +
 	"\vagent_email\x18\f \x01(\tR\n" +
 	"agentEmail\x12>\n" +
 	"\x06photos\x18\r \x03(\v2&.property_nd_unit.request.RequestPhotoR\x06photos\x12\x1d\n" +
 	"\n" +
-	"unit_types\x18\x0e \x03(\tR\tunitTypes\x12\x1b\n" +
+	"unit_types\x18\x0e \x01(\tR\tunitTypes\x12\x1b\n" +
 	"\rproperty_type\x18\x0f \x01(\tR\x04type\x12\x1e\n" +
 	"\tnoofunits\x18\x10 \x01(\x03R\vno_of_units\x12#\n" +
 	"\rpermit_number\x18\x11 \x01(\tR\fpermitNumber\x12\x14\n" +
@@ -805,16 +772,15 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x0fcompletion_date\x18) \x01(\v2\x1a.google.protobuf.TimestampR\x0ecompletionDate\x12\x1b\n" +
 	"\task_price\x18* \x01(\bR\baskPrice\x12\x18\n" +
 	"\aparking\x18+ \x01(\x03R\aparking\x12H\n" +
-	"\x12permit_expiry_date\x18, \x01(\v2\x1a.google.protobuf.TimestampR\x10permitExpiryDate\x12\x1c\n" +
-	"\aamenity\x18- \x03(\tB\x02\x18\x01R\aamenity\x123\n" +
-	"\x15completion_percentage\x18. \x01(\x02R\x14completionPercentage\x12X\n" +
-	"\x1acompletion_percentage_date\x18/ \x01(\v2\x1a.google.protobuf.TimestampR\x18completionPercentageDate\x12\x1e\n" +
+	"\x12permit_expiry_date\x18, \x01(\v2\x1a.google.protobuf.TimestampR\x10permitExpiryDate\x123\n" +
+	"\x15completion_percentage\x18- \x01(\x02R\x14completionPercentage\x12X\n" +
+	"\x1acompletion_percentage_date\x18. \x01(\v2\x1a.google.protobuf.TimestampR\x18completionPercentageDate\x12\x1e\n" +
 	"\n" +
-	"facilities\x180 \x01(\tR\n" +
+	"facilities\x18/ \x01(\tR\n" +
 	"facilities\x12\x1c\n" +
-	"\tamenities\x181 \x01(\tR\tamenities\x12\x1d\n" +
+	"\tamenities\x180 \x01(\tR\tamenities\x12\x1d\n" +
 	"\n" +
-	"views_text\x182 \x01(\tR\tviewsText\"\x8c\x01\n" +
+	"views_text\x181 \x01(\tR\tviewsText\"\x8c\x01\n" +
 	"\x1cGetAllPropertyAndUnitRequest\x12\x1d\n" +
 	"\n" +
 	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +

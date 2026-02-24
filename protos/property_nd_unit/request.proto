@@ -41,11 +41,9 @@ message CreatePropertyAndUnitRequest {
   string property_name = 7; 
   string status = 8;
   address.Address address = 9; 
-  repeated string facility = 10 [deprecated = true];  // use facilities (string) to match JSON
-  repeated string views = 11 [deprecated = true];     // use views (string) to match JSON
   string agent_email = 12;
   repeated RequestPhoto photos = 13;
-  repeated string unit_types = 14;
+  string unit_types = 14;
   string property_type = 15 [json_name = "type"];
   int64 noofunits = 16 [json_name = "no_of_units"];
   string permit_number = 17;
@@ -76,12 +74,11 @@ message CreatePropertyAndUnitRequest {
   bool ask_price = 42;
   int64 parking = 43;
   google.protobuf.Timestamp permit_expiry_date = 44;
-  repeated string amenity = 45 [deprecated = true];  // use amenities (string) to match JSON
-  float completion_percentage = 46;
-  google.protobuf.Timestamp completion_percentage_date = 47;
-  string facilities = 48;  // comma-separated, e.g. "Tennis court, Sauna, CCTV Security"
-  string amenities = 49;   // comma-separated, e.g. "Furnished, Central A/C, Balcony"
-  string views_text = 50;  // comma-separated, e.g. "Sea View, Marina View"
+  float completion_percentage = 45;
+  google.protobuf.Timestamp completion_percentage_date = 46;
+  string facilities = 47;  // comma-separated, e.g. "Tennis court, Sauna, CCTV Security"
+  string amenities = 48;   // comma-separated, e.g. "Furnished, Central A/C, Balcony"
+  string views_text = 49;  // comma-separated, e.g. "Sea View, Marina View"
 }
 
 message GetAllPropertyAndUnitRequest {

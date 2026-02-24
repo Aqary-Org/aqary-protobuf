@@ -76,8 +76,6 @@ func (x *ValidationError) GetMessage() string {
 
 type CreatePropertyAndUnitResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// http code 200 or 400 or 500
-	Httpcode uint32 `protobuf:"varint,1,opt,name=httpcode,proto3" json:"httpcode,omitempty"`
 	// "success" or "error"
 	Status string `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
 	// e.g. "VALIDATION_ERROR" when status = "error"
@@ -118,13 +116,6 @@ func (x *CreatePropertyAndUnitResponse) ProtoReflect() protoreflect.Message {
 // Deprecated: Use CreatePropertyAndUnitResponse.ProtoReflect.Descriptor instead.
 func (*CreatePropertyAndUnitResponse) Descriptor() ([]byte, []int) {
 	return file_property_nd_unit_response_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *CreatePropertyAndUnitResponse) GetHttpcode() uint32 {
-	if x != nil {
-		return x.Httpcode
-	}
-	return 0
 }
 
 func (x *CreatePropertyAndUnitResponse) GetStatus() string {
@@ -1026,9 +1017,8 @@ const file_property_nd_unit_response_proto_rawDesc = "" +
 	"\x1fproperty_nd_unit/response.proto\x12\x19property_nd_unit.response\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1eproperty_nd_unit/address.proto\x1a\x1dproperty_nd_unit/common.proto\"A\n" +
 	"\x0fValidationError\x12\x14\n" +
 	"\x05field\x18\x01 \x01(\tR\x05field\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage\"\xc5\x01\n" +
-	"\x1dCreatePropertyAndUnitResponse\x12\x1a\n" +
-	"\bhttpcode\x18\x01 \x01(\rR\bhttpcode\x12\x16\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"\xa9\x01\n" +
+	"\x1dCreatePropertyAndUnitResponse\x12\x16\n" +
 	"\x06status\x18\x02 \x01(\tR\x06status\x12\x12\n" +
 	"\x04code\x18\x03 \x01(\tR\x04code\x12\x18\n" +
 	"\amessage\x18\x04 \x01(\tR\amessage\x12B\n" +
