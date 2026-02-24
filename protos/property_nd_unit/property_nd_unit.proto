@@ -9,6 +9,6 @@ import "property_nd_unit/response.proto";
 import "property_nd_unit/common.proto";
 
 service PropertyAndUnitService {
-  rpc CreatePropertyAndUnit(request.CreatePropertyAndUnitRequest) returns (common.HttpResponse);
+  rpc CreatePropertyAndUnit(request.CreatePropertyAndUnitRequest) returns (response.CreatePropertyAndUnitResponse);
   rpc GetAllPropertyAndUnit(request.GetAllPropertyAndUnitRequest) returns (response.GetAllPropertyAndUnitResponse);
 }

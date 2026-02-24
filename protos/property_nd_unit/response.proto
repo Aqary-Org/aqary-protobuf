@@ -8,6 +8,25 @@ import "google/protobuf/timestamp.proto";
 import "property_nd_unit/address.proto";
 import "property_nd_unit/common.proto";
 
+message ValidationError {
+  string field = 1;
+  string message = 2;
+}
+
+message CreatePropertyAndUnitResponse {
+  // http code 200 or 400 or 500
+  uint32 httpcode = 1;
+  // "success" or "error"
+  string status = 2;
+  // e.g. "VALIDATION_ERROR" when status = "error"
+  string code = 3;
+  // e.g. "One or more listings failed validation."
+  string message = 4;
+  // Populated only when there are validation errors
+  repeated ValidationError errors = 5;
+  
+}
+
 message FacilityAmenity {
   repeated string title = 1;
   string category = 2;

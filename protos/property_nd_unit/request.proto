@@ -21,102 +21,67 @@ message Plans {
   string url = 3;
 }
 
-message UserDetail {
-  string email = 1 [deprecated = true];
-  int64 company_id = 2;
-  int64 user_id = 3;
+// Photo for create request: matches JSON with url, watermark ("No"/"Yes"), type ("main"/"cover"), optional url_last_update.
+message RequestPhoto {
+  string url = 1;
+  bool watermark = 2;  
+  string gallery_type = 3;       // e.g. "main", "cover"
+  google.protobuf.Timestamp url_last_update = 4;  // optional, e.g. "2026-02-10 13:53:20"
 }
 
+
+
 message CreatePropertyAndUnitRequest {
-  reserved 17;
   bool is_property = 1;
   string ref_no = 2;
   string title = 3;
   string title_ar = 4;
   string description = 5;
   string description_ar = 6;
-  string property_name = 7;
-  string project_name = 8;
-  string phase_name = 9;
-  string status = 10;
-  address.Address address = 11;
-  string location_url = 12;
-  repeated string facility = 13;
-  repeated string views = 14;
-  string agent_email = 15;
-  repeated string photos = 16;
-  repeated Plans plans = 18;
-  repeated string unit_types = 19;
-  string property_type = 20;
-  int64 noofunits = 21;
-  string permit_number = 22;
-  double price = 23;
-  string category = 24;
-  string listing_type = 25;
-  string lifestyle = 26;
-  string bedroom = 27;
-  int64 bathroom = 28;
-  int64 no_of_retails = 29;
-  int64 no_of_payments = 30;
-  string rent_type = 31;
-  float service_charge = 32;
-  int64 no_of_elevators = 33;
-  double built_up_area = 34;
-  double plot_area = 35;
-  string ownership = 36;
-  string furnished = 37;
-  int64 no_of_pools = 38;
-  string completion_status = 39;
-  google.protobuf.Timestamp handover_date  = 40;
-  double min_area = 41;
-  double max_area = 42;
-  string unit_of_measure = 43;
-  string currency = 44;
-  int64 no_of_floor = 45;
-  string offering_type = 46;
-  google.protobuf.Timestamp completion_date  = 47;
-  string country_code = 48;
-  bool ask_price = 49;
-  int64 parking = 50;
-  string plan_type = 51;
-  bool is_project_property = 52;
-  UserDetail user_detail = 53;
-  string notes = 54;
-  string notes_ar = 55;
-  bool is_public_notes = 56;
-  google.protobuf.Timestamp permit_expiry_date = 57;
-  bool is_show_owner_info = 58;
-  // string property_rank = 59;
-  bool is_verified = 59;
-  repeated string amenity = 60;
-  string owner_name = 61;
-  int64 starting_price = 62;
-  string min_bedrooms = 63;
-  string max_bedrooms = 64;
-  float completion_percentage = 65;
-  google.protobuf.Timestamp completion_percentage_date = 66;
-  float commercial_tax = 67;
-  float municipality_tax = 68;
-  int64 sector_no = 69;
-  int64 plot_no = 70;
-  int64 property_no = 71;
-  bool is_investment = 72;
-  bool is_leased = 73;
-  google.protobuf.Timestamp is_leased_date = 74;
-  // google.protobuf.Timestamp roi_end_date = 76;
-  float amount = 75;
-  float contract_amount = 76;
-  bool is_exclusive = 77;
-  google.protobuf.Timestamp exclusive_start_date = 78;
-  google.protobuf.Timestamp exclusive_end_date = 79;
-  int64 rooms = 80;
-  int64 trees = 81;
-  int64 water_irrigation = 82;
-  google.protobuf.Timestamp contract_start_date = 83;
-  google.protobuf.Timestamp contract_end_date = 84;
-  string unit_type = 85;
-  string unit_no = 86;
-  bool unit_no_is_public = 87;
+  string property_name = 7; 
+  string status = 8;
+  address.Address address = 9; 
+  repeated string facility = 10 [deprecated = true];  // use facilities (string) to match JSON
+  repeated string views = 11 [deprecated = true];     // use views (string) to match JSON
+  string agent_email = 12;
+  repeated RequestPhoto photos = 13;
+  repeated string unit_types = 14;
+  string property_type = 15 [json_name = "type"];
+  int64 noofunits = 16 [json_name = "no_of_units"];
+  string permit_number = 17;
+  double price = 18;
+  string category = 19;
+  string listing_type = 20;
+  string lifestyle = 21;
+  string bedroom = 22;
+  int64 bathroom = 23;
+  int64 no_of_retails = 24;
+  int64 no_of_payments = 25;
+  string rent_type = 26;
+  int64 no_of_elevators = 27;
+  double built_up_area = 28;
+  double plot_area = 29;
+  string ownership = 30;
+  string furnished = 31;
+  int64 no_of_pools = 32;
+  string completion_status = 33;
+  google.protobuf.Timestamp handover_date = 34;
+  double min_area = 35;
+  double max_area = 36;
+  string unit_of_measure = 37;
+  string currency = 38;
+  int64 no_of_floor = 39;
+  string offering_type = 40;
+  google.protobuf.Timestamp completion_date = 41;
+  bool ask_price = 42;
+  int64 parking = 43;
+  google.protobuf.Timestamp permit_expiry_date = 44;
+  repeated string amenity = 45 [deprecated = true];  // use amenities (string) to match JSON
+  float completion_percentage = 46;
+  google.protobuf.Timestamp completion_percentage_date = 47;
+  string facilities = 48;  // comma-separated, e.g. "Tennis court, Sauna, CCTV Security"
+  string amenities = 49;   // comma-separated, e.g. "Furnished, Central A/C, Balcony"
+  string views_text = 50 [json_name = "views"];  // comma-separated, e.g. "Sea View, Marina View"
 }
 
 message GetAllPropertyAndUnitRequest {

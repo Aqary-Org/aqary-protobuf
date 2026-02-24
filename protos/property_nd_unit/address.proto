@@ -4,14 +4,21 @@ package property_nd_unit.address;
 
 option go_package = "/property_nd_unitpb;property_nd_unitpb";
 
+message Geopoint {
+  double lat = 1;
+  double lng = 2;
+}
+
+message Polygons {
+  repeated Geopoint geopoints = 1;
+}
+
 message Address {
-  int64  id = 1;
-  string country = 2;
-  string state = 3;
-  string city = 4;
-  string community = 5;
-  string subcommunity = 6;
-  string lat = 7;
-  string lng = 8;
-  string full_address = 9;
+  string country = 1;
+  string state = 2;
+  string city = 3;
+  string community = 4;
+  string sub_community = 5;
+  string location_url = 9;
+  Polygons polygons = 10;
 }
