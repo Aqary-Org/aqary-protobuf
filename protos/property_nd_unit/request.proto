@@ -6,6 +6,7 @@ option go_package = "/property_nd_unitpb;property_nd_unitpb";
 
 import "google/protobuf/timestamp.proto";
 import "property_nd_unit/address.proto";
+import "property_nd_unit/common.proto";
 
 
 message Agent {
@@ -79,6 +80,7 @@ message CreatePropertyAndUnitRequest {
   string facilities = 47;  // comma-separated, e.g. "Tennis court, Sauna, CCTV Security"
   string amenities = 48;   // comma-separated, e.g. "Furnished, Central A/C, Balcony"
   string views_text = 49;  // comma-separated, e.g. "Sea View, Marina View"
+  common.UserDetail user_detail = 50;
 }
 
 message GetAllPropertyAndUnitRequest {

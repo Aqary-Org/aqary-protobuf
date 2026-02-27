@@ -8,3 +8,9 @@ message HttpResponse {
   string msg = 1;
   uint32 httpcode = 2;
 }
+
+message UserDetail {
+  int64 company_id = 1;
+  int64 user_id = 2;
+  string username = 3;
+}
