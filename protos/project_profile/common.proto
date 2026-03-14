@@ -4,7 +4,16 @@ package project_profile.common;
 
 option go_package = "/projectprofilepb;projectprofilepb";
 
-message HttpResponse {
-  string msg = 1;
-  uint32 httpcode = 2;
+import "common/common.proto";
+
+message CreateProjectResponse {
+  // "success" or "error"
+  string status = 2;
+  // e.g. "VALIDATION_ERROR" when status = "error"
+  string code = 3;
+  // e.g. "One or more listings failed validation."
+  string message = 4;
+  // Populated only when there are validation errors
+  repeated .common.ValidationError errors = 5;
+  
 }

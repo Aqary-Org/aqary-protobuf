@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package common;
+
+option go_package = "/commonpb;commonpb";
+
+message Plan {
+  string url_last_update = 1;
+  string url = 2;
+  string type = 3;
+}

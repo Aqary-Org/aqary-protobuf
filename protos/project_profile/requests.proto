@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+package project_profile.project_profile;
+
+option go_package = "/projectprofilepb;projectprofilepb";
+
+import "common/address.proto";
+import "common/common.proto";
+import "common/payment_plan.proto";
+import "common/plan.proto";
+
+
+
+message CreateProjectRequest {
+  string developer_company = 1;
+  string developer_cn = 2;
+
+  string project_name = 3;
+  string project_name_ar = 4;
+
+  .common.Address address = 5;
+
+  string unit_types = 6;
+  string project_number = 7;
+
+  string max_bedrooms = 8;
+  string min_bedrooms = 9;
+
+  double max_area = 10;
+  double min_area = 11;
+
+  string ownership = 12;
+  string status = 13;
+  string completion_status = 14;
+  string life_style = 15;
+
+  string permit_number = 16;
+  string permit_expiry_date = 17;
+
+  string bank_name = 18;
+  string registration_date = 19;
+
+  double total_plot_area = 20;
+
+  double completion_percentage = 21;
+  string completion_percentage_date = 22;
+
+  string furnished = 23;
+  int32 no_of_properties = 24;
+
+  double total_built_up_area = 25;
+
+  string start_date = 26;
+  string completion_date = 27;
+  string handover_date = 28;
+
+  double starting_price = 29;
+  double service_charge = 30;
+
+  string unit_of_measures = 31;
+
+  int64 license_number = 32;
+
+  string project_type = 33;
+
+  string company_email = 34;
+  string company_phone = 35;
+
+  double admin_fees = 36;
+  double noc_fees = 37;
+
+  int64 escrow_no = 38;
+
+  string project_description = 39;
+  string project_description_ar = 40;
+
+  string management_company = 41;
+  string management_type = 42;
+
+  string company_website = 43;
+  string project_website = 44;
+
+  string url_360 = 45;
+  string video_url = 46;
+  string map_360_url = 47;
+
+  repeated Promotion promotions = 48;
+
+  string facilities = 49;
+  string amenities = 50;
+
+  repeated string photos = 51;
+  repeated .common.Plan plans = 52;
+
+  repeated .common.PaymentPlan payment_plans = 53;
+
+  .common.UserDetail user_detail = 54;
+
+}
+
+
+message Promotion {
+  bool five_years_sc_waiver = 1;
+  string five_years_sc_waiver_expiry_date = 2;
+
+  bool two_percent_rebates = 3;
+  string rebates_expiry_date = 4;
+
+  bool zero_adm_fees = 5;
+  string adm_fees_expiry_date = 6;
+
+  bool free_home_maintenance_1_year = 7;
+  string maintenance_1_year_expiry_date = 8;
+}

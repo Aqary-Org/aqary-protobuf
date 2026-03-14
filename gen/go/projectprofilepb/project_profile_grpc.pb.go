@@ -26,7 +26,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ProjectProfileServiceClient interface {
-	CreateProjectProfile(ctx context.Context, in *CreateProjectProfileRequest, opts ...grpc.CallOption) (*HttpResponse, error)
+	CreateProjectProfile(ctx context.Context, in *CreateProjectRequest, opts ...grpc.CallOption) (*CreateProjectResponse, error)
 }
 
 type projectProfileServiceClient struct {
@@ -37,9 +37,9 @@ func NewProjectProfileServiceClient(cc grpc.ClientConnInterface) ProjectProfileS
 	return &projectProfileServiceClient{cc}
 }
 
-func (c *projectProfileServiceClient) CreateProjectProfile(ctx context.Context, in *CreateProjectProfileRequest, opts ...grpc.CallOption) (*HttpResponse, error) {
+func (c *projectProfileServiceClient) CreateProjectProfile(ctx context.Context, in *CreateProjectRequest, opts ...grpc.CallOption) (*CreateProjectResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HttpResponse)
+	out := new(CreateProjectResponse)
 	err := c.cc.Invoke(ctx, ProjectProfileService_CreateProjectProfile_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -51,7 +51,7 @@ func (c *projectProfileServiceClient) CreateProjectProfile(ctx context.Context, 
 // All implementations must embed UnimplementedProjectProfileServiceServer
 // for forward compatibility.
 type ProjectProfileServiceServer interface {
-	CreateProjectProfile(context.Context, *CreateProjectProfileRequest) (*HttpResponse, error)
+	CreateProjectProfile(context.Context, *CreateProjectRequest) (*CreateProjectResponse, error)
 	mustEmbedUnimplementedProjectProfileServiceServer()
 }
 
@@ -62,7 +62,7 @@ type ProjectProfileServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedProjectProfileServiceServer struct{}
 
-func (UnimplementedProjectProfileServiceServer) CreateProjectProfile(context.Context, *CreateProjectProfileRequest) (*HttpResponse, error) {
+func (UnimplementedProjectProfileServiceServer) CreateProjectProfile(context.Context, *CreateProjectRequest) (*CreateProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateProjectProfile not implemented")
 }
 func (UnimplementedProjectProfileServiceServer) mustEmbedUnimplementedProjectProfileServiceServer() {}
@@ -87,7 +87,7 @@ func RegisterProjectProfileServiceServer(s grpc.ServiceRegistrar, srv ProjectPro
 }
 
 func _ProjectProfileService_CreateProjectProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateProjectProfileRequest)
+	in := new(CreateProjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -99,7 +99,7 @@ func _ProjectProfileService_CreateProjectProfile_Handler(srv interface{}, ctx co
 		FullMethod: ProjectProfileService_CreateProjectProfile_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProjectProfileServiceServer).CreateProjectProfile(ctx, req.(*CreateProjectProfileRequest))
+		return srv.(ProjectProfileServiceServer).CreateProjectProfile(ctx, req.(*CreateProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

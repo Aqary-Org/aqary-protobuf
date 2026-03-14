@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package common;
+
+option go_package = "/commonpb;commonpb";
+
+message PaymentPlan {
+  string plan_title = 1;
+  string plan_title_ar = 2;
+
+  int32 no_of_installments = 3;
+  int32 installment_no = 4;
+
+  double percentage = 5;
+
+  string date = 6;
+
+  string milestone = 7;
+  string milestone_ar = 8;
+}
