@@ -7,7 +7,6 @@
 package contactpb
 
 import (
-	commonpb "/commonpb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -27,7 +26,7 @@ type CreateContactRequest struct {
 	ContactName   string                 `protobuf:"bytes,1,opt,name=contact_name,json=contactName,proto3" json:"contact_name,omitempty"`
 	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
 	Phone         string                 `protobuf:"bytes,3,opt,name=phone,proto3" json:"phone,omitempty"`
-	UserDetail    *commonpb.UserDetail   `protobuf:"bytes,4,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
+	UserDetail    *UserDetail            `protobuf:"bytes,4,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
 	Source        string                 `protobuf:"bytes,5,opt,name=source,proto3" json:"source,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -84,7 +83,7 @@ func (x *CreateContactRequest) GetPhone() string {
 	return ""
 }
 
-func (x *CreateContactRequest) GetUserDetail() *commonpb.UserDetail {
+func (x *CreateContactRequest) GetUserDetail() *UserDetail {
 	if x != nil {
 		return x.UserDetail
 	}
@@ -146,12 +145,12 @@ var File_contact_contact_proto protoreflect.FileDescriptor
 
 const file_contact_contact_proto_rawDesc = "" +
 	"\n" +
-	"\x15contact/contact.proto\x12\acontact\x1a\x13common/common.proto\"\xb2\x01\n" +
+	"\x15contact/contact.proto\x12\acontact\x1a\x14contact/common.proto\"\xba\x01\n" +
 	"\x14CreateContactRequest\x12!\n" +
 	"\fcontact_name\x18\x01 \x01(\tR\vcontactName\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x14\n" +
-	"\x05phone\x18\x03 \x01(\tR\x05phone\x123\n" +
-	"\vuser_detail\x18\x04 \x01(\v2\x12.common.UserDetailR\n" +
+	"\x05phone\x18\x03 \x01(\tR\x05phone\x12;\n" +
+	"\vuser_detail\x18\x04 \x01(\v2\x1a.contact.common.UserDetailR\n" +
 	"userDetail\x12\x16\n" +
 	"\x06source\x18\x05 \x01(\tR\x06source\"+\n" +
 	"\x15CreateContactResponse\x12\x12\n" +
@@ -175,10 +174,10 @@ var file_contact_contact_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_contact_contact_proto_goTypes = []any{
 	(*CreateContactRequest)(nil),  // 0: contact.CreateContactRequest
 	(*CreateContactResponse)(nil), // 1: contact.CreateContactResponse
-	(*commonpb.UserDetail)(nil),   // 2: common.UserDetail
+	(*UserDetail)(nil),            // 2: contact.common.UserDetail
 }
 var file_contact_contact_proto_depIdxs = []int32{
-	2, // 0: contact.CreateContactRequest.user_detail:type_name -> common.UserDetail
+	2, // 0: contact.CreateContactRequest.user_detail:type_name -> contact.common.UserDetail
 	0, // 1: contact.ContactService.CreateContact:input_type -> contact.CreateContactRequest
 	1, // 2: contact.ContactService.CreateContact:output_type -> contact.CreateContactResponse
 	2, // [2:3] is the sub-list for method output_type
@@ -193,6 +192,7 @@ func file_contact_contact_proto_init() {
 	if File_contact_contact_proto != nil {
 		return
 	}
+	file_contact_common_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

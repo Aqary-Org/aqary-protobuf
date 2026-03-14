@@ -4,10 +4,10 @@ package project_profile.project_profile;
 
 option go_package = "/projectprofilepb;projectprofilepb";
 
-import "common/address.proto";
-import "common/common.proto";
-import "common/payment_plan.proto";
-import "common/plan.proto";
+import "project_profile/address.proto";
+import "project_profile/common.proto";
+import "project_profile/payment_plan.proto";
+import "project_profile/plan.proto";
 
 
 
@@ -18,7 +18,7 @@ message CreateProjectRequest {
   string project_name = 3;
   string project_name_ar = 4;
 
-  .common.Address address = 5;
+  .project_profile.address.Address address = 5;
 
   string unit_types = 6;
   string project_number = 7;
@@ -90,11 +90,11 @@ message CreateProjectRequest {
   string amenities = 50;
 
   repeated string photos = 51;
-  repeated .common.Plan plans = 52;
+  repeated .project_profile.plan.Plan plans = 52;
 
-  repeated .common.PaymentPlan payment_plans = 53;
+  repeated .project_profile.payment_plan.PaymentPlan payment_plans = 53;
 
-  .common.UserDetail user_detail = 54;
+  .project_profile.common.UserDetail user_detail = 54;
 
 }
 

@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package common;
+package project_profile.address;
 
-option go_package = "/commonpb;commonpb";
+option go_package = "/projectprofilepb;projectprofilepb";
 
 message Geopoint {
   double lat = 1;

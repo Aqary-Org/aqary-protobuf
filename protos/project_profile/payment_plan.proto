@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package common;
+package project_profile.payment_plan;
 
-option go_package = "/commonpb;commonpb";
+option go_package = "/projectprofilepb;projectprofilepb";
 
 message PaymentPlan {
   string plan_title = 1;

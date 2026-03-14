@@ -7,7 +7,6 @@
 package projectprofilepb
 
 import (
-	commonpb "/commonpb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -22,6 +21,170 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type HttpResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Msg           string                 `protobuf:"bytes,1,opt,name=msg,proto3" json:"msg,omitempty"`
+	Httpcode      uint32                 `protobuf:"varint,2,opt,name=httpcode,proto3" json:"httpcode,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HttpResponse) Reset() {
+	*x = HttpResponse{}
+	mi := &file_project_profile_common_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HttpResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HttpResponse) ProtoMessage() {}
+
+func (x *HttpResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_project_profile_common_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HttpResponse.ProtoReflect.Descriptor instead.
+func (*HttpResponse) Descriptor() ([]byte, []int) {
+	return file_project_profile_common_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *HttpResponse) GetMsg() string {
+	if x != nil {
+		return x.Msg
+	}
+	return ""
+}
+
+func (x *HttpResponse) GetHttpcode() uint32 {
+	if x != nil {
+		return x.Httpcode
+	}
+	return 0
+}
+
+type ValidationError struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Field         string                 `protobuf:"bytes,1,opt,name=field,proto3" json:"field,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValidationError) Reset() {
+	*x = ValidationError{}
+	mi := &file_project_profile_common_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValidationError) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValidationError) ProtoMessage() {}
+
+func (x *ValidationError) ProtoReflect() protoreflect.Message {
+	mi := &file_project_profile_common_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValidationError.ProtoReflect.Descriptor instead.
+func (*ValidationError) Descriptor() ([]byte, []int) {
+	return file_project_profile_common_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *ValidationError) GetField() string {
+	if x != nil {
+		return x.Field
+	}
+	return ""
+}
+
+func (x *ValidationError) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type UserDetail struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CompanyId     int64                  `protobuf:"varint,1,opt,name=company_id,json=companyId,proto3" json:"company_id,omitempty"`
+	UserId        int64                  `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	Username      string                 `protobuf:"bytes,3,opt,name=username,proto3" json:"username,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UserDetail) Reset() {
+	*x = UserDetail{}
+	mi := &file_project_profile_common_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserDetail) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserDetail) ProtoMessage() {}
+
+func (x *UserDetail) ProtoReflect() protoreflect.Message {
+	mi := &file_project_profile_common_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserDetail.ProtoReflect.Descriptor instead.
+func (*UserDetail) Descriptor() ([]byte, []int) {
+	return file_project_profile_common_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *UserDetail) GetCompanyId() int64 {
+	if x != nil {
+		return x.CompanyId
+	}
+	return 0
+}
+
+func (x *UserDetail) GetUserId() int64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+func (x *UserDetail) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
 type CreateProjectResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// "success" or "error"
@@ -31,14 +194,14 @@ type CreateProjectResponse struct {
 	// e.g. "One or more listings failed validation."
 	Message string `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`
 	// Populated only when there are validation errors
-	Errors        []*commonpb.ValidationError `protobuf:"bytes,5,rep,name=errors,proto3" json:"errors,omitempty"`
+	Errors        []*ValidationError `protobuf:"bytes,5,rep,name=errors,proto3" json:"errors,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateProjectResponse) Reset() {
 	*x = CreateProjectResponse{}
-	mi := &file_project_profile_common_proto_msgTypes[0]
+	mi := &file_project_profile_common_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -50,7 +213,7 @@ func (x *CreateProjectResponse) String() string {
 func (*CreateProjectResponse) ProtoMessage() {}
 
 func (x *CreateProjectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_project_profile_common_proto_msgTypes[0]
+	mi := &file_project_profile_common_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -63,7 +226,7 @@ func (x *CreateProjectResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateProjectResponse.ProtoReflect.Descriptor instead.
 func (*CreateProjectResponse) Descriptor() ([]byte, []int) {
-	return file_project_profile_common_proto_rawDescGZIP(), []int{0}
+	return file_project_profile_common_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CreateProjectResponse) GetStatus() string {
@@ -87,7 +250,7 @@ func (x *CreateProjectResponse) GetMessage() string {
 	return ""
 }
 
-func (x *CreateProjectResponse) GetErrors() []*commonpb.ValidationError {
+func (x *CreateProjectResponse) GetErrors() []*ValidationError {
 	if x != nil {
 		return x.Errors
 	}
@@ -98,12 +261,24 @@ var File_project_profile_common_proto protoreflect.FileDescriptor
 
 const file_project_profile_common_proto_rawDesc = "" +
 	"\n" +
-	"\x1cproject_profile/common.proto\x12\x16project_profile.common\x1a\x13common/common.proto\"\x8e\x01\n" +
+	"\x1cproject_profile/common.proto\x12\x16project_profile.common\"<\n" +
+	"\fHttpResponse\x12\x10\n" +
+	"\x03msg\x18\x01 \x01(\tR\x03msg\x12\x1a\n" +
+	"\bhttpcode\x18\x02 \x01(\rR\bhttpcode\"A\n" +
+	"\x0fValidationError\x12\x14\n" +
+	"\x05field\x18\x01 \x01(\tR\x05field\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"`\n" +
+	"\n" +
+	"UserDetail\x12\x1d\n" +
+	"\n" +
+	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\x03R\x06userId\x12\x1a\n" +
+	"\busername\x18\x03 \x01(\tR\busername\"\x9e\x01\n" +
 	"\x15CreateProjectResponse\x12\x16\n" +
 	"\x06status\x18\x02 \x01(\tR\x06status\x12\x12\n" +
 	"\x04code\x18\x03 \x01(\tR\x04code\x12\x18\n" +
-	"\amessage\x18\x04 \x01(\tR\amessage\x12/\n" +
-	"\x06errors\x18\x05 \x03(\v2\x17.common.ValidationErrorR\x06errorsB$Z\"/projectprofilepb;projectprofilepbb\x06proto3"
+	"\amessage\x18\x04 \x01(\tR\amessage\x12?\n" +
+	"\x06errors\x18\x05 \x03(\v2'.project_profile.common.ValidationErrorR\x06errorsB$Z\"/projectprofilepb;projectprofilepbb\x06proto3"
 
 var (
 	file_project_profile_common_proto_rawDescOnce sync.Once
@@ -117,13 +292,15 @@ func file_project_profile_common_proto_rawDescGZIP() []byte {
 	return file_project_profile_common_proto_rawDescData
 }
 
-var file_project_profile_common_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_project_profile_common_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_project_profile_common_proto_goTypes = []any{
-	(*CreateProjectResponse)(nil),    // 0: project_profile.common.CreateProjectResponse
-	(*commonpb.ValidationError)(nil), // 1: common.ValidationError
+	(*HttpResponse)(nil),          // 0: project_profile.common.HttpResponse
+	(*ValidationError)(nil),       // 1: project_profile.common.ValidationError
+	(*UserDetail)(nil),            // 2: project_profile.common.UserDetail
+	(*CreateProjectResponse)(nil), // 3: project_profile.common.CreateProjectResponse
 }
 var file_project_profile_common_proto_depIdxs = []int32{
-	1, // 0: project_profile.common.CreateProjectResponse.errors:type_name -> common.ValidationError
+	1, // 0: project_profile.common.CreateProjectResponse.errors:type_name -> project_profile.common.ValidationError
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -142,7 +319,7 @@ func file_project_profile_common_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_project_profile_common_proto_rawDesc), len(file_project_profile_common_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

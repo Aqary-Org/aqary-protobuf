@@ -7,7 +7,6 @@
 package property_nd_unitpb
 
 import (
-	commonpb "/commonpb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -238,7 +237,7 @@ type CreatePropertyAndUnitRequest struct {
 	DescriptionAr            string                 `protobuf:"bytes,6,opt,name=description_ar,json=descriptionAr,proto3" json:"description_ar,omitempty"`
 	PropertyName             string                 `protobuf:"bytes,7,opt,name=property_name,json=propertyName,proto3" json:"property_name,omitempty"`
 	Status                   string                 `protobuf:"bytes,8,opt,name=status,proto3" json:"status,omitempty"`
-	Address                  *commonpb.Address      `protobuf:"bytes,9,opt,name=address,proto3" json:"address,omitempty"`
+	Address                  *Address               `protobuf:"bytes,9,opt,name=address,proto3" json:"address,omitempty"`
 	AgentEmail               string                 `protobuf:"bytes,12,opt,name=agent_email,json=agentEmail,proto3" json:"agent_email,omitempty"`
 	Photos                   []*RequestPhoto        `protobuf:"bytes,13,rep,name=photos,proto3" json:"photos,omitempty"`
 	UnitTypes                string                 `protobuf:"bytes,14,opt,name=unit_types,json=unitTypes,proto3" json:"unit_types,omitempty"`
@@ -277,7 +276,7 @@ type CreatePropertyAndUnitRequest struct {
 	Facilities               string                 `protobuf:"bytes,47,opt,name=facilities,proto3" json:"facilities,omitempty"`                // comma-separated, e.g. "Tennis court, Sauna, CCTV Security"
 	Amenities                string                 `protobuf:"bytes,48,opt,name=amenities,proto3" json:"amenities,omitempty"`                  // comma-separated, e.g. "Furnished, Central A/C, Balcony"
 	ViewsText                string                 `protobuf:"bytes,49,opt,name=views_text,json=viewsText,proto3" json:"views_text,omitempty"` // comma-separated, e.g. "Sea View, Marina View"
-	UserDetail               *commonpb.UserDetail   `protobuf:"bytes,50,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
+	UserDetail               *UserDetail            `protobuf:"bytes,50,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -368,7 +367,7 @@ func (x *CreatePropertyAndUnitRequest) GetStatus() string {
 	return ""
 }
 
-func (x *CreatePropertyAndUnitRequest) GetAddress() *commonpb.Address {
+func (x *CreatePropertyAndUnitRequest) GetAddress() *Address {
 	if x != nil {
 		return x.Address
 	}
@@ -641,7 +640,7 @@ func (x *CreatePropertyAndUnitRequest) GetViewsText() string {
 	return ""
 }
 
-func (x *CreatePropertyAndUnitRequest) GetUserDetail() *commonpb.UserDetail {
+func (x *CreatePropertyAndUnitRequest) GetUserDetail() *UserDetail {
 	if x != nil {
 		return x.UserDetail
 	}
@@ -720,7 +719,7 @@ var File_property_nd_unit_request_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\n" +
-	"\x1eproperty_nd_unit/request.proto\x12\x18property_nd_unit.request\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x14common/address.proto\x1a\x13common/common.proto\"t\n" +
+	"\x1eproperty_nd_unit/request.proto\x12\x18property_nd_unit.request\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1eproperty_nd_unit/address.proto\x1a\x1dproperty_nd_unit/common.proto\"t\n" +
 	"\x05Agent\x12\x15\n" +
 	"\x06ref_no\x18\x01 \x01(\tR\x05refNo\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
@@ -735,7 +734,7 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x03url\x18\x01 \x01(\tR\x03url\x12\x1c\n" +
 	"\twatermark\x18\x02 \x01(\bR\twatermark\x12!\n" +
 	"\fgallery_type\x18\x03 \x01(\tR\vgalleryType\x12B\n" +
-	"\x0furl_last_update\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\rurlLastUpdate\"\x83\x0e\n" +
+	"\x0furl_last_update\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\rurlLastUpdate\"\xa6\x0e\n" +
 	"\x1cCreatePropertyAndUnitRequest\x12\x1f\n" +
 	"\vis_property\x18\x01 \x01(\bR\n" +
 	"isProperty\x12\x15\n" +
@@ -745,8 +744,8 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\vdescription\x18\x05 \x01(\tR\vdescription\x12%\n" +
 	"\x0edescription_ar\x18\x06 \x01(\tR\rdescriptionAr\x12#\n" +
 	"\rproperty_name\x18\a \x01(\tR\fpropertyName\x12\x16\n" +
-	"\x06status\x18\b \x01(\tR\x06status\x12)\n" +
-	"\aaddress\x18\t \x01(\v2\x0f.common.AddressR\aaddress\x12\x1f\n" +
+	"\x06status\x18\b \x01(\tR\x06status\x12;\n" +
+	"\aaddress\x18\t \x01(\v2!.property_nd_unit.address.AddressR\aaddress\x12\x1f\n" +
 	"\vagent_email\x18\f \x01(\tR\n" +
 	"agentEmail\x12>\n" +
 	"\x06photos\x18\r \x03(\v2&.property_nd_unit.request.RequestPhotoR\x06photos\x12\x1d\n" +
@@ -789,8 +788,8 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"facilities\x12\x1c\n" +
 	"\tamenities\x180 \x01(\tR\tamenities\x12\x1d\n" +
 	"\n" +
-	"views_text\x181 \x01(\tR\tviewsText\x123\n" +
-	"\vuser_detail\x182 \x01(\v2\x12.common.UserDetailR\n" +
+	"views_text\x181 \x01(\tR\tviewsText\x12D\n" +
+	"\vuser_detail\x182 \x01(\v2#.property_nd_unit.common.UserDetailR\n" +
 	"userDetail\"\x8c\x01\n" +
 	"\x1cGetAllPropertyAndUnitRequest\x12\x1d\n" +
 	"\n" +
@@ -819,18 +818,18 @@ var file_property_nd_unit_request_proto_goTypes = []any{
 	(*CreatePropertyAndUnitRequest)(nil), // 3: property_nd_unit.request.CreatePropertyAndUnitRequest
 	(*GetAllPropertyAndUnitRequest)(nil), // 4: property_nd_unit.request.GetAllPropertyAndUnitRequest
 	(*timestamppb.Timestamp)(nil),        // 5: google.protobuf.Timestamp
-	(*commonpb.Address)(nil),             // 6: common.Address
-	(*commonpb.UserDetail)(nil),          // 7: common.UserDetail
+	(*Address)(nil),                      // 6: property_nd_unit.address.Address
+	(*UserDetail)(nil),                   // 7: property_nd_unit.common.UserDetail
 }
 var file_property_nd_unit_request_proto_depIdxs = []int32{
 	5, // 0: property_nd_unit.request.RequestPhoto.url_last_update:type_name -> google.protobuf.Timestamp
-	6, // 1: property_nd_unit.request.CreatePropertyAndUnitRequest.address:type_name -> common.Address
+	6, // 1: property_nd_unit.request.CreatePropertyAndUnitRequest.address:type_name -> property_nd_unit.address.Address
 	2, // 2: property_nd_unit.request.CreatePropertyAndUnitRequest.photos:type_name -> property_nd_unit.request.RequestPhoto
 	5, // 3: property_nd_unit.request.CreatePropertyAndUnitRequest.handover_date:type_name -> google.protobuf.Timestamp
 	5, // 4: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_date:type_name -> google.protobuf.Timestamp
 	5, // 5: property_nd_unit.request.CreatePropertyAndUnitRequest.permit_expiry_date:type_name -> google.protobuf.Timestamp
 	5, // 6: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_percentage_date:type_name -> google.protobuf.Timestamp
-	7, // 7: property_nd_unit.request.CreatePropertyAndUnitRequest.user_detail:type_name -> common.UserDetail
+	7, // 7: property_nd_unit.request.CreatePropertyAndUnitRequest.user_detail:type_name -> property_nd_unit.common.UserDetail
 	8, // [8:8] is the sub-list for method output_type
 	8, // [8:8] is the sub-list for method input_type
 	8, // [8:8] is the sub-list for extension type_name
@@ -843,6 +842,8 @@ func file_property_nd_unit_request_proto_init() {
 	if File_property_nd_unit_request_proto != nil {
 		return
 	}
+	file_property_nd_unit_address_proto_init()
+	file_property_nd_unit_common_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

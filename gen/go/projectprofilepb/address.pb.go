@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.8
 // 	protoc        v6.32.0
-// source: common/address.proto
+// source: project_profile/address.proto
 
-package commonpb
+package projectprofilepb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -31,7 +31,7 @@ type Geopoint struct {
 
 func (x *Geopoint) Reset() {
 	*x = Geopoint{}
-	mi := &file_common_address_proto_msgTypes[0]
+	mi := &file_project_profile_address_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +43,7 @@ func (x *Geopoint) String() string {
 func (*Geopoint) ProtoMessage() {}
 
 func (x *Geopoint) ProtoReflect() protoreflect.Message {
-	mi := &file_common_address_proto_msgTypes[0]
+	mi := &file_project_profile_address_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +56,7 @@ func (x *Geopoint) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Geopoint.ProtoReflect.Descriptor instead.
 func (*Geopoint) Descriptor() ([]byte, []int) {
-	return file_common_address_proto_rawDescGZIP(), []int{0}
+	return file_project_profile_address_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Geopoint) GetLat() float64 {
@@ -82,7 +82,7 @@ type Polygons struct {
 
 func (x *Polygons) Reset() {
 	*x = Polygons{}
-	mi := &file_common_address_proto_msgTypes[1]
+	mi := &file_project_profile_address_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -94,7 +94,7 @@ func (x *Polygons) String() string {
 func (*Polygons) ProtoMessage() {}
 
 func (x *Polygons) ProtoReflect() protoreflect.Message {
-	mi := &file_common_address_proto_msgTypes[1]
+	mi := &file_project_profile_address_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -107,7 +107,7 @@ func (x *Polygons) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Polygons.ProtoReflect.Descriptor instead.
 func (*Polygons) Descriptor() ([]byte, []int) {
-	return file_common_address_proto_rawDescGZIP(), []int{1}
+	return file_project_profile_address_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Polygons) GetGeopoints() []*Geopoint {
@@ -132,7 +132,7 @@ type Address struct {
 
 func (x *Address) Reset() {
 	*x = Address{}
-	mi := &file_common_address_proto_msgTypes[2]
+	mi := &file_project_profile_address_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -144,7 +144,7 @@ func (x *Address) String() string {
 func (*Address) ProtoMessage() {}
 
 func (x *Address) ProtoReflect() protoreflect.Message {
-	mi := &file_common_address_proto_msgTypes[2]
+	mi := &file_project_profile_address_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -157,7 +157,7 @@ func (x *Address) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Address.ProtoReflect.Descriptor instead.
 func (*Address) Descriptor() ([]byte, []int) {
-	return file_common_address_proto_rawDescGZIP(), []int{2}
+	return file_project_profile_address_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Address) GetCountry() string {
@@ -209,47 +209,47 @@ func (x *Address) GetPolygons() *Polygons {
 	return nil
 }
 
-var File_common_address_proto protoreflect.FileDescriptor
+var File_project_profile_address_proto protoreflect.FileDescriptor
 
-const file_common_address_proto_rawDesc = "" +
+const file_project_profile_address_proto_rawDesc = "" +
 	"\n" +
-	"\x14common/address.proto\x12\x06common\".\n" +
+	"\x1dproject_profile/address.proto\x12\x17project_profile.address\".\n" +
 	"\bGeopoint\x12\x10\n" +
 	"\x03lat\x18\x01 \x01(\x01R\x03lat\x12\x10\n" +
-	"\x03lng\x18\x02 \x01(\x01R\x03lng\":\n" +
-	"\bPolygons\x12.\n" +
-	"\tgeopoints\x18\x01 \x03(\v2\x10.common.GeopointR\tgeopoints\"\xe1\x01\n" +
+	"\x03lng\x18\x02 \x01(\x01R\x03lng\"K\n" +
+	"\bPolygons\x12?\n" +
+	"\tgeopoints\x18\x01 \x03(\v2!.project_profile.address.GeopointR\tgeopoints\"\xf2\x01\n" +
 	"\aAddress\x12\x18\n" +
 	"\acountry\x18\x01 \x01(\tR\acountry\x12\x14\n" +
 	"\x05state\x18\x02 \x01(\tR\x05state\x12\x12\n" +
 	"\x04city\x18\x03 \x01(\tR\x04city\x12\x1c\n" +
 	"\tcommunity\x18\x04 \x01(\tR\tcommunity\x12#\n" +
 	"\rsub_community\x18\x05 \x01(\tR\fsubCommunity\x12!\n" +
-	"\flocation_url\x18\t \x01(\tR\vlocationUrl\x12,\n" +
+	"\flocation_url\x18\t \x01(\tR\vlocationUrl\x12=\n" +
 	"\bpolygons\x18\n" +
-	" \x01(\v2\x10.common.PolygonsR\bpolygonsB\x14Z\x12/commonpb;commonpbb\x06proto3"
+	" \x01(\v2!.project_profile.address.PolygonsR\bpolygonsB$Z\"/projectprofilepb;projectprofilepbb\x06proto3"
 
 var (
-	file_common_address_proto_rawDescOnce sync.Once
-	file_common_address_proto_rawDescData []byte
+	file_project_profile_address_proto_rawDescOnce sync.Once
+	file_project_profile_address_proto_rawDescData []byte
 )
 
-func file_common_address_proto_rawDescGZIP() []byte {
-	file_common_address_proto_rawDescOnce.Do(func() {
-		file_common_address_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_common_address_proto_rawDesc), len(file_common_address_proto_rawDesc)))
+func file_project_profile_address_proto_rawDescGZIP() []byte {
+	file_project_profile_address_proto_rawDescOnce.Do(func() {
+		file_project_profile_address_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_project_profile_address_proto_rawDesc), len(file_project_profile_address_proto_rawDesc)))
 	})
-	return file_common_address_proto_rawDescData
+	return file_project_profile_address_proto_rawDescData
 }
 
-var file_common_address_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_common_address_proto_goTypes = []any{
-	(*Geopoint)(nil), // 0: common.Geopoint
-	(*Polygons)(nil), // 1: common.Polygons
-	(*Address)(nil),  // 2: common.Address
+var file_project_profile_address_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_project_profile_address_proto_goTypes = []any{
+	(*Geopoint)(nil), // 0: project_profile.address.Geopoint
+	(*Polygons)(nil), // 1: project_profile.address.Polygons
+	(*Address)(nil),  // 2: project_profile.address.Address
 }
-var file_common_address_proto_depIdxs = []int32{
-	0, // 0: common.Polygons.geopoints:type_name -> common.Geopoint
-	1, // 1: common.Address.polygons:type_name -> common.Polygons
+var file_project_profile_address_proto_depIdxs = []int32{
+	0, // 0: project_profile.address.Polygons.geopoints:type_name -> project_profile.address.Geopoint
+	1, // 1: project_profile.address.Address.polygons:type_name -> project_profile.address.Polygons
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -257,26 +257,26 @@ var file_common_address_proto_depIdxs = []int32{
 	0, // [0:2] is the sub-list for field type_name
 }
 
-func init() { file_common_address_proto_init() }
-func file_common_address_proto_init() {
-	if File_common_address_proto != nil {
+func init() { file_project_profile_address_proto_init() }
+func file_project_profile_address_proto_init() {
+	if File_project_profile_address_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_common_address_proto_rawDesc), len(file_common_address_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_project_profile_address_proto_rawDesc), len(file_project_profile_address_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_common_address_proto_goTypes,
-		DependencyIndexes: file_common_address_proto_depIdxs,
-		MessageInfos:      file_common_address_proto_msgTypes,
+		GoTypes:           file_project_profile_address_proto_goTypes,
+		DependencyIndexes: file_project_profile_address_proto_depIdxs,
+		MessageInfos:      file_project_profile_address_proto_msgTypes,
 	}.Build()
-	File_common_address_proto = out.File
-	file_common_address_proto_goTypes = nil
-	file_common_address_proto_depIdxs = nil
+	File_project_profile_address_proto = out.File
+	file_project_profile_address_proto_goTypes = nil
+	file_project_profile_address_proto_depIdxs = nil
 }

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package contact.common;
+
+option go_package = "/contactpb;contactpb";
+
+message UserDetail {
+  int64 company_id = 1;
+  int64 user_id = 2;
+  string username = 3;
+}

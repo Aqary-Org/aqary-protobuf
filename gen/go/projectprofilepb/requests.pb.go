@@ -7,7 +7,6 @@
 package projectprofilepb
 
 import (
-	commonpb "/commonpb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -23,61 +22,61 @@ const (
 )
 
 type CreateProjectRequest struct {
-	state                    protoimpl.MessageState  `protogen:"open.v1"`
-	DeveloperCompany         string                  `protobuf:"bytes,1,opt,name=developer_company,json=developerCompany,proto3" json:"developer_company,omitempty"`
-	DeveloperCn              string                  `protobuf:"bytes,2,opt,name=developer_cn,json=developerCn,proto3" json:"developer_cn,omitempty"`
-	ProjectName              string                  `protobuf:"bytes,3,opt,name=project_name,json=projectName,proto3" json:"project_name,omitempty"`
-	ProjectNameAr            string                  `protobuf:"bytes,4,opt,name=project_name_ar,json=projectNameAr,proto3" json:"project_name_ar,omitempty"`
-	Address                  *commonpb.Address       `protobuf:"bytes,5,opt,name=address,proto3" json:"address,omitempty"`
-	UnitTypes                string                  `protobuf:"bytes,6,opt,name=unit_types,json=unitTypes,proto3" json:"unit_types,omitempty"`
-	ProjectNumber            string                  `protobuf:"bytes,7,opt,name=project_number,json=projectNumber,proto3" json:"project_number,omitempty"`
-	MaxBedrooms              string                  `protobuf:"bytes,8,opt,name=max_bedrooms,json=maxBedrooms,proto3" json:"max_bedrooms,omitempty"`
-	MinBedrooms              string                  `protobuf:"bytes,9,opt,name=min_bedrooms,json=minBedrooms,proto3" json:"min_bedrooms,omitempty"`
-	MaxArea                  float64                 `protobuf:"fixed64,10,opt,name=max_area,json=maxArea,proto3" json:"max_area,omitempty"`
-	MinArea                  float64                 `protobuf:"fixed64,11,opt,name=min_area,json=minArea,proto3" json:"min_area,omitempty"`
-	Ownership                string                  `protobuf:"bytes,12,opt,name=ownership,proto3" json:"ownership,omitempty"`
-	Status                   string                  `protobuf:"bytes,13,opt,name=status,proto3" json:"status,omitempty"`
-	CompletionStatus         string                  `protobuf:"bytes,14,opt,name=completion_status,json=completionStatus,proto3" json:"completion_status,omitempty"`
-	LifeStyle                string                  `protobuf:"bytes,15,opt,name=life_style,json=lifeStyle,proto3" json:"life_style,omitempty"`
-	PermitNumber             string                  `protobuf:"bytes,16,opt,name=permit_number,json=permitNumber,proto3" json:"permit_number,omitempty"`
-	PermitExpiryDate         string                  `protobuf:"bytes,17,opt,name=permit_expiry_date,json=permitExpiryDate,proto3" json:"permit_expiry_date,omitempty"`
-	BankName                 string                  `protobuf:"bytes,18,opt,name=bank_name,json=bankName,proto3" json:"bank_name,omitempty"`
-	RegistrationDate         string                  `protobuf:"bytes,19,opt,name=registration_date,json=registrationDate,proto3" json:"registration_date,omitempty"`
-	TotalPlotArea            float64                 `protobuf:"fixed64,20,opt,name=total_plot_area,json=totalPlotArea,proto3" json:"total_plot_area,omitempty"`
-	CompletionPercentage     float64                 `protobuf:"fixed64,21,opt,name=completion_percentage,json=completionPercentage,proto3" json:"completion_percentage,omitempty"`
-	CompletionPercentageDate string                  `protobuf:"bytes,22,opt,name=completion_percentage_date,json=completionPercentageDate,proto3" json:"completion_percentage_date,omitempty"`
-	Furnished                string                  `protobuf:"bytes,23,opt,name=furnished,proto3" json:"furnished,omitempty"`
-	NoOfProperties           int32                   `protobuf:"varint,24,opt,name=no_of_properties,json=noOfProperties,proto3" json:"no_of_properties,omitempty"`
-	TotalBuiltUpArea         float64                 `protobuf:"fixed64,25,opt,name=total_built_up_area,json=totalBuiltUpArea,proto3" json:"total_built_up_area,omitempty"`
-	StartDate                string                  `protobuf:"bytes,26,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"`
-	CompletionDate           string                  `protobuf:"bytes,27,opt,name=completion_date,json=completionDate,proto3" json:"completion_date,omitempty"`
-	HandoverDate             string                  `protobuf:"bytes,28,opt,name=handover_date,json=handoverDate,proto3" json:"handover_date,omitempty"`
-	StartingPrice            float64                 `protobuf:"fixed64,29,opt,name=starting_price,json=startingPrice,proto3" json:"starting_price,omitempty"`
-	ServiceCharge            float64                 `protobuf:"fixed64,30,opt,name=service_charge,json=serviceCharge,proto3" json:"service_charge,omitempty"`
-	UnitOfMeasures           string                  `protobuf:"bytes,31,opt,name=unit_of_measures,json=unitOfMeasures,proto3" json:"unit_of_measures,omitempty"`
-	LicenseNumber            int64                   `protobuf:"varint,32,opt,name=license_number,json=licenseNumber,proto3" json:"license_number,omitempty"`
-	ProjectType              string                  `protobuf:"bytes,33,opt,name=project_type,json=projectType,proto3" json:"project_type,omitempty"`
-	CompanyEmail             string                  `protobuf:"bytes,34,opt,name=company_email,json=companyEmail,proto3" json:"company_email,omitempty"`
-	CompanyPhone             string                  `protobuf:"bytes,35,opt,name=company_phone,json=companyPhone,proto3" json:"company_phone,omitempty"`
-	AdminFees                float64                 `protobuf:"fixed64,36,opt,name=admin_fees,json=adminFees,proto3" json:"admin_fees,omitempty"`
-	NocFees                  float64                 `protobuf:"fixed64,37,opt,name=noc_fees,json=nocFees,proto3" json:"noc_fees,omitempty"`
-	EscrowNo                 int64                   `protobuf:"varint,38,opt,name=escrow_no,json=escrowNo,proto3" json:"escrow_no,omitempty"`
-	ProjectDescription       string                  `protobuf:"bytes,39,opt,name=project_description,json=projectDescription,proto3" json:"project_description,omitempty"`
-	ProjectDescriptionAr     string                  `protobuf:"bytes,40,opt,name=project_description_ar,json=projectDescriptionAr,proto3" json:"project_description_ar,omitempty"`
-	ManagementCompany        string                  `protobuf:"bytes,41,opt,name=management_company,json=managementCompany,proto3" json:"management_company,omitempty"`
-	ManagementType           string                  `protobuf:"bytes,42,opt,name=management_type,json=managementType,proto3" json:"management_type,omitempty"`
-	CompanyWebsite           string                  `protobuf:"bytes,43,opt,name=company_website,json=companyWebsite,proto3" json:"company_website,omitempty"`
-	ProjectWebsite           string                  `protobuf:"bytes,44,opt,name=project_website,json=projectWebsite,proto3" json:"project_website,omitempty"`
-	Url_360                  string                  `protobuf:"bytes,45,opt,name=url_360,json=url360,proto3" json:"url_360,omitempty"`
-	VideoUrl                 string                  `protobuf:"bytes,46,opt,name=video_url,json=videoUrl,proto3" json:"video_url,omitempty"`
-	Map_360Url               string                  `protobuf:"bytes,47,opt,name=map_360_url,json=map360Url,proto3" json:"map_360_url,omitempty"`
-	Promotions               []*Promotion            `protobuf:"bytes,48,rep,name=promotions,proto3" json:"promotions,omitempty"`
-	Facilities               string                  `protobuf:"bytes,49,opt,name=facilities,proto3" json:"facilities,omitempty"`
-	Amenities                string                  `protobuf:"bytes,50,opt,name=amenities,proto3" json:"amenities,omitempty"`
-	Photos                   []string                `protobuf:"bytes,51,rep,name=photos,proto3" json:"photos,omitempty"`
-	Plans                    []*commonpb.Plan        `protobuf:"bytes,52,rep,name=plans,proto3" json:"plans,omitempty"`
-	PaymentPlans             []*commonpb.PaymentPlan `protobuf:"bytes,53,rep,name=payment_plans,json=paymentPlans,proto3" json:"payment_plans,omitempty"`
-	UserDetail               *commonpb.UserDetail    `protobuf:"bytes,54,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
+	state                    protoimpl.MessageState `protogen:"open.v1"`
+	DeveloperCompany         string                 `protobuf:"bytes,1,opt,name=developer_company,json=developerCompany,proto3" json:"developer_company,omitempty"`
+	DeveloperCn              string                 `protobuf:"bytes,2,opt,name=developer_cn,json=developerCn,proto3" json:"developer_cn,omitempty"`
+	ProjectName              string                 `protobuf:"bytes,3,opt,name=project_name,json=projectName,proto3" json:"project_name,omitempty"`
+	ProjectNameAr            string                 `protobuf:"bytes,4,opt,name=project_name_ar,json=projectNameAr,proto3" json:"project_name_ar,omitempty"`
+	Address                  *Address               `protobuf:"bytes,5,opt,name=address,proto3" json:"address,omitempty"`
+	UnitTypes                string                 `protobuf:"bytes,6,opt,name=unit_types,json=unitTypes,proto3" json:"unit_types,omitempty"`
+	ProjectNumber            string                 `protobuf:"bytes,7,opt,name=project_number,json=projectNumber,proto3" json:"project_number,omitempty"`
+	MaxBedrooms              string                 `protobuf:"bytes,8,opt,name=max_bedrooms,json=maxBedrooms,proto3" json:"max_bedrooms,omitempty"`
+	MinBedrooms              string                 `protobuf:"bytes,9,opt,name=min_bedrooms,json=minBedrooms,proto3" json:"min_bedrooms,omitempty"`
+	MaxArea                  float64                `protobuf:"fixed64,10,opt,name=max_area,json=maxArea,proto3" json:"max_area,omitempty"`
+	MinArea                  float64                `protobuf:"fixed64,11,opt,name=min_area,json=minArea,proto3" json:"min_area,omitempty"`
+	Ownership                string                 `protobuf:"bytes,12,opt,name=ownership,proto3" json:"ownership,omitempty"`
+	Status                   string                 `protobuf:"bytes,13,opt,name=status,proto3" json:"status,omitempty"`
+	CompletionStatus         string                 `protobuf:"bytes,14,opt,name=completion_status,json=completionStatus,proto3" json:"completion_status,omitempty"`
+	LifeStyle                string                 `protobuf:"bytes,15,opt,name=life_style,json=lifeStyle,proto3" json:"life_style,omitempty"`
+	PermitNumber             string                 `protobuf:"bytes,16,opt,name=permit_number,json=permitNumber,proto3" json:"permit_number,omitempty"`
+	PermitExpiryDate         string                 `protobuf:"bytes,17,opt,name=permit_expiry_date,json=permitExpiryDate,proto3" json:"permit_expiry_date,omitempty"`
+	BankName                 string                 `protobuf:"bytes,18,opt,name=bank_name,json=bankName,proto3" json:"bank_name,omitempty"`
+	RegistrationDate         string                 `protobuf:"bytes,19,opt,name=registration_date,json=registrationDate,proto3" json:"registration_date,omitempty"`
+	TotalPlotArea            float64                `protobuf:"fixed64,20,opt,name=total_plot_area,json=totalPlotArea,proto3" json:"total_plot_area,omitempty"`
+	CompletionPercentage     float64                `protobuf:"fixed64,21,opt,name=completion_percentage,json=completionPercentage,proto3" json:"completion_percentage,omitempty"`
+	CompletionPercentageDate string                 `protobuf:"bytes,22,opt,name=completion_percentage_date,json=completionPercentageDate,proto3" json:"completion_percentage_date,omitempty"`
+	Furnished                string                 `protobuf:"bytes,23,opt,name=furnished,proto3" json:"furnished,omitempty"`
+	NoOfProperties           int32                  `protobuf:"varint,24,opt,name=no_of_properties,json=noOfProperties,proto3" json:"no_of_properties,omitempty"`
+	TotalBuiltUpArea         float64                `protobuf:"fixed64,25,opt,name=total_built_up_area,json=totalBuiltUpArea,proto3" json:"total_built_up_area,omitempty"`
+	StartDate                string                 `protobuf:"bytes,26,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"`
+	CompletionDate           string                 `protobuf:"bytes,27,opt,name=completion_date,json=completionDate,proto3" json:"completion_date,omitempty"`
+	HandoverDate             string                 `protobuf:"bytes,28,opt,name=handover_date,json=handoverDate,proto3" json:"handover_date,omitempty"`
+	StartingPrice            float64                `protobuf:"fixed64,29,opt,name=starting_price,json=startingPrice,proto3" json:"starting_price,omitempty"`
+	ServiceCharge            float64                `protobuf:"fixed64,30,opt,name=service_charge,json=serviceCharge,proto3" json:"service_charge,omitempty"`
+	UnitOfMeasures           string                 `protobuf:"bytes,31,opt,name=unit_of_measures,json=unitOfMeasures,proto3" json:"unit_of_measures,omitempty"`
+	LicenseNumber            int64                  `protobuf:"varint,32,opt,name=license_number,json=licenseNumber,proto3" json:"license_number,omitempty"`
+	ProjectType              string                 `protobuf:"bytes,33,opt,name=project_type,json=projectType,proto3" json:"project_type,omitempty"`
+	CompanyEmail             string                 `protobuf:"bytes,34,opt,name=company_email,json=companyEmail,proto3" json:"company_email,omitempty"`
+	CompanyPhone             string                 `protobuf:"bytes,35,opt,name=company_phone,json=companyPhone,proto3" json:"company_phone,omitempty"`
+	AdminFees                float64                `protobuf:"fixed64,36,opt,name=admin_fees,json=adminFees,proto3" json:"admin_fees,omitempty"`
+	NocFees                  float64                `protobuf:"fixed64,37,opt,name=noc_fees,json=nocFees,proto3" json:"noc_fees,omitempty"`
+	EscrowNo                 int64                  `protobuf:"varint,38,opt,name=escrow_no,json=escrowNo,proto3" json:"escrow_no,omitempty"`
+	ProjectDescription       string                 `protobuf:"bytes,39,opt,name=project_description,json=projectDescription,proto3" json:"project_description,omitempty"`
+	ProjectDescriptionAr     string                 `protobuf:"bytes,40,opt,name=project_description_ar,json=projectDescriptionAr,proto3" json:"project_description_ar,omitempty"`
+	ManagementCompany        string                 `protobuf:"bytes,41,opt,name=management_company,json=managementCompany,proto3" json:"management_company,omitempty"`
+	ManagementType           string                 `protobuf:"bytes,42,opt,name=management_type,json=managementType,proto3" json:"management_type,omitempty"`
+	CompanyWebsite           string                 `protobuf:"bytes,43,opt,name=company_website,json=companyWebsite,proto3" json:"company_website,omitempty"`
+	ProjectWebsite           string                 `protobuf:"bytes,44,opt,name=project_website,json=projectWebsite,proto3" json:"project_website,omitempty"`
+	Url_360                  string                 `protobuf:"bytes,45,opt,name=url_360,json=url360,proto3" json:"url_360,omitempty"`
+	VideoUrl                 string                 `protobuf:"bytes,46,opt,name=video_url,json=videoUrl,proto3" json:"video_url,omitempty"`
+	Map_360Url               string                 `protobuf:"bytes,47,opt,name=map_360_url,json=map360Url,proto3" json:"map_360_url,omitempty"`
+	Promotions               []*Promotion           `protobuf:"bytes,48,rep,name=promotions,proto3" json:"promotions,omitempty"`
+	Facilities               string                 `protobuf:"bytes,49,opt,name=facilities,proto3" json:"facilities,omitempty"`
+	Amenities                string                 `protobuf:"bytes,50,opt,name=amenities,proto3" json:"amenities,omitempty"`
+	Photos                   []string               `protobuf:"bytes,51,rep,name=photos,proto3" json:"photos,omitempty"`
+	Plans                    []*Plan                `protobuf:"bytes,52,rep,name=plans,proto3" json:"plans,omitempty"`
+	PaymentPlans             []*PaymentPlan         `protobuf:"bytes,53,rep,name=payment_plans,json=paymentPlans,proto3" json:"payment_plans,omitempty"`
+	UserDetail               *UserDetail            `protobuf:"bytes,54,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -140,7 +139,7 @@ func (x *CreateProjectRequest) GetProjectNameAr() string {
 	return ""
 }
 
-func (x *CreateProjectRequest) GetAddress() *commonpb.Address {
+func (x *CreateProjectRequest) GetAddress() *Address {
 	if x != nil {
 		return x.Address
 	}
@@ -469,21 +468,21 @@ func (x *CreateProjectRequest) GetPhotos() []string {
 	return nil
 }
 
-func (x *CreateProjectRequest) GetPlans() []*commonpb.Plan {
+func (x *CreateProjectRequest) GetPlans() []*Plan {
 	if x != nil {
 		return x.Plans
 	}
 	return nil
 }
 
-func (x *CreateProjectRequest) GetPaymentPlans() []*commonpb.PaymentPlan {
+func (x *CreateProjectRequest) GetPaymentPlans() []*PaymentPlan {
 	if x != nil {
 		return x.PaymentPlans
 	}
 	return nil
 }
 
-func (x *CreateProjectRequest) GetUserDetail() *commonpb.UserDetail {
+func (x *CreateProjectRequest) GetUserDetail() *UserDetail {
 	if x != nil {
 		return x.UserDetail
 	}
@@ -594,13 +593,13 @@ var File_project_profile_requests_proto protoreflect.FileDescriptor
 
 const file_project_profile_requests_proto_rawDesc = "" +
 	"\n" +
-	"\x1eproject_profile/requests.proto\x12\x1fproject_profile.project_profile\x1a\x14common/address.proto\x1a\x13common/common.proto\x1a\x19common/payment_plan.proto\x1a\x11common/plan.proto\"\xbb\x10\n" +
+	"\x1eproject_profile/requests.proto\x12\x1fproject_profile.project_profile\x1a\x1dproject_profile/address.proto\x1a\x1cproject_profile/common.proto\x1a\"project_profile/payment_plan.proto\x1a\x1aproject_profile/plan.proto\"\x80\x11\n" +
 	"\x14CreateProjectRequest\x12+\n" +
 	"\x11developer_company\x18\x01 \x01(\tR\x10developerCompany\x12!\n" +
 	"\fdeveloper_cn\x18\x02 \x01(\tR\vdeveloperCn\x12!\n" +
 	"\fproject_name\x18\x03 \x01(\tR\vprojectName\x12&\n" +
-	"\x0fproject_name_ar\x18\x04 \x01(\tR\rprojectNameAr\x12)\n" +
-	"\aaddress\x18\x05 \x01(\v2\x0f.common.AddressR\aaddress\x12\x1d\n" +
+	"\x0fproject_name_ar\x18\x04 \x01(\tR\rprojectNameAr\x12:\n" +
+	"\aaddress\x18\x05 \x01(\v2 .project_profile.address.AddressR\aaddress\x12\x1d\n" +
 	"\n" +
 	"unit_types\x18\x06 \x01(\tR\tunitTypes\x12%\n" +
 	"\x0eproject_number\x18\a \x01(\tR\rprojectNumber\x12!\n" +
@@ -655,10 +654,10 @@ const file_project_profile_requests_proto_rawDesc = "" +
 	"facilities\x181 \x01(\tR\n" +
 	"facilities\x12\x1c\n" +
 	"\tamenities\x182 \x01(\tR\tamenities\x12\x16\n" +
-	"\x06photos\x183 \x03(\tR\x06photos\x12\"\n" +
-	"\x05plans\x184 \x03(\v2\f.common.PlanR\x05plans\x128\n" +
-	"\rpayment_plans\x185 \x03(\v2\x13.common.PaymentPlanR\fpaymentPlans\x123\n" +
-	"\vuser_detail\x186 \x01(\v2\x12.common.UserDetailR\n" +
+	"\x06photos\x183 \x03(\tR\x06photos\x120\n" +
+	"\x05plans\x184 \x03(\v2\x1a.project_profile.plan.PlanR\x05plans\x12N\n" +
+	"\rpayment_plans\x185 \x03(\v2).project_profile.payment_plan.PaymentPlanR\fpaymentPlans\x12C\n" +
+	"\vuser_detail\x186 \x01(\v2\".project_profile.common.UserDetailR\n" +
 	"userDetail\"\xbc\x03\n" +
 	"\tPromotion\x12/\n" +
 	"\x14five_years_sc_waiver\x18\x01 \x01(\bR\x11fiveYearsScWaiver\x12E\n" +
@@ -686,17 +685,17 @@ var file_project_profile_requests_proto_msgTypes = make([]protoimpl.MessageInfo,
 var file_project_profile_requests_proto_goTypes = []any{
 	(*CreateProjectRequest)(nil), // 0: project_profile.project_profile.CreateProjectRequest
 	(*Promotion)(nil),            // 1: project_profile.project_profile.Promotion
-	(*commonpb.Address)(nil),     // 2: common.Address
-	(*commonpb.Plan)(nil),        // 3: common.Plan
-	(*commonpb.PaymentPlan)(nil), // 4: common.PaymentPlan
-	(*commonpb.UserDetail)(nil),  // 5: common.UserDetail
+	(*Address)(nil),              // 2: project_profile.address.Address
+	(*Plan)(nil),                 // 3: project_profile.plan.Plan
+	(*PaymentPlan)(nil),          // 4: project_profile.payment_plan.PaymentPlan
+	(*UserDetail)(nil),           // 5: project_profile.common.UserDetail
 }
 var file_project_profile_requests_proto_depIdxs = []int32{
-	2, // 0: project_profile.project_profile.CreateProjectRequest.address:type_name -> common.Address
+	2, // 0: project_profile.project_profile.CreateProjectRequest.address:type_name -> project_profile.address.Address
 	1, // 1: project_profile.project_profile.CreateProjectRequest.promotions:type_name -> project_profile.project_profile.Promotion
-	3, // 2: project_profile.project_profile.CreateProjectRequest.plans:type_name -> common.Plan
-	4, // 3: project_profile.project_profile.CreateProjectRequest.payment_plans:type_name -> common.PaymentPlan
-	5, // 4: project_profile.project_profile.CreateProjectRequest.user_detail:type_name -> common.UserDetail
+	3, // 2: project_profile.project_profile.CreateProjectRequest.plans:type_name -> project_profile.plan.Plan
+	4, // 3: project_profile.project_profile.CreateProjectRequest.payment_plans:type_name -> project_profile.payment_plan.PaymentPlan
+	5, // 4: project_profile.project_profile.CreateProjectRequest.user_detail:type_name -> project_profile.common.UserDetail
 	5, // [5:5] is the sub-list for method output_type
 	5, // [5:5] is the sub-list for method input_type
 	5, // [5:5] is the sub-list for extension type_name
@@ -709,6 +708,10 @@ func file_project_profile_requests_proto_init() {
 	if File_project_profile_requests_proto != nil {
 		return
 	}
+	file_project_profile_address_proto_init()
+	file_project_profile_common_proto_init()
+	file_project_profile_payment_plan_proto_init()
+	file_project_profile_plan_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

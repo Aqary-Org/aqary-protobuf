@@ -7,7 +7,6 @@
 package leadpb
 
 import (
-	commonpb "/commonpb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -27,7 +26,7 @@ type CreateLeadRequest struct {
 	LeadName      string                 `protobuf:"bytes,1,opt,name=lead_name,json=leadName,proto3" json:"lead_name,omitempty"`
 	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
 	Phone         string                 `protobuf:"bytes,3,opt,name=phone,proto3" json:"phone,omitempty"`
-	UserDetail    *commonpb.UserDetail   `protobuf:"bytes,4,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
+	UserDetail    *UserDetail            `protobuf:"bytes,4,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
 	Source        string                 `protobuf:"bytes,5,opt,name=source,proto3" json:"source,omitempty"`
 	SubSource     string                 `protobuf:"bytes,6,opt,name=sub_source,json=subSource,proto3" json:"sub_source,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -85,7 +84,7 @@ func (x *CreateLeadRequest) GetPhone() string {
 	return ""
 }
 
-func (x *CreateLeadRequest) GetUserDetail() *commonpb.UserDetail {
+func (x *CreateLeadRequest) GetUserDetail() *UserDetail {
 	if x != nil {
 		return x.UserDetail
 	}
@@ -154,12 +153,12 @@ var File_leads_lead_proto protoreflect.FileDescriptor
 
 const file_leads_lead_proto_rawDesc = "" +
 	"\n" +
-	"\x10leads/lead.proto\x12\x05leads\x1a\x13common/common.proto\"\xc8\x01\n" +
+	"\x10leads/lead.proto\x12\x05leads\x1a\x12leads/common.proto\"\xce\x01\n" +
 	"\x11CreateLeadRequest\x12\x1b\n" +
 	"\tlead_name\x18\x01 \x01(\tR\bleadName\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x14\n" +
-	"\x05phone\x18\x03 \x01(\tR\x05phone\x123\n" +
-	"\vuser_detail\x18\x04 \x01(\v2\x12.common.UserDetailR\n" +
+	"\x05phone\x18\x03 \x01(\tR\x05phone\x129\n" +
+	"\vuser_detail\x18\x04 \x01(\v2\x18.leads.common.UserDetailR\n" +
 	"userDetail\x12\x16\n" +
 	"\x06source\x18\x05 \x01(\tR\x06source\x12\x1d\n" +
 	"\n" +
@@ -184,12 +183,12 @@ func file_leads_lead_proto_rawDescGZIP() []byte {
 
 var file_leads_lead_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_leads_lead_proto_goTypes = []any{
-	(*CreateLeadRequest)(nil),   // 0: leads.CreateLeadRequest
-	(*CreateLeadResponse)(nil),  // 1: leads.CreateLeadResponse
-	(*commonpb.UserDetail)(nil), // 2: common.UserDetail
+	(*CreateLeadRequest)(nil),  // 0: leads.CreateLeadRequest
+	(*CreateLeadResponse)(nil), // 1: leads.CreateLeadResponse
+	(*UserDetail)(nil),         // 2: leads.common.UserDetail
 }
 var file_leads_lead_proto_depIdxs = []int32{
-	2, // 0: leads.CreateLeadRequest.user_detail:type_name -> common.UserDetail
+	2, // 0: leads.CreateLeadRequest.user_detail:type_name -> leads.common.UserDetail
 	0, // 1: leads.LeadService.CreateLead:input_type -> leads.CreateLeadRequest
 	1, // 2: leads.LeadService.CreateLead:output_type -> leads.CreateLeadResponse
 	2, // [2:3] is the sub-list for method output_type
@@ -204,6 +203,7 @@ func file_leads_lead_proto_init() {
 	if File_leads_lead_proto != nil {
 		return
 	}
+	file_leads_common_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

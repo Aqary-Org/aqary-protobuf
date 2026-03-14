@@ -4,7 +4,7 @@ option go_package = "/contactpb;contactpb";
 
 package contact;
 
-import "common/common.proto";
+import "contact/common.proto";
 
 service ContactService {
   rpc CreateContact(CreateContactRequest) returns (CreateContactResponse);
@@ -14,7 +14,7 @@ message CreateContactRequest {
   string contact_name = 1;
   string email = 2;
   string phone = 3;
-  common.UserDetail user_detail = 4;
+  contact.common.UserDetail user_detail = 4;
   string source = 5;
 }
 

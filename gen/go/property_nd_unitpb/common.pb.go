@@ -10,6 +10,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -20,13 +21,206 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type HttpResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Msg           string                 `protobuf:"bytes,1,opt,name=msg,proto3" json:"msg,omitempty"`
+	Httpcode      uint32                 `protobuf:"varint,2,opt,name=httpcode,proto3" json:"httpcode,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HttpResponse) Reset() {
+	*x = HttpResponse{}
+	mi := &file_property_nd_unit_common_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HttpResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HttpResponse) ProtoMessage() {}
+
+func (x *HttpResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_property_nd_unit_common_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HttpResponse.ProtoReflect.Descriptor instead.
+func (*HttpResponse) Descriptor() ([]byte, []int) {
+	return file_property_nd_unit_common_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *HttpResponse) GetMsg() string {
+	if x != nil {
+		return x.Msg
+	}
+	return ""
+}
+
+func (x *HttpResponse) GetHttpcode() uint32 {
+	if x != nil {
+		return x.Httpcode
+	}
+	return 0
+}
+
+type ValidationError struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Field         string                 `protobuf:"bytes,1,opt,name=field,proto3" json:"field,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValidationError) Reset() {
+	*x = ValidationError{}
+	mi := &file_property_nd_unit_common_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValidationError) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValidationError) ProtoMessage() {}
+
+func (x *ValidationError) ProtoReflect() protoreflect.Message {
+	mi := &file_property_nd_unit_common_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValidationError.ProtoReflect.Descriptor instead.
+func (*ValidationError) Descriptor() ([]byte, []int) {
+	return file_property_nd_unit_common_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *ValidationError) GetField() string {
+	if x != nil {
+		return x.Field
+	}
+	return ""
+}
+
+func (x *ValidationError) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type UserDetail struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CompanyId     int64                  `protobuf:"varint,1,opt,name=company_id,json=companyId,proto3" json:"company_id,omitempty"`
+	UserId        int64                  `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	Username      string                 `protobuf:"bytes,3,opt,name=username,proto3" json:"username,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UserDetail) Reset() {
+	*x = UserDetail{}
+	mi := &file_property_nd_unit_common_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserDetail) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserDetail) ProtoMessage() {}
+
+func (x *UserDetail) ProtoReflect() protoreflect.Message {
+	mi := &file_property_nd_unit_common_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserDetail.ProtoReflect.Descriptor instead.
+func (*UserDetail) Descriptor() ([]byte, []int) {
+	return file_property_nd_unit_common_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *UserDetail) GetCompanyId() int64 {
+	if x != nil {
+		return x.CompanyId
+	}
+	return 0
+}
+
+func (x *UserDetail) GetUserId() int64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+func (x *UserDetail) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
 var File_property_nd_unit_common_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_common_proto_rawDesc = "" +
 	"\n" +
-	"\x1dproperty_nd_unit/common.proto\x12\x17property_nd_unit.commonB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
+	"\x1dproperty_nd_unit/common.proto\x12\x17property_nd_unit.common\"<\n" +
+	"\fHttpResponse\x12\x10\n" +
+	"\x03msg\x18\x01 \x01(\tR\x03msg\x12\x1a\n" +
+	"\bhttpcode\x18\x02 \x01(\rR\bhttpcode\"A\n" +
+	"\x0fValidationError\x12\x14\n" +
+	"\x05field\x18\x01 \x01(\tR\x05field\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"`\n" +
+	"\n" +
+	"UserDetail\x12\x1d\n" +
+	"\n" +
+	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\x03R\x06userId\x12\x1a\n" +
+	"\busername\x18\x03 \x01(\tR\busernameB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 
-var file_property_nd_unit_common_proto_goTypes = []any{}
+var (
+	file_property_nd_unit_common_proto_rawDescOnce sync.Once
+	file_property_nd_unit_common_proto_rawDescData []byte
+)
+
+func file_property_nd_unit_common_proto_rawDescGZIP() []byte {
+	file_property_nd_unit_common_proto_rawDescOnce.Do(func() {
+		file_property_nd_unit_common_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_property_nd_unit_common_proto_rawDesc), len(file_property_nd_unit_common_proto_rawDesc)))
+	})
+	return file_property_nd_unit_common_proto_rawDescData
+}
+
+var file_property_nd_unit_common_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_property_nd_unit_common_proto_goTypes = []any{
+	(*HttpResponse)(nil),    // 0: property_nd_unit.common.HttpResponse
+	(*ValidationError)(nil), // 1: property_nd_unit.common.ValidationError
+	(*UserDetail)(nil),      // 2: property_nd_unit.common.UserDetail
+}
 var file_property_nd_unit_common_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -46,12 +240,13 @@ func file_property_nd_unit_common_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_property_nd_unit_common_proto_rawDesc), len(file_property_nd_unit_common_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_property_nd_unit_common_proto_goTypes,
 		DependencyIndexes: file_property_nd_unit_common_proto_depIdxs,
+		MessageInfos:      file_property_nd_unit_common_proto_msgTypes,
 	}.Build()
 	File_property_nd_unit_common_proto = out.File
 	file_property_nd_unit_common_proto_goTypes = nil

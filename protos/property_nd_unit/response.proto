@@ -5,8 +5,8 @@ package property_nd_unit.response;
 option go_package = "/property_nd_unitpb;property_nd_unitpb";
 
 import "google/protobuf/timestamp.proto";
-import "common/address.proto";
-import "common/common.proto";
+import "property_nd_unit/address.proto";
+import "property_nd_unit/common.proto";
 
 message CreatePropertyAndUnitResponse {
   // "success" or "error"
@@ -16,7 +16,7 @@ message CreatePropertyAndUnitResponse {
   // e.g. "One or more listings failed validation."
   string message = 4;
   // Populated only when there are validation errors
-  repeated .common.ValidationError errors = 5;
+  repeated .property_nd_unit.common.ValidationError errors = 5;
   
 }
 
@@ -96,7 +96,7 @@ message GetPropertyAndUnitResponse {
   string description_ar = 8;
   string category = 9;
   string type = 10;
-  .common.Address address = 11;
+  .property_nd_unit.address.Address address = 11;
   string location_url = 12;
   AgentDetails agent = 13;
   repeated Photo photos = 14;
@@ -115,5 +115,5 @@ message GetPropertyAndUnitResponse {
 message GetAllPropertyAndUnitResponse {
   repeated response.GetPropertyAndUnitResponse property_units = 1;
   int64 total_counts = 2;
-  .common.HttpResponse error = 3;
+  .property_nd_unit.common.HttpResponse error = 3;
 }

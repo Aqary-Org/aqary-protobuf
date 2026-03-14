@@ -4,7 +4,7 @@ option go_package = "/leadpb;leadpb";
 
 package leads;
 
-import "common/common.proto";
+import "leads/common.proto";
 
 service LeadService {
   rpc CreateLead(CreateLeadRequest) returns (CreateLeadResponse);
@@ -14,7 +14,7 @@ message CreateLeadRequest {
   string lead_name = 1;
   string email = 2;
   string phone = 3;
-  common.UserDetail user_detail = 4;
+  leads.common.UserDetail user_detail = 4;
   string source = 5;
   string sub_source = 6;
 }
