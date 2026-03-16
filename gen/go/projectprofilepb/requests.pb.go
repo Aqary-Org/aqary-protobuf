@@ -9,6 +9,7 @@ package projectprofilepb
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -73,7 +74,7 @@ type CreateProjectRequest struct {
 	Promotions               []*Promotion           `protobuf:"bytes,48,rep,name=promotions,proto3" json:"promotions,omitempty"`
 	Facilities               string                 `protobuf:"bytes,49,opt,name=facilities,proto3" json:"facilities,omitempty"`
 	Amenities                string                 `protobuf:"bytes,50,opt,name=amenities,proto3" json:"amenities,omitempty"`
-	Photos                   []string               `protobuf:"bytes,51,rep,name=photos,proto3" json:"photos,omitempty"`
+	Photos                   []*RequestPhoto        `protobuf:"bytes,51,rep,name=photos,proto3" json:"photos,omitempty"`
 	Plans                    []*Plan                `protobuf:"bytes,52,rep,name=plans,proto3" json:"plans,omitempty"`
 	PaymentPlans             []*PaymentPlan         `protobuf:"bytes,53,rep,name=payment_plans,json=paymentPlans,proto3" json:"payment_plans,omitempty"`
 	UserDetail               *UserDetail            `protobuf:"bytes,54,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
@@ -461,7 +462,7 @@ func (x *CreateProjectRequest) GetAmenities() string {
 	return ""
 }
 
-func (x *CreateProjectRequest) GetPhotos() []string {
+func (x *CreateProjectRequest) GetPhotos() []*RequestPhoto {
 	if x != nil {
 		return x.Photos
 	}
@@ -589,11 +590,79 @@ func (x *Promotion) GetMaintenance_1YearExpiryDate() string {
 	return ""
 }
 
+type RequestPhoto struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Url           string                 `protobuf:"bytes,1,opt,name=url,proto3" json:"url,omitempty"`
+	Watermark     bool                   `protobuf:"varint,2,opt,name=watermark,proto3" json:"watermark,omitempty"`
+	GalleryType   string                 `protobuf:"bytes,3,opt,name=gallery_type,json=galleryType,proto3" json:"gallery_type,omitempty"`
+	UrlLastUpdate *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=url_last_update,json=urlLastUpdate,proto3" json:"url_last_update,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RequestPhoto) Reset() {
+	*x = RequestPhoto{}
+	mi := &file_project_profile_requests_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RequestPhoto) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RequestPhoto) ProtoMessage() {}
+
+func (x *RequestPhoto) ProtoReflect() protoreflect.Message {
+	mi := &file_project_profile_requests_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RequestPhoto.ProtoReflect.Descriptor instead.
+func (*RequestPhoto) Descriptor() ([]byte, []int) {
+	return file_project_profile_requests_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *RequestPhoto) GetUrl() string {
+	if x != nil {
+		return x.Url
+	}
+	return ""
+}
+
+func (x *RequestPhoto) GetWatermark() bool {
+	if x != nil {
+		return x.Watermark
+	}
+	return false
+}
+
+func (x *RequestPhoto) GetGalleryType() string {
+	if x != nil {
+		return x.GalleryType
+	}
+	return ""
+}
+
+func (x *RequestPhoto) GetUrlLastUpdate() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UrlLastUpdate
+	}
+	return nil
+}
+
 var File_project_profile_requests_proto protoreflect.FileDescriptor
 
 const file_project_profile_requests_proto_rawDesc = "" +
 	"\n" +
-	"\x1eproject_profile/requests.proto\x12\x1fproject_profile.project_profile\x1a\x1dproject_profile/address.proto\x1a\x1cproject_profile/common.proto\x1a\"project_profile/payment_plan.proto\x1a\x1aproject_profile/plan.proto\"\x80\x11\n" +
+	"\x1eproject_profile/requests.proto\x12\x1fproject_profile.project_profile\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1dproject_profile/address.proto\x1a\x1cproject_profile/common.proto\x1a\"project_profile/payment_plan.proto\x1a\x1aproject_profile/plan.proto\"\xaf\x11\n" +
 	"\x14CreateProjectRequest\x12+\n" +
 	"\x11developer_company\x18\x01 \x01(\tR\x10developerCompany\x12!\n" +
 	"\fdeveloper_cn\x18\x02 \x01(\tR\vdeveloperCn\x12!\n" +
@@ -653,8 +722,8 @@ const file_project_profile_requests_proto_rawDesc = "" +
 	"\n" +
 	"facilities\x181 \x01(\tR\n" +
 	"facilities\x12\x1c\n" +
-	"\tamenities\x182 \x01(\tR\tamenities\x12\x16\n" +
-	"\x06photos\x183 \x03(\tR\x06photos\x120\n" +
+	"\tamenities\x182 \x01(\tR\tamenities\x12E\n" +
+	"\x06photos\x183 \x03(\v2-.project_profile.project_profile.RequestPhotoR\x06photos\x120\n" +
 	"\x05plans\x184 \x03(\v2\x1a.project_profile.plan.PlanR\x05plans\x12N\n" +
 	"\rpayment_plans\x185 \x03(\v2).project_profile.payment_plan.PaymentPlanR\fpaymentPlans\x12C\n" +
 	"\vuser_detail\x186 \x01(\v2\".project_profile.common.UserDetailR\n" +
@@ -667,7 +736,12 @@ const file_project_profile_requests_proto_rawDesc = "" +
 	"\rzero_adm_fees\x18\x05 \x01(\bR\vzeroAdmFees\x12/\n" +
 	"\x14adm_fees_expiry_date\x18\x06 \x01(\tR\x11admFeesExpiryDate\x12>\n" +
 	"\x1cfree_home_maintenance_1_year\x18\a \x01(\bR\x18freeHomeMaintenance1Year\x12B\n" +
-	"\x1emaintenance_1_year_expiry_date\x18\b \x01(\tR\x1amaintenance1YearExpiryDateB$Z\"/projectprofilepb;projectprofilepbb\x06proto3"
+	"\x1emaintenance_1_year_expiry_date\x18\b \x01(\tR\x1amaintenance1YearExpiryDate\"\xa5\x01\n" +
+	"\fRequestPhoto\x12\x10\n" +
+	"\x03url\x18\x01 \x01(\tR\x03url\x12\x1c\n" +
+	"\twatermark\x18\x02 \x01(\bR\twatermark\x12!\n" +
+	"\fgallery_type\x18\x03 \x01(\tR\vgalleryType\x12B\n" +
+	"\x0furl_last_update\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\rurlLastUpdateB$Z\"/projectprofilepb;projectprofilepbb\x06proto3"
 
 var (
 	file_project_profile_requests_proto_rawDescOnce sync.Once
@@ -681,26 +755,30 @@ func file_project_profile_requests_proto_rawDescGZIP() []byte {
 	return file_project_profile_requests_proto_rawDescData
 }
 
-var file_project_profile_requests_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_project_profile_requests_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_project_profile_requests_proto_goTypes = []any{
-	(*CreateProjectRequest)(nil), // 0: project_profile.project_profile.CreateProjectRequest
-	(*Promotion)(nil),            // 1: project_profile.project_profile.Promotion
-	(*Address)(nil),              // 2: project_profile.address.Address
-	(*Plan)(nil),                 // 3: project_profile.plan.Plan
-	(*PaymentPlan)(nil),          // 4: project_profile.payment_plan.PaymentPlan
-	(*UserDetail)(nil),           // 5: project_profile.common.UserDetail
+	(*CreateProjectRequest)(nil),  // 0: project_profile.project_profile.CreateProjectRequest
+	(*Promotion)(nil),             // 1: project_profile.project_profile.Promotion
+	(*RequestPhoto)(nil),          // 2: project_profile.project_profile.RequestPhoto
+	(*Address)(nil),               // 3: project_profile.address.Address
+	(*Plan)(nil),                  // 4: project_profile.plan.Plan
+	(*PaymentPlan)(nil),           // 5: project_profile.payment_plan.PaymentPlan
+	(*UserDetail)(nil),            // 6: project_profile.common.UserDetail
+	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
 }
 var file_project_profile_requests_proto_depIdxs = []int32{
-	2, // 0: project_profile.project_profile.CreateProjectRequest.address:type_name -> project_profile.address.Address
+	3, // 0: project_profile.project_profile.CreateProjectRequest.address:type_name -> project_profile.address.Address
 	1, // 1: project_profile.project_profile.CreateProjectRequest.promotions:type_name -> project_profile.project_profile.Promotion
-	3, // 2: project_profile.project_profile.CreateProjectRequest.plans:type_name -> project_profile.plan.Plan
-	4, // 3: project_profile.project_profile.CreateProjectRequest.payment_plans:type_name -> project_profile.payment_plan.PaymentPlan
-	5, // 4: project_profile.project_profile.CreateProjectRequest.user_detail:type_name -> project_profile.common.UserDetail
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	2, // 2: project_profile.project_profile.CreateProjectRequest.photos:type_name -> project_profile.project_profile.RequestPhoto
+	4, // 3: project_profile.project_profile.CreateProjectRequest.plans:type_name -> project_profile.plan.Plan
+	5, // 4: project_profile.project_profile.CreateProjectRequest.payment_plans:type_name -> project_profile.payment_plan.PaymentPlan
+	6, // 5: project_profile.project_profile.CreateProjectRequest.user_detail:type_name -> project_profile.common.UserDetail
+	7, // 6: project_profile.project_profile.RequestPhoto.url_last_update:type_name -> google.protobuf.Timestamp
+	7, // [7:7] is the sub-list for method output_type
+	7, // [7:7] is the sub-list for method input_type
+	7, // [7:7] is the sub-list for extension type_name
+	7, // [7:7] is the sub-list for extension extendee
+	0, // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_project_profile_requests_proto_init() }
@@ -718,7 +796,7 @@ func file_project_profile_requests_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_project_profile_requests_proto_rawDesc), len(file_project_profile_requests_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

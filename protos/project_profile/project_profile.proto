@@ -8,5 +8,5 @@ import "project_profile/common.proto";
 import "project_profile/requests.proto";
 
 service ProjectProfileService {
-  rpc CreateProjectProfile(CreateProjectRequest) returns (common.CreateProjectResponse);
+  rpc CreateProjectProfile(CreateProjectRequest) returns (.project_profile.common.CreateProjectResponse);
 }

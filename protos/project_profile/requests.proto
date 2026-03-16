@@ -4,6 +4,7 @@ package project_profile.project_profile;
 
 option go_package = "/projectprofilepb;projectprofilepb";
 
+import "google/protobuf/timestamp.proto";
 import "project_profile/address.proto";
 import "project_profile/common.proto";
 import "project_profile/payment_plan.proto";
@@ -89,7 +90,7 @@ message CreateProjectRequest {
   string facilities = 49;
   string amenities = 50;
 
-  repeated string photos = 51;
+  repeated RequestPhoto photos = 51;
   repeated .project_profile.plan.Plan plans = 52;
 
   repeated .project_profile.payment_plan.PaymentPlan payment_plans = 53;
@@ -111,4 +112,12 @@ message Promotion {
 
   bool free_home_maintenance_1_year = 7;
   string maintenance_1_year_expiry_date = 8;
+}
+
+
+message RequestPhoto {
+  string url = 1;
+  bool watermark = 2;  
+  string gallery_type = 3;      
+  .google.protobuf.Timestamp url_last_update = 4;  
 }
