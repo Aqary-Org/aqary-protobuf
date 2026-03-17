@@ -85,7 +85,7 @@ message CreateProjectRequest {
   string video_url = 46;
   string map_360_url = 47;
 
-  repeated Promotion promotions = 48;
+  Promotion promotions = 48;
 
   string facilities = 49;
   string amenities = 50;

@@ -71,7 +71,7 @@ type CreateProjectRequest struct {
 	Url_360                  string                 `protobuf:"bytes,45,opt,name=url_360,json=url360,proto3" json:"url_360,omitempty"`
 	VideoUrl                 string                 `protobuf:"bytes,46,opt,name=video_url,json=videoUrl,proto3" json:"video_url,omitempty"`
 	Map_360Url               string                 `protobuf:"bytes,47,opt,name=map_360_url,json=map360Url,proto3" json:"map_360_url,omitempty"`
-	Promotions               []*Promotion           `protobuf:"bytes,48,rep,name=promotions,proto3" json:"promotions,omitempty"`
+	Promotions               *Promotion             `protobuf:"bytes,48,opt,name=promotions,proto3" json:"promotions,omitempty"`
 	Facilities               string                 `protobuf:"bytes,49,opt,name=facilities,proto3" json:"facilities,omitempty"`
 	Amenities                string                 `protobuf:"bytes,50,opt,name=amenities,proto3" json:"amenities,omitempty"`
 	Photos                   []*RequestPhoto        `protobuf:"bytes,51,rep,name=photos,proto3" json:"photos,omitempty"`
@@ -441,7 +441,7 @@ func (x *CreateProjectRequest) GetMap_360Url() string {
 	return ""
 }
 
-func (x *CreateProjectRequest) GetPromotions() []*Promotion {
+func (x *CreateProjectRequest) GetPromotions() *Promotion {
 	if x != nil {
 		return x.Promotions
 	}
@@ -717,7 +717,7 @@ const file_project_profile_requests_proto_rawDesc = "" +
 	"\tvideo_url\x18. \x01(\tR\bvideoUrl\x12\x1e\n" +
 	"\vmap_360_url\x18/ \x01(\tR\tmap360Url\x12J\n" +
 	"\n" +
-	"promotions\x180 \x03(\v2*.project_profile.project_profile.PromotionR\n" +
+	"promotions\x180 \x01(\v2*.project_profile.project_profile.PromotionR\n" +
 	"promotions\x12\x1e\n" +
 	"\n" +
 	"facilities\x181 \x01(\tR\n" +
