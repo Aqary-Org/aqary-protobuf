@@ -59,6 +59,7 @@ type CreateProjectPropertyRequest struct {
 	Plans                 []*Plan                `protobuf:"bytes,38,rep,name=plans,proto3" json:"plans,omitempty"`
 	PaymentPlans          []*PaymentPlan         `protobuf:"bytes,39,rep,name=payment_plans,json=paymentPlans,proto3" json:"payment_plans,omitempty"`
 	UnitVariations        []*UnitVariation       `protobuf:"bytes,40,rep,name=unit_variations,json=unitVariations,proto3" json:"unit_variations,omitempty"`
+	UserDetail            *UserDetail            `protobuf:"bytes,41,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -345,6 +346,13 @@ func (x *CreateProjectPropertyRequest) GetUnitVariations() []*UnitVariation {
 	return nil
 }
 
+func (x *CreateProjectPropertyRequest) GetUserDetail() *UserDetail {
+	if x != nil {
+		return x.UserDetail
+	}
+	return nil
+}
+
 type UnitVariation struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	TypeName      string                 `protobuf:"bytes,1,opt,name=type_name,json=typeName,proto3" json:"type_name,omitempty"`
@@ -449,7 +457,7 @@ var File_project_profile_property_request_proto protoreflect.FileDescriptor
 
 const file_project_profile_property_request_proto_rawDesc = "" +
 	"\n" +
-	"&project_profile/property_request.proto\x12\x1fproject_profile.project_profile\x1a\x1dproject_profile/address.proto\x1a\"project_profile/payment_plan.proto\x1a\x1aproject_profile/plan.proto\x1a\x1eproject_profile/requests.proto\"\xcd\v\n" +
+	"&project_profile/property_request.proto\x12\x1fproject_profile.project_profile\x1a\x1dproject_profile/address.proto\x1a\"project_profile/payment_plan.proto\x1a\x1aproject_profile/plan.proto\x1a\x1eproject_profile/requests.proto\x1a\x1cproject_profile/common.proto\"\x92\f\n" +
 	"\x1cCreateProjectPropertyRequest\x12#\n" +
 	"\rproperty_name\x18\x01 \x01(\tR\fpropertyName\x12(\n" +
 	"\x10property_name_ar\x18\x02 \x01(\tR\x0epropertyNameAr\x12!\n" +
@@ -491,7 +499,9 @@ const file_project_profile_property_request_proto_rawDesc = "" +
 	"\x06photos\x18% \x03(\v2-.project_profile.project_profile.RequestPhotoR\x06photos\x120\n" +
 	"\x05plans\x18& \x03(\v2\x1a.project_profile.plan.PlanR\x05plans\x12N\n" +
 	"\rpayment_plans\x18' \x03(\v2).project_profile.payment_plan.PaymentPlanR\fpaymentPlans\x12W\n" +
-	"\x0funit_variations\x18( \x03(\v2..project_profile.project_profile.UnitVariationR\x0eunitVariations\"\xf0\x01\n" +
+	"\x0funit_variations\x18( \x03(\v2..project_profile.project_profile.UnitVariationR\x0eunitVariations\x12C\n" +
+	"\vuser_detail\x18) \x01(\v2\".project_profile.common.UserDetailR\n" +
+	"userDetail\"\xf0\x01\n" +
 	"\rUnitVariation\x12\x1b\n" +
 	"\ttype_name\x18\x01 \x01(\tR\btypeName\x12\x1b\n" +
 	"\tunit_type\x18\x02 \x01(\tR\bunitType\x12\x1a\n" +
@@ -522,6 +532,7 @@ var file_project_profile_property_request_proto_goTypes = []any{
 	(*RequestPhoto)(nil),                 // 3: project_profile.project_profile.RequestPhoto
 	(*Plan)(nil),                         // 4: project_profile.plan.Plan
 	(*PaymentPlan)(nil),                  // 5: project_profile.payment_plan.PaymentPlan
+	(*UserDetail)(nil),                   // 6: project_profile.common.UserDetail
 }
 var file_project_profile_property_request_proto_depIdxs = []int32{
 	2, // 0: project_profile.project_profile.CreateProjectPropertyRequest.address:type_name -> project_profile.address.Address
@@ -529,11 +540,12 @@ var file_project_profile_property_request_proto_depIdxs = []int32{
 	4, // 2: project_profile.project_profile.CreateProjectPropertyRequest.plans:type_name -> project_profile.plan.Plan
 	5, // 3: project_profile.project_profile.CreateProjectPropertyRequest.payment_plans:type_name -> project_profile.payment_plan.PaymentPlan
 	1, // 4: project_profile.project_profile.CreateProjectPropertyRequest.unit_variations:type_name -> project_profile.project_profile.UnitVariation
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	6, // 5: project_profile.project_profile.CreateProjectPropertyRequest.user_detail:type_name -> project_profile.common.UserDetail
+	6, // [6:6] is the sub-list for method output_type
+	6, // [6:6] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_project_profile_property_request_proto_init() }
@@ -545,6 +557,7 @@ func file_project_profile_property_request_proto_init() {
 	file_project_profile_payment_plan_proto_init()
 	file_project_profile_plan_proto_init()
 	file_project_profile_requests_proto_init()
+	file_project_profile_common_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

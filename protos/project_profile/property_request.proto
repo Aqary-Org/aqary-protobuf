@@ -8,6 +8,8 @@ import "project_profile/address.proto";
 import "project_profile/payment_plan.proto";
 import "project_profile/plan.proto";
 import "project_profile/requests.proto";
+import "project_profile/common.proto";
+
 
 
 message CreateProjectPropertyRequest {
@@ -47,6 +49,8 @@ message CreateProjectPropertyRequest {
   repeated .project_profile.plan.Plan plans = 38;
   repeated .project_profile.payment_plan.PaymentPlan payment_plans = 39;
   repeated UnitVariation unit_variations = 40;
+  .project_profile.common.UserDetail user_detail = 41;
+
 
 }
 
