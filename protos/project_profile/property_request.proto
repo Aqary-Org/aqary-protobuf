@@ -45,11 +45,12 @@ message CreateProjectPropertyRequest {
   string field_360_map_url = 34;
   string facilities = 35;
   string amenities = 36;
-  repeated RequestPhoto photos = 37;
-  repeated .project_profile.plan.Plan plans = 38;
-  repeated .project_profile.payment_plan.PaymentPlan payment_plans = 39;
-  repeated UnitVariation unit_variations = 40;
-  .project_profile.common.UserDetail user_detail = 41;
+  string unit_types = 37;
+  repeated RequestPhoto photos = 38;
+  repeated .project_profile.plan.Plan plans = 39;
+  repeated .project_profile.payment_plan.PaymentPlan payment_plans = 40;
+  repeated UnitVariation unit_variations = 41;
+  .project_profile.common.UserDetail user_detail = 42;
 
 
 }

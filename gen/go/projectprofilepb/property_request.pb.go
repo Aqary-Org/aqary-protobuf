@@ -55,11 +55,12 @@ type CreateProjectPropertyRequest struct {
 	Field_360MapUrl       string                 `protobuf:"bytes,34,opt,name=field_360_map_url,json=field360MapUrl,proto3" json:"field_360_map_url,omitempty"`
 	Facilities            string                 `protobuf:"bytes,35,opt,name=facilities,proto3" json:"facilities,omitempty"`
 	Amenities             string                 `protobuf:"bytes,36,opt,name=amenities,proto3" json:"amenities,omitempty"`
-	Photos                []*RequestPhoto        `protobuf:"bytes,37,rep,name=photos,proto3" json:"photos,omitempty"`
-	Plans                 []*Plan                `protobuf:"bytes,38,rep,name=plans,proto3" json:"plans,omitempty"`
-	PaymentPlans          []*PaymentPlan         `protobuf:"bytes,39,rep,name=payment_plans,json=paymentPlans,proto3" json:"payment_plans,omitempty"`
-	UnitVariations        []*UnitVariation       `protobuf:"bytes,40,rep,name=unit_variations,json=unitVariations,proto3" json:"unit_variations,omitempty"`
-	UserDetail            *UserDetail            `protobuf:"bytes,41,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
+	UnitTypes             string                 `protobuf:"bytes,37,opt,name=unit_types,json=unitTypes,proto3" json:"unit_types,omitempty"`
+	Photos                []*RequestPhoto        `protobuf:"bytes,38,rep,name=photos,proto3" json:"photos,omitempty"`
+	Plans                 []*Plan                `protobuf:"bytes,39,rep,name=plans,proto3" json:"plans,omitempty"`
+	PaymentPlans          []*PaymentPlan         `protobuf:"bytes,40,rep,name=payment_plans,json=paymentPlans,proto3" json:"payment_plans,omitempty"`
+	UnitVariations        []*UnitVariation       `protobuf:"bytes,41,rep,name=unit_variations,json=unitVariations,proto3" json:"unit_variations,omitempty"`
+	UserDetail            *UserDetail            `protobuf:"bytes,42,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -318,6 +319,13 @@ func (x *CreateProjectPropertyRequest) GetAmenities() string {
 	return ""
 }
 
+func (x *CreateProjectPropertyRequest) GetUnitTypes() string {
+	if x != nil {
+		return x.UnitTypes
+	}
+	return ""
+}
+
 func (x *CreateProjectPropertyRequest) GetPhotos() []*RequestPhoto {
 	if x != nil {
 		return x.Photos
@@ -457,7 +465,7 @@ var File_project_profile_property_request_proto protoreflect.FileDescriptor
 
 const file_project_profile_property_request_proto_rawDesc = "" +
 	"\n" +
-	"&project_profile/property_request.proto\x12\x1fproject_profile.project_profile\x1a\x1dproject_profile/address.proto\x1a\"project_profile/payment_plan.proto\x1a\x1aproject_profile/plan.proto\x1a\x1eproject_profile/requests.proto\x1a\x1cproject_profile/common.proto\"\x92\f\n" +
+	"&project_profile/property_request.proto\x12\x1fproject_profile.project_profile\x1a\x1dproject_profile/address.proto\x1a\"project_profile/payment_plan.proto\x1a\x1aproject_profile/plan.proto\x1a\x1eproject_profile/requests.proto\x1a\x1cproject_profile/common.proto\"\xb1\f\n" +
 	"\x1cCreateProjectPropertyRequest\x12#\n" +
 	"\rproperty_name\x18\x01 \x01(\tR\fpropertyName\x12(\n" +
 	"\x10property_name_ar\x18\x02 \x01(\tR\x0epropertyNameAr\x12!\n" +
@@ -495,12 +503,14 @@ const file_project_profile_property_request_proto_rawDesc = "" +
 	"\n" +
 	"facilities\x18# \x01(\tR\n" +
 	"facilities\x12\x1c\n" +
-	"\tamenities\x18$ \x01(\tR\tamenities\x12E\n" +
-	"\x06photos\x18% \x03(\v2-.project_profile.project_profile.RequestPhotoR\x06photos\x120\n" +
-	"\x05plans\x18& \x03(\v2\x1a.project_profile.plan.PlanR\x05plans\x12N\n" +
-	"\rpayment_plans\x18' \x03(\v2).project_profile.payment_plan.PaymentPlanR\fpaymentPlans\x12W\n" +
-	"\x0funit_variations\x18( \x03(\v2..project_profile.project_profile.UnitVariationR\x0eunitVariations\x12C\n" +
-	"\vuser_detail\x18) \x01(\v2\".project_profile.common.UserDetailR\n" +
+	"\tamenities\x18$ \x01(\tR\tamenities\x12\x1d\n" +
+	"\n" +
+	"unit_types\x18% \x01(\tR\tunitTypes\x12E\n" +
+	"\x06photos\x18& \x03(\v2-.project_profile.project_profile.RequestPhotoR\x06photos\x120\n" +
+	"\x05plans\x18' \x03(\v2\x1a.project_profile.plan.PlanR\x05plans\x12N\n" +
+	"\rpayment_plans\x18( \x03(\v2).project_profile.payment_plan.PaymentPlanR\fpaymentPlans\x12W\n" +
+	"\x0funit_variations\x18) \x03(\v2..project_profile.project_profile.UnitVariationR\x0eunitVariations\x12C\n" +
+	"\vuser_detail\x18* \x01(\v2\".project_profile.common.UserDetailR\n" +
 	"userDetail\"\xf0\x01\n" +
 	"\rUnitVariation\x12\x1b\n" +
 	"\ttype_name\x18\x01 \x01(\tR\btypeName\x12\x1b\n" +
