@@ -24,19 +24,23 @@ var File_project_profile_project_profile_proto protoreflect.FileDescriptor
 
 const file_project_profile_project_profile_proto_rawDesc = "" +
 	"\n" +
-	"%project_profile/project_profile.proto\x12\x1fproject_profile.project_profile\x1a\x1cproject_profile/common.proto\x1a\x1eproject_profile/requests.proto2\x95\x01\n" +
+	"%project_profile/project_profile.proto\x12\x1fproject_profile.project_profile\x1a\x1cproject_profile/common.proto\x1a\x1eproject_profile/requests.proto\x1a&project_profile/property_request.proto2\xa4\x02\n" +
 	"\x15ProjectProfileService\x12|\n" +
-	"\x14CreateProjectProfile\x125.project_profile.project_profile.CreateProjectRequest\x1a-.project_profile.common.CreateProjectResponseB$Z\"/projectprofilepb;projectprofilepbb\x06proto3"
+	"\x14CreateProjectProfile\x125.project_profile.project_profile.CreateProjectRequest\x1a-.project_profile.common.CreateProjectResponse\x12\x8c\x01\n" +
+	"\x1cCreateProjectProfileProperty\x12=.project_profile.project_profile.CreateProjectPropertyRequest\x1a-.project_profile.common.CreateProjectResponseB$Z\"/projectprofilepb;projectprofilepbb\x06proto3"
 
 var file_project_profile_project_profile_proto_goTypes = []any{
-	(*CreateProjectRequest)(nil),  // 0: project_profile.project_profile.CreateProjectRequest
-	(*CreateProjectResponse)(nil), // 1: project_profile.common.CreateProjectResponse
+	(*CreateProjectRequest)(nil),         // 0: project_profile.project_profile.CreateProjectRequest
+	(*CreateProjectPropertyRequest)(nil), // 1: project_profile.project_profile.CreateProjectPropertyRequest
+	(*CreateProjectResponse)(nil),        // 2: project_profile.common.CreateProjectResponse
 }
 var file_project_profile_project_profile_proto_depIdxs = []int32{
 	0, // 0: project_profile.project_profile.ProjectProfileService.CreateProjectProfile:input_type -> project_profile.project_profile.CreateProjectRequest
-	1, // 1: project_profile.project_profile.ProjectProfileService.CreateProjectProfile:output_type -> project_profile.common.CreateProjectResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
+	1, // 1: project_profile.project_profile.ProjectProfileService.CreateProjectProfileProperty:input_type -> project_profile.project_profile.CreateProjectPropertyRequest
+	2, // 2: project_profile.project_profile.ProjectProfileService.CreateProjectProfile:output_type -> project_profile.common.CreateProjectResponse
+	2, // 3: project_profile.project_profile.ProjectProfileService.CreateProjectProfileProperty:output_type -> project_profile.common.CreateProjectResponse
+	2, // [2:4] is the sub-list for method output_type
+	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -49,6 +53,7 @@ func file_project_profile_project_profile_proto_init() {
 	}
 	file_project_profile_common_proto_init()
 	file_project_profile_requests_proto_init()
+	file_project_profile_property_request_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

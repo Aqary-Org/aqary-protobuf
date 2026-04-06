@@ -4,11 +4,10 @@ package project_profile.project_profile;
 
 option go_package = "/projectprofilepb;projectprofilepb";
 
-import "google/protobuf/timestamp.proto";
 import "project_profile/address.proto";
-import "project_profile/common.proto";
 import "project_profile/payment_plan.proto";
 import "project_profile/plan.proto";
+import "project_profile/requests.proto";
 
 
 message CreateProjectPropertyRequest {

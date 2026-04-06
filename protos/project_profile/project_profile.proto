@@ -6,6 +6,8 @@ option go_package = "/projectprofilepb;projectprofilepb";
 
 import "project_profile/common.proto";
 import "project_profile/requests.proto";
+import "project_profile/property_request.proto";
+
 
 service ProjectProfileService {
   rpc CreateProjectProfile(CreateProjectRequest) returns (.project_profile.common.CreateProjectResponse);

@@ -19,7 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ProjectProfileService_CreateProjectProfile_FullMethodName = "/project_profile.project_profile.ProjectProfileService/CreateProjectProfile"
+	ProjectProfileService_CreateProjectProfile_FullMethodName         = "/project_profile.project_profile.ProjectProfileService/CreateProjectProfile"
+	ProjectProfileService_CreateProjectProfileProperty_FullMethodName = "/project_profile.project_profile.ProjectProfileService/CreateProjectProfileProperty"
 )
 
 // ProjectProfileServiceClient is the client API for ProjectProfileService service.
@@ -27,6 +28,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ProjectProfileServiceClient interface {
 	CreateProjectProfile(ctx context.Context, in *CreateProjectRequest, opts ...grpc.CallOption) (*CreateProjectResponse, error)
+	CreateProjectProfileProperty(ctx context.Context, in *CreateProjectPropertyRequest, opts ...grpc.CallOption) (*CreateProjectResponse, error)
 }
 
 type projectProfileServiceClient struct {
@@ -47,11 +49,22 @@ func (c *projectProfileServiceClient) CreateProjectProfile(ctx context.Context, 
 	return out, nil
 }
 
+func (c *projectProfileServiceClient) CreateProjectProfileProperty(ctx context.Context, in *CreateProjectPropertyRequest, opts ...grpc.CallOption) (*CreateProjectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateProjectResponse)
+	err := c.cc.Invoke(ctx, ProjectProfileService_CreateProjectProfileProperty_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ProjectProfileServiceServer is the server API for ProjectProfileService service.
 // All implementations must embed UnimplementedProjectProfileServiceServer
 // for forward compatibility.
 type ProjectProfileServiceServer interface {
 	CreateProjectProfile(context.Context, *CreateProjectRequest) (*CreateProjectResponse, error)
+	CreateProjectProfileProperty(context.Context, *CreateProjectPropertyRequest) (*CreateProjectResponse, error)
 	mustEmbedUnimplementedProjectProfileServiceServer()
 }
 
@@ -64,6 +77,9 @@ type UnimplementedProjectProfileServiceServer struct{}
 
 func (UnimplementedProjectProfileServiceServer) CreateProjectProfile(context.Context, *CreateProjectRequest) (*CreateProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateProjectProfile not implemented")
+}
+func (UnimplementedProjectProfileServiceServer) CreateProjectProfileProperty(context.Context, *CreateProjectPropertyRequest) (*CreateProjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateProjectProfileProperty not implemented")
 }
 func (UnimplementedProjectProfileServiceServer) mustEmbedUnimplementedProjectProfileServiceServer() {}
 func (UnimplementedProjectProfileServiceServer) testEmbeddedByValue()                               {}
@@ -104,6 +120,24 @@ func _ProjectProfileService_CreateProjectProfile_Handler(srv interface{}, ctx co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProjectProfileService_CreateProjectProfileProperty_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateProjectPropertyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProjectProfileServiceServer).CreateProjectProfileProperty(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProjectProfileService_CreateProjectProfileProperty_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProjectProfileServiceServer).CreateProjectProfileProperty(ctx, req.(*CreateProjectPropertyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ProjectProfileService_ServiceDesc is the grpc.ServiceDesc for ProjectProfileService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -114,6 +148,10 @@ var ProjectProfileService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateProjectProfile",
 			Handler:    _ProjectProfileService_CreateProjectProfile_Handler,
+		},
+		{
+			MethodName: "CreateProjectProfileProperty",
+			Handler:    _ProjectProfileService_CreateProjectProfileProperty_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
