@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package project_profile.project_profile;
+
+option go_package = "/projectprofilepb;projectprofilepb";
+
+import "google/protobuf/timestamp.proto";
+import "project_profile/address.proto";
+import "project_profile/common.proto";
+import "project_profile/payment_plan.proto";
+import "project_profile/plan.proto";
+
+
+message CreateProjectPropertyRequest {
+  string property_name = 1;
+  string property_name_ar = 2;
+  string project_name = 3;
+  .project_profile.address.Address address = 4;
+  string property_type = 5;
+  int32 no_of_units = 6;
+  string property_title = 7;
+  string property_title_ar = 8;
+  string property_description = 9;
+  string property_description_ar = 10;
+  double plot_area = 11;
+  double built_up_area = 12;
+  double service_charge = 13;
+  string unit_of_measure = 14;
+  double min_area = 15;
+  string life_style = 16;
+  int32 no_of_retail = 18;
+  int32 no_of_elevators = 19;
+  int32 no_of_pools = 20;
+  string furnished = 21;
+  double max_area = 22;
+  string min_bedrooms = 23;
+  string max_bedrooms = 24;
+  int32 no_of_floor = 26;
+  string views = 28;
+  string management_company = 30;
+  int32 parking = 31;
+  string video_url = 32;
+  string field_360_url = 33;
+  string field_360_map_url = 34;
+  string facilities = 35;
+  string amenities = 36;
+  repeated RequestPhoto photos = 37;
+  repeated .project_profile.plan.Plan plans = 38;
+  repeated .project_profile.payment_plan.PaymentPlan payment_plans = 39;
+  repeated UnitVariation unit_variations = 40;
+
+}
+
+
+message UnitVariation {
+    string type_name = 1;
+    string unit_type = 2;
+    string bedrooms = 3;
+    double min_area = 4;
+    string currency = 5;
+    double min_price = 6;
+    double max_price = 7 ;
+    repeated string layouts = 8;
+}
+ 

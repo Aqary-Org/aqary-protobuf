@@ -9,4 +9,6 @@ import "project_profile/requests.proto";
 
 service ProjectProfileService {
   rpc CreateProjectProfile(CreateProjectRequest) returns (.project_profile.common.CreateProjectResponse);
+  rpc CreateProjectProfileProperty(CreateProjectPropertyRequest) returns (.project_profile.common.CreateProjectResponse);
+
 }
