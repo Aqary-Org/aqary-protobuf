@@ -24,9 +24,10 @@ var File_property_nd_unit_property_nd_unit_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_property_nd_unit_proto_rawDesc = "" +
 	"\n" +
-	"'property_nd_unit/property_nd_unit.proto\x12\x10property_nd_unit\x1a\x1eproperty_nd_unit/request.proto\x1a\x1fproperty_nd_unit/response.proto2\xb0\x02\n" +
+	"'property_nd_unit/property_nd_unit.proto\x12\x10property_nd_unit\x1a\x1eproperty_nd_unit/request.proto\x1a\x1fproperty_nd_unit/response.proto2\xbc\x03\n" +
 	"\x16PropertyAndUnitService\x12\x89\x01\n" +
 	"\x15CreatePropertyAndUnit\x126.property_nd_unit.request.CreatePropertyAndUnitRequest\x1a8.property_nd_unit.response.CreatePropertyAndUnitResponse\x12\x89\x01\n" +
+	"\x15UpdatePropertyAndUnit\x126.property_nd_unit.request.CreatePropertyAndUnitRequest\x1a8.property_nd_unit.response.CreatePropertyAndUnitResponse\x12\x89\x01\n" +
 	"\x15GetAllPropertyAndUnit\x126.property_nd_unit.request.GetAllPropertyAndUnitRequest\x1a8.property_nd_unit.response.GetAllPropertyAndUnitResponseB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 
 var file_property_nd_unit_property_nd_unit_proto_goTypes = []any{
@@ -37,11 +38,13 @@ var file_property_nd_unit_property_nd_unit_proto_goTypes = []any{
 }
 var file_property_nd_unit_property_nd_unit_proto_depIdxs = []int32{
 	0, // 0: property_nd_unit.PropertyAndUnitService.CreatePropertyAndUnit:input_type -> property_nd_unit.request.CreatePropertyAndUnitRequest
-	1, // 1: property_nd_unit.PropertyAndUnitService.GetAllPropertyAndUnit:input_type -> property_nd_unit.request.GetAllPropertyAndUnitRequest
-	2, // 2: property_nd_unit.PropertyAndUnitService.CreatePropertyAndUnit:output_type -> property_nd_unit.response.CreatePropertyAndUnitResponse
-	3, // 3: property_nd_unit.PropertyAndUnitService.GetAllPropertyAndUnit:output_type -> property_nd_unit.response.GetAllPropertyAndUnitResponse
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	0, // 1: property_nd_unit.PropertyAndUnitService.UpdatePropertyAndUnit:input_type -> property_nd_unit.request.CreatePropertyAndUnitRequest
+	1, // 2: property_nd_unit.PropertyAndUnitService.GetAllPropertyAndUnit:input_type -> property_nd_unit.request.GetAllPropertyAndUnitRequest
+	2, // 3: property_nd_unit.PropertyAndUnitService.CreatePropertyAndUnit:output_type -> property_nd_unit.response.CreatePropertyAndUnitResponse
+	2, // 4: property_nd_unit.PropertyAndUnitService.UpdatePropertyAndUnit:output_type -> property_nd_unit.response.CreatePropertyAndUnitResponse
+	3, // 5: property_nd_unit.PropertyAndUnitService.GetAllPropertyAndUnit:output_type -> property_nd_unit.response.GetAllPropertyAndUnitResponse
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
