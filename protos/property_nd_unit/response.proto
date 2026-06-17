@@ -59,7 +59,7 @@ message Facts {
   double    min_area  = 12;
   double    max_area  = 13;
   int64      parking  = 14;
-  bool       ask_price = 15;
+  optional bool       ask_price = 15;
   int64      no_of_retail  = 16;
   int64      no_of_pool  = 17;
   int64      elevator  = 18;
