@@ -72,7 +72,7 @@ message CreatePropertyAndUnitRequest {
   int64 no_of_floor = 39;
   string offering_type = 40;
   google.protobuf.Timestamp completion_date = 41;
-  bool ask_price = 42;
+  optional bool ask_price = 42;
   int64 parking = 43;
   google.protobuf.Timestamp permit_expiry_date = 44;
   float completion_percentage = 45;

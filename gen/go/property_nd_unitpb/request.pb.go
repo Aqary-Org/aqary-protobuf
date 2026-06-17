@@ -268,7 +268,7 @@ type CreatePropertyAndUnitRequest struct {
 	NoOfFloor                int64                  `protobuf:"varint,39,opt,name=no_of_floor,json=noOfFloor,proto3" json:"no_of_floor,omitempty"`
 	OfferingType             string                 `protobuf:"bytes,40,opt,name=offering_type,json=offeringType,proto3" json:"offering_type,omitempty"`
 	CompletionDate           *timestamppb.Timestamp `protobuf:"bytes,41,opt,name=completion_date,json=completionDate,proto3" json:"completion_date,omitempty"`
-	AskPrice                 bool                   `protobuf:"varint,42,opt,name=ask_price,json=askPrice,proto3" json:"ask_price,omitempty"`
+	AskPrice                 *bool                  `protobuf:"varint,42,opt,name=ask_price,json=askPrice,proto3,oneof" json:"ask_price,omitempty"`
 	Parking                  int64                  `protobuf:"varint,43,opt,name=parking,proto3" json:"parking,omitempty"`
 	PermitExpiryDate         *timestamppb.Timestamp `protobuf:"bytes,44,opt,name=permit_expiry_date,json=permitExpiryDate,proto3" json:"permit_expiry_date,omitempty"`
 	CompletionPercentage     float32                `protobuf:"fixed32,45,opt,name=completion_percentage,json=completionPercentage,proto3" json:"completion_percentage,omitempty"`
@@ -585,8 +585,8 @@ func (x *CreatePropertyAndUnitRequest) GetCompletionDate() *timestamppb.Timestam
 }
 
 func (x *CreatePropertyAndUnitRequest) GetAskPrice() bool {
-	if x != nil {
-		return x.AskPrice
+	if x != nil && x.AskPrice != nil {
+		return *x.AskPrice
 	}
 	return false
 }
@@ -734,7 +734,7 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x03url\x18\x01 \x01(\tR\x03url\x12\x1c\n" +
 	"\twatermark\x18\x02 \x01(\bR\twatermark\x12!\n" +
 	"\fgallery_type\x18\x03 \x01(\tR\vgalleryType\x12B\n" +
-	"\x0furl_last_update\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\rurlLastUpdate\"\xa6\x0e\n" +
+	"\x0furl_last_update\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\rurlLastUpdate\"\xb9\x0e\n" +
 	"\x1cCreatePropertyAndUnitRequest\x12\x1f\n" +
 	"\vis_property\x18\x01 \x01(\bR\n" +
 	"isProperty\x12\x15\n" +
@@ -777,8 +777,8 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\bcurrency\x18& \x01(\tR\bcurrency\x12\x1e\n" +
 	"\vno_of_floor\x18' \x01(\x03R\tnoOfFloor\x12#\n" +
 	"\roffering_type\x18( \x01(\tR\fofferingType\x12C\n" +
-	"\x0fcompletion_date\x18) \x01(\v2\x1a.google.protobuf.TimestampR\x0ecompletionDate\x12\x1b\n" +
-	"\task_price\x18* \x01(\bR\baskPrice\x12\x18\n" +
+	"\x0fcompletion_date\x18) \x01(\v2\x1a.google.protobuf.TimestampR\x0ecompletionDate\x12 \n" +
+	"\task_price\x18* \x01(\bH\x00R\baskPrice\x88\x01\x01\x12\x18\n" +
 	"\aparking\x18+ \x01(\x03R\aparking\x12H\n" +
 	"\x12permit_expiry_date\x18, \x01(\v2\x1a.google.protobuf.TimestampR\x10permitExpiryDate\x123\n" +
 	"\x15completion_percentage\x18- \x01(\x02R\x14completionPercentage\x12X\n" +
@@ -790,7 +790,9 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\n" +
 	"views_text\x181 \x01(\tR\tviewsText\x12D\n" +
 	"\vuser_detail\x182 \x01(\v2#.property_nd_unit.common.UserDetailR\n" +
-	"userDetail\"\x8c\x01\n" +
+	"userDetailB\f\n" +
+	"\n" +
+	"_ask_price\"\x8c\x01\n" +
 	"\x1cGetAllPropertyAndUnitRequest\x12\x1d\n" +
 	"\n" +
 	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
@@ -844,6 +846,7 @@ func file_property_nd_unit_request_proto_init() {
 	}
 	file_property_nd_unit_address_proto_init()
 	file_property_nd_unit_common_proto_init()
+	file_property_nd_unit_request_proto_msgTypes[3].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
