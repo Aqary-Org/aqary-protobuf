@@ -19,9 +19,10 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	PropertyAndUnitService_CreatePropertyAndUnit_FullMethodName = "/property_nd_unit.PropertyAndUnitService/CreatePropertyAndUnit"
-	PropertyAndUnitService_UpdatePropertyUnit_FullMethodName    = "/property_nd_unit.PropertyAndUnitService/UpdatePropertyUnit"
-	PropertyAndUnitService_GetAllPropertyAndUnit_FullMethodName = "/property_nd_unit.PropertyAndUnitService/GetAllPropertyAndUnit"
+	PropertyAndUnitService_CreatePropertyAndUnit_FullMethodName   = "/property_nd_unit.PropertyAndUnitService/CreatePropertyAndUnit"
+	PropertyAndUnitService_UpdatePropertyUnit_FullMethodName      = "/property_nd_unit.PropertyAndUnitService/UpdatePropertyUnit"
+	PropertyAndUnitService_GetAllPropertyAndUnit_FullMethodName   = "/property_nd_unit.PropertyAndUnitService/GetAllPropertyAndUnit"
+	PropertyAndUnitService_CreatePropertyAndUnitV2_FullMethodName = "/property_nd_unit.PropertyAndUnitService/CreatePropertyAndUnitV2"
 )
 
 // PropertyAndUnitServiceClient is the client API for PropertyAndUnitService service.
@@ -31,6 +32,7 @@ type PropertyAndUnitServiceClient interface {
 	CreatePropertyAndUnit(ctx context.Context, in *CreatePropertyAndUnitRequest, opts ...grpc.CallOption) (*CreatePropertyAndUnitResponse, error)
 	UpdatePropertyUnit(ctx context.Context, in *CreatePropertyAndUnitRequest, opts ...grpc.CallOption) (*CreatePropertyAndUnitResponse, error)
 	GetAllPropertyAndUnit(ctx context.Context, in *GetAllPropertyAndUnitRequest, opts ...grpc.CallOption) (*GetAllPropertyAndUnitResponse, error)
+	CreatePropertyAndUnitV2(ctx context.Context, in *CreatePropertyAndUnitRequestV2, opts ...grpc.CallOption) (*CreatePropertyAndUnitResponse, error)
 }
 
 type propertyAndUnitServiceClient struct {
@@ -71,6 +73,16 @@ func (c *propertyAndUnitServiceClient) GetAllPropertyAndUnit(ctx context.Context
 	return out, nil
 }
 
+func (c *propertyAndUnitServiceClient) CreatePropertyAndUnitV2(ctx context.Context, in *CreatePropertyAndUnitRequestV2, opts ...grpc.CallOption) (*CreatePropertyAndUnitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreatePropertyAndUnitResponse)
+	err := c.cc.Invoke(ctx, PropertyAndUnitService_CreatePropertyAndUnitV2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PropertyAndUnitServiceServer is the server API for PropertyAndUnitService service.
 // All implementations must embed UnimplementedPropertyAndUnitServiceServer
 // for forward compatibility.
@@ -78,6 +90,7 @@ type PropertyAndUnitServiceServer interface {
 	CreatePropertyAndUnit(context.Context, *CreatePropertyAndUnitRequest) (*CreatePropertyAndUnitResponse, error)
 	UpdatePropertyUnit(context.Context, *CreatePropertyAndUnitRequest) (*CreatePropertyAndUnitResponse, error)
 	GetAllPropertyAndUnit(context.Context, *GetAllPropertyAndUnitRequest) (*GetAllPropertyAndUnitResponse, error)
+	CreatePropertyAndUnitV2(context.Context, *CreatePropertyAndUnitRequestV2) (*CreatePropertyAndUnitResponse, error)
 	mustEmbedUnimplementedPropertyAndUnitServiceServer()
 }
 
@@ -96,6 +109,9 @@ func (UnimplementedPropertyAndUnitServiceServer) UpdatePropertyUnit(context.Cont
 }
 func (UnimplementedPropertyAndUnitServiceServer) GetAllPropertyAndUnit(context.Context, *GetAllPropertyAndUnitRequest) (*GetAllPropertyAndUnitResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllPropertyAndUnit not implemented")
+}
+func (UnimplementedPropertyAndUnitServiceServer) CreatePropertyAndUnitV2(context.Context, *CreatePropertyAndUnitRequestV2) (*CreatePropertyAndUnitResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePropertyAndUnitV2 not implemented")
 }
 func (UnimplementedPropertyAndUnitServiceServer) mustEmbedUnimplementedPropertyAndUnitServiceServer() {
 }
@@ -173,6 +189,24 @@ func _PropertyAndUnitService_GetAllPropertyAndUnit_Handler(srv interface{}, ctx 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PropertyAndUnitService_CreatePropertyAndUnitV2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePropertyAndUnitRequestV2)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PropertyAndUnitServiceServer).CreatePropertyAndUnitV2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PropertyAndUnitService_CreatePropertyAndUnitV2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PropertyAndUnitServiceServer).CreatePropertyAndUnitV2(ctx, req.(*CreatePropertyAndUnitRequestV2))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // PropertyAndUnitService_ServiceDesc is the grpc.ServiceDesc for PropertyAndUnitService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -191,6 +225,10 @@ var PropertyAndUnitService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAllPropertyAndUnit",
 			Handler:    _PropertyAndUnitService_GetAllPropertyAndUnit_Handler,
+		},
+		{
+			MethodName: "CreatePropertyAndUnitV2",
+			Handler:    _PropertyAndUnitService_CreatePropertyAndUnitV2_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
