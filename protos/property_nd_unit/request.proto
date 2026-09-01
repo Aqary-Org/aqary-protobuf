@@ -89,3 +89,36 @@ message GetAllPropertyAndUnitRequest {
 	int64 page_size = 3;
   int64 user_id = 4;
 }
+
+message CreatePropertyAndUnitRequestV2 {
+  property_nd_unit.common.UserDetail user_detail = 1;
+  string unit_number = 2;
+  string note = 3;
+  string title = 4;
+  string title_ar = 5;
+  string description = 6;
+  string description_ar = 7;
+  int64 category = 8;
+  int64 listing_type = 9;
+  int64 status = 10;
+  int64 country_id = 11;
+  int64 state_id = 12;
+  int64 city_id = 13;
+  int64 community_id = 14;
+  int64 sub_community_id = 15;
+  int64 geo_location_id = 16;
+  string lat = 17;
+  string lng = 18;
+  repeated int64 facilities_id = 19;
+  repeated int64 amenities_id = 20;
+  property_nd_unit.common.Facts facts = 21;
+  string permit_number = 22;
+  google.protobuf.Timestamp permit_expiry_date = 23;
+  string permit_url = 24;
+  int64 type_id = 25;
+  repeated int64 unit_type_ids = 26;
+  int64 property_id = 27;
+  int64 entity_type = 28;
+  int64 agent_id = 29;
+  int64 company_id = 30;
+}

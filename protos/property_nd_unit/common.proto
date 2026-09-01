@@ -4,6 +4,8 @@ package property_nd_unit.common;
 
 option go_package = "/property_nd_unitpb;property_nd_unitpb";
 
+import "google/protobuf/timestamp.proto";
+
 message HttpResponse {
   string msg = 1;
   uint32 httpcode = 2;
@@ -18,4 +20,35 @@ message UserDetail {
   int64 company_id = 1;
   int64 user_id = 2;
   string username = 3;
+}
+
+message Facts {
+  string     bedroom = 1;
+  int64      bathroom = 2;
+  double    plot_area = 3;
+  double    built_up_area  = 4;
+  repeated string  views  = 5;
+  string      furnished  = 6;
+  string      life_style  = 7;
+  google.protobuf.Timestamp completion_date  = 8;
+  google.protobuf.Timestamp handover_date  = 9;
+  int64      no_of_floor  = 10;
+  int64      no_of_units  = 11;
+  double    min_area  = 12;
+  double    max_area  = 13;
+  int64      parking  = 14;
+  optional bool       ask_price = 15;
+  int64      no_of_retail  = 16;
+  int64      no_of_pool  = 17;
+  int64      elevator  = 18;
+  string     unit_of_measure = 19;
+  double     completion_percentage = 20;
+   double  price = 21;
+  string    rent_type = 22;
+  int64    no_of_payment = 23;
+  int64    completion_status = 24;
+  string    ownership = 25;
+  int64    service_charge = 26;
+  string    currency_code = 27;
+  string offering_type = 28; //(Auto-generated from Category and Usage)
 }

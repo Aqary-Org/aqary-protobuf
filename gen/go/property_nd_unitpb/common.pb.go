@@ -9,6 +9,7 @@ package property_nd_unitpb
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -185,11 +186,271 @@ func (x *UserDetail) GetUsername() string {
 	return ""
 }
 
+type Facts struct {
+	state                protoimpl.MessageState `protogen:"open.v1"`
+	Bedroom              string                 `protobuf:"bytes,1,opt,name=bedroom,proto3" json:"bedroom,omitempty"`
+	Bathroom             int64                  `protobuf:"varint,2,opt,name=bathroom,proto3" json:"bathroom,omitempty"`
+	PlotArea             float64                `protobuf:"fixed64,3,opt,name=plot_area,json=plotArea,proto3" json:"plot_area,omitempty"`
+	BuiltUpArea          float64                `protobuf:"fixed64,4,opt,name=built_up_area,json=builtUpArea,proto3" json:"built_up_area,omitempty"`
+	Views                []string               `protobuf:"bytes,5,rep,name=views,proto3" json:"views,omitempty"`
+	Furnished            string                 `protobuf:"bytes,6,opt,name=furnished,proto3" json:"furnished,omitempty"`
+	LifeStyle            string                 `protobuf:"bytes,7,opt,name=life_style,json=lifeStyle,proto3" json:"life_style,omitempty"`
+	CompletionDate       *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=completion_date,json=completionDate,proto3" json:"completion_date,omitempty"`
+	HandoverDate         *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=handover_date,json=handoverDate,proto3" json:"handover_date,omitempty"`
+	NoOfFloor            int64                  `protobuf:"varint,10,opt,name=no_of_floor,json=noOfFloor,proto3" json:"no_of_floor,omitempty"`
+	NoOfUnits            int64                  `protobuf:"varint,11,opt,name=no_of_units,json=noOfUnits,proto3" json:"no_of_units,omitempty"`
+	MinArea              float64                `protobuf:"fixed64,12,opt,name=min_area,json=minArea,proto3" json:"min_area,omitempty"`
+	MaxArea              float64                `protobuf:"fixed64,13,opt,name=max_area,json=maxArea,proto3" json:"max_area,omitempty"`
+	Parking              int64                  `protobuf:"varint,14,opt,name=parking,proto3" json:"parking,omitempty"`
+	AskPrice             *bool                  `protobuf:"varint,15,opt,name=ask_price,json=askPrice,proto3,oneof" json:"ask_price,omitempty"`
+	NoOfRetail           int64                  `protobuf:"varint,16,opt,name=no_of_retail,json=noOfRetail,proto3" json:"no_of_retail,omitempty"`
+	NoOfPool             int64                  `protobuf:"varint,17,opt,name=no_of_pool,json=noOfPool,proto3" json:"no_of_pool,omitempty"`
+	Elevator             int64                  `protobuf:"varint,18,opt,name=elevator,proto3" json:"elevator,omitempty"`
+	UnitOfMeasure        string                 `protobuf:"bytes,19,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
+	CompletionPercentage float64                `protobuf:"fixed64,20,opt,name=completion_percentage,json=completionPercentage,proto3" json:"completion_percentage,omitempty"`
+	Price                float64                `protobuf:"fixed64,21,opt,name=price,proto3" json:"price,omitempty"`
+	RentType             string                 `protobuf:"bytes,22,opt,name=rent_type,json=rentType,proto3" json:"rent_type,omitempty"`
+	NoOfPayment          int64                  `protobuf:"varint,23,opt,name=no_of_payment,json=noOfPayment,proto3" json:"no_of_payment,omitempty"`
+	CompletionStatus     int64                  `protobuf:"varint,24,opt,name=completion_status,json=completionStatus,proto3" json:"completion_status,omitempty"`
+	Ownership            string                 `protobuf:"bytes,25,opt,name=ownership,proto3" json:"ownership,omitempty"`
+	ServiceCharge        int64                  `protobuf:"varint,26,opt,name=service_charge,json=serviceCharge,proto3" json:"service_charge,omitempty"`
+	CurrencyCode         string                 `protobuf:"bytes,27,opt,name=currency_code,json=currencyCode,proto3" json:"currency_code,omitempty"`
+	OfferingType         string                 `protobuf:"bytes,28,opt,name=offering_type,json=offeringType,proto3" json:"offering_type,omitempty"` //(Auto-generated from Category and Usage)
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
+}
+
+func (x *Facts) Reset() {
+	*x = Facts{}
+	mi := &file_property_nd_unit_common_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Facts) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Facts) ProtoMessage() {}
+
+func (x *Facts) ProtoReflect() protoreflect.Message {
+	mi := &file_property_nd_unit_common_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Facts.ProtoReflect.Descriptor instead.
+func (*Facts) Descriptor() ([]byte, []int) {
+	return file_property_nd_unit_common_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *Facts) GetBedroom() string {
+	if x != nil {
+		return x.Bedroom
+	}
+	return ""
+}
+
+func (x *Facts) GetBathroom() int64 {
+	if x != nil {
+		return x.Bathroom
+	}
+	return 0
+}
+
+func (x *Facts) GetPlotArea() float64 {
+	if x != nil {
+		return x.PlotArea
+	}
+	return 0
+}
+
+func (x *Facts) GetBuiltUpArea() float64 {
+	if x != nil {
+		return x.BuiltUpArea
+	}
+	return 0
+}
+
+func (x *Facts) GetViews() []string {
+	if x != nil {
+		return x.Views
+	}
+	return nil
+}
+
+func (x *Facts) GetFurnished() string {
+	if x != nil {
+		return x.Furnished
+	}
+	return ""
+}
+
+func (x *Facts) GetLifeStyle() string {
+	if x != nil {
+		return x.LifeStyle
+	}
+	return ""
+}
+
+func (x *Facts) GetCompletionDate() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CompletionDate
+	}
+	return nil
+}
+
+func (x *Facts) GetHandoverDate() *timestamppb.Timestamp {
+	if x != nil {
+		return x.HandoverDate
+	}
+	return nil
+}
+
+func (x *Facts) GetNoOfFloor() int64 {
+	if x != nil {
+		return x.NoOfFloor
+	}
+	return 0
+}
+
+func (x *Facts) GetNoOfUnits() int64 {
+	if x != nil {
+		return x.NoOfUnits
+	}
+	return 0
+}
+
+func (x *Facts) GetMinArea() float64 {
+	if x != nil {
+		return x.MinArea
+	}
+	return 0
+}
+
+func (x *Facts) GetMaxArea() float64 {
+	if x != nil {
+		return x.MaxArea
+	}
+	return 0
+}
+
+func (x *Facts) GetParking() int64 {
+	if x != nil {
+		return x.Parking
+	}
+	return 0
+}
+
+func (x *Facts) GetAskPrice() bool {
+	if x != nil && x.AskPrice != nil {
+		return *x.AskPrice
+	}
+	return false
+}
+
+func (x *Facts) GetNoOfRetail() int64 {
+	if x != nil {
+		return x.NoOfRetail
+	}
+	return 0
+}
+
+func (x *Facts) GetNoOfPool() int64 {
+	if x != nil {
+		return x.NoOfPool
+	}
+	return 0
+}
+
+func (x *Facts) GetElevator() int64 {
+	if x != nil {
+		return x.Elevator
+	}
+	return 0
+}
+
+func (x *Facts) GetUnitOfMeasure() string {
+	if x != nil {
+		return x.UnitOfMeasure
+	}
+	return ""
+}
+
+func (x *Facts) GetCompletionPercentage() float64 {
+	if x != nil {
+		return x.CompletionPercentage
+	}
+	return 0
+}
+
+func (x *Facts) GetPrice() float64 {
+	if x != nil {
+		return x.Price
+	}
+	return 0
+}
+
+func (x *Facts) GetRentType() string {
+	if x != nil {
+		return x.RentType
+	}
+	return ""
+}
+
+func (x *Facts) GetNoOfPayment() int64 {
+	if x != nil {
+		return x.NoOfPayment
+	}
+	return 0
+}
+
+func (x *Facts) GetCompletionStatus() int64 {
+	if x != nil {
+		return x.CompletionStatus
+	}
+	return 0
+}
+
+func (x *Facts) GetOwnership() string {
+	if x != nil {
+		return x.Ownership
+	}
+	return ""
+}
+
+func (x *Facts) GetServiceCharge() int64 {
+	if x != nil {
+		return x.ServiceCharge
+	}
+	return 0
+}
+
+func (x *Facts) GetCurrencyCode() string {
+	if x != nil {
+		return x.CurrencyCode
+	}
+	return ""
+}
+
+func (x *Facts) GetOfferingType() string {
+	if x != nil {
+		return x.OfferingType
+	}
+	return ""
+}
+
 var File_property_nd_unit_common_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_common_proto_rawDesc = "" +
 	"\n" +
-	"\x1dproperty_nd_unit/common.proto\x12\x17property_nd_unit.common\"<\n" +
+	"\x1dproperty_nd_unit/common.proto\x12\x17property_nd_unit.common\x1a\x1fgoogle/protobuf/timestamp.proto\"<\n" +
 	"\fHttpResponse\x12\x10\n" +
 	"\x03msg\x18\x01 \x01(\tR\x03msg\x12\x1a\n" +
 	"\bhttpcode\x18\x02 \x01(\rR\bhttpcode\"A\n" +
@@ -201,7 +462,42 @@ const file_property_nd_unit_common_proto_rawDesc = "" +
 	"\n" +
 	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\x03R\x06userId\x12\x1a\n" +
-	"\busername\x18\x03 \x01(\tR\busernameB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
+	"\busername\x18\x03 \x01(\tR\busername\"\xe3\a\n" +
+	"\x05Facts\x12\x18\n" +
+	"\abedroom\x18\x01 \x01(\tR\abedroom\x12\x1a\n" +
+	"\bbathroom\x18\x02 \x01(\x03R\bbathroom\x12\x1b\n" +
+	"\tplot_area\x18\x03 \x01(\x01R\bplotArea\x12\"\n" +
+	"\rbuilt_up_area\x18\x04 \x01(\x01R\vbuiltUpArea\x12\x14\n" +
+	"\x05views\x18\x05 \x03(\tR\x05views\x12\x1c\n" +
+	"\tfurnished\x18\x06 \x01(\tR\tfurnished\x12\x1d\n" +
+	"\n" +
+	"life_style\x18\a \x01(\tR\tlifeStyle\x12C\n" +
+	"\x0fcompletion_date\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\x0ecompletionDate\x12?\n" +
+	"\rhandover_date\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\fhandoverDate\x12\x1e\n" +
+	"\vno_of_floor\x18\n" +
+	" \x01(\x03R\tnoOfFloor\x12\x1e\n" +
+	"\vno_of_units\x18\v \x01(\x03R\tnoOfUnits\x12\x19\n" +
+	"\bmin_area\x18\f \x01(\x01R\aminArea\x12\x19\n" +
+	"\bmax_area\x18\r \x01(\x01R\amaxArea\x12\x18\n" +
+	"\aparking\x18\x0e \x01(\x03R\aparking\x12 \n" +
+	"\task_price\x18\x0f \x01(\bH\x00R\baskPrice\x88\x01\x01\x12 \n" +
+	"\fno_of_retail\x18\x10 \x01(\x03R\n" +
+	"noOfRetail\x12\x1c\n" +
+	"\n" +
+	"no_of_pool\x18\x11 \x01(\x03R\bnoOfPool\x12\x1a\n" +
+	"\belevator\x18\x12 \x01(\x03R\belevator\x12&\n" +
+	"\x0funit_of_measure\x18\x13 \x01(\tR\runitOfMeasure\x123\n" +
+	"\x15completion_percentage\x18\x14 \x01(\x01R\x14completionPercentage\x12\x14\n" +
+	"\x05price\x18\x15 \x01(\x01R\x05price\x12\x1b\n" +
+	"\trent_type\x18\x16 \x01(\tR\brentType\x12\"\n" +
+	"\rno_of_payment\x18\x17 \x01(\x03R\vnoOfPayment\x12+\n" +
+	"\x11completion_status\x18\x18 \x01(\x03R\x10completionStatus\x12\x1c\n" +
+	"\townership\x18\x19 \x01(\tR\townership\x12%\n" +
+	"\x0eservice_charge\x18\x1a \x01(\x03R\rserviceCharge\x12#\n" +
+	"\rcurrency_code\x18\x1b \x01(\tR\fcurrencyCode\x12#\n" +
+	"\roffering_type\x18\x1c \x01(\tR\fofferingTypeB\f\n" +
+	"\n" +
+	"_ask_priceB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 
 var (
 	file_property_nd_unit_common_proto_rawDescOnce sync.Once
@@ -215,18 +511,22 @@ func file_property_nd_unit_common_proto_rawDescGZIP() []byte {
 	return file_property_nd_unit_common_proto_rawDescData
 }
 
-var file_property_nd_unit_common_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_property_nd_unit_common_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_property_nd_unit_common_proto_goTypes = []any{
-	(*HttpResponse)(nil),    // 0: property_nd_unit.common.HttpResponse
-	(*ValidationError)(nil), // 1: property_nd_unit.common.ValidationError
-	(*UserDetail)(nil),      // 2: property_nd_unit.common.UserDetail
+	(*HttpResponse)(nil),          // 0: property_nd_unit.common.HttpResponse
+	(*ValidationError)(nil),       // 1: property_nd_unit.common.ValidationError
+	(*UserDetail)(nil),            // 2: property_nd_unit.common.UserDetail
+	(*Facts)(nil),                 // 3: property_nd_unit.common.Facts
+	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
 }
 var file_property_nd_unit_common_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	4, // 0: property_nd_unit.common.Facts.completion_date:type_name -> google.protobuf.Timestamp
+	4, // 1: property_nd_unit.common.Facts.handover_date:type_name -> google.protobuf.Timestamp
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_property_nd_unit_common_proto_init() }
@@ -234,13 +534,14 @@ func file_property_nd_unit_common_proto_init() {
 	if File_property_nd_unit_common_proto != nil {
 		return
 	}
+	file_property_nd_unit_common_proto_msgTypes[3].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_property_nd_unit_common_proto_rawDesc), len(file_property_nd_unit_common_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

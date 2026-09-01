@@ -715,6 +715,282 @@ func (x *GetAllPropertyAndUnitRequest) GetUserId() int64 {
 	return 0
 }
 
+type CreatePropertyAndUnitRequestV2 struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	UserDetail       *UserDetail            `protobuf:"bytes,1,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
+	UnitNumber       string                 `protobuf:"bytes,2,opt,name=unit_number,json=unitNumber,proto3" json:"unit_number,omitempty"`
+	Note             string                 `protobuf:"bytes,3,opt,name=note,proto3" json:"note,omitempty"`
+	Title            string                 `protobuf:"bytes,4,opt,name=title,proto3" json:"title,omitempty"`
+	TitleAr          string                 `protobuf:"bytes,5,opt,name=title_ar,json=titleAr,proto3" json:"title_ar,omitempty"`
+	Description      string                 `protobuf:"bytes,6,opt,name=description,proto3" json:"description,omitempty"`
+	DescriptionAr    string                 `protobuf:"bytes,7,opt,name=description_ar,json=descriptionAr,proto3" json:"description_ar,omitempty"`
+	Category         int64                  `protobuf:"varint,8,opt,name=category,proto3" json:"category,omitempty"`
+	ListingType      int64                  `protobuf:"varint,9,opt,name=listing_type,json=listingType,proto3" json:"listing_type,omitempty"`
+	Status           int64                  `protobuf:"varint,10,opt,name=status,proto3" json:"status,omitempty"`
+	CountryId        int64                  `protobuf:"varint,11,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
+	StateId          int64                  `protobuf:"varint,12,opt,name=state_id,json=stateId,proto3" json:"state_id,omitempty"`
+	CityId           int64                  `protobuf:"varint,13,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
+	CommunityId      int64                  `protobuf:"varint,14,opt,name=community_id,json=communityId,proto3" json:"community_id,omitempty"`
+	SubCommunityId   int64                  `protobuf:"varint,15,opt,name=sub_community_id,json=subCommunityId,proto3" json:"sub_community_id,omitempty"`
+	GeoLocationId    int64                  `protobuf:"varint,16,opt,name=geo_location_id,json=geoLocationId,proto3" json:"geo_location_id,omitempty"`
+	Lat              string                 `protobuf:"bytes,17,opt,name=lat,proto3" json:"lat,omitempty"`
+	Lng              string                 `protobuf:"bytes,18,opt,name=lng,proto3" json:"lng,omitempty"`
+	FacilitiesId     []int64                `protobuf:"varint,19,rep,packed,name=facilities_id,json=facilitiesId,proto3" json:"facilities_id,omitempty"`
+	AmenitiesId      []int64                `protobuf:"varint,20,rep,packed,name=amenities_id,json=amenitiesId,proto3" json:"amenities_id,omitempty"`
+	Facts            *Facts                 `protobuf:"bytes,21,opt,name=facts,proto3" json:"facts,omitempty"`
+	PermitNumber     string                 `protobuf:"bytes,22,opt,name=permit_number,json=permitNumber,proto3" json:"permit_number,omitempty"`
+	PermitExpiryDate *timestamppb.Timestamp `protobuf:"bytes,23,opt,name=permit_expiry_date,json=permitExpiryDate,proto3" json:"permit_expiry_date,omitempty"`
+	PermitUrl        string                 `protobuf:"bytes,24,opt,name=permit_url,json=permitUrl,proto3" json:"permit_url,omitempty"`
+	TypeId           int64                  `protobuf:"varint,25,opt,name=type_id,json=typeId,proto3" json:"type_id,omitempty"`
+	UnitTypeIds      []int64                `protobuf:"varint,26,rep,packed,name=unit_type_ids,json=unitTypeIds,proto3" json:"unit_type_ids,omitempty"`
+	PropertyId       int64                  `protobuf:"varint,27,opt,name=property_id,json=propertyId,proto3" json:"property_id,omitempty"`
+	EntityType       int64                  `protobuf:"varint,28,opt,name=entity_type,json=entityType,proto3" json:"entity_type,omitempty"`
+	AgentId          int64                  `protobuf:"varint,29,opt,name=agent_id,json=agentId,proto3" json:"agent_id,omitempty"`
+	CompanyId        int64                  `protobuf:"varint,30,opt,name=company_id,json=companyId,proto3" json:"company_id,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *CreatePropertyAndUnitRequestV2) Reset() {
+	*x = CreatePropertyAndUnitRequestV2{}
+	mi := &file_property_nd_unit_request_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreatePropertyAndUnitRequestV2) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreatePropertyAndUnitRequestV2) ProtoMessage() {}
+
+func (x *CreatePropertyAndUnitRequestV2) ProtoReflect() protoreflect.Message {
+	mi := &file_property_nd_unit_request_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreatePropertyAndUnitRequestV2.ProtoReflect.Descriptor instead.
+func (*CreatePropertyAndUnitRequestV2) Descriptor() ([]byte, []int) {
+	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetUserDetail() *UserDetail {
+	if x != nil {
+		return x.UserDetail
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetUnitNumber() string {
+	if x != nil {
+		return x.UnitNumber
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetNote() string {
+	if x != nil {
+		return x.Note
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetTitleAr() string {
+	if x != nil {
+		return x.TitleAr
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetDescriptionAr() string {
+	if x != nil {
+		return x.DescriptionAr
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetCategory() int64 {
+	if x != nil {
+		return x.Category
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetListingType() int64 {
+	if x != nil {
+		return x.ListingType
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetStatus() int64 {
+	if x != nil {
+		return x.Status
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetCountryId() int64 {
+	if x != nil {
+		return x.CountryId
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetStateId() int64 {
+	if x != nil {
+		return x.StateId
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetCityId() int64 {
+	if x != nil {
+		return x.CityId
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetCommunityId() int64 {
+	if x != nil {
+		return x.CommunityId
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetSubCommunityId() int64 {
+	if x != nil {
+		return x.SubCommunityId
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetGeoLocationId() int64 {
+	if x != nil {
+		return x.GeoLocationId
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetLat() string {
+	if x != nil {
+		return x.Lat
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetLng() string {
+	if x != nil {
+		return x.Lng
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetFacilitiesId() []int64 {
+	if x != nil {
+		return x.FacilitiesId
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetAmenitiesId() []int64 {
+	if x != nil {
+		return x.AmenitiesId
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetFacts() *Facts {
+	if x != nil {
+		return x.Facts
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetPermitNumber() string {
+	if x != nil {
+		return x.PermitNumber
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetPermitExpiryDate() *timestamppb.Timestamp {
+	if x != nil {
+		return x.PermitExpiryDate
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetPermitUrl() string {
+	if x != nil {
+		return x.PermitUrl
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetTypeId() int64 {
+	if x != nil {
+		return x.TypeId
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetUnitTypeIds() []int64 {
+	if x != nil {
+		return x.UnitTypeIds
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetPropertyId() int64 {
+	if x != nil {
+		return x.PropertyId
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetEntityType() int64 {
+	if x != nil {
+		return x.EntityType
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetAgentId() int64 {
+	if x != nil {
+		return x.AgentId
+	}
+	return 0
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetCompanyId() int64 {
+	if x != nil {
+		return x.CompanyId
+	}
+	return 0
+}
+
 var File_property_nd_unit_request_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_request_proto_rawDesc = "" +
@@ -798,7 +1074,46 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
 	"\apage_no\x18\x02 \x01(\x03R\x06pageNo\x12\x1b\n" +
 	"\tpage_size\x18\x03 \x01(\x03R\bpageSize\x12\x17\n" +
-	"\auser_id\x18\x04 \x01(\x03R\x06userIdB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
+	"\auser_id\x18\x04 \x01(\x03R\x06userId\"\x9d\b\n" +
+	"\x1eCreatePropertyAndUnitRequestV2\x12D\n" +
+	"\vuser_detail\x18\x01 \x01(\v2#.property_nd_unit.common.UserDetailR\n" +
+	"userDetail\x12\x1f\n" +
+	"\vunit_number\x18\x02 \x01(\tR\n" +
+	"unitNumber\x12\x12\n" +
+	"\x04note\x18\x03 \x01(\tR\x04note\x12\x14\n" +
+	"\x05title\x18\x04 \x01(\tR\x05title\x12\x19\n" +
+	"\btitle_ar\x18\x05 \x01(\tR\atitleAr\x12 \n" +
+	"\vdescription\x18\x06 \x01(\tR\vdescription\x12%\n" +
+	"\x0edescription_ar\x18\a \x01(\tR\rdescriptionAr\x12\x1a\n" +
+	"\bcategory\x18\b \x01(\x03R\bcategory\x12!\n" +
+	"\flisting_type\x18\t \x01(\x03R\vlistingType\x12\x16\n" +
+	"\x06status\x18\n" +
+	" \x01(\x03R\x06status\x12\x1d\n" +
+	"\n" +
+	"country_id\x18\v \x01(\x03R\tcountryId\x12\x19\n" +
+	"\bstate_id\x18\f \x01(\x03R\astateId\x12\x17\n" +
+	"\acity_id\x18\r \x01(\x03R\x06cityId\x12!\n" +
+	"\fcommunity_id\x18\x0e \x01(\x03R\vcommunityId\x12(\n" +
+	"\x10sub_community_id\x18\x0f \x01(\x03R\x0esubCommunityId\x12&\n" +
+	"\x0fgeo_location_id\x18\x10 \x01(\x03R\rgeoLocationId\x12\x10\n" +
+	"\x03lat\x18\x11 \x01(\tR\x03lat\x12\x10\n" +
+	"\x03lng\x18\x12 \x01(\tR\x03lng\x12#\n" +
+	"\rfacilities_id\x18\x13 \x03(\x03R\ffacilitiesId\x12!\n" +
+	"\famenities_id\x18\x14 \x03(\x03R\vamenitiesId\x124\n" +
+	"\x05facts\x18\x15 \x01(\v2\x1e.property_nd_unit.common.FactsR\x05facts\x12#\n" +
+	"\rpermit_number\x18\x16 \x01(\tR\fpermitNumber\x12H\n" +
+	"\x12permit_expiry_date\x18\x17 \x01(\v2\x1a.google.protobuf.TimestampR\x10permitExpiryDate\x12\x1d\n" +
+	"\n" +
+	"permit_url\x18\x18 \x01(\tR\tpermitUrl\x12\x17\n" +
+	"\atype_id\x18\x19 \x01(\x03R\x06typeId\x12\"\n" +
+	"\runit_type_ids\x18\x1a \x03(\x03R\vunitTypeIds\x12\x1f\n" +
+	"\vproperty_id\x18\x1b \x01(\x03R\n" +
+	"propertyId\x12\x1f\n" +
+	"\ventity_type\x18\x1c \x01(\x03R\n" +
+	"entityType\x12\x19\n" +
+	"\bagent_id\x18\x1d \x01(\x03R\aagentId\x12\x1d\n" +
+	"\n" +
+	"company_id\x18\x1e \x01(\x03R\tcompanyIdB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 
 var (
 	file_property_nd_unit_request_proto_rawDescOnce sync.Once
@@ -812,31 +1127,36 @@ func file_property_nd_unit_request_proto_rawDescGZIP() []byte {
 	return file_property_nd_unit_request_proto_rawDescData
 }
 
-var file_property_nd_unit_request_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_property_nd_unit_request_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_property_nd_unit_request_proto_goTypes = []any{
-	(*Agent)(nil),                        // 0: property_nd_unit.request.Agent
-	(*Plans)(nil),                        // 1: property_nd_unit.request.Plans
-	(*RequestPhoto)(nil),                 // 2: property_nd_unit.request.RequestPhoto
-	(*CreatePropertyAndUnitRequest)(nil), // 3: property_nd_unit.request.CreatePropertyAndUnitRequest
-	(*GetAllPropertyAndUnitRequest)(nil), // 4: property_nd_unit.request.GetAllPropertyAndUnitRequest
-	(*timestamppb.Timestamp)(nil),        // 5: google.protobuf.Timestamp
-	(*Address)(nil),                      // 6: property_nd_unit.address.Address
-	(*UserDetail)(nil),                   // 7: property_nd_unit.common.UserDetail
+	(*Agent)(nil),                          // 0: property_nd_unit.request.Agent
+	(*Plans)(nil),                          // 1: property_nd_unit.request.Plans
+	(*RequestPhoto)(nil),                   // 2: property_nd_unit.request.RequestPhoto
+	(*CreatePropertyAndUnitRequest)(nil),   // 3: property_nd_unit.request.CreatePropertyAndUnitRequest
+	(*GetAllPropertyAndUnitRequest)(nil),   // 4: property_nd_unit.request.GetAllPropertyAndUnitRequest
+	(*CreatePropertyAndUnitRequestV2)(nil), // 5: property_nd_unit.request.CreatePropertyAndUnitRequestV2
+	(*timestamppb.Timestamp)(nil),          // 6: google.protobuf.Timestamp
+	(*Address)(nil),                        // 7: property_nd_unit.address.Address
+	(*UserDetail)(nil),                     // 8: property_nd_unit.common.UserDetail
+	(*Facts)(nil),                          // 9: property_nd_unit.common.Facts
 }
 var file_property_nd_unit_request_proto_depIdxs = []int32{
-	5, // 0: property_nd_unit.request.RequestPhoto.url_last_update:type_name -> google.protobuf.Timestamp
-	6, // 1: property_nd_unit.request.CreatePropertyAndUnitRequest.address:type_name -> property_nd_unit.address.Address
-	2, // 2: property_nd_unit.request.CreatePropertyAndUnitRequest.photos:type_name -> property_nd_unit.request.RequestPhoto
-	5, // 3: property_nd_unit.request.CreatePropertyAndUnitRequest.handover_date:type_name -> google.protobuf.Timestamp
-	5, // 4: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_date:type_name -> google.protobuf.Timestamp
-	5, // 5: property_nd_unit.request.CreatePropertyAndUnitRequest.permit_expiry_date:type_name -> google.protobuf.Timestamp
-	5, // 6: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_percentage_date:type_name -> google.protobuf.Timestamp
-	7, // 7: property_nd_unit.request.CreatePropertyAndUnitRequest.user_detail:type_name -> property_nd_unit.common.UserDetail
-	8, // [8:8] is the sub-list for method output_type
-	8, // [8:8] is the sub-list for method input_type
-	8, // [8:8] is the sub-list for extension type_name
-	8, // [8:8] is the sub-list for extension extendee
-	0, // [0:8] is the sub-list for field type_name
+	6,  // 0: property_nd_unit.request.RequestPhoto.url_last_update:type_name -> google.protobuf.Timestamp
+	7,  // 1: property_nd_unit.request.CreatePropertyAndUnitRequest.address:type_name -> property_nd_unit.address.Address
+	2,  // 2: property_nd_unit.request.CreatePropertyAndUnitRequest.photos:type_name -> property_nd_unit.request.RequestPhoto
+	6,  // 3: property_nd_unit.request.CreatePropertyAndUnitRequest.handover_date:type_name -> google.protobuf.Timestamp
+	6,  // 4: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_date:type_name -> google.protobuf.Timestamp
+	6,  // 5: property_nd_unit.request.CreatePropertyAndUnitRequest.permit_expiry_date:type_name -> google.protobuf.Timestamp
+	6,  // 6: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_percentage_date:type_name -> google.protobuf.Timestamp
+	8,  // 7: property_nd_unit.request.CreatePropertyAndUnitRequest.user_detail:type_name -> property_nd_unit.common.UserDetail
+	8,  // 8: property_nd_unit.request.CreatePropertyAndUnitRequestV2.user_detail:type_name -> property_nd_unit.common.UserDetail
+	9,  // 9: property_nd_unit.request.CreatePropertyAndUnitRequestV2.facts:type_name -> property_nd_unit.common.Facts
+	6,  // 10: property_nd_unit.request.CreatePropertyAndUnitRequestV2.permit_expiry_date:type_name -> google.protobuf.Timestamp
+	11, // [11:11] is the sub-list for method output_type
+	11, // [11:11] is the sub-list for method input_type
+	11, // [11:11] is the sub-list for extension type_name
+	11, // [11:11] is the sub-list for extension extendee
+	0,  // [0:11] is the sub-list for field type_name
 }
 
 func init() { file_property_nd_unit_request_proto_init() }
@@ -853,7 +1173,7 @@ func file_property_nd_unit_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_property_nd_unit_request_proto_rawDesc), len(file_property_nd_unit_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
