@@ -128,13 +128,13 @@ message CreatePropertyAndUnitRequestV2 {
   int64 life_style  = 35;
   google.protobuf.Timestamp completion_date  = 36;
   google.protobuf.Timestamp handover_date  = 37;
-  int64 no_of_floor  = 38;
+  int64 no_of_floors  = 38;
   int64 no_of_units  = 39;
   double min_area  = 40;
   double max_area  = 41;
   int64 parking  = 42;
   optional bool ask_price = 43;
-  int64 no_of_retail  = 44;
+  int64 no_of_retails  = 44;
   int64 no_of_pool  = 45;
   int64 elevator  = 46;
   string unit_of_measure = 47;
@@ -146,4 +146,10 @@ message CreatePropertyAndUnitRequestV2 {
   int64 ownership = 53;
   int64 service_charge = 54;
   string offering_type = 55;
+  google.protobuf.Timestamp contract_end_date = 56;
+  int64 contract_remaining_amount = 57;
+  google.protobuf.Timestamp contract_start_date = 58;
+  int64 no_of_payments = 59;
+  string owner_contact_number = 60;
+  string owner_name = 61;
 }
