@@ -767,7 +767,7 @@ type CreatePropertyAndUnitRequestV2 struct {
 	CompletionPercentage    float64                `protobuf:"fixed64,48,opt,name=completion_percentage,json=completionPercentage,proto3" json:"completion_percentage,omitempty"`
 	Price                   float64                `protobuf:"fixed64,49,opt,name=price,proto3" json:"price,omitempty"`
 	RentType                int64                  `protobuf:"varint,50,opt,name=rent_type,json=rentType,proto3" json:"rent_type,omitempty"`
-	NoOfPayment             int64                  `protobuf:"varint,51,opt,name=no_of_payment,json=noOfPayment,proto3" json:"no_of_payment,omitempty"`
+	NoOfPayments            int64                  `protobuf:"varint,51,opt,name=no_of_payments,json=noOfPayments,proto3" json:"no_of_payments,omitempty"`
 	CompletionStatus        int64                  `protobuf:"varint,52,opt,name=completion_status,json=completionStatus,proto3" json:"completion_status,omitempty"`
 	Ownership               int64                  `protobuf:"varint,53,opt,name=ownership,proto3" json:"ownership,omitempty"`
 	ServiceCharge           int64                  `protobuf:"varint,54,opt,name=service_charge,json=serviceCharge,proto3" json:"service_charge,omitempty"`
@@ -775,9 +775,8 @@ type CreatePropertyAndUnitRequestV2 struct {
 	ContractEndDate         *timestamppb.Timestamp `protobuf:"bytes,56,opt,name=contract_end_date,json=contractEndDate,proto3" json:"contract_end_date,omitempty"`
 	ContractRemainingAmount int64                  `protobuf:"varint,57,opt,name=contract_remaining_amount,json=contractRemainingAmount,proto3" json:"contract_remaining_amount,omitempty"`
 	ContractStartDate       *timestamppb.Timestamp `protobuf:"bytes,58,opt,name=contract_start_date,json=contractStartDate,proto3" json:"contract_start_date,omitempty"`
-	NoOfPayments            int64                  `protobuf:"varint,59,opt,name=no_of_payments,json=noOfPayments,proto3" json:"no_of_payments,omitempty"`
-	OwnerContactNumber      string                 `protobuf:"bytes,60,opt,name=owner_contact_number,json=ownerContactNumber,proto3" json:"owner_contact_number,omitempty"`
-	OwnerName               string                 `protobuf:"bytes,61,opt,name=owner_name,json=ownerName,proto3" json:"owner_name,omitempty"`
+	OwnerContactNumber      string                 `protobuf:"bytes,59,opt,name=owner_contact_number,json=ownerContactNumber,proto3" json:"owner_contact_number,omitempty"`
+	OwnerName               string                 `protobuf:"bytes,60,opt,name=owner_name,json=ownerName,proto3" json:"owner_name,omitempty"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -1162,9 +1161,9 @@ func (x *CreatePropertyAndUnitRequestV2) GetRentType() int64 {
 	return 0
 }
 
-func (x *CreatePropertyAndUnitRequestV2) GetNoOfPayment() int64 {
+func (x *CreatePropertyAndUnitRequestV2) GetNoOfPayments() int64 {
 	if x != nil {
-		return x.NoOfPayment
+		return x.NoOfPayments
 	}
 	return 0
 }
@@ -1216,13 +1215,6 @@ func (x *CreatePropertyAndUnitRequestV2) GetContractStartDate() *timestamppb.Tim
 		return x.ContractStartDate
 	}
 	return nil
-}
-
-func (x *CreatePropertyAndUnitRequestV2) GetNoOfPayments() int64 {
-	if x != nil {
-		return x.NoOfPayments
-	}
-	return 0
 }
 
 func (x *CreatePropertyAndUnitRequestV2) GetOwnerContactNumber() string {
@@ -1322,7 +1314,7 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
 	"\apage_no\x18\x02 \x01(\x03R\x06pageNo\x12\x1b\n" +
 	"\tpage_size\x18\x03 \x01(\x03R\bpageSize\x12\x17\n" +
-	"\auser_id\x18\x04 \x01(\x03R\x06userId\"\xc1\x11\n" +
+	"\auser_id\x18\x04 \x01(\x03R\x06userId\"\x9d\x11\n" +
 	"\x1eCreatePropertyAndUnitRequestV2\x12D\n" +
 	"\vuser_detail\x18\x01 \x01(\v2#.property_nd_unit.common.UserDetailR\n" +
 	"userDetail\x12\x1f\n" +
@@ -1384,19 +1376,18 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x0funit_of_measure\x18/ \x01(\tR\runitOfMeasure\x123\n" +
 	"\x15completion_percentage\x180 \x01(\x01R\x14completionPercentage\x12\x14\n" +
 	"\x05price\x181 \x01(\x01R\x05price\x12\x1b\n" +
-	"\trent_type\x182 \x01(\x03R\brentType\x12\"\n" +
-	"\rno_of_payment\x183 \x01(\x03R\vnoOfPayment\x12+\n" +
+	"\trent_type\x182 \x01(\x03R\brentType\x12$\n" +
+	"\x0eno_of_payments\x183 \x01(\x03R\fnoOfPayments\x12+\n" +
 	"\x11completion_status\x184 \x01(\x03R\x10completionStatus\x12\x1c\n" +
 	"\townership\x185 \x01(\x03R\townership\x12%\n" +
 	"\x0eservice_charge\x186 \x01(\x03R\rserviceCharge\x12#\n" +
 	"\roffering_type\x187 \x01(\tR\fofferingType\x12F\n" +
 	"\x11contract_end_date\x188 \x01(\v2\x1a.google.protobuf.TimestampR\x0fcontractEndDate\x12:\n" +
 	"\x19contract_remaining_amount\x189 \x01(\x03R\x17contractRemainingAmount\x12J\n" +
-	"\x13contract_start_date\x18: \x01(\v2\x1a.google.protobuf.TimestampR\x11contractStartDate\x12$\n" +
-	"\x0eno_of_payments\x18; \x01(\x03R\fnoOfPayments\x120\n" +
-	"\x14owner_contact_number\x18< \x01(\tR\x12ownerContactNumber\x12\x1d\n" +
+	"\x13contract_start_date\x18: \x01(\v2\x1a.google.protobuf.TimestampR\x11contractStartDate\x120\n" +
+	"\x14owner_contact_number\x18; \x01(\tR\x12ownerContactNumber\x12\x1d\n" +
 	"\n" +
-	"owner_name\x18= \x01(\tR\townerNameB\f\n" +
+	"owner_name\x18< \x01(\tR\townerNameB\f\n" +
 	"\n" +
 	"_ask_priceB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 

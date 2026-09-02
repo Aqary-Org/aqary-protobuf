@@ -141,7 +141,7 @@ message CreatePropertyAndUnitRequestV2 {
   double completion_percentage = 48;
   double price = 49;
   int64 rent_type = 50;
-  int64 no_of_payment = 51;
+  int64 no_of_payments = 51;
   int64 completion_status = 52;
   int64 ownership = 53;
   int64 service_charge = 54;
@@ -149,7 +149,6 @@ message CreatePropertyAndUnitRequestV2 {
   google.protobuf.Timestamp contract_end_date = 56;
   int64 contract_remaining_amount = 57;
   google.protobuf.Timestamp contract_start_date = 58;
-  int64 no_of_payments = 59;
-  string owner_contact_number = 60;
-  string owner_name = 61;
+  string owner_contact_number = 59;
+  string owner_name = 60;
 }
