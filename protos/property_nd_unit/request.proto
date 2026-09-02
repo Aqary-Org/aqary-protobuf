@@ -151,4 +151,5 @@ message CreatePropertyAndUnitRequestV2 {
   google.protobuf.Timestamp contract_start_date = 58;
   string owner_contact_number = 59;
   string owner_name = 60;
+  int64 currency_service_charge = 61;
 }

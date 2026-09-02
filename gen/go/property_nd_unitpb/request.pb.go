@@ -777,6 +777,7 @@ type CreatePropertyAndUnitRequestV2 struct {
 	ContractStartDate       *timestamppb.Timestamp `protobuf:"bytes,58,opt,name=contract_start_date,json=contractStartDate,proto3" json:"contract_start_date,omitempty"`
 	OwnerContactNumber      string                 `protobuf:"bytes,59,opt,name=owner_contact_number,json=ownerContactNumber,proto3" json:"owner_contact_number,omitempty"`
 	OwnerName               string                 `protobuf:"bytes,60,opt,name=owner_name,json=ownerName,proto3" json:"owner_name,omitempty"`
+	CurrencyServiceCharge   int64                  `protobuf:"varint,61,opt,name=currency_service_charge,json=currencyServiceCharge,proto3" json:"currency_service_charge,omitempty"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -1231,6 +1232,13 @@ func (x *CreatePropertyAndUnitRequestV2) GetOwnerName() string {
 	return ""
 }
 
+func (x *CreatePropertyAndUnitRequestV2) GetCurrencyServiceCharge() int64 {
+	if x != nil {
+		return x.CurrencyServiceCharge
+	}
+	return 0
+}
+
 var File_property_nd_unit_request_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_request_proto_rawDesc = "" +
@@ -1314,7 +1322,7 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
 	"\apage_no\x18\x02 \x01(\x03R\x06pageNo\x12\x1b\n" +
 	"\tpage_size\x18\x03 \x01(\x03R\bpageSize\x12\x17\n" +
-	"\auser_id\x18\x04 \x01(\x03R\x06userId\"\x9d\x11\n" +
+	"\auser_id\x18\x04 \x01(\x03R\x06userId\"\xd5\x11\n" +
 	"\x1eCreatePropertyAndUnitRequestV2\x12D\n" +
 	"\vuser_detail\x18\x01 \x01(\v2#.property_nd_unit.common.UserDetailR\n" +
 	"userDetail\x12\x1f\n" +
@@ -1387,7 +1395,8 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\x13contract_start_date\x18: \x01(\v2\x1a.google.protobuf.TimestampR\x11contractStartDate\x120\n" +
 	"\x14owner_contact_number\x18; \x01(\tR\x12ownerContactNumber\x12\x1d\n" +
 	"\n" +
-	"owner_name\x18< \x01(\tR\townerNameB\f\n" +
+	"owner_name\x18< \x01(\tR\townerName\x126\n" +
+	"\x17currency_service_charge\x18= \x01(\x03R\x15currencyServiceChargeB\f\n" +
 	"\n" +
 	"_ask_priceB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 
