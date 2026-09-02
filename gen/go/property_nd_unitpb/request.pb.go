@@ -732,8 +732,8 @@ type CreatePropertyAndUnitRequestV2 struct {
 	CityId               int64                  `protobuf:"varint,13,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
 	CommunityId          int64                  `protobuf:"varint,14,opt,name=community_id,json=communityId,proto3" json:"community_id,omitempty"`
 	SubCommunityId       int64                  `protobuf:"varint,15,opt,name=sub_community_id,json=subCommunityId,proto3" json:"sub_community_id,omitempty"`
-	Lat                  float64                `protobuf:"fixed64,16,opt,name=lat,proto3" json:"lat,omitempty"`
-	Lng                  float64                `protobuf:"fixed64,17,opt,name=lng,proto3" json:"lng,omitempty"`
+	Lat                  string                 `protobuf:"bytes,16,opt,name=lat,proto3" json:"lat,omitempty"`
+	Lng                  string                 `protobuf:"bytes,17,opt,name=lng,proto3" json:"lng,omitempty"`
 	FacilitiesId         []int64                `protobuf:"varint,18,rep,packed,name=facilities_id,json=facilitiesId,proto3" json:"facilities_id,omitempty"`
 	AmenitiesId          []int64                `protobuf:"varint,19,rep,packed,name=amenities_id,json=amenitiesId,proto3" json:"amenities_id,omitempty"`
 	PermitNumber         string                 `protobuf:"bytes,20,opt,name=permit_number,json=permitNumber,proto3" json:"permit_number,omitempty"`
@@ -911,18 +911,18 @@ func (x *CreatePropertyAndUnitRequestV2) GetSubCommunityId() int64 {
 	return 0
 }
 
-func (x *CreatePropertyAndUnitRequestV2) GetLat() float64 {
+func (x *CreatePropertyAndUnitRequestV2) GetLat() string {
 	if x != nil {
 		return x.Lat
 	}
-	return 0
+	return ""
 }
 
-func (x *CreatePropertyAndUnitRequestV2) GetLng() float64 {
+func (x *CreatePropertyAndUnitRequestV2) GetLng() string {
 	if x != nil {
 		return x.Lng
 	}
-	return 0
+	return ""
 }
 
 func (x *CreatePropertyAndUnitRequestV2) GetFacilitiesId() []int64 {
@@ -1295,8 +1295,8 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\acity_id\x18\r \x01(\x03R\x06cityId\x12!\n" +
 	"\fcommunity_id\x18\x0e \x01(\x03R\vcommunityId\x12(\n" +
 	"\x10sub_community_id\x18\x0f \x01(\x03R\x0esubCommunityId\x12\x10\n" +
-	"\x03lat\x18\x10 \x01(\x01R\x03lat\x12\x10\n" +
-	"\x03lng\x18\x11 \x01(\x01R\x03lng\x12#\n" +
+	"\x03lat\x18\x10 \x01(\tR\x03lat\x12\x10\n" +
+	"\x03lng\x18\x11 \x01(\tR\x03lng\x12#\n" +
 	"\rfacilities_id\x18\x12 \x03(\x03R\ffacilitiesId\x12!\n" +
 	"\famenities_id\x18\x13 \x03(\x03R\vamenitiesId\x12#\n" +
 	"\rpermit_number\x18\x14 \x01(\tR\fpermitNumber\x12H\n" +

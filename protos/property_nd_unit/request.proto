@@ -106,8 +106,8 @@ message CreatePropertyAndUnitRequestV2 {
   int64 city_id = 13;
   int64 community_id = 14;
   int64 sub_community_id = 15;
-  double lat = 16;
-  double lng = 17;
+  string lat = 16;
+  string lng = 17;
   repeated int64 facilities_id = 18;
   repeated int64 amenities_id = 19;
   string permit_number = 20;
