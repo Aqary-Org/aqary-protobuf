@@ -117,7 +117,8 @@ message CreatePropertyAndUnitRequestV2 {
   repeated int64 unit_type_ids = 24;
   int64 property_id = 25;
   string entity_type = 26;
-  int64 agent_id = 27;
+  // Deprecated: use agent_email instead, remove later & reserved 27.
+  int64 agent_id = 27 [deprecated = true];
   int64 company_id = 28;
   string bedroom = 29;
   int64 bathroom = 30;
@@ -153,4 +154,8 @@ message CreatePropertyAndUnitRequestV2 {
   string owner_name = 60;
   int64 currency_service_charge = 61;
   int64 contract_remaining_amount_currency = 62;
+  string reference_number = 63;
+  repeated RequestPhoto photos = 64;
+  // Agent email address. Replaces the deprecated agent_id field.
+  string agent_email = 65;
 }

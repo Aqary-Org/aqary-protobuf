@@ -716,33 +716,36 @@ func (x *GetAllPropertyAndUnitRequest) GetUserId() int64 {
 }
 
 type CreatePropertyAndUnitRequestV2 struct {
-	state                           protoimpl.MessageState `protogen:"open.v1"`
-	UserDetail                      *UserDetail            `protobuf:"bytes,1,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
-	UnitNumber                      string                 `protobuf:"bytes,2,opt,name=unit_number,json=unitNumber,proto3" json:"unit_number,omitempty"`
-	Note                            string                 `protobuf:"bytes,3,opt,name=note,proto3" json:"note,omitempty"`
-	Title                           string                 `protobuf:"bytes,4,opt,name=title,proto3" json:"title,omitempty"`
-	TitleAr                         string                 `protobuf:"bytes,5,opt,name=title_ar,json=titleAr,proto3" json:"title_ar,omitempty"`
-	Description                     string                 `protobuf:"bytes,6,opt,name=description,proto3" json:"description,omitempty"`
-	DescriptionAr                   string                 `protobuf:"bytes,7,opt,name=description_ar,json=descriptionAr,proto3" json:"description_ar,omitempty"`
-	Category                        int64                  `protobuf:"varint,8,opt,name=category,proto3" json:"category,omitempty"`
-	ListingType                     int64                  `protobuf:"varint,9,opt,name=listing_type,json=listingType,proto3" json:"listing_type,omitempty"`
-	Status                          int64                  `protobuf:"varint,10,opt,name=status,proto3" json:"status,omitempty"`
-	CountryId                       int64                  `protobuf:"varint,11,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
-	StateId                         int64                  `protobuf:"varint,12,opt,name=state_id,json=stateId,proto3" json:"state_id,omitempty"`
-	CityId                          int64                  `protobuf:"varint,13,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
-	CommunityId                     int64                  `protobuf:"varint,14,opt,name=community_id,json=communityId,proto3" json:"community_id,omitempty"`
-	SubCommunityId                  int64                  `protobuf:"varint,15,opt,name=sub_community_id,json=subCommunityId,proto3" json:"sub_community_id,omitempty"`
-	Lat                             string                 `protobuf:"bytes,16,opt,name=lat,proto3" json:"lat,omitempty"`
-	Lng                             string                 `protobuf:"bytes,17,opt,name=lng,proto3" json:"lng,omitempty"`
-	FacilitiesId                    []int64                `protobuf:"varint,18,rep,packed,name=facilities_id,json=facilitiesId,proto3" json:"facilities_id,omitempty"`
-	AmenitiesId                     []int64                `protobuf:"varint,19,rep,packed,name=amenities_id,json=amenitiesId,proto3" json:"amenities_id,omitempty"`
-	PermitNumber                    string                 `protobuf:"bytes,20,opt,name=permit_number,json=permitNumber,proto3" json:"permit_number,omitempty"`
-	PermitExpiryDate                *timestamppb.Timestamp `protobuf:"bytes,21,opt,name=permit_expiry_date,json=permitExpiryDate,proto3" json:"permit_expiry_date,omitempty"`
-	PermitUrl                       string                 `protobuf:"bytes,22,opt,name=permit_url,json=permitUrl,proto3" json:"permit_url,omitempty"`
-	TypeId                          int64                  `protobuf:"varint,23,opt,name=type_id,json=typeId,proto3" json:"type_id,omitempty"`
-	UnitTypeIds                     []int64                `protobuf:"varint,24,rep,packed,name=unit_type_ids,json=unitTypeIds,proto3" json:"unit_type_ids,omitempty"`
-	PropertyId                      int64                  `protobuf:"varint,25,opt,name=property_id,json=propertyId,proto3" json:"property_id,omitempty"`
-	EntityType                      string                 `protobuf:"bytes,26,opt,name=entity_type,json=entityType,proto3" json:"entity_type,omitempty"`
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	UserDetail       *UserDetail            `protobuf:"bytes,1,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
+	UnitNumber       string                 `protobuf:"bytes,2,opt,name=unit_number,json=unitNumber,proto3" json:"unit_number,omitempty"`
+	Note             string                 `protobuf:"bytes,3,opt,name=note,proto3" json:"note,omitempty"`
+	Title            string                 `protobuf:"bytes,4,opt,name=title,proto3" json:"title,omitempty"`
+	TitleAr          string                 `protobuf:"bytes,5,opt,name=title_ar,json=titleAr,proto3" json:"title_ar,omitempty"`
+	Description      string                 `protobuf:"bytes,6,opt,name=description,proto3" json:"description,omitempty"`
+	DescriptionAr    string                 `protobuf:"bytes,7,opt,name=description_ar,json=descriptionAr,proto3" json:"description_ar,omitempty"`
+	Category         int64                  `protobuf:"varint,8,opt,name=category,proto3" json:"category,omitempty"`
+	ListingType      int64                  `protobuf:"varint,9,opt,name=listing_type,json=listingType,proto3" json:"listing_type,omitempty"`
+	Status           int64                  `protobuf:"varint,10,opt,name=status,proto3" json:"status,omitempty"`
+	CountryId        int64                  `protobuf:"varint,11,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
+	StateId          int64                  `protobuf:"varint,12,opt,name=state_id,json=stateId,proto3" json:"state_id,omitempty"`
+	CityId           int64                  `protobuf:"varint,13,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
+	CommunityId      int64                  `protobuf:"varint,14,opt,name=community_id,json=communityId,proto3" json:"community_id,omitempty"`
+	SubCommunityId   int64                  `protobuf:"varint,15,opt,name=sub_community_id,json=subCommunityId,proto3" json:"sub_community_id,omitempty"`
+	Lat              string                 `protobuf:"bytes,16,opt,name=lat,proto3" json:"lat,omitempty"`
+	Lng              string                 `protobuf:"bytes,17,opt,name=lng,proto3" json:"lng,omitempty"`
+	FacilitiesId     []int64                `protobuf:"varint,18,rep,packed,name=facilities_id,json=facilitiesId,proto3" json:"facilities_id,omitempty"`
+	AmenitiesId      []int64                `protobuf:"varint,19,rep,packed,name=amenities_id,json=amenitiesId,proto3" json:"amenities_id,omitempty"`
+	PermitNumber     string                 `protobuf:"bytes,20,opt,name=permit_number,json=permitNumber,proto3" json:"permit_number,omitempty"`
+	PermitExpiryDate *timestamppb.Timestamp `protobuf:"bytes,21,opt,name=permit_expiry_date,json=permitExpiryDate,proto3" json:"permit_expiry_date,omitempty"`
+	PermitUrl        string                 `protobuf:"bytes,22,opt,name=permit_url,json=permitUrl,proto3" json:"permit_url,omitempty"`
+	TypeId           int64                  `protobuf:"varint,23,opt,name=type_id,json=typeId,proto3" json:"type_id,omitempty"`
+	UnitTypeIds      []int64                `protobuf:"varint,24,rep,packed,name=unit_type_ids,json=unitTypeIds,proto3" json:"unit_type_ids,omitempty"`
+	PropertyId       int64                  `protobuf:"varint,25,opt,name=property_id,json=propertyId,proto3" json:"property_id,omitempty"`
+	EntityType       string                 `protobuf:"bytes,26,opt,name=entity_type,json=entityType,proto3" json:"entity_type,omitempty"`
+	// Deprecated: use agent_email instead, remove later & reserved 27.
+	//
+	// Deprecated: Marked as deprecated in property_nd_unit/request.proto.
 	AgentId                         int64                  `protobuf:"varint,27,opt,name=agent_id,json=agentId,proto3" json:"agent_id,omitempty"`
 	CompanyId                       int64                  `protobuf:"varint,28,opt,name=company_id,json=companyId,proto3" json:"company_id,omitempty"`
 	Bedroom                         string                 `protobuf:"bytes,29,opt,name=bedroom,proto3" json:"bedroom,omitempty"`
@@ -779,8 +782,12 @@ type CreatePropertyAndUnitRequestV2 struct {
 	OwnerName                       string                 `protobuf:"bytes,60,opt,name=owner_name,json=ownerName,proto3" json:"owner_name,omitempty"`
 	CurrencyServiceCharge           int64                  `protobuf:"varint,61,opt,name=currency_service_charge,json=currencyServiceCharge,proto3" json:"currency_service_charge,omitempty"`
 	ContractRemainingAmountCurrency int64                  `protobuf:"varint,62,opt,name=contract_remaining_amount_currency,json=contractRemainingAmountCurrency,proto3" json:"contract_remaining_amount_currency,omitempty"`
-	unknownFields                   protoimpl.UnknownFields
-	sizeCache                       protoimpl.SizeCache
+	ReferenceNumber                 string                 `protobuf:"bytes,63,opt,name=reference_number,json=referenceNumber,proto3" json:"reference_number,omitempty"`
+	Photos                          []*RequestPhoto        `protobuf:"bytes,64,rep,name=photos,proto3" json:"photos,omitempty"`
+	// Agent email address. Replaces the deprecated agent_id field.
+	AgentEmail    string `protobuf:"bytes,65,opt,name=agent_email,json=agentEmail,proto3" json:"agent_email,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreatePropertyAndUnitRequestV2) Reset() {
@@ -995,6 +1002,7 @@ func (x *CreatePropertyAndUnitRequestV2) GetEntityType() string {
 	return ""
 }
 
+// Deprecated: Marked as deprecated in property_nd_unit/request.proto.
 func (x *CreatePropertyAndUnitRequestV2) GetAgentId() int64 {
 	if x != nil {
 		return x.AgentId
@@ -1247,6 +1255,27 @@ func (x *CreatePropertyAndUnitRequestV2) GetContractRemainingAmountCurrency() in
 	return 0
 }
 
+func (x *CreatePropertyAndUnitRequestV2) GetReferenceNumber() string {
+	if x != nil {
+		return x.ReferenceNumber
+	}
+	return ""
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetPhotos() []*RequestPhoto {
+	if x != nil {
+		return x.Photos
+	}
+	return nil
+}
+
+func (x *CreatePropertyAndUnitRequestV2) GetAgentEmail() string {
+	if x != nil {
+		return x.AgentEmail
+	}
+	return ""
+}
+
 var File_property_nd_unit_request_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_request_proto_rawDesc = "" +
@@ -1330,7 +1359,7 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
 	"\apage_no\x18\x02 \x01(\x03R\x06pageNo\x12\x1b\n" +
 	"\tpage_size\x18\x03 \x01(\x03R\bpageSize\x12\x17\n" +
-	"\auser_id\x18\x04 \x01(\x03R\x06userId\"\xa2\x12\n" +
+	"\auser_id\x18\x04 \x01(\x03R\x06userId\"\xb2\x13\n" +
 	"\x1eCreatePropertyAndUnitRequestV2\x12D\n" +
 	"\vuser_detail\x18\x01 \x01(\v2#.property_nd_unit.common.UserDetailR\n" +
 	"userDetail\x12\x1f\n" +
@@ -1364,8 +1393,8 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\vproperty_id\x18\x19 \x01(\x03R\n" +
 	"propertyId\x12\x1f\n" +
 	"\ventity_type\x18\x1a \x01(\tR\n" +
-	"entityType\x12\x19\n" +
-	"\bagent_id\x18\x1b \x01(\x03R\aagentId\x12\x1d\n" +
+	"entityType\x12\x1d\n" +
+	"\bagent_id\x18\x1b \x01(\x03B\x02\x18\x01R\aagentId\x12\x1d\n" +
 	"\n" +
 	"company_id\x18\x1c \x01(\x03R\tcompanyId\x12\x18\n" +
 	"\abedroom\x18\x1d \x01(\tR\abedroom\x12\x1a\n" +
@@ -1405,7 +1434,11 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\n" +
 	"owner_name\x18< \x01(\tR\townerName\x126\n" +
 	"\x17currency_service_charge\x18= \x01(\x03R\x15currencyServiceCharge\x12K\n" +
-	"\"contract_remaining_amount_currency\x18> \x01(\x03R\x1fcontractRemainingAmountCurrencyB\f\n" +
+	"\"contract_remaining_amount_currency\x18> \x01(\x03R\x1fcontractRemainingAmountCurrency\x12)\n" +
+	"\x10reference_number\x18? \x01(\tR\x0freferenceNumber\x12>\n" +
+	"\x06photos\x18@ \x03(\v2&.property_nd_unit.request.RequestPhotoR\x06photos\x12\x1f\n" +
+	"\vagent_email\x18A \x01(\tR\n" +
+	"agentEmailB\f\n" +
 	"\n" +
 	"_ask_priceB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 
@@ -1448,11 +1481,12 @@ var file_property_nd_unit_request_proto_depIdxs = []int32{
 	6,  // 11: property_nd_unit.request.CreatePropertyAndUnitRequestV2.handover_date:type_name -> google.protobuf.Timestamp
 	6,  // 12: property_nd_unit.request.CreatePropertyAndUnitRequestV2.contract_end_date:type_name -> google.protobuf.Timestamp
 	6,  // 13: property_nd_unit.request.CreatePropertyAndUnitRequestV2.contract_start_date:type_name -> google.protobuf.Timestamp
-	14, // [14:14] is the sub-list for method output_type
-	14, // [14:14] is the sub-list for method input_type
-	14, // [14:14] is the sub-list for extension type_name
-	14, // [14:14] is the sub-list for extension extendee
-	0,  // [0:14] is the sub-list for field type_name
+	2,  // 14: property_nd_unit.request.CreatePropertyAndUnitRequestV2.photos:type_name -> property_nd_unit.request.RequestPhoto
+	15, // [15:15] is the sub-list for method output_type
+	15, // [15:15] is the sub-list for method input_type
+	15, // [15:15] is the sub-list for extension type_name
+	15, // [15:15] is the sub-list for extension extendee
+	0,  // [0:15] is the sub-list for field type_name
 }
 
 func init() { file_property_nd_unit_request_proto_init() }
