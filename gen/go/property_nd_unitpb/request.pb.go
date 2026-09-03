@@ -746,7 +746,10 @@ type CreatePropertyAndUnitRequestV2 struct {
 	// Deprecated: use agent_email instead, remove later & reserved 27.
 	//
 	// Deprecated: Marked as deprecated in property_nd_unit/request.proto.
-	AgentId                         int64                  `protobuf:"varint,27,opt,name=agent_id,json=agentId,proto3" json:"agent_id,omitempty"`
+	AgentId int64 `protobuf:"varint,27,opt,name=agent_id,json=agentId,proto3" json:"agent_id,omitempty"`
+	// Deprecated: no replacement, remove later & reserved 28.
+	//
+	// Deprecated: Marked as deprecated in property_nd_unit/request.proto.
 	CompanyId                       int64                  `protobuf:"varint,28,opt,name=company_id,json=companyId,proto3" json:"company_id,omitempty"`
 	Bedroom                         string                 `protobuf:"bytes,29,opt,name=bedroom,proto3" json:"bedroom,omitempty"`
 	Bathroom                        int64                  `protobuf:"varint,30,opt,name=bathroom,proto3" json:"bathroom,omitempty"`
@@ -1010,6 +1013,7 @@ func (x *CreatePropertyAndUnitRequestV2) GetAgentId() int64 {
 	return 0
 }
 
+// Deprecated: Marked as deprecated in property_nd_unit/request.proto.
 func (x *CreatePropertyAndUnitRequestV2) GetCompanyId() int64 {
 	if x != nil {
 		return x.CompanyId
@@ -1359,7 +1363,7 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"company_id\x18\x01 \x01(\x03R\tcompanyId\x12\x17\n" +
 	"\apage_no\x18\x02 \x01(\x03R\x06pageNo\x12\x1b\n" +
 	"\tpage_size\x18\x03 \x01(\x03R\bpageSize\x12\x17\n" +
-	"\auser_id\x18\x04 \x01(\x03R\x06userId\"\xb2\x13\n" +
+	"\auser_id\x18\x04 \x01(\x03R\x06userId\"\xb6\x13\n" +
 	"\x1eCreatePropertyAndUnitRequestV2\x12D\n" +
 	"\vuser_detail\x18\x01 \x01(\v2#.property_nd_unit.common.UserDetailR\n" +
 	"userDetail\x12\x1f\n" +
@@ -1394,9 +1398,9 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"propertyId\x12\x1f\n" +
 	"\ventity_type\x18\x1a \x01(\tR\n" +
 	"entityType\x12\x1d\n" +
-	"\bagent_id\x18\x1b \x01(\x03B\x02\x18\x01R\aagentId\x12\x1d\n" +
+	"\bagent_id\x18\x1b \x01(\x03B\x02\x18\x01R\aagentId\x12!\n" +
 	"\n" +
-	"company_id\x18\x1c \x01(\x03R\tcompanyId\x12\x18\n" +
+	"company_id\x18\x1c \x01(\x03B\x02\x18\x01R\tcompanyId\x12\x18\n" +
 	"\abedroom\x18\x1d \x01(\tR\abedroom\x12\x1a\n" +
 	"\bbathroom\x18\x1e \x01(\x03R\bbathroom\x12\x1b\n" +
 	"\tplot_area\x18\x1f \x01(\x01R\bplotArea\x12\"\n" +

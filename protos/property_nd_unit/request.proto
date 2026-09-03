@@ -119,7 +119,8 @@ message CreatePropertyAndUnitRequestV2 {
   string entity_type = 26;
   // Deprecated: use agent_email instead, remove later & reserved 27.
   int64 agent_id = 27 [deprecated = true];
-  int64 company_id = 28;
+  // Deprecated: no replacement, remove later & reserved 28.
+  int64 company_id = 28 [deprecated = true];
   string bedroom = 29;
   int64 bathroom = 30;
   double plot_area = 31;
