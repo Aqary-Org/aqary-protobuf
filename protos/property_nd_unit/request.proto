@@ -162,6 +162,7 @@ message CreatePropertyAndUnitRequestV2 {
 }
 
 message DeletePropertyAndUnitRequest {
-  string entity_type = 1;
-  string reference_number = 2;
+  property_nd_unit.common.UserDetail user_detail = 1;
+  string entity_type = 2;
+  string reference_number = 3;
 }

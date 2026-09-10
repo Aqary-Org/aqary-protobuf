@@ -1282,8 +1282,9 @@ func (x *CreatePropertyAndUnitRequestV2) GetAgentEmail() string {
 
 type DeletePropertyAndUnitRequest struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
-	EntityType      string                 `protobuf:"bytes,1,opt,name=entity_type,json=entityType,proto3" json:"entity_type,omitempty"`
-	ReferenceNumber string                 `protobuf:"bytes,2,opt,name=reference_number,json=referenceNumber,proto3" json:"reference_number,omitempty"`
+	UserDetail      *UserDetail            `protobuf:"bytes,1,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
+	EntityType      string                 `protobuf:"bytes,2,opt,name=entity_type,json=entityType,proto3" json:"entity_type,omitempty"`
+	ReferenceNumber string                 `protobuf:"bytes,3,opt,name=reference_number,json=referenceNumber,proto3" json:"reference_number,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -1316,6 +1317,13 @@ func (x *DeletePropertyAndUnitRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use DeletePropertyAndUnitRequest.ProtoReflect.Descriptor instead.
 func (*DeletePropertyAndUnitRequest) Descriptor() ([]byte, []int) {
 	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *DeletePropertyAndUnitRequest) GetUserDetail() *UserDetail {
+	if x != nil {
+		return x.UserDetail
+	}
+	return nil
 }
 
 func (x *DeletePropertyAndUnitRequest) GetEntityType() string {
@@ -1496,11 +1504,13 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\vagent_email\x18A \x01(\tR\n" +
 	"agentEmailB\f\n" +
 	"\n" +
-	"_ask_price\"j\n" +
-	"\x1cDeletePropertyAndUnitRequest\x12\x1f\n" +
-	"\ventity_type\x18\x01 \x01(\tR\n" +
+	"_ask_price\"\xb0\x01\n" +
+	"\x1cDeletePropertyAndUnitRequest\x12D\n" +
+	"\vuser_detail\x18\x01 \x01(\v2#.property_nd_unit.common.UserDetailR\n" +
+	"userDetail\x12\x1f\n" +
+	"\ventity_type\x18\x02 \x01(\tR\n" +
 	"entityType\x12)\n" +
-	"\x10reference_number\x18\x02 \x01(\tR\x0freferenceNumberB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
+	"\x10reference_number\x18\x03 \x01(\tR\x0freferenceNumberB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 
 var (
 	file_property_nd_unit_request_proto_rawDescOnce sync.Once
@@ -1543,11 +1553,12 @@ var file_property_nd_unit_request_proto_depIdxs = []int32{
 	7,  // 12: property_nd_unit.request.CreatePropertyAndUnitRequestV2.contract_end_date:type_name -> google.protobuf.Timestamp
 	7,  // 13: property_nd_unit.request.CreatePropertyAndUnitRequestV2.contract_start_date:type_name -> google.protobuf.Timestamp
 	2,  // 14: property_nd_unit.request.CreatePropertyAndUnitRequestV2.photos:type_name -> property_nd_unit.request.RequestPhoto
-	15, // [15:15] is the sub-list for method output_type
-	15, // [15:15] is the sub-list for method input_type
-	15, // [15:15] is the sub-list for extension type_name
-	15, // [15:15] is the sub-list for extension extendee
-	0,  // [0:15] is the sub-list for field type_name
+	9,  // 15: property_nd_unit.request.DeletePropertyAndUnitRequest.user_detail:type_name -> property_nd_unit.common.UserDetail
+	16, // [16:16] is the sub-list for method output_type
+	16, // [16:16] is the sub-list for method input_type
+	16, // [16:16] is the sub-list for extension type_name
+	16, // [16:16] is the sub-list for extension extendee
+	0,  // [0:16] is the sub-list for field type_name
 }
 
 func init() { file_property_nd_unit_request_proto_init() }
