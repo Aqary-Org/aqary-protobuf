@@ -1280,6 +1280,58 @@ func (x *CreatePropertyAndUnitRequestV2) GetAgentEmail() string {
 	return ""
 }
 
+type DeletePropertyAndUnitRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	EntityType      string                 `protobuf:"bytes,1,opt,name=entity_type,json=entityType,proto3" json:"entity_type,omitempty"`
+	ReferenceNumber string                 `protobuf:"bytes,2,opt,name=reference_number,json=referenceNumber,proto3" json:"reference_number,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *DeletePropertyAndUnitRequest) Reset() {
+	*x = DeletePropertyAndUnitRequest{}
+	mi := &file_property_nd_unit_request_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeletePropertyAndUnitRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeletePropertyAndUnitRequest) ProtoMessage() {}
+
+func (x *DeletePropertyAndUnitRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_property_nd_unit_request_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeletePropertyAndUnitRequest.ProtoReflect.Descriptor instead.
+func (*DeletePropertyAndUnitRequest) Descriptor() ([]byte, []int) {
+	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *DeletePropertyAndUnitRequest) GetEntityType() string {
+	if x != nil {
+		return x.EntityType
+	}
+	return ""
+}
+
+func (x *DeletePropertyAndUnitRequest) GetReferenceNumber() string {
+	if x != nil {
+		return x.ReferenceNumber
+	}
+	return ""
+}
+
 var File_property_nd_unit_request_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_request_proto_rawDesc = "" +
@@ -1444,7 +1496,11 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\vagent_email\x18A \x01(\tR\n" +
 	"agentEmailB\f\n" +
 	"\n" +
-	"_ask_priceB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
+	"_ask_price\"j\n" +
+	"\x1cDeletePropertyAndUnitRequest\x12\x1f\n" +
+	"\ventity_type\x18\x01 \x01(\tR\n" +
+	"entityType\x12)\n" +
+	"\x10reference_number\x18\x02 \x01(\tR\x0freferenceNumberB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 
 var (
 	file_property_nd_unit_request_proto_rawDescOnce sync.Once
@@ -1458,7 +1514,7 @@ func file_property_nd_unit_request_proto_rawDescGZIP() []byte {
 	return file_property_nd_unit_request_proto_rawDescData
 }
 
-var file_property_nd_unit_request_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_property_nd_unit_request_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_property_nd_unit_request_proto_goTypes = []any{
 	(*Agent)(nil),                          // 0: property_nd_unit.request.Agent
 	(*Plans)(nil),                          // 1: property_nd_unit.request.Plans
@@ -1466,25 +1522,26 @@ var file_property_nd_unit_request_proto_goTypes = []any{
 	(*CreatePropertyAndUnitRequest)(nil),   // 3: property_nd_unit.request.CreatePropertyAndUnitRequest
 	(*GetAllPropertyAndUnitRequest)(nil),   // 4: property_nd_unit.request.GetAllPropertyAndUnitRequest
 	(*CreatePropertyAndUnitRequestV2)(nil), // 5: property_nd_unit.request.CreatePropertyAndUnitRequestV2
-	(*timestamppb.Timestamp)(nil),          // 6: google.protobuf.Timestamp
-	(*Address)(nil),                        // 7: property_nd_unit.address.Address
-	(*UserDetail)(nil),                     // 8: property_nd_unit.common.UserDetail
+	(*DeletePropertyAndUnitRequest)(nil),   // 6: property_nd_unit.request.DeletePropertyAndUnitRequest
+	(*timestamppb.Timestamp)(nil),          // 7: google.protobuf.Timestamp
+	(*Address)(nil),                        // 8: property_nd_unit.address.Address
+	(*UserDetail)(nil),                     // 9: property_nd_unit.common.UserDetail
 }
 var file_property_nd_unit_request_proto_depIdxs = []int32{
-	6,  // 0: property_nd_unit.request.RequestPhoto.url_last_update:type_name -> google.protobuf.Timestamp
-	7,  // 1: property_nd_unit.request.CreatePropertyAndUnitRequest.address:type_name -> property_nd_unit.address.Address
+	7,  // 0: property_nd_unit.request.RequestPhoto.url_last_update:type_name -> google.protobuf.Timestamp
+	8,  // 1: property_nd_unit.request.CreatePropertyAndUnitRequest.address:type_name -> property_nd_unit.address.Address
 	2,  // 2: property_nd_unit.request.CreatePropertyAndUnitRequest.photos:type_name -> property_nd_unit.request.RequestPhoto
-	6,  // 3: property_nd_unit.request.CreatePropertyAndUnitRequest.handover_date:type_name -> google.protobuf.Timestamp
-	6,  // 4: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_date:type_name -> google.protobuf.Timestamp
-	6,  // 5: property_nd_unit.request.CreatePropertyAndUnitRequest.permit_expiry_date:type_name -> google.protobuf.Timestamp
-	6,  // 6: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_percentage_date:type_name -> google.protobuf.Timestamp
-	8,  // 7: property_nd_unit.request.CreatePropertyAndUnitRequest.user_detail:type_name -> property_nd_unit.common.UserDetail
-	8,  // 8: property_nd_unit.request.CreatePropertyAndUnitRequestV2.user_detail:type_name -> property_nd_unit.common.UserDetail
-	6,  // 9: property_nd_unit.request.CreatePropertyAndUnitRequestV2.permit_expiry_date:type_name -> google.protobuf.Timestamp
-	6,  // 10: property_nd_unit.request.CreatePropertyAndUnitRequestV2.completion_date:type_name -> google.protobuf.Timestamp
-	6,  // 11: property_nd_unit.request.CreatePropertyAndUnitRequestV2.handover_date:type_name -> google.protobuf.Timestamp
-	6,  // 12: property_nd_unit.request.CreatePropertyAndUnitRequestV2.contract_end_date:type_name -> google.protobuf.Timestamp
-	6,  // 13: property_nd_unit.request.CreatePropertyAndUnitRequestV2.contract_start_date:type_name -> google.protobuf.Timestamp
+	7,  // 3: property_nd_unit.request.CreatePropertyAndUnitRequest.handover_date:type_name -> google.protobuf.Timestamp
+	7,  // 4: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_date:type_name -> google.protobuf.Timestamp
+	7,  // 5: property_nd_unit.request.CreatePropertyAndUnitRequest.permit_expiry_date:type_name -> google.protobuf.Timestamp
+	7,  // 6: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_percentage_date:type_name -> google.protobuf.Timestamp
+	9,  // 7: property_nd_unit.request.CreatePropertyAndUnitRequest.user_detail:type_name -> property_nd_unit.common.UserDetail
+	9,  // 8: property_nd_unit.request.CreatePropertyAndUnitRequestV2.user_detail:type_name -> property_nd_unit.common.UserDetail
+	7,  // 9: property_nd_unit.request.CreatePropertyAndUnitRequestV2.permit_expiry_date:type_name -> google.protobuf.Timestamp
+	7,  // 10: property_nd_unit.request.CreatePropertyAndUnitRequestV2.completion_date:type_name -> google.protobuf.Timestamp
+	7,  // 11: property_nd_unit.request.CreatePropertyAndUnitRequestV2.handover_date:type_name -> google.protobuf.Timestamp
+	7,  // 12: property_nd_unit.request.CreatePropertyAndUnitRequestV2.contract_end_date:type_name -> google.protobuf.Timestamp
+	7,  // 13: property_nd_unit.request.CreatePropertyAndUnitRequestV2.contract_start_date:type_name -> google.protobuf.Timestamp
 	2,  // 14: property_nd_unit.request.CreatePropertyAndUnitRequestV2.photos:type_name -> property_nd_unit.request.RequestPhoto
 	15, // [15:15] is the sub-list for method output_type
 	15, // [15:15] is the sub-list for method input_type
@@ -1508,7 +1565,7 @@ func file_property_nd_unit_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_property_nd_unit_request_proto_rawDesc), len(file_property_nd_unit_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

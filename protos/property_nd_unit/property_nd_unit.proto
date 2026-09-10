@@ -12,4 +12,5 @@ service PropertyAndUnitService {
   rpc UpdatePropertyUnit(request.CreatePropertyAndUnitRequest) returns (response.CreatePropertyAndUnitResponse);
   rpc GetAllPropertyAndUnit(request.GetAllPropertyAndUnitRequest) returns (response.GetAllPropertyAndUnitResponse);
   rpc CreatePropertyAndUnitV2(request.CreatePropertyAndUnitRequestV2) returns (response.CreatePropertyAndUnitResponse);
+  rpc DeletePropertyAndUnit(request.DeletePropertyAndUnitRequest) returns (response.ResponseMessage);
 }

@@ -160,3 +160,8 @@ message CreatePropertyAndUnitRequestV2 {
   // Agent email address. Replaces the deprecated agent_id field.
   string agent_email = 65;
 }
+
+message DeletePropertyAndUnitRequest {
+  string entity_type = 1;
+  string reference_number = 2;
+}
