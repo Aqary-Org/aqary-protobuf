@@ -166,3 +166,10 @@ message DeletePropertyAndUnitRequest {
   string entity_type = 2;
   string reference_number = 3;
 }
+
+message PublishPropertyAndUnitRequest {
+  property_nd_unit.common.UserDetail user_detail = 1;
+  string entity_type = 2;
+  string reference_number = 3;
+  bool is_publish = 4;
+}

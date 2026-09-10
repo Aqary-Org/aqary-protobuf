@@ -24,6 +24,7 @@ const (
 	PropertyAndUnitService_GetAllPropertyAndUnit_FullMethodName   = "/property_nd_unit.PropertyAndUnitService/GetAllPropertyAndUnit"
 	PropertyAndUnitService_CreatePropertyAndUnitV2_FullMethodName = "/property_nd_unit.PropertyAndUnitService/CreatePropertyAndUnitV2"
 	PropertyAndUnitService_DeletePropertyAndUnit_FullMethodName   = "/property_nd_unit.PropertyAndUnitService/DeletePropertyAndUnit"
+	PropertyAndUnitService_PublishPropertyAndUnit_FullMethodName  = "/property_nd_unit.PropertyAndUnitService/PublishPropertyAndUnit"
 )
 
 // PropertyAndUnitServiceClient is the client API for PropertyAndUnitService service.
@@ -35,6 +36,7 @@ type PropertyAndUnitServiceClient interface {
 	GetAllPropertyAndUnit(ctx context.Context, in *GetAllPropertyAndUnitRequest, opts ...grpc.CallOption) (*GetAllPropertyAndUnitResponse, error)
 	CreatePropertyAndUnitV2(ctx context.Context, in *CreatePropertyAndUnitRequestV2, opts ...grpc.CallOption) (*CreatePropertyAndUnitResponse, error)
 	DeletePropertyAndUnit(ctx context.Context, in *DeletePropertyAndUnitRequest, opts ...grpc.CallOption) (*CreatePropertyAndUnitResponse, error)
+	PublishPropertyAndUnit(ctx context.Context, in *PublishPropertyAndUnitRequest, opts ...grpc.CallOption) (*CreatePropertyAndUnitResponse, error)
 }
 
 type propertyAndUnitServiceClient struct {
@@ -95,6 +97,16 @@ func (c *propertyAndUnitServiceClient) DeletePropertyAndUnit(ctx context.Context
 	return out, nil
 }
 
+func (c *propertyAndUnitServiceClient) PublishPropertyAndUnit(ctx context.Context, in *PublishPropertyAndUnitRequest, opts ...grpc.CallOption) (*CreatePropertyAndUnitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreatePropertyAndUnitResponse)
+	err := c.cc.Invoke(ctx, PropertyAndUnitService_PublishPropertyAndUnit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PropertyAndUnitServiceServer is the server API for PropertyAndUnitService service.
 // All implementations must embed UnimplementedPropertyAndUnitServiceServer
 // for forward compatibility.
@@ -104,6 +116,7 @@ type PropertyAndUnitServiceServer interface {
 	GetAllPropertyAndUnit(context.Context, *GetAllPropertyAndUnitRequest) (*GetAllPropertyAndUnitResponse, error)
 	CreatePropertyAndUnitV2(context.Context, *CreatePropertyAndUnitRequestV2) (*CreatePropertyAndUnitResponse, error)
 	DeletePropertyAndUnit(context.Context, *DeletePropertyAndUnitRequest) (*CreatePropertyAndUnitResponse, error)
+	PublishPropertyAndUnit(context.Context, *PublishPropertyAndUnitRequest) (*CreatePropertyAndUnitResponse, error)
 	mustEmbedUnimplementedPropertyAndUnitServiceServer()
 }
 
@@ -128,6 +141,9 @@ func (UnimplementedPropertyAndUnitServiceServer) CreatePropertyAndUnitV2(context
 }
 func (UnimplementedPropertyAndUnitServiceServer) DeletePropertyAndUnit(context.Context, *DeletePropertyAndUnitRequest) (*CreatePropertyAndUnitResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeletePropertyAndUnit not implemented")
+}
+func (UnimplementedPropertyAndUnitServiceServer) PublishPropertyAndUnit(context.Context, *PublishPropertyAndUnitRequest) (*CreatePropertyAndUnitResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PublishPropertyAndUnit not implemented")
 }
 func (UnimplementedPropertyAndUnitServiceServer) mustEmbedUnimplementedPropertyAndUnitServiceServer() {
 }
@@ -241,6 +257,24 @@ func _PropertyAndUnitService_DeletePropertyAndUnit_Handler(srv interface{}, ctx 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PropertyAndUnitService_PublishPropertyAndUnit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PublishPropertyAndUnitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PropertyAndUnitServiceServer).PublishPropertyAndUnit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PropertyAndUnitService_PublishPropertyAndUnit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PropertyAndUnitServiceServer).PublishPropertyAndUnit(ctx, req.(*PublishPropertyAndUnitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // PropertyAndUnitService_ServiceDesc is the grpc.ServiceDesc for PropertyAndUnitService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -267,6 +301,10 @@ var PropertyAndUnitService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeletePropertyAndUnit",
 			Handler:    _PropertyAndUnitService_DeletePropertyAndUnit_Handler,
+		},
+		{
+			MethodName: "PublishPropertyAndUnit",
+			Handler:    _PropertyAndUnitService_PublishPropertyAndUnit_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

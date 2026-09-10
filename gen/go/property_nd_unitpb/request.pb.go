@@ -1340,6 +1340,74 @@ func (x *DeletePropertyAndUnitRequest) GetReferenceNumber() string {
 	return ""
 }
 
+type PublishPropertyAndUnitRequest struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	UserDetail      *UserDetail            `protobuf:"bytes,1,opt,name=user_detail,json=userDetail,proto3" json:"user_detail,omitempty"`
+	EntityType      string                 `protobuf:"bytes,2,opt,name=entity_type,json=entityType,proto3" json:"entity_type,omitempty"`
+	ReferenceNumber string                 `protobuf:"bytes,3,opt,name=reference_number,json=referenceNumber,proto3" json:"reference_number,omitempty"`
+	IsPublish       bool                   `protobuf:"varint,4,opt,name=is_publish,json=isPublish,proto3" json:"is_publish,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *PublishPropertyAndUnitRequest) Reset() {
+	*x = PublishPropertyAndUnitRequest{}
+	mi := &file_property_nd_unit_request_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PublishPropertyAndUnitRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PublishPropertyAndUnitRequest) ProtoMessage() {}
+
+func (x *PublishPropertyAndUnitRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_property_nd_unit_request_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PublishPropertyAndUnitRequest.ProtoReflect.Descriptor instead.
+func (*PublishPropertyAndUnitRequest) Descriptor() ([]byte, []int) {
+	return file_property_nd_unit_request_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *PublishPropertyAndUnitRequest) GetUserDetail() *UserDetail {
+	if x != nil {
+		return x.UserDetail
+	}
+	return nil
+}
+
+func (x *PublishPropertyAndUnitRequest) GetEntityType() string {
+	if x != nil {
+		return x.EntityType
+	}
+	return ""
+}
+
+func (x *PublishPropertyAndUnitRequest) GetReferenceNumber() string {
+	if x != nil {
+		return x.ReferenceNumber
+	}
+	return ""
+}
+
+func (x *PublishPropertyAndUnitRequest) GetIsPublish() bool {
+	if x != nil {
+		return x.IsPublish
+	}
+	return false
+}
+
 var File_property_nd_unit_request_proto protoreflect.FileDescriptor
 
 const file_property_nd_unit_request_proto_rawDesc = "" +
@@ -1510,7 +1578,15 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"userDetail\x12\x1f\n" +
 	"\ventity_type\x18\x02 \x01(\tR\n" +
 	"entityType\x12)\n" +
-	"\x10reference_number\x18\x03 \x01(\tR\x0freferenceNumberB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
+	"\x10reference_number\x18\x03 \x01(\tR\x0freferenceNumber\"\xd0\x01\n" +
+	"\x1dPublishPropertyAndUnitRequest\x12D\n" +
+	"\vuser_detail\x18\x01 \x01(\v2#.property_nd_unit.common.UserDetailR\n" +
+	"userDetail\x12\x1f\n" +
+	"\ventity_type\x18\x02 \x01(\tR\n" +
+	"entityType\x12)\n" +
+	"\x10reference_number\x18\x03 \x01(\tR\x0freferenceNumber\x12\x1d\n" +
+	"\n" +
+	"is_publish\x18\x04 \x01(\bR\tisPublishB(Z&/property_nd_unitpb;property_nd_unitpbb\x06proto3"
 
 var (
 	file_property_nd_unit_request_proto_rawDescOnce sync.Once
@@ -1524,7 +1600,7 @@ func file_property_nd_unit_request_proto_rawDescGZIP() []byte {
 	return file_property_nd_unit_request_proto_rawDescData
 }
 
-var file_property_nd_unit_request_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_property_nd_unit_request_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_property_nd_unit_request_proto_goTypes = []any{
 	(*Agent)(nil),                          // 0: property_nd_unit.request.Agent
 	(*Plans)(nil),                          // 1: property_nd_unit.request.Plans
@@ -1533,32 +1609,34 @@ var file_property_nd_unit_request_proto_goTypes = []any{
 	(*GetAllPropertyAndUnitRequest)(nil),   // 4: property_nd_unit.request.GetAllPropertyAndUnitRequest
 	(*CreatePropertyAndUnitRequestV2)(nil), // 5: property_nd_unit.request.CreatePropertyAndUnitRequestV2
 	(*DeletePropertyAndUnitRequest)(nil),   // 6: property_nd_unit.request.DeletePropertyAndUnitRequest
-	(*timestamppb.Timestamp)(nil),          // 7: google.protobuf.Timestamp
-	(*Address)(nil),                        // 8: property_nd_unit.address.Address
-	(*UserDetail)(nil),                     // 9: property_nd_unit.common.UserDetail
+	(*PublishPropertyAndUnitRequest)(nil),  // 7: property_nd_unit.request.PublishPropertyAndUnitRequest
+	(*timestamppb.Timestamp)(nil),          // 8: google.protobuf.Timestamp
+	(*Address)(nil),                        // 9: property_nd_unit.address.Address
+	(*UserDetail)(nil),                     // 10: property_nd_unit.common.UserDetail
 }
 var file_property_nd_unit_request_proto_depIdxs = []int32{
-	7,  // 0: property_nd_unit.request.RequestPhoto.url_last_update:type_name -> google.protobuf.Timestamp
-	8,  // 1: property_nd_unit.request.CreatePropertyAndUnitRequest.address:type_name -> property_nd_unit.address.Address
+	8,  // 0: property_nd_unit.request.RequestPhoto.url_last_update:type_name -> google.protobuf.Timestamp
+	9,  // 1: property_nd_unit.request.CreatePropertyAndUnitRequest.address:type_name -> property_nd_unit.address.Address
 	2,  // 2: property_nd_unit.request.CreatePropertyAndUnitRequest.photos:type_name -> property_nd_unit.request.RequestPhoto
-	7,  // 3: property_nd_unit.request.CreatePropertyAndUnitRequest.handover_date:type_name -> google.protobuf.Timestamp
-	7,  // 4: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_date:type_name -> google.protobuf.Timestamp
-	7,  // 5: property_nd_unit.request.CreatePropertyAndUnitRequest.permit_expiry_date:type_name -> google.protobuf.Timestamp
-	7,  // 6: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_percentage_date:type_name -> google.protobuf.Timestamp
-	9,  // 7: property_nd_unit.request.CreatePropertyAndUnitRequest.user_detail:type_name -> property_nd_unit.common.UserDetail
-	9,  // 8: property_nd_unit.request.CreatePropertyAndUnitRequestV2.user_detail:type_name -> property_nd_unit.common.UserDetail
-	7,  // 9: property_nd_unit.request.CreatePropertyAndUnitRequestV2.permit_expiry_date:type_name -> google.protobuf.Timestamp
-	7,  // 10: property_nd_unit.request.CreatePropertyAndUnitRequestV2.completion_date:type_name -> google.protobuf.Timestamp
-	7,  // 11: property_nd_unit.request.CreatePropertyAndUnitRequestV2.handover_date:type_name -> google.protobuf.Timestamp
-	7,  // 12: property_nd_unit.request.CreatePropertyAndUnitRequestV2.contract_end_date:type_name -> google.protobuf.Timestamp
-	7,  // 13: property_nd_unit.request.CreatePropertyAndUnitRequestV2.contract_start_date:type_name -> google.protobuf.Timestamp
+	8,  // 3: property_nd_unit.request.CreatePropertyAndUnitRequest.handover_date:type_name -> google.protobuf.Timestamp
+	8,  // 4: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_date:type_name -> google.protobuf.Timestamp
+	8,  // 5: property_nd_unit.request.CreatePropertyAndUnitRequest.permit_expiry_date:type_name -> google.protobuf.Timestamp
+	8,  // 6: property_nd_unit.request.CreatePropertyAndUnitRequest.completion_percentage_date:type_name -> google.protobuf.Timestamp
+	10, // 7: property_nd_unit.request.CreatePropertyAndUnitRequest.user_detail:type_name -> property_nd_unit.common.UserDetail
+	10, // 8: property_nd_unit.request.CreatePropertyAndUnitRequestV2.user_detail:type_name -> property_nd_unit.common.UserDetail
+	8,  // 9: property_nd_unit.request.CreatePropertyAndUnitRequestV2.permit_expiry_date:type_name -> google.protobuf.Timestamp
+	8,  // 10: property_nd_unit.request.CreatePropertyAndUnitRequestV2.completion_date:type_name -> google.protobuf.Timestamp
+	8,  // 11: property_nd_unit.request.CreatePropertyAndUnitRequestV2.handover_date:type_name -> google.protobuf.Timestamp
+	8,  // 12: property_nd_unit.request.CreatePropertyAndUnitRequestV2.contract_end_date:type_name -> google.protobuf.Timestamp
+	8,  // 13: property_nd_unit.request.CreatePropertyAndUnitRequestV2.contract_start_date:type_name -> google.protobuf.Timestamp
 	2,  // 14: property_nd_unit.request.CreatePropertyAndUnitRequestV2.photos:type_name -> property_nd_unit.request.RequestPhoto
-	9,  // 15: property_nd_unit.request.DeletePropertyAndUnitRequest.user_detail:type_name -> property_nd_unit.common.UserDetail
-	16, // [16:16] is the sub-list for method output_type
-	16, // [16:16] is the sub-list for method input_type
-	16, // [16:16] is the sub-list for extension type_name
-	16, // [16:16] is the sub-list for extension extendee
-	0,  // [0:16] is the sub-list for field type_name
+	10, // 15: property_nd_unit.request.DeletePropertyAndUnitRequest.user_detail:type_name -> property_nd_unit.common.UserDetail
+	10, // 16: property_nd_unit.request.PublishPropertyAndUnitRequest.user_detail:type_name -> property_nd_unit.common.UserDetail
+	17, // [17:17] is the sub-list for method output_type
+	17, // [17:17] is the sub-list for method input_type
+	17, // [17:17] is the sub-list for extension type_name
+	17, // [17:17] is the sub-list for extension extendee
+	0,  // [0:17] is the sub-list for field type_name
 }
 
 func init() { file_property_nd_unit_request_proto_init() }
@@ -1576,7 +1654,7 @@ func file_property_nd_unit_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_property_nd_unit_request_proto_rawDesc), len(file_property_nd_unit_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
