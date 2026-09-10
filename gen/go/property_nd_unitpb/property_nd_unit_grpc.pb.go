@@ -34,7 +34,7 @@ type PropertyAndUnitServiceClient interface {
 	UpdatePropertyUnit(ctx context.Context, in *CreatePropertyAndUnitRequest, opts ...grpc.CallOption) (*CreatePropertyAndUnitResponse, error)
 	GetAllPropertyAndUnit(ctx context.Context, in *GetAllPropertyAndUnitRequest, opts ...grpc.CallOption) (*GetAllPropertyAndUnitResponse, error)
 	CreatePropertyAndUnitV2(ctx context.Context, in *CreatePropertyAndUnitRequestV2, opts ...grpc.CallOption) (*CreatePropertyAndUnitResponse, error)
-	DeletePropertyAndUnit(ctx context.Context, in *DeletePropertyAndUnitRequest, opts ...grpc.CallOption) (*ResponseMessage, error)
+	DeletePropertyAndUnit(ctx context.Context, in *DeletePropertyAndUnitRequest, opts ...grpc.CallOption) (*CreatePropertyAndUnitResponse, error)
 }
 
 type propertyAndUnitServiceClient struct {
@@ -85,9 +85,9 @@ func (c *propertyAndUnitServiceClient) CreatePropertyAndUnitV2(ctx context.Conte
 	return out, nil
 }
 
-func (c *propertyAndUnitServiceClient) DeletePropertyAndUnit(ctx context.Context, in *DeletePropertyAndUnitRequest, opts ...grpc.CallOption) (*ResponseMessage, error) {
+func (c *propertyAndUnitServiceClient) DeletePropertyAndUnit(ctx context.Context, in *DeletePropertyAndUnitRequest, opts ...grpc.CallOption) (*CreatePropertyAndUnitResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ResponseMessage)
+	out := new(CreatePropertyAndUnitResponse)
 	err := c.cc.Invoke(ctx, PropertyAndUnitService_DeletePropertyAndUnit_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -103,7 +103,7 @@ type PropertyAndUnitServiceServer interface {
 	UpdatePropertyUnit(context.Context, *CreatePropertyAndUnitRequest) (*CreatePropertyAndUnitResponse, error)
 	GetAllPropertyAndUnit(context.Context, *GetAllPropertyAndUnitRequest) (*GetAllPropertyAndUnitResponse, error)
 	CreatePropertyAndUnitV2(context.Context, *CreatePropertyAndUnitRequestV2) (*CreatePropertyAndUnitResponse, error)
-	DeletePropertyAndUnit(context.Context, *DeletePropertyAndUnitRequest) (*ResponseMessage, error)
+	DeletePropertyAndUnit(context.Context, *DeletePropertyAndUnitRequest) (*CreatePropertyAndUnitResponse, error)
 	mustEmbedUnimplementedPropertyAndUnitServiceServer()
 }
 
@@ -126,7 +126,7 @@ func (UnimplementedPropertyAndUnitServiceServer) GetAllPropertyAndUnit(context.C
 func (UnimplementedPropertyAndUnitServiceServer) CreatePropertyAndUnitV2(context.Context, *CreatePropertyAndUnitRequestV2) (*CreatePropertyAndUnitResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreatePropertyAndUnitV2 not implemented")
 }
-func (UnimplementedPropertyAndUnitServiceServer) DeletePropertyAndUnit(context.Context, *DeletePropertyAndUnitRequest) (*ResponseMessage, error) {
+func (UnimplementedPropertyAndUnitServiceServer) DeletePropertyAndUnit(context.Context, *DeletePropertyAndUnitRequest) (*CreatePropertyAndUnitResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeletePropertyAndUnit not implemented")
 }
 func (UnimplementedPropertyAndUnitServiceServer) mustEmbedUnimplementedPropertyAndUnitServiceServer() {
