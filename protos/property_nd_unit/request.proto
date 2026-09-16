@@ -100,7 +100,7 @@ message CreatePropertyAndUnitRequestV2 {
   string description_ar = 7;
   int64 category = 8;
   int64 listing_type = 9;
-  string status = 10;
+  int64 status = 10;
   int64 country_id = 11;
   int64 state_id = 12;
   int64 city_id = 13;

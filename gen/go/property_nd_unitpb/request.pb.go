@@ -726,7 +726,7 @@ type CreatePropertyAndUnitRequestV2 struct {
 	DescriptionAr    string                 `protobuf:"bytes,7,opt,name=description_ar,json=descriptionAr,proto3" json:"description_ar,omitempty"`
 	Category         int64                  `protobuf:"varint,8,opt,name=category,proto3" json:"category,omitempty"`
 	ListingType      int64                  `protobuf:"varint,9,opt,name=listing_type,json=listingType,proto3" json:"listing_type,omitempty"`
-	Status           string                 `protobuf:"bytes,10,opt,name=status,proto3" json:"status,omitempty"`
+	Status           int64                  `protobuf:"varint,10,opt,name=status,proto3" json:"status,omitempty"`
 	CountryId        int64                  `protobuf:"varint,11,opt,name=country_id,json=countryId,proto3" json:"country_id,omitempty"`
 	StateId          int64                  `protobuf:"varint,12,opt,name=state_id,json=stateId,proto3" json:"state_id,omitempty"`
 	CityId           int64                  `protobuf:"varint,13,opt,name=city_id,json=cityId,proto3" json:"city_id,omitempty"`
@@ -886,11 +886,11 @@ func (x *CreatePropertyAndUnitRequestV2) GetListingType() int64 {
 	return 0
 }
 
-func (x *CreatePropertyAndUnitRequestV2) GetStatus() string {
+func (x *CreatePropertyAndUnitRequestV2) GetStatus() int64 {
 	if x != nil {
 		return x.Status
 	}
-	return ""
+	return 0
 }
 
 func (x *CreatePropertyAndUnitRequestV2) GetCountryId() int64 {
@@ -1505,7 +1505,7 @@ const file_property_nd_unit_request_proto_rawDesc = "" +
 	"\bcategory\x18\b \x01(\x03R\bcategory\x12!\n" +
 	"\flisting_type\x18\t \x01(\x03R\vlistingType\x12\x16\n" +
 	"\x06status\x18\n" +
-	" \x01(\tR\x06status\x12\x1d\n" +
+	" \x01(\x03R\x06status\x12\x1d\n" +
 	"\n" +
 	"country_id\x18\v \x01(\x03R\tcountryId\x12\x19\n" +
 	"\bstate_id\x18\f \x01(\x03R\astateId\x12\x17\n" +
