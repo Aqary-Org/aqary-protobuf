@@ -1,0 +1,108 @@
+syntax = "proto3";
+
+option go_package = "/recordspb;recordspb";
+
+package records;
+
+// RecordsService exposes the backend's generic records engine (dynamic sections) to internal services.
+// A section is identified by its slug (e.g. "unit", stored in units_v2). Field values are sent and returned as a
+// JSON object keyed by field_key (or one of the field's aliases), exactly like the dashboard records API, so the
+// dynamic schema never has to be mirrored in protobuf messages.
+//
+// Validation failures are not gRPC errors: the call succeeds and `violations` is non-empty. Other failures use
+// gRPC status codes: NOT_FOUND (section / record), ALREADY_EXISTS (duplicate external_ref), ABORTED (record
+// changed concurrently), INVALID_ARGUMENT, PERMISSION_DENIED (no company) and INTERNAL.
+service RecordsService {
+  // GetSchema returns the form of a section: its fields (keys, aliases, data types, validation, layout) and rules.
+  rpc GetSchema(GetSchemaRequest) returns (GetSchemaResponse);
+  // CreateRecord creates a draft record.
+  rpc CreateRecord(CreateRecordRequest) returns (RecordResponse);
+  // UpdateRecord changes only the sent values; a null value clears a field. Published records are fully validated.
+  rpc UpdateRecord(UpdateRecordRequest) returns (RecordResponse);
+  // PublishRecord runs the full validation and publishes the record.
+  rpc PublishRecord(RecordRequest) returns (RecordResponse);
+  rpc GetRecord(RecordRequest) returns (RecordResponse);
+  rpc ListRecords(ListRecordsRequest) returns (ListRecordsResponse);
+}
+
+// Actor is who acts: records are always scoped to the actor's company.
+message Actor {
+  int64 user_id = 1;
+  int64 company_id = 2;
+}
+
+// RecordRef identifies a record by its id or by the caller's own reference (unique per company and section).
+message RecordRef {
+  oneof ref {
+    int64 id = 1;
+    string external_ref = 2;
+  }
+}
+
+message GetSchemaRequest {
+  string section = 1;
+}
+
+message GetSchemaResponse {
+  string schema_json = 1;
+}
+
+message CreateRecordRequest {
+  Actor actor = 1;
+  string section = 2;
+  // Optional reference of the record in the caller's system; later calls can address the record by it.
+  string external_ref = 3;
+  // JSON object of values keyed by field_key or alias, e.g. {"title":"Villa","type":3,"bedrooms":2}.
+  string values_json = 4;
+}
+
+message UpdateRecordRequest {
+  Actor actor = 1;
+  string section = 2;
+  RecordRef ref = 3;
+  string values_json = 4;
+}
+
+message RecordRequest {
+  Actor actor = 1;
+  string section = 2;
+  RecordRef ref = 3;
+}
+
+message ListRecordsRequest {
+  Actor actor = 1;
+  string section = 2;
+  int32 page_no = 3;
+  int32 page_size = 4;
+  string status = 5; // draft, published or rejected
+  string search = 6;
+}
+
+message Record {
+  int64 id = 1;
+  string external_ref = 2;
+  string status = 3;
+  // JSON object of the field values by field_key (fixed columns and dynamic fields together).
+  string values_json = 4;
+  // JSON object of the columns the server sets (company, owner, audit users, timestamps, ...).
+  string system_json = 5;
+}
+
+// Violation is one failed check of a field. field_key may be a path for sub_form rows, e.g. owners[0].owner_name.
+message Violation {
+  string field_key = 1;
+  string field = 2;
+  string message = 3;
+}
+
+message RecordResponse {
+  // Set when the call succeeded.
+  Record record = 1;
+  // Set when the values did not pass validation; nothing was saved.
+  repeated Violation violations = 2;
+}
+
+message ListRecordsResponse {
+  repeated Record records = 1;
+  int64 total = 2;
+}
